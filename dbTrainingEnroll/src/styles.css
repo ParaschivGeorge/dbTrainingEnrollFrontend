@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    background: #EFEFEF;
+     color: #212121;
+    /* font-family: 'Inconsolata', monospace;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', serif; */
+
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.mat-toolbar {
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.mat-toolbar.mat-primary {
+    background: #123C62;
+    color: #E8E8E8;
+}

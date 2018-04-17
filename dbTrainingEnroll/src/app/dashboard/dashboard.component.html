@@ -1,0 +1,24 @@
+<div class="main">
+<mat-grid-list class="dashboard__grid" cols="20">
+        <h1>Trainings</h1>
+        <hr>
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="space-around"
+     fxLayoutGap="20px"
+     fxLayoutGap.xs="4px"
+     fxFlex="auto">
+        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="collapsed=false">
+                <mat-card>
+                        <mat-card-title>{{ training.name }}</mat-card-title>
+                        <hr>
+                        <div class="number">{{ training.age }} / 15</div>
+                        <mat-card-content> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, fuga? </mat-card-content>
+                        <mat-card-footer> {{ training.registered }} </mat-card-footer>
+                        <div class="progress-bar"></div>
+                </mat-card>
+        </div>
+</div>
+</mat-grid-list>
+</div>
