@@ -1,6 +1,7 @@
 export interface Training {
-    trainingId: number;
-    age: number;
+    index: number;
     name: string;
-    registered: string;
+    isTechnical: boolean;
+    numberOfParticipants: number;
+    date: string;
 }

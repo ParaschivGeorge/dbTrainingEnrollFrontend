@@ -52,7 +52,7 @@ button:hover {
     transition: .1s cubic-bezier(.56,.05,.83,.67);    
 }
 
-  button::after {
+button::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -61,3 +61,15 @@ button:hover {
     right: 0;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, .15);
   }
+
+
+.mat-dialog-container {
+    width: 500px !important;
+    min-height: 500px !important;
+    height: auto !important;
+    margin: auto !important;
+}
+
+.cdk-overlay-pane {
+    margin: auto !important;
+}

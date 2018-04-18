@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ApiService {
 
-  private _URL = 'https://next.json-generator.com/api/json/get/Ek1f2Sg24';
+  private _URL = 'https://next.json-generator.com/api/json/get/EkTaDIen4';
 
   constructor(private http: Http) {
    }

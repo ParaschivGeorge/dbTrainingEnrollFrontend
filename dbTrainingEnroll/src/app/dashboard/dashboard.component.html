@@ -19,14 +19,16 @@
                 fxLayoutGap="20px"
                 fxLayoutGap.xs="4px"
                 fxFlex="auto">
-                        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="collapsed=false">
+                        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="openDialog()">
                                 <mat-card>
                                         <mat-card-title>{{ training.name }}</mat-card-title>
                                         <hr>
-                                        <div class="number">{{ training.numberOfParticipants }} / 15</div>
+                                        <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
+                                        <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>                                        
                                         <mat-card-content> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, fuga? </mat-card-content>
                                         <mat-card-footer> {{ training.date }} </mat-card-footer>
-                                        <div class="progress-bar"></div>
+                                        <div class="progress-bar soft-skills" *ngIf="training.isTechnical === 0"></div>
+                                        <div class="progress-bar technical" *ngIf="training.isTechnical === 1"></div>
                                 </mat-card>
                         </div>
                 </div>
