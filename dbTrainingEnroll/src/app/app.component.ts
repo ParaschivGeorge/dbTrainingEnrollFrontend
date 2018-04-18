@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiService } from './api.service';
-import { Interface } from './interface';
+import { Training } from './training';
 
 @Component({
   selector: 'app-root',
