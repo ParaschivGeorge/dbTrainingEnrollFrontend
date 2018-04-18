@@ -10,9 +10,8 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { Modal } from './dashboard/dashboard.component';
+import { ManagerForm } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-import { ManagerFormComponent } from './manager-form/manager-form.component';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
     MenuComponent,
     FooterComponent,
     DashboardComponent,
-    ManagerFormComponent,
-    Modal
+    ManagerForm
   ],
   imports: [
     BrowserModule,
@@ -33,7 +31,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
     HttpClientModule,
     HttpModule
   ],
-  entryComponents: [Modal, DashboardComponent],
+  entryComponents: [ManagerForm, DashboardComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

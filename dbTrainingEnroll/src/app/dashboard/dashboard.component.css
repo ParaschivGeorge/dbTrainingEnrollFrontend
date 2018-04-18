@@ -151,10 +151,12 @@ button::after {
 
 .technical {
     background: linear-gradient(45deg, rgba(10,60,117,1) 0%, rgba(204,53,73,1) 100%);
+    box-shadow: 0 0px 20px 0px rgba(204,53,73,1);
 }
 
 .soft-skills {
     background: linear-gradient(45deg, #348F50 0%, #56B4D3 100%);
+    box-shadow: 0 0px 20px 0px rgba(52,143,80,1);    
 }
 
 .number {

@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   constructor(private apiService: ApiService, public dialog: MatDialog) {}
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(Modal, {
+    let dialogRef = this.dialog.open(ManagerForm, {
       width: '250px',
       data: { name: "weirdo"}
     });
@@ -43,13 +43,13 @@ export class DashboardComponent implements OnInit {
 }
 
 @Component({
-  selector: 'modal',
-  templateUrl: 'modal.html',
+  selector: 'manager-form',
+  templateUrl: 'manager-form.html',
 })
-export class Modal {
+export class ManagerForm {
 
   constructor(
-    public dialogRef: MatDialogRef<Modal>,
+    public dialogRef: MatDialogRef<ManagerForm>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {

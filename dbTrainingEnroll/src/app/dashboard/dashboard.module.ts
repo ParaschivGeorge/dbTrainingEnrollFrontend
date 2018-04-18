@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent, Modal } from './dashboard.component';
-import { ManagerFormComponent } from '../manager-form/manager-form.component';
+import { DashboardComponent, ManagerForm } from './dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
@@ -12,9 +11,9 @@ import { MaterialModule } from '../material.module';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ManagerFormComponent
+    ManagerForm
   ],
-  declarations: [DashboardComponent, Modal],
-  entryComponents: [Modal]
+  declarations: [DashboardComponent, ManagerForm],
+  entryComponents: [ManagerForm]
 })
 export class DashboardModule { }
