@@ -1,24 +1,37 @@
 <div class="main">
-<mat-grid-list class="dashboard__grid" cols="20">
-        <h1>Trainings</h1>
-        <hr>
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="space-around"
-     fxLayoutGap="20px"
-     fxLayoutGap.xs="4px"
-     fxFlex="auto">
-        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="collapsed=false">
-                <mat-card>
-                        <mat-card-title>{{ training.name }}</mat-card-title>
-                        <hr>
-                        <div class="number">{{ training.age }} / 15</div>
-                        <mat-card-content> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, fuga? </mat-card-content>
-                        <mat-card-footer> {{ training.registered }} </mat-card-footer>
-                        <div class="progress-bar"></div>
-                </mat-card>
+        <mat-grid-list class="dashboard__grid" cols="4">
+                <div class="secondary-menu">
+                        <span><h1>Trainings</h1></span>
+                        <button mat-button class="active">All</button>
+                        <button mat-button>Soft Skills</button>
+                        <button mat-button>Technical</button>
+                        <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                          <input type="text" matInput placeholder="Search">
+                                          <mat-icon matSuffix>mode_search</mat-icon>
+                                </mat-form-field>                
+                        </form>                                      
+                </div>
+                <div class="container"
+                fxLayout
+                fxLayout.xs="column"
+                fxLayoutAlign="space-around"
+                fxLayoutGap="20px"
+                fxLayoutGap.xs="4px"
+                fxFlex="auto">
+                        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="collapsed=false">
+                                <mat-card>
+                                        <mat-card-title>{{ training.name }}</mat-card-title>
+                                        <hr>
+                                        <div class="number">{{ training.age }} / 15</div>
+                                        <mat-card-content> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, fuga? </mat-card-content>
+                                        <mat-card-footer> {{ training.registered }} </mat-card-footer>
+                                        <div class="progress-bar"></div>
+                                </mat-card>
+                        </div>
+                </div>
+        </mat-grid-list>
+        <div class="load-more">
+                <button mat-button>Load More</button>        
         </div>
-</div>
-</mat-grid-list>
 </div>

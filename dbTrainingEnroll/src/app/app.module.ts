@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpModule } from '@angular/http';
 import { FooterComponent } from './footer/footer.component';
+import { ManagerFormComponent } from './manager-form/manager-form.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     MenuComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManagerFormComponent
   ],
   imports: [
     BrowserModule,

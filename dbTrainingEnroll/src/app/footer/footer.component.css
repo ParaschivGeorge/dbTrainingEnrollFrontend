@@ -5,7 +5,6 @@ footer {
     color: rgba(33, 33, 33, .7);
     font-size: 12px;
     font-family: 'Raleway', serif;
-    background: linear-gradient(0deg, rgba(10,60,117,.2) 0%, rgba(204,53,73,0) 70%); /* w3c */;
     text-align: center;
   }
   

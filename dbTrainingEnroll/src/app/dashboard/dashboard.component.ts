@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
-import { Interface } from '../interface';
+import { Training } from '../interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ import { Interface } from '../interface';
 })
 
 export class DashboardComponent implements OnInit {
-  trainings: Interface[];
+  trainings: Training[];
 
     constructor(private apiService: ApiService) {
     }
