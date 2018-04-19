@@ -4,12 +4,6 @@
   max-height: 54px;
 }
 
-.mat-toolbar-row img {
-  width: 30px;
-  height: auto;
-  margin-right: 10px;
-}
-
 .example-icon {
     padding: 0 14px;
   }
@@ -19,33 +13,11 @@
   }
 
   .mat-toolbar {
-    background: linear-gradient(45deg, rgba(10,60,117,1) 20%, rgba(50,60,127,1) 100%);
+    background: linear-gradient(45deg, rgba(10,60,117,1) 20%, rgba(50,60,127,1) 100%); /* w3c */
     color: #EFEFEF;
     box-shadow: 0 1px 6px rgba(0, 0, 0, .15), 0 5px 25px rgba(0, 0, 0, .2);
   }
   
   .page-title {
     text-shadow: 0 2px 3px rgba(0, 0, 0, .3);
-  }
-  
-  button {
-    background: linear-gradient(45deg, rgba(211,62,75,.95) 0%, rgba(204,53,73,.95) 100%);
-    color: #F9F9F9;
-    margin: 0 10px;
-    padding: 0 30px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: -1px 2px 3px rgba(0, 0, 0, .4);
-  }
-
-  button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    right: 0;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, .15);
   }
