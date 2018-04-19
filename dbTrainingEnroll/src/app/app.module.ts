@@ -10,9 +10,9 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ManagerForm } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     FooterComponent,
     DashboardComponent,
-    ManagerForm
   ],
   imports: [
     BrowserModule,
@@ -29,9 +28,11 @@ import { FooterComponent } from './footer/footer.component';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    NgxPaginationModule,
+    Ng4LoadingSpinnerModule,
   ],
-  entryComponents: [ManagerForm, DashboardComponent],
+  entryComponents: [DashboardComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

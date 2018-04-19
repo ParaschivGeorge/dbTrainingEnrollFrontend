@@ -4,13 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import { Training } from './training';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Injectable()
 export class ApiService {
 
   private _URL = 'https://next.json-generator.com/api/json/get/EkTaDIen4';
 
-  constructor(private http: Http) {
+  constructor(private http: Http, spinnerService: Ng4LoadingSpinnerService) {
    }
 
    getTrainings(): Observable<Training[]> {
