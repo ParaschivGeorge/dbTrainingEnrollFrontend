@@ -1,5 +1,7 @@
 .container {
     flex-flow: row wrap;
+    place-content: flex-start;
+    align-items: flex-start !important;
 }
 
 .main {
@@ -9,7 +11,7 @@
 
 h1 {
     display: inline-block;
-    font-size: 32px;
+    font-size: 34px;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     line-height: normal;
@@ -74,14 +76,12 @@ button::after {
     box-shadow: inset 0 0 0 0;
 }
 
-/*
-@media screen and (min-width: 1400px) {
-    .container::after {
+
+    /* .container::after {
         content: '';
-        flex: 1 1 340px;
-    }
-} 
-*/  
+        flex: auto;
+    } */
+ 
 
 .container .mat-card {
     margin: 15px 0;
@@ -94,7 +94,7 @@ button::after {
 }
 
 .box {
-    margin: auto !important;
+    padding: 0;
     cursor: pointer;
 }
 

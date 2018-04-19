@@ -5,6 +5,8 @@ import { Training } from '../training';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ManagerFormComponent } from './manager-form/manager-form.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,10 +14,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   styleUrls: ['./dashboard.component.css'],
   providers: [ApiService]
 })
-
 export class DashboardComponent implements OnInit {
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  trainings: Training[];
+  enrollmentsTrainings: Training[];
+  name: string;
 
   originalTrainings: Training[];
   trainings: Training[];
@@ -24,7 +26,10 @@ export class DashboardComponent implements OnInit {
      public dialog: MatDialog,
      private spinnerService: Ng4LoadingSpinnerService) {}
 
-  openDialog(): void { }
+  openDialog(): void {
+    let dialogRef = this.dialog.open(ManagerFormComponent, {
+    });
+  }
 
   getTrainings(): void {
     this.spinnerService.show(),
