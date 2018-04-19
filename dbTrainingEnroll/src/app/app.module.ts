@@ -31,7 +31,7 @@ const appRoutes: Routes = [
     MenuComponent,
     FooterComponent,
     DashboardComponent,
-    EnrollmentsComponent
+    EnrollmentsComponent,
   ],
   imports: [
     BrowserModule,
