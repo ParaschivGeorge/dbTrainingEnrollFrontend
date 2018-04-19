@@ -3,6 +3,11 @@
   min-height: 54px;
   max-height: 54px;
 }
+.mat-toolbar-row img {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
 
 .example-icon {
     padding: 0 14px;

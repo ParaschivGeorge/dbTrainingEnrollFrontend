@@ -1,6 +1,5 @@
 .container {
     flex-flow: row wrap;
-    place-content: flex-start;
     align-items: flex-start !important;
 }
 

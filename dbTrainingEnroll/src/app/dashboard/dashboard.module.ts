@@ -10,13 +10,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
+  imports: [
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     PageEvent,
-    MatPaginatorModule
-  ]
+    MatPaginatorModule,
     ReactiveFormsModule,
     FormsModule
   ],

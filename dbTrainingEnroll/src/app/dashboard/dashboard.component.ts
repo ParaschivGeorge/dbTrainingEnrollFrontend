@@ -5,7 +5,6 @@ import { Training } from '../training';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 
 @Component({
@@ -18,9 +17,7 @@ export class DashboardComponent implements OnInit {
   trainings: Training[];
   enrollmentsTrainings: Training[];
   name: string;
-
   originalTrainings: Training[];
-  trainings: Training[];
 
   constructor(private apiService: ApiService,
      public dialog: MatDialog,
