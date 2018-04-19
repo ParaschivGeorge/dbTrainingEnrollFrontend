@@ -13,7 +13,11 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+
+import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
+import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
+
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent },
