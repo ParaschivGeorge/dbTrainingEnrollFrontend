@@ -14,6 +14,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
 })
 export class DashboardComponent implements OnInit {
   trainings: Training[];
+  enrollmentsTrainings: Training[];
   name: string;
 
   constructor(private apiService: ApiService, public dialog: MatDialog) {}

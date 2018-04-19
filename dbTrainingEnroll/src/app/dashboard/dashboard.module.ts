@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
