@@ -1,0 +1,36 @@
+div.signUp {
+    width: auto;
+    min-height: 300px;
+    height: auto;
+    padding: 10px;
+}
+
+.signUp form {
+    width: 100%;
+}
+
+button {
+    position: relative;
+    display: block;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+span {
+    position: relative;
+    display: block;
+    padding: 20px;
+    margin: auto;
+    height: 30px;
+    width: 120px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+button:disabled {
+    color: grey;
+}

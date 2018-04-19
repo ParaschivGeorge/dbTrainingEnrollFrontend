@@ -1,0 +1,31 @@
+<div class="signUp">
+  <form [formGroup]="managerForm">
+    <div>
+      <p>Enrollments</p>
+      <p>{{ userService.training.name }}</p>
+      <p>{{ userService.training.date }}</p>
+      <p>{{ userService.training.technology }}</p>
+      <p>Number of participants: {{ userService.training.numberOfParticipants }}</p>
+    </div>
+    <div formArrayName="users">
+      <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
+        <mat-form-field>
+            <label for="username">
+                Participant name:            
+              </label>
+              <input matInput type="text" [matAutocomplete]="auto" [formControlName]="i">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
+                  <span>{{ user.name }} {{ user.email }}</span>
+                </mat-option>
+              </mat-autocomplete>                     
+        </mat-form-field>
+        <span
+                *ngIf="!userControl.valid && userControl.touched"
+                >Please enter a employee</span>       
+      </div>      
+      <button type="button" (click)="onAddUser()" [disabled]="!managerForm.valid">+</button>
+    </div>
+    <button type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
+  </form>
+</div>
