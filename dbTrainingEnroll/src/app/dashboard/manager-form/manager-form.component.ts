@@ -21,7 +21,7 @@ export class ManagerFormComponent implements OnInit {
   ngOnInit() {
     this.managerForm = new FormGroup({
       'users': new FormArray([])
-    });    
+    });
     this.onAddUser();
     // (<FormArray>this.managerForm.get(('users'))).get(0).
   }
@@ -33,7 +33,7 @@ export class ManagerFormComponent implements OnInit {
         startWith(''),
         map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
       );
-    (<FormArray>this.managerForm.get('users')).push(control);  
+    (<FormArray>this.managerForm.get('users')).push(control);
   }
 
   checkEmployee(control: FormControl): {[s: string]: boolean} {

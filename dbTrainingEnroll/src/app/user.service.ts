@@ -4,18 +4,18 @@ import { Injectable } from '@angular/core';
 export class UserService {
 
   constructor() { }
-  
+
   currentUser = {
       name: 'Manager',
       email: 'manager@gmail.com'
-  }
+  };
 
   training = {
     name: 'Design patterns',
     technology: 'Java 8',
     date: '2018-05-12 12:00-14:00',
     numberOfParticipants: 12
-  }
+  };
 
   accounts: {
     name: string,

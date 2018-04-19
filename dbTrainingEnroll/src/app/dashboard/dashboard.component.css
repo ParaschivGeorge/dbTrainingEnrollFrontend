@@ -104,7 +104,7 @@ button::after {
     text-align: left;
     padding: 20px 0 0 20px;
     font-family: 'Montserrat', sans-serif;
-    letter-spacing: -1px;
+    letter-spacing: 0px;
     font-size: 22px;
     font-weight: 500;
     text-shadow: -2px 2px 4px rgba(0, 0, 0, .05);
@@ -185,6 +185,12 @@ button::after {
     height: 40px;
     width: 160px;
 }
+
+/* .box .mat-card:hover{
+    background: black;
+    flex-grow: 2;
+    transition: .5s;
+} */
 
 @media screen and (max-width: 768px) {
     form {

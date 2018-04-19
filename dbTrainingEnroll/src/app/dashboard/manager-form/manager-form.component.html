@@ -1,30 +1,27 @@
-<div class="signUp">
+<div class="enrollForm">
   <form [formGroup]="managerForm">
     <div>
-      <p>Enrollments</p>
-      <p>{{ userService.training.name }}</p>
-      <p>{{ userService.training.date }}</p>
-      <p>{{ userService.training.technology }}</p>
-      <p>Number of participants: {{ userService.training.numberOfParticipants }}</p>
+      <h2 class="h1__train">Enrollments</h2>
+      <h2 class="h2__train">{{ userService.training.name }}</h2>
+      <h3 class="h3__train">{{ userService.training.technology }}</h3>
+      <p class="p__train_date">{{ userService.training.date }}</p>
+      <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.numberOfParticipants }}</strong></h3>
     </div>
-    <div formArrayName="users">
+    <div formArrayName="users" class="enrollment-form">
       <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
-        <mat-form-field>
-            <label for="username">
-                Participant name:            
-              </label>
-              <input matInput type="text" [matAutocomplete]="auto" [formControlName]="i">
-              <mat-autocomplete #auto="matAutocomplete">
+        <mat-form-field class="enrollment-field">
+              <input type="text" placeholder="Participant e-mail address" aria-label="Number" matInput [formControl]="control" [formControlName]="i" [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                 <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
-                  <span>{{ user.name }} {{ user.email }}</span>
+                {{ user.email }}
                 </mat-option>
-              </mat-autocomplete>                     
+              </mat-autocomplete>     
+              <button type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>             
         </mat-form-field>
-        <span
-                *ngIf="!userControl.valid && userControl.touched"
-                >Please enter a employee</span>       
+        <span *ngIf="!userControl.valid && userControl.touched">Please enter a participant</span>       
       </div>      
-      <button type="button" (click)="onAddUser()" [disabled]="!managerForm.valid">+</button>
+      
+      
     </div>
     <button type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
   </form>

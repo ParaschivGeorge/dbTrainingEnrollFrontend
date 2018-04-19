@@ -34,6 +34,7 @@ const appRoutes: Routes = [
     EnrollmentsComponent,
     ManagerFormComponent
   ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

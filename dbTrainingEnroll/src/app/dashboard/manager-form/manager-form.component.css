@@ -1,11 +1,12 @@
-div.signUp {
-    width: auto;
-    min-height: 300px;
+div.enrollForm {
+    width: 35em;
+    min-height: 35em;
     height: auto;
-    padding: 10px;
+    padding: 1em;
+    margin: 0 auto;
 }
 
-.signUp form {
+.enrollForm form {
     width: 100%;
 }
 
@@ -33,4 +34,59 @@ input.ng-invalid.ng-touched {
 
 button:disabled {
     color: grey;
+}
+
+.h1__train{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color:  #0A3C75;
+    line-height: 38px;
+    margin-bottom: 1em;
+}
+
+.h2__train{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    color: #212121;
+    opacity: 0.8;
+    font-weight: 400;
+    line-height: 32px;
+    margin-bottom: .5em;
+}
+
+.h3__train{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #212121;
+    opacity: 0.8;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom: .5em;
+}
+
+.p__train_date{
+    font-family: 'Inconsolata', monospace;
+    font-size: 14px;
+    color: #212121;
+    opacity: 0.8;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 1em;
+}
+
+.participant__mark{
+    font-weight: bold;
+    color: #0A3C75;
+    margin-left: .5em;
+    font-size: 20px;
+}
+
+.enrollment-form{
+    width: 100%;
+    margin: 2.5em 0;
+}
+
+.enrollment-field{
+    width: 100%;
+    margin: .5em 0;
 }
