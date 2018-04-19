@@ -14,21 +14,10 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export class DashboardComponent implements OnInit {
   trainings: Training[];
+  enrollmentsTrainings: Training[];
   name: string;
 
   constructor(private apiService: ApiService, public dialog: MatDialog) {}
-
-  openDialog(): void {
-    let dialogRef = this.dialog.open(ManagerForm, {
-      width: '250px',
-      data: { name: "weirdo"}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.name = result;
-    });
-  }
 
   getTrainings(): void {
     this.apiService.getTrainings()
@@ -39,20 +28,5 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrainings();
-  }
-}
-
-@Component({
-  selector: 'manager-form',
-  templateUrl: 'manager-form.html',
-})
-export class ManagerForm {
-
-  constructor(
-    public dialogRef: MatDialogRef<ManagerForm>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }

@@ -7,12 +7,19 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 
+import { RouterModule, Routes } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ManagerForm } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { EnrollmentsComponent } from './enrollments/enrollments.component';
 
+const appRoutes: Routes = [
+  { path: 'enrollments', component: EnrollmentsComponent },
+  { path: 'trainings', component: DashboardComponent },
+  { path: '', redirectTo: '/trainings', pathMatch: 'full' },
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     FooterComponent,
     DashboardComponent,
-    ManagerForm
+    EnrollmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +36,10 @@ import { FooterComponent } from './footer/footer.component';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [ManagerForm, DashboardComponent],
+  entryComponents: [DashboardComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

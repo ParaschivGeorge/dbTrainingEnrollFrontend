@@ -1,11 +1,13 @@
 <mat-toolbar>
     <mat-toolbar-row>
-      <img src="img/favicon.ico" alt="Deutsche Bank Logo">
+      <img src="../../img/db_logo_white.png" alt="Deutsche Bank Logo">
       <span class="page-title">DB Training Enrollment</span>
-  
       <span class="example-spacer"></span>
-
-      <button mat-button>Log In</button>      
+      <a routerLink="/enrollments"> 
+        <button mat-button>Enrollments</button>
+      </a> 
+      <button mat-button (click)="dashboardComponent.getTrainings()"> Trainings</button> 
+      <button mat-button>Log In</button>   
     </mat-toolbar-row>
   </mat-toolbar>
   

@@ -74,14 +74,12 @@ button::after {
     box-shadow: inset 0 0 0 0;
 }
 
-/*
-@media screen and (min-width: 1400px) {
-    .container::after {
+
+    /* .container::after {
         content: '';
-        flex: 1 1 340px;
-    }
-} 
-*/  
+        flex: auto;
+    } */
+ 
 
 .container .mat-card {
     margin: 15px 0;
