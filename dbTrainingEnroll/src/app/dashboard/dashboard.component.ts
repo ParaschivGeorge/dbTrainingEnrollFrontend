@@ -22,12 +22,7 @@ export class DashboardComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(ManagerFormComponent, {
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.name = result;
-    });
   }
-
   getTrainings(): void {
     this.apiService.getTrainings()
     .subscribe(
