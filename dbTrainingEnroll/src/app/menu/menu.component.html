@@ -6,7 +6,10 @@
     </a>
     <span class="example-spacer"></span>
     <a routerLink="/enrollments"> 
-      <button mat-button>Enrollments</button>
+      <button mat-button *ngIf="router.url === '/trainings'">Enrollments</button>
+    </a>       
+    <a routerLink="/trainings"> 
+      <button mat-button *ngIf="router.url === '/enrollments'">Trainings</button>
     </a>       
     <button mat-button>Log In</button>   
   </mat-toolbar-row>

@@ -1,5 +1,7 @@
 .container {
     flex-flow: row wrap;
+    place-content: flex-start;
+    align-items: flex-start !important;
 }
 
 .main {
@@ -92,7 +94,7 @@ button::after {
 }
 
 .box {
-    margin: auto !important;
+    padding: 0;
     cursor: pointer;
 }
 
