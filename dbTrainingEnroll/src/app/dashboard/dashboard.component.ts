@@ -44,10 +44,10 @@ export class DashboardComponent implements OnInit {
 
   onScrollDown() {
     console.log(this.trainings + ' ' + this.originalTrainings);
-    if (this.trainings.length < this.originalTrainings.length) {
+    if (this.trainings.length < this.originalTrainings.length - 1) {
       const len = this.trainings.length;
 
-      for (let i = len; i <= len + 4; i ++) {
+      for (let i = len; i <= len + 1; i ++) {
         this.trainings.push(this.originalTrainings[i]);
     }
   }

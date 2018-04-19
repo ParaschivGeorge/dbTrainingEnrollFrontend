@@ -5,8 +5,6 @@ import { ApiService } from '../api.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
 import { Router } from '@angular/router';
-import logo from '../../img/logo.png';
-
 
 @Component({
   selector: 'app-menu',

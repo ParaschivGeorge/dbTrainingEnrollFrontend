@@ -75,12 +75,10 @@ button::after {
     box-shadow: inset 0 0 0 0;
 }
 
-
-    /* .container::after {
-        content: '';
-        flex: auto;
-    } */
- 
+/* .container::after {
+    content: '';
+    flex: auto;
+} */
 
 .container .mat-card {
     margin: 15px 0;
@@ -94,6 +92,8 @@ button::after {
 
 .box {
     padding: 0;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
     cursor: pointer;
 }
 
@@ -185,6 +185,12 @@ button::after {
 .load-more button {
     height: 40px;
     width: 160px;
+}
+
+@media screen and (max-width: 1200px) {
+    .box {
+        margin: auto !important;
+    }
 }
 
 @media screen and (max-width: 768px) {

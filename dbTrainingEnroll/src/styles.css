@@ -10,7 +10,7 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: 102vh;
     background: linear-gradient(0deg, #DADADA 0%, #EFEFEF 10%);    
      color: #212121;
     /* font-family: 'Inconsolata', monospace;
@@ -65,4 +65,12 @@ button::after {
 .a__home{
     text-decoration: none;
     color: white;
+}
+
+.spinner {
+    background: linear-gradient(rgba(0, 0, 0, .0) 0%, rgba(0, 0, 0, .5) 100%) !important;
+}
+
+.lds-roller div:after {
+    background: #123C62 !important;
 }
