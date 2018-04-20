@@ -10,13 +10,35 @@ div.enrollForm {
     width: 100%;
 }
 
-button {
+.add__button {
     position: relative;
     display: block;
-    padding: 20px;
-    margin: auto;
+    padding: 0;
+    margin: 0;
     text-align: center;
-    padding: 20px;
+    background: transparent;
+    color: #0A3C75;
+    float: right;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+button::after{
+    box-shadow: none;
+}
+
+.submit__button{
+    background: #0A3C75;
+    color: #F9F9F9;
+    float: right;
+    margin: 0;
+    padding: 1em 1.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: none;
 }
 
 span {
