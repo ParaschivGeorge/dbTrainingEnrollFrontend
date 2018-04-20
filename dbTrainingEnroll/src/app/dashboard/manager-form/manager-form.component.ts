@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators/map';
 @Component({
   selector: 'app-manager-form',
   templateUrl: './manager-form.component.html',
-  styleUrls: ['./manager-form.component.scss']
+  styleUrls: ['./manager-form.component.scss'],
 })
 export class ManagerFormComponent implements OnInit {
   managerForm: FormGroup;
@@ -39,7 +39,7 @@ export class ManagerFormComponent implements OnInit {
   checkEmployee(control: FormControl): {[s: string]: boolean} {
     this.valid = false;
     this.userService.accounts.forEach(user => {
-      if (user.email === control.value){
+      if (user.email === control.value) {
         this.valid = true;
       }
     });

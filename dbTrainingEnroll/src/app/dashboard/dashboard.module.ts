@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material.module';
-import { PageEvent, MatTabsModule } from '@angular/material';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   imports: [
@@ -15,12 +15,13 @@ import { MenuComponent } from '../menu/menu.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    PageEvent,
-    MatPaginatorModule,
     ReactiveFormsModule,
     FormsModule,
     MatTabsModule
   ],
-  declarations: [ManagerFormComponent]
+  exports: [
+    DashboardComponent, ManagerFormComponent
+  ],
+  declarations: [ManagerFormComponent, DashboardComponent]
 })
 export class DashboardModule { }
