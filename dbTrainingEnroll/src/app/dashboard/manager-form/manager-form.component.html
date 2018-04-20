@@ -16,15 +16,16 @@
                   <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
                   {{ user.email }}
                   </mat-option>
-                </mat-autocomplete>     
-                <button class="button add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>             
+                </mat-autocomplete>                  
           </mat-form-field>
+          <button class="button add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>
           <span *ngIf="!userControl.valid && userControl.touched">Please enter a participant</span>       
         </div>      
-        
-        
-      </div>
-      <button class="button submit__button" type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
+      </div>     
     </form>
   </div>
+  <mat-dialog-actions align="end">
+      <button class="button submit__button" type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
+  </mat-dialog-actions>
 </mat-dialog-content>
+

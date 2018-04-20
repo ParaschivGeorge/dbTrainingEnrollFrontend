@@ -95,3 +95,8 @@ button::after {
 .lds-roller div:after {
     background: $blue !important;
 }
+
+.mat-dialog-actions{
+    margin-bottom: 0 !important;
+    padding: 1em !important;
+}
