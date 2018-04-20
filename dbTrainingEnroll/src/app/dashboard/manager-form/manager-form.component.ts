@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../user.service';
 
@@ -13,7 +13,8 @@ import { ManagerFormResponse } from './manager-form-response';
   templateUrl: './manager-form.component.html',
   styleUrls: ['./manager-form.component.scss'],
 })
-export class ManagerFormComponent implements OnInit {
+export class ManagerFormComponent implements OnInit, OnDestroy {
+  length = 0;
   managerForm: FormGroup;
   valid: boolean;
   filteredUsers: Observable<any[]>;
@@ -42,6 +43,12 @@ export class ManagerFormComponent implements OnInit {
         map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
       );
     (<FormArray>this.managerForm.get('users')).push(control);
+    this.length++;  
+  }
+
+  onRemoveUser(i: number) {
+    (<FormArray>this.managerForm.get('users')).controls.splice(i, 1);
+    this.length--;
   }
 
   checkEmployee(control: FormControl): {[s: string]: boolean} {
@@ -77,5 +84,9 @@ export class ManagerFormComponent implements OnInit {
     this.userService.postEnrollmentsList().subscribe(result => {
       this.userService.closeDialog.emit();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.userService.accounts = [];
   }
 }
