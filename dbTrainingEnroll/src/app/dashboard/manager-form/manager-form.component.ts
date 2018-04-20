@@ -48,7 +48,11 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   onRemoveUser(i: number) {
     (<FormArray>this.managerForm.get('users')).controls.splice(i, 1);
-    this.length--;    
+    this.length--;
+    (<FormArray>this.managerForm.get('users')).controls.forEach(element => {
+      element.updateValueAndValidity();
+    });
+    this.managerForm.updateValueAndValidity();
   }
 
   checkEmployee(control: FormControl): {[s: string]: boolean} {
