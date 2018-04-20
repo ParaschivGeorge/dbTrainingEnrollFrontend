@@ -5,7 +5,7 @@ import { Training } from '../training';
 @Component({
   selector: 'app-enrollments',
   templateUrl: '../dashboard/dashboard.component.html',
-  styleUrls: ['../dashboard/dashboard.component.css'],
+  styleUrls: ['../dashboard/dashboard.component.scss'],
   providers: [ApiService]
 })
 export class EnrollmentsComponent implements OnInit {

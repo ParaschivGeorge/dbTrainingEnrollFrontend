@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators/map';
 @Component({
   selector: 'app-manager-form',
   templateUrl: './manager-form.component.html',
-  styleUrls: ['./manager-form.component.css']
+  styleUrls: ['./manager-form.component.scss']
 })
 export class ManagerFormComponent implements OnInit {
   managerForm: FormGroup;

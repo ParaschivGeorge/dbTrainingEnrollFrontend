@@ -1,3 +1,5 @@
+@import "~variables.scss";
+
 div.enrollForm {
     width: 35em;
     min-height: 35em;
@@ -17,7 +19,7 @@ div.enrollForm {
     margin: 0;
     text-align: center;
     background: transparent;
-    color: #0A3C75;
+    color: $dark-blue;
     float: right;
     font-weight: 500;
     letter-spacing: 1px;
@@ -29,15 +31,15 @@ button::after{
 }
 
 .submit__button{
-    background: #0A3C75;
-    color: #F9F9F9;
+    background: $dark-blue;
+    color: $bright-white;
     float: right;
     margin: 0;
     padding: 1em 1.5em;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     text-shadow: none;
 }
 
@@ -59,17 +61,17 @@ button:disabled {
 }
 
 .h1__train{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     font-size: 30px;
-    color:  #0A3C75;
+    color:  $dark-blue;
     line-height: 38px;
     margin-bottom: 1em;
 }
 
 .h2__train{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     font-size: 22px;
-    color: #212121;
+    color: $black;
     opacity: 0.8;
     font-weight: 400;
     line-height: 32px;
@@ -77,9 +79,9 @@ button:disabled {
 }
 
 .h3__train{
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     font-size: 18px;
-    color: #212121;
+    color: $black;
     opacity: 0.8;
     font-weight: 400;
     line-height: 28px;
@@ -87,9 +89,9 @@ button:disabled {
 }
 
 .p__train_date{
-    font-family: 'Inconsolata', monospace;
+    font-family: $mono;
     font-size: 14px;
-    color: #212121;
+    color: $black;
     opacity: 0.8;
     font-weight: 400;
     line-height: 22px;
@@ -98,7 +100,7 @@ button:disabled {
 
 .participant__mark{
     font-weight: bold;
-    color: #0A3C75;
+    color: $dark-blue;
     margin-left: .5em;
     font-size: 20px;
 }
