@@ -10,7 +10,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  styleUrls: ['./dashboard.component.scss'],
   providers: [ApiService]
 })
 export class DashboardComponent implements OnInit {

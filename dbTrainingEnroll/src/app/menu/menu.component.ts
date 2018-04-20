@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'],
+  styleUrls: ['./menu.component.scss'],
   providers: [EnrollmentsComponent, DashboardComponent]
 })
 
@@ -17,8 +17,8 @@ export class MenuComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private enrollmentsComponent: EnrollmentsComponent, 
-    private dashboardComponent: DashboardComponent, 
+  constructor(private enrollmentsComponent: EnrollmentsComponent,
+    private dashboardComponent: DashboardComponent,
     public router: Router) { }
 
   ngOnInit() {

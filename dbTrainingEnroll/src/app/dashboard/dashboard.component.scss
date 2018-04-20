@@ -1,3 +1,7 @@
+@import "~variables.scss";
+
+$darkest-blue: #082C56;
+
 .container {
     flex-flow: row wrap;
     align-items: flex-start !important;
@@ -11,12 +15,12 @@
 h1 {
     display: inline-block;
     font-size: 34px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     letter-spacing: 1px;
     line-height: normal;
     margin-left: 5px;
-    text-shadow: -2px 2px 5px rgba(0, 0, 0, .05);
-    color: #0A3C75;
+    text-shadow: -2px 2px 5px rgba(black, .05);
+    color: $dark-blue;
     height: 36px;
 }
 
@@ -36,13 +40,13 @@ form {
 .mat-icon {
     width: 144px !important;
     height: 27px;
-    color: #0A3C75;
+    color: $dark-blue;
 }
 
 button {
     display: inline-block;
-    color: #EFEFEF;
-    border: 1px solid rgba(0, 0, 0, .4);
+    color: $white;
+    border: 1px solid rgba(black, .4);
     border-radius: 0;
     height: 36px;    
     margin-left: 20px;
@@ -53,12 +57,12 @@ button:nth-child(2) {
 }
 
 .active {
-    background: #082C56;    
+    background: $darkest-blue;    
     box-shadow: 0 8px 14px -8px rgba(8, 44, 86, .8);    
 }
 
 button:nth-last-of-type(-n+2) {
-    background: #0A3C75;
+    background: $dark-blue;
 }
 
 .load-more button {
@@ -66,7 +70,7 @@ button:nth-last-of-type(-n+2) {
 }
 
 button:hover {
-    background: #082C56;
+    background: $darkest-blue;
     box-shadow: 0 4px 9px -4px rgba(8, 44, 86, .8) ;    
 }
 
@@ -83,9 +87,9 @@ button::after {
 .container .mat-card {
     margin: 15px 0;
     padding: 50px 10px;
-    background: linear-gradient(-135deg, #FCFCFC 0%, #EFEFEF 100%);
+    background: linear-gradient(-135deg, #FCFCFC 0%, $white 100%);
     color: #062140;
-    box-shadow: -3px 3px 6px rgba(0, 0, 0, .15), 0 12px 30px -14px rgba(0, 0, 0, .7);
+    box-shadow: -3px 3px 6px rgba(black, .15), 0 12px 30px -14px rgba(black, .7);
     text-align: center;
     border-radius: 0;   
 }
@@ -103,17 +107,17 @@ button::after {
     width: 330px;
     text-align: left;
     padding: 20px 0 0 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $sans-serif;
     letter-spacing: 0px;
     font-size: 22px;
     font-weight: 500;
-    text-shadow: -2px 2px 4px rgba(0, 0, 0, .05);
+    text-shadow: -2px 2px 4px rgba(black, .05);
 }
 
 .mat-card hr {
     width: 15%;
     margin: 5px 0 5px 10px;
-    background: #0A3C75;
+    background: $dark-blue;
     height: 1px;
 }
 
@@ -122,7 +126,7 @@ button::after {
     text-align: left;
     font-size: 14px;
     line-height: 20px;
-    font-family: 'Raleway', serif;
+    font-family: $serif;
 }
 
 .mat-card-footer {
@@ -132,7 +136,7 @@ button::after {
     width: 330px;
     margin: 0;
     text-align: right;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mono;
     font-weight: 300;
     font-size: 13px;
     padding: 0 20px 20px 0;
@@ -148,7 +152,7 @@ button::after {
 }
 
 .technical {
-    background: linear-gradient(45deg, rgba(10,60,117,1) 0%, rgba(204,53,73,1) 100%);
+    background: linear-gradient(45deg, rgba($dark-blue,1) 0%, rgba(204,53,73,1) 100%);
     box-shadow: 0 6px 20px 0px rgba(204,53,73,.3);
 }
 
@@ -162,7 +166,7 @@ button::after {
     right: 0;
     top: 0;
     padding: 25px 25px 0 0;
-    font-family: 'Inconsolata', monospace;
+    font-family: $mono;
     font-weight: normal;
     font-size: 16px;
     letter-spacing: -2px;
