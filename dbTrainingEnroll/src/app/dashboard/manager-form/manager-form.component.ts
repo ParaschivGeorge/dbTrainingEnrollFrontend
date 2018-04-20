@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 import { forEach } from '@angular/router/src/utils/collection';
+import { ManagerFormResponse } from './manager-form-response';
 
 @Component({
   selector: 'app-manager-form',
@@ -61,17 +62,20 @@ export class ManagerFormComponent implements OnInit {
       user.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-  onSubmit() {
-    console.log(this.managerForm);
-    let data = { trainingId: this.userService.training.id,
-      emails: []
-    }
+  onSubmit() {    
+    let data: ManagerFormResponse = new ManagerFormResponse;
     
+    data.trainingId = this.userService.training.id;
+    data.emails = [];
+
     let formArray = (<FormArray>this.managerForm.get('users')).controls;
     formArray.forEach(control => {
       data.emails.push(control.value);
     })
-
-    this.userService.postEnrollmentsList(data);
+    this.userService.data = data;
+    console.log(data);
+    this.userService.postEnrollmentsList().subscribe(result => {
+      this.userService.closeDialog.emit();
+    });
   }
 }
