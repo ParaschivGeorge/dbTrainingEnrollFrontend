@@ -14,7 +14,7 @@ import { ManagerFormResponse } from './manager-form-response';
   styleUrls: ['./manager-form.component.scss'],
 })
 export class ManagerFormComponent implements OnInit, OnDestroy {
-  length = 0;
+  formLength = 0;
   managerForm: FormGroup;
   valid: boolean;
   filteredUsers: Observable<any[]>;
@@ -43,12 +43,12 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
         map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
       );
     (<FormArray>this.managerForm.get('users')).push(control);
-    this.length++;  
+    this.formLength++;  
   }
 
   onRemoveUser(i: number) {
     (<FormArray>this.managerForm.get('users')).controls.splice(i, 1);
-    this.length--;
+    this.formLength--;
     (<FormArray>this.managerForm.get('users')).controls.forEach(element => {
       element.updateValueAndValidity();
     });
@@ -96,15 +96,14 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   setStyleAdd(i: number) {
     let styles = {
-      'visibility':  i == this.length-1 ? 'visible' : ' hidden'
+      'visibility':  i == this.formLength-1 ? 'visible' : ' hidden'
     };    
     return  styles;
   }
 
   setStyleRemove(i: number) {
     let styles = {
-      // CSS property names
-      'visibility':  this.length > 1 ? 'visible' : ' hidden'
+      'visibility':  this.formLength > 1 ? 'visible' : ' hidden'
     };    
     return  styles;
   }
