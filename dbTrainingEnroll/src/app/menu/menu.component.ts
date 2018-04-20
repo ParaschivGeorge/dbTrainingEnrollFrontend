@@ -4,7 +4,7 @@ import { Training } from '../training';
 import { ApiService } from '../api.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +17,9 @@ export class MenuComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private enrollmentsComponent: EnrollmentsComponent, private dashboardComponent: DashboardComponent) { }
+  constructor(private enrollmentsComponent: EnrollmentsComponent, 
+    private dashboardComponent: DashboardComponent, 
+    public router: Router) { }
 
   ngOnInit() {
   }

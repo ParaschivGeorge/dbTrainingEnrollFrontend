@@ -1,3 +1,4 @@
+<ng4-loading-spinner> </ng4-loading-spinner>        
 <div class="main">
         <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="secondary-menu">
@@ -15,11 +16,15 @@
                 <div class="container"
                 fxLayout
                 fxLayout.xs="column"
-                fxLayoutAlign="space-between"
                 fxLayoutGap="20px"
                 fxLayoutGap.xs="4px"
                 fxFlex="auto">
-                        <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="openDialog()">
+                        <div class="box" fxFlex="340px" 
+                        *ngFor="let training of trainings"
+                        (click)="openDialog()"                      
+                        infinite-scroll
+                        [infiniteScrollThrottle]="300"
+                        (scrolled)="onScrollDown()">
                                 <mat-card>
                                         <mat-card-title>{{ training.name }}</mat-card-title>
                                         <hr>
@@ -33,7 +38,4 @@
                         </div>
                 </div>
         </mat-grid-list>
-        <div class="load-more">
-                <button mat-button>Load More</button>        
-        </div>
 </div>

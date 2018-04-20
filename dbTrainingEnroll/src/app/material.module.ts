@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatIconModule, MatToolbarModule, MatCardModule, MatGridListModule, MatAutocompleteModule, MatButtonToggleModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDividerModule, MatExpansionModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTooltipModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatToolbarModule, MatCardModule, MatGridListModule, MatTabsModule } from '@angular/material';
+import { MatAutocompleteModule, MatButtonToggleModule, MatCheckboxModule, MatRippleModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
     imports: [
@@ -13,35 +16,18 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
-        MatChipsModule,
-        MatDatepickerModule,
         MatDialogModule,
-        MatDividerModule,
-        MatExpansionModule,
         MatGridListModule,
         MatIconModule,
         MatInputModule,
-        MatListModule,
-        MatMenuModule,
-        MatNativeDateModule,
-        MatPaginatorModule,
         MatProgressBarModule,
-        MatProgressSpinnerModule,
-        MatRadioModule,
         MatRippleModule,
-        MatSelectModule,
-        MatSidenavModule,
-        MatSliderModule,
-        MatSlideToggleModule,
-        MatSnackBarModule,
-        MatSortModule,
-        MatStepperModule,
-        MatTableModule,
-        MatTabsModule,
         MatToolbarModule,
-        MatTooltipModule,
+        MatTabsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        InfiniteScrollModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -49,35 +35,18 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
-        MatChipsModule,
-        MatDatepickerModule,
         MatDialogModule,
-        MatDividerModule,
-        MatExpansionModule,
         MatGridListModule,
         MatIconModule,
         MatInputModule,
-        MatListModule,
-        MatMenuModule,
-        MatNativeDateModule,
-        MatPaginatorModule,
         MatProgressBarModule,
-        MatProgressSpinnerModule,
-        MatRadioModule,
         MatRippleModule,
-        MatSelectModule,
-        MatSidenavModule,
-        MatSliderModule,
-        MatSlideToggleModule,
-        MatSnackBarModule,
-        MatSortModule,
-        MatStepperModule,
-        MatTableModule,
-        MatTabsModule,
         MatToolbarModule,
-        MatTooltipModule,
+        MatTabsModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        InfiniteScrollModule
     ]
 })
 

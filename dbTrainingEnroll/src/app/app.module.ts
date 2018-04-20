@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
 import { UserService } from './user.service';
@@ -43,6 +45,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     HttpModule,
+    NgxPaginationModule,
+    Ng4LoadingSpinnerModule,
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent],
