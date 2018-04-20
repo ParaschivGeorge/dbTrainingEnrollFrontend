@@ -23,10 +23,8 @@
                         *ngFor="let training of trainings"
                         (click)="openDialog()"                      
                         infinite-scroll
-                        [infiniteScrollDistance]="2"
-                        [infiniteScrollThrottle]="100"
-                        (scrolled)="onScrollDown()"
-                        [scrollWindow]="true">
+                        [infiniteScrollThrottle]="300"
+                        (scrolled)="onScrollDown()">
                                 <mat-card>
                                         <mat-card-title>{{ training.name }}</mat-card-title>
                                         <hr>

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
      private spinnerService: Ng4LoadingSpinnerService) {}
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(ManagerFormComponent, {
+    const dialogRef = this.dialog.open(ManagerFormComponent, {
     });
   }
 
@@ -43,14 +43,18 @@ export class DashboardComponent implements OnInit {
   }
 
   onScrollDown() {
-    console.log(this.trainings + ' ' + this.originalTrainings);
-    if (this.trainings.length < this.originalTrainings.length - 1) {
+    if (this.trainings.length < this.originalTrainings.length - 4) {
       const len = this.trainings.length;
+      console.log(len);
 
-      for (let i = len; i <= len + 1; i ++) {
+      for (let i = len; i <= len + 4; i ++) {
         this.trainings.push(this.originalTrainings[i]);
+      }
     }
-  }
+
+    for (let j = this.trainings.length; j <= this.originalTrainings.length - 1; j ++) {
+      this.trainings.push(this.originalTrainings[j]);
+    }
   }
 
   ngOnInit(): void {
