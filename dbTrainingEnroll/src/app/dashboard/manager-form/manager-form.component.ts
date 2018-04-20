@@ -48,7 +48,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   onRemoveUser(i: number) {
     (<FormArray>this.managerForm.get('users')).controls.splice(i, 1);
-    this.length--;
+    this.length--;    
   }
 
   checkEmployee(control: FormControl): {[s: string]: boolean} {
@@ -88,5 +88,20 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.userService.accounts = [];
+  }
+
+  setStyleAdd(i: number) {
+    let styles = {
+      'visibility':  i == this.length-1 ? 'visible' : ' hidden'
+    };    
+    return  styles;
+  }
+
+  setStyleRemove(i: number) {
+    let styles = {
+      // CSS property names
+      'visibility':  this.length > 1 ? 'visible' : ' hidden'
+    };    
+    return  styles;
   }
 }
