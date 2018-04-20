@@ -39,11 +39,13 @@ export class ManagerFormComponent implements OnInit {
   checkEmployee(control: FormControl): {[s: string]: boolean} {
     this.valid = false;
     this.userService.accounts.forEach(user => {
-      if (user.email === control.value)
+      if (user.email === control.value){
         this.valid = true;
+      }
     });
-    if (this.valid)
+    if (this.valid) {
       return null;
+    }
     return {'notValidEmployee': true};
   }
 
@@ -53,6 +55,6 @@ export class ManagerFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.managerForm);    
+    console.log(this.managerForm);
   }
 }

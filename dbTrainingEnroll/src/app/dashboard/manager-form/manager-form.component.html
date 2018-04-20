@@ -17,14 +17,14 @@
                   {{ user.email }}
                   </mat-option>
                 </mat-autocomplete>     
-                <button class="add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>             
+                <button class="button add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>             
           </mat-form-field>
           <span *ngIf="!userControl.valid && userControl.touched">Please enter a participant</span>       
         </div>      
         
         
       </div>
-      <button class="submit__button" type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
+      <button class="button submit__button" type="button" (click)="onSubmit()" [disabled]="!managerForm.valid">Submit</button>
     </form>
   </div>
 </mat-dialog-content>
