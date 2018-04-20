@@ -19,6 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
 import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
+import { SecondaryMenuComponent } from './secondary-menu/secondary-menu.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     FooterComponent,
     DashboardComponent,
     EnrollmentsComponent,
-    ManagerFormComponent
+    ManagerFormComponent,
+    SecondaryMenuComponent
   ],
 
   imports: [
@@ -47,7 +49,7 @@ const appRoutes: Routes = [
     HttpModule,
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent],
   providers: [UserService],
