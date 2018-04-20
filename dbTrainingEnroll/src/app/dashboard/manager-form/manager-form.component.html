@@ -19,7 +19,6 @@
                 </mat-autocomplete>                  
           </mat-form-field>
           <button class="button add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>
-          <span *ngIf="!userControl.valid && userControl.touched">Please enter a participant</span>       
         </div>      
       </div>     
     </form>

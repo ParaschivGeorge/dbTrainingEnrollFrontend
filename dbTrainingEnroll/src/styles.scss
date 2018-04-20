@@ -98,9 +98,13 @@ button::after {
 
 .mat-dialog-actions{
     margin-bottom: 0 !important;
-    padding: 1em !important;
+    padding: 1em 1em 2.5em !important;
 }
 
 .mat-dialog-container {
     padding: 0 24px !important;
+}
+
+input.ng-invalid.ng-touched{
+    border: none !important;
 }
