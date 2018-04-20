@@ -4,8 +4,8 @@
       <div>
         <h2 class="h1__train">Enrollments</h2>
         <h2 class="h2__train">{{ userService.training.name }}</h2>
-        <h3 class="h3__train">{{ userService.training.technology }}</h3>
-        <p class="p__train_date">{{ userService.training.date }}</p>
+        <h3 class="h3__train"> TODO: technology<!--{{ userService.training.technology }}--></h3>
+        <p class="p__train_date">{{ userService.training.startDate }}</p>
         <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.numberOfParticipants }}</strong></h3>
       </div>
       <div formArrayName="users" class="enrollment-form">
@@ -13,8 +13,8 @@
           <mat-form-field class="enrollment-field">
                 <input type="text" placeholder="Participant e-mail address" aria-label="Number" matInput  [formControlName]="i" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
-                  {{ user.email }}
+                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.mail">
+                  <strong>{{ user.name }} </strong>{{ user.mail }}
                   </mat-option>
                 </mat-autocomplete>                  
           </mat-form-field>

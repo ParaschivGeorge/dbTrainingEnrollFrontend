@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator } fro
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,10 +21,13 @@ export class DashboardComponent implements OnInit {
   originalTrainings: Training[];
 
   constructor(private apiService: ApiService,
-     public dialog: MatDialog,
-     private spinnerService: Ng4LoadingSpinnerService) {}
+    public dialog: MatDialog,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private userService: UserService) {}
 
-  openDialog(): void {
+  openDialog(training: Training): void {
+    this.userService.training = training;
+    this.userService.getEnrollmentsList();
     const dialogRef = this.dialog.open(ManagerFormComponent, {
     });
   }
@@ -58,6 +62,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTrainings();
+    this.getTrainings(); 
   }
 }
