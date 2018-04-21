@@ -1,30 +1,73 @@
-<ng4-loading-spinner> </ng4-loading-spinner>        
+<ng4-loading-spinner> </ng4-loading-spinner>
 <div class="main">
-        <app-secondary-menu></app-secondary-menu>
-        <mat-grid-list class="dashboard__grid" cols="4">
-                <div class="container"
-                fxLayout
-                fxLayout.xs="column"
-                fxLayoutGap="20px"
-                fxLayoutGap.xs="4px"
-                fxFlex="auto">
-                        <div class="box" fxFlex="340px" 
-                        *ngFor="let training of trainings"
-                        (click)="openDialog()"                      
-                        infinite-scroll
-                        [infiniteScrollThrottle]="300"
-                        (scrolled)="onScrollDown()">
-                                <mat-card>
-                                        <mat-card-title>{{ training.name }}</mat-card-title>
-                                        <hr>
-                                        <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
-                                        <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>                                        
-                                        <mat-card-content> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, fuga? </mat-card-content>
-                                        <mat-card-footer> {{ training.date }} </mat-card-footer>
-                                        <div class="progress-bar soft-skills" *ngIf="training.isTechnical === 0"></div>
-                                        <div class="progress-bar technical" *ngIf="training.isTechnical === 1"></div>
-                                </mat-card>
-                        </div>
+    <mat-tab-group>
+        <mat-tab label="All">
+            <mat-grid-list class="dashboard__grid" cols="4">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                    <div class="box" fxFlex="340px" *ngFor="let training of allTrainings" (click)="openDialog()" 
+                    infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(allTrainings, originalTrainings)">
+                        <mat-card>
+                            <mat-card-title>{{ training.technology }}</mat-card-title>
+                            <hr>
+                            <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
+                            <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>
+                            <mat-card-content> {{ training.name }} </mat-card-content>
+                            <mat-card-footer> {{ training.date }} </mat-card-footer>
+                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                            <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                            <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                        </mat-card>
+                    </div>
                 </div>
-        </mat-grid-list>
+            </mat-grid-list>
+        </mat-tab>
+        <mat-tab label="Soft Skills">
+            <mat-grid-list class="dashboard__grid" cols="4">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                    <div class="box" fxFlex="340px" *ngFor="let training of softTrainings" (click)="openDialog()" 
+                    infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(softTrainings, allSoftTrainings)">
+                        <mat-card>
+                            <mat-card-title>{{ training.technology }}</mat-card-title>
+                            <hr>
+                            <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
+                            <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>
+                            <mat-card-content> {{ training.name }} </mat-card-content>
+                            <mat-card-footer> {{ training.date }} </mat-card-footer>
+                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>                            
+                            <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                            <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-grid-list>
+        </mat-tab>
+        <mat-tab label="Technical">
+            <mat-grid-list class="dashboard__grid" cols="4">
+                <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                    <div class="box" fxFlex="340px" *ngFor="let training of techTrainings" (click)="openDialog()" 
+                    infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(techTrainings, allTechTrainings)">
+                        <mat-card>
+                            <mat-card-title>{{ training.technology }}</mat-card-title>
+                            <hr>
+                            <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
+                            <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>
+                            <mat-card-content> {{ training.name }} </mat-card-content>
+                            <mat-card-footer> {{ training.date }} </mat-card-footer>
+                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>                            
+                            <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                            <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-grid-list>
+        </mat-tab>
+        <!-- <mat-tab>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Search">
+                    <mat-icon matSuffix>mode_search</mat-icon>
+                </mat-form-field>                
+            </form>
+        </mat-tab> -->
+    </mat-tab-group>
 </div>

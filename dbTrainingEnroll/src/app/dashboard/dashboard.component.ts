@@ -14,7 +14,11 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
   providers: [ApiService]
 })
 export class DashboardComponent implements OnInit {
-  trainings: Training[];
+  allTrainings: Training[];
+  softTrainings: Training[];
+  allSoftTrainings: Training[];
+  techTrainings: Training[];
+  allTechTrainings: Training[];
   enrollmentsTrainings: Training[];
   name: string;
   originalTrainings: Training[];
@@ -34,27 +38,32 @@ export class DashboardComponent implements OnInit {
     .subscribe(
       result => {
         this.originalTrainings = result,
-        this.trainings = this.originalTrainings.slice(0, 8);
-        console.log(this.trainings);
+        this.allTrainings = this.originalTrainings.slice(0, 8),
+        this.allSoftTrainings = this.originalTrainings.filter(data => data.categoryType === 'SOFT'),
+        this.softTrainings = this.allSoftTrainings.slice(0, 8),
+        this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
+        this.techTrainings = this.allTechTrainings.slice(0, 8);
       } ,
       error => console.log('Error: ' + error)
     );
     this.spinnerService.hide();
   }
 
-  onScrollDown() {
-    if (this.trainings.length < this.originalTrainings.length - 4) {
-      const len = this.trainings.length;
+  onScrollDown(all: Training[], original: Training[]) {
+    this.spinnerService.show();
+    if (all.length < original.length - 4) {
+      const len = all.length;
       console.log(len);
 
       for (let i = len; i <= len + 4; i ++) {
-        this.trainings.push(this.originalTrainings[i]);
+        all.push(original[i]);
       }
     }
 
-    for (let j = this.trainings.length; j <= this.originalTrainings.length - 1; j ++) {
-      this.trainings.push(this.originalTrainings[j]);
+    for (let j = all.length; j <= original.length - 1; j ++) {
+      all.push(original[j]);
     }
+    this.spinnerService.hide();
   }
 
   ngOnInit(): void {
