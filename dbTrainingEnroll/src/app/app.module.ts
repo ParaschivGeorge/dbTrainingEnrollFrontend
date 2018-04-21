@@ -20,6 +20,7 @@ import { ManagerFormComponent } from './dashboard/manager-form/manager-form.comp
 import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { SecondaryMenuComponent } from './secondary-menu/secondary-menu.component';
+import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     EnrollmentsComponent,
     ManagerFormComponent,
-    SecondaryMenuComponent
+    SecondaryMenuComponent,
+    PmFormComponent
   ],
 
   imports: [
@@ -51,7 +53,7 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule,
     RouterModule.forRoot(appRoutes),
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
