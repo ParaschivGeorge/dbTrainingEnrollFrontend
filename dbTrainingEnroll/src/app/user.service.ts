@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { User } from './user';
+import { PmFormResponse } from './enrollments/pm-form/pm-from-response';
 
 @Injectable()
 export class UserService {
@@ -19,6 +20,7 @@ export class UserService {
   training: Training;
   accounts: User[] = [];
   data: Object;
+  modelList: Array<PmFormResponse>;
   closeDialog = new EventEmitter<boolean>();
 
   currentUser = {
@@ -37,7 +39,7 @@ export class UserService {
   }
 
   postPendingList(): Observable<Object> {
-    return this.http.post(this._PENDING_RESULT_ULR, this.data);
+    return this.http.post(this._PENDING_RESULT_ULR, this.modelList);
   }
 
   private handleError(error: Response) {

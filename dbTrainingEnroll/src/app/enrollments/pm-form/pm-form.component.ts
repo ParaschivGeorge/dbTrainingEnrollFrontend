@@ -46,10 +46,6 @@ export class PmFormComponent implements OnInit {
     this.modelList.push(data);
 
     console.log(this.modelList);
-    
-    // this.userService.postPendingList().subscribe(result => {
-
-    // });
   }
 
   denyUser(mail: string) {
@@ -58,15 +54,12 @@ export class PmFormComponent implements OnInit {
     data.idTraining = this.userService.training.id;
     data.status = 0;
 
-    console.log(data);
+    this.modelList.push(data);
 
-    // this.userService.postPendingList().subscribe(result => {
-
-    // });
   }
 
   onSubmit() {
-    console.log(this.pmForm);
+    this.userService.postPendingList().subscribe(result => { });
   }
 
 }
