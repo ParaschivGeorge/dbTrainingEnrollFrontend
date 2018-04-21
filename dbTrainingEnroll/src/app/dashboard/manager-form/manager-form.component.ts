@@ -37,7 +37,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
         console.log( this.userService.accounts);
       },
       error => console.log('Error: ' + error)
-    );    
+    );
   }
 
   onAddUser() {
@@ -75,11 +75,11 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       return {'notValidEmployee': true};
     }
 
-    (<FormControl[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formControl => {      
-      if ((control != formControl) && (formControl.value === control.value))
+    (<FormControl[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formControl => {
+      if ((control !== formControl) && (formControl.value === control.value)) {
         this.valid = false;
+      }
     });
-    
     if (this.valid) {
       return null;
     }
@@ -87,8 +87,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   }
 
   checkMaxNumber(control: FormControl): {[s: string]: boolean} {
-    if (this.formLength > this._MAX_NUMBER)
+    if (this.formLength > this._MAX_NUMBER) {
       return {'limitExceeded': true};
+    }
     return null;
   }
 
@@ -97,16 +98,16 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       user.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-  onSubmit() {    
-    let data: ManagerFormResponse = new ManagerFormResponse;
+  onSubmit() {
+    const data: ManagerFormResponse = new ManagerFormResponse;
 
     data.trainingId = this.userService.training.id;
     data.emails = [];
 
-    let formArray = (<FormArray>this.managerForm.get('users')).controls;
+    const formArray = (<FormArray>this.managerForm.get('users')).controls;
     formArray.forEach(control => {
       data.emails.push(control.value);
-    })
+    });
     this.userService.data = data;
     console.log(data);
     this.userService.postEnrollmentsList().subscribe(result => {
@@ -119,16 +120,16 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   }
 
   setStyleAdd(i: number) {
-    let styles = {
-      'visibility':  (i == this.formLength-1) && (this.formLength < this._MAX_NUMBER) ? 'visible' : ' hidden'
-    };    
+    const styles = {
+      'visibility':  (i === this.formLength - 1) && (this.formLength < this._MAX_NUMBER) ? 'visible' : ' hidden'
+    };
     return  styles;
   }
 
   setStyleRemove(i: number) {
-    let styles = {
+    const styles = {
       'visibility':  this.formLength > 1 ? 'visible' : ' hidden'
-    };    
+    };
     return  styles;
   }
 }
