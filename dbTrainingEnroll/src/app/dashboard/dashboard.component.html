@@ -9,8 +9,8 @@
                         <mat-card>
                             <mat-card-title>{{ training.technology }}</mat-card-title>
                             <hr>
-                            <div class="number" *ngIf="training.numberOfParticipants < 15">{{ training.numberOfParticipants }} / 15</div>
-                            <div class="number full" *ngIf="training.numberOfParticipants === 15">FULL</div>
+                            <div class="number free" *ngIf="training.acceptedUsers !== '0'">FREE</div>
+                            <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
                             <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
