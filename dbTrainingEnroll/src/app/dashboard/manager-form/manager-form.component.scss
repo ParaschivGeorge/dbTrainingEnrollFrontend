@@ -32,6 +32,13 @@ div.enrollForm {
     margin: .75em 0 0;
 }
 
+.remove__button {
+    padding: 0;
+    background: transparent;
+    color: red;
+    margin: .75em 0 0;
+}
+
 button::after{
     box-shadow: none;
 }

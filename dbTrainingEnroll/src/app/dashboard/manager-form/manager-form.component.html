@@ -4,21 +4,23 @@
       <div>
         <h2 class="h1__train">Enrollments</h2>
         <h2 class="h2__train">{{ userService.training.name }}</h2>
-        <h3 class="h3__train">{{ userService.training.technology }}</h3>
-        <p class="p__train_date">{{ userService.training.date }}</p>
+        <h3 class="h3__train"> TODO: technology<!--{{ userService.training.technology }}--></h3>
+        <p class="p__train_date">{{ userService.training.startDate }}</p>
         <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.numberOfParticipants }}</strong></h3>
+        <h3 class="h3__train">You can add <strong class="participant__mark">{{ _MAX_NUMBER - formLength }}</strong> more participants</h3>
       </div>
       <div formArrayName="users" class="enrollment-form">
         <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
           <mat-form-field class="enrollment-field">
                 <input type="text" placeholder="Participant e-mail address" aria-label="Number" matInput  [formControlName]="i" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
-                  {{ user.email }}
+                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.mail">
+                  <strong>{{ user.name }} </strong>{{ user.mail }}
                   </mat-option>
                 </mat-autocomplete>                  
           </mat-form-field>
-          <button class="button add__button" type="button" (click)="onAddUser()" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>
+          <button class="button add__button" type="button" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>
+          <button class="button remove__button" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon>remove</mat-icon></button>
         </div>      
       </div>     
     </form>
