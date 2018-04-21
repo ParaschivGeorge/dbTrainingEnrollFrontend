@@ -59,6 +59,7 @@ export class PmFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.userService.modelList = this.modelList;
     this.userService.postPendingList().subscribe(result => { });
   }
 
