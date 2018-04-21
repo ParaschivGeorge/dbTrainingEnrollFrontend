@@ -14,6 +14,7 @@ import { ManagerFormResponse } from './manager-form-response';
   styleUrls: ['./manager-form.component.scss'],
 })
 export class ManagerFormComponent implements OnInit, OnDestroy {
+  _MAX_NUMBER = 15;
   formLength = 0;
   managerForm: FormGroup;
   valid: boolean;
@@ -25,6 +26,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.managerForm = new FormGroup({
       'users': new FormArray([])
     });
+    this.managerForm.setValidators(this.checkMaxNumber.bind(this))
     this.onAddUser();
     this.userService.getEnrollmentsList().subscribe(
       users => {
@@ -36,6 +38,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   }
 
   onAddUser() {
+    if (this.formLength == this._MAX_NUMBER)
+      return;
     const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
     this.filteredUsers = control.valueChanges
       .pipe(
@@ -78,6 +82,12 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     return {'notValidEmployee': true};
   }
 
+  checkMaxNumber(control: FormControl): {[s: string]: boolean} {
+    if (this.formLength > this._MAX_NUMBER)
+      return {'limitExceeded': true};
+    return null;
+  }
+
   filterUsers(name: string) {
     return this.userService.accounts.filter(user =>
       user.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
@@ -106,7 +116,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   setStyleAdd(i: number) {
     let styles = {
-      'visibility':  i == this.formLength-1 ? 'visible' : ' hidden'
+      'visibility':  (i == this.formLength-1) && (this.formLength < this._MAX_NUMBER) ? 'visible' : ' hidden'
     };    
     return  styles;
   }
