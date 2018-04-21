@@ -11,7 +11,7 @@
     <a routerLink="/trainings"> 
       <button mat-button *ngIf="router.url === '/enrollments'">Trainings</button>
     </a>       
-    <button mat-button>Log In</button>   
+    <button mat-button (click) = 'openLogin()'>Log In</button>   
   </mat-toolbar-row>
 </mat-toolbar>
   

@@ -107,3 +107,54 @@ input.ng-invalid.ng-touched {
 .mat-tab-header {
     margin: 0 1.25%;
 }
+
+.login {
+    padding: 40px 40px 10px 40px !important;
+    background: #08125b;
+    background: linear-gradient(45deg,#08152b 0%, rgba(#08152b,.98) 100%);
+    h2 {
+        color: $red;
+        font-family: $sans-serif;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        font-size: 26px;
+    }
+    hr {
+        height: 1px;
+        background: $red;
+        margin-bottom: 40px;
+        width: 10%;
+    }
+    .mat-form-field {
+        width: 100%;
+        color: $dark-white !important;
+        margin-bottom: 5px;
+    }
+    .mat-form-field-label {
+        color: $dark-white;
+    }
+    .login-button {
+        margin: auto;
+        background: $red;
+        box-shadow: 0 9px 40px -8px rgba($red, .85) !important;
+        color: $dark-white;
+        width: 42%;
+        padding: 8px 0;
+    }
+    .mat-form-field-underline {
+        background: rgba($dark-white, .7);
+    }
+    .mat-input-subscript-wrapper, .mat-form-field-subscript-wrapper {
+        background: rgba($dark-white, .7);        
+    }
+    .mat-form-field-ripple {
+        background: $red;
+    }
+    .mat-dialog-actions {
+        padding: 30px !important;
+    }
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(black, .7) !important;
+}
