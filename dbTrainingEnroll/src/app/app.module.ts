@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     HttpModule,
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent],
   providers: [UserService],

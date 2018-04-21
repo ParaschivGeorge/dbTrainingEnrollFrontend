@@ -17,6 +17,7 @@ export class PmFormComponent implements OnInit {
   valid: boolean;
   filteredUsers: Observable<any[]>;
   mail: string;
+  modelList: PmFormResponse[] = [];
 
   constructor(private userService: UserService) { }
 
@@ -42,10 +43,9 @@ export class PmFormComponent implements OnInit {
     data.idTraining = this.userService.training.id;
     data.status = 1;
 
-    console.log(data);
-    this.userService.postPendingList().subscribe(result => {
+    this.modelList.push(data);
 
-    });
+    console.log(this.modelList);
   }
 
   denyUser(mail: string) {
@@ -54,15 +54,12 @@ export class PmFormComponent implements OnInit {
     data.idTraining = this.userService.training.id;
     data.status = 0;
 
-    console.log(data);
+    this.modelList.push(data);
 
-    this.userService.postPendingList().subscribe(result => {
-
-    });
   }
 
   onSubmit() {
-    console.log(this.pmForm);
+    this.userService.postPendingList().subscribe(result => { });
   }
 
 }
