@@ -26,20 +26,22 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.managerForm = new FormGroup({
       'users': new FormArray([])
     });
-    this.managerForm.setValidators(this.checkMaxNumber.bind(this))
+
+    this.managerForm.setValidators(this.checkMaxNumber.bind(this));
     this.onAddUser();
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;
-        console.log( this.userService.accounts);        
+        console.log( this.userService.accounts);
       },
       error => console.log('Error: ' + error)
     );
   }
 
   onAddUser() {
-    if (this.formLength == this._MAX_NUMBER)
+    if (this.formLength === this._MAX_NUMBER) {
       return;
+    }
     const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
     this.filteredUsers = control.valueChanges
       .pipe(
@@ -47,7 +49,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
         map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
       );
     (<FormArray>this.managerForm.get('users')).push(control);
-    this.formLength++;  
+    this.formLength++;
   }
 
   onRemoveUser(i: number) {
@@ -66,7 +68,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
         this.valid = true;
       }
     });
-    
+
     if (!this.valid) {
       return {'notValidEmployee': true};
     }
@@ -95,7 +97,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {    
     let data: ManagerFormResponse = new ManagerFormResponse;
-    
+
     data.trainingId = this.userService.training.id;
     data.emails = [];
 

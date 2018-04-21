@@ -13,28 +13,38 @@ export class UserService {
 
   private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/subordinates';
   private _RESULT_ULR = 'https://db-training-enroll.herokuapp.com/subordinatesResult';
+  private _PENDING_ULR = 'https://db-training-enroll.herokuapp.com/pendingUsers';
+  private _PENDING_RESULT_ULR = 'https://db-training-enroll.herokuapp.com/approveList';
 
-  constructor(private http: HttpClient, spinnerService: Ng4LoadingSpinnerService) {}  
+  training: Training;
+  accounts: User[] = [];
+  data: Object;
+  closeDialog = new EventEmitter<boolean>();
+
+  currentUser = {
+    name: 'Manager',
+    email: 'manager@gmail.com'
+  };
+
+  constructor(private http: HttpClient, spinnerService: Ng4LoadingSpinnerService) {}
 
   getEnrollmentsList(): Observable<User[]> {
-    return this.http.post<User[]>(this._ENROLL_URL, {email:"garyjb@verizon.net",id: this.training.id});
+    return this.http.post<User[]>(this._ENROLL_URL, {email: 'garyjb@verizon.net', id: this.training.id});
+  }
+
+  getPendingList(): Observable<User[]> {
+    return this.http.post<User[]>(this._PENDING_ULR, {email: 'twoflower@optonline.net', id: this.training.id});
+  }
+
+  postPendingList(): Observable<Object> {
+    return this.http.post(this._PENDING_RESULT_ULR, this.data);
   }
 
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }
 
-  currentUser = {
-      name: 'Manager',
-      email: 'manager@gmail.com'
-  };
-
-  postEnrollmentsList() : Observable<Object> {
+  postEnrollmentsList(): Observable<Object> {
     return this.http.post(this._RESULT_ULR, this.data);
   }
-
-  training: Training;
-  accounts: User[] = [];
-  data: Object;
-  closeDialog = new EventEmitter<boolean>();
 }

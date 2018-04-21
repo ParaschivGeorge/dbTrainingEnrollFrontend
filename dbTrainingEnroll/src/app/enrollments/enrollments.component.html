@@ -10,7 +10,7 @@
                 fxFlex="auto">
                         <div class="box" fxFlex="340px" 
                         *ngFor="let training of trainings"
-                        (click)="openDialog()"                      
+                        (click)="openDialog(training)"                      
                         infinite-scroll
                         [infiniteScrollThrottle]="300"
                         (scrolled)="onScrollDown()">

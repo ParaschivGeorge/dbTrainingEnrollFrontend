@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
   openDialog(training: Training): void {
     this.userService.training = training;
-    this.userService.getEnrollmentsList().subscribe(result => {}, error=> {});
+    this.userService.getEnrollmentsList().subscribe(result => {}, error => {});
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(ManagerFormComponent, {
     });

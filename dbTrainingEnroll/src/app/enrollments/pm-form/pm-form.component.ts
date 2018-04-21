@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { UserService } from '../../user.service';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
+import { PmFormResponse } from './pm-from-response';
 
 @Component({
   selector: 'app-pm-form',
@@ -12,50 +13,56 @@ import { map } from 'rxjs/operators/map';
 })
 export class PmFormComponent implements OnInit {
 
-  managerForm: FormGroup;
+  pmForm: FormGroup;
   valid: boolean;
   filteredUsers: Observable<any[]>;
+  mail: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.managerForm = new FormGroup({
+    this.pmForm = new FormGroup({
       'users': new FormArray([])
     });
-    this.onAddUser();
-    // (<FormArray>this.managerForm.get(('users'))).get(0).
+
+    this.acceptUser(this.mail);
+    this.denyUser(this.mail);
+    this.userService.getPendingList().subscribe(
+      users => {
+        this.userService.accounts = users;
+        console.log( this.userService.accounts);
+      },
+      error => console.log('Error: ' + error)
+    );
   }
 
-  onAddUser() {
-    const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-    this.filteredUsers = control.valueChanges
-      .pipe(
-        startWith(''),
-        map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
-      );
-    (<FormArray>this.managerForm.get('users')).push(control);
-  }
+  acceptUser(mail: string) {
+    const data: PmFormResponse = new PmFormResponse;
+    data.mailUser = mail;
+    data.idTraining = this.userService.training.id;
+    data.status = 1;
 
-  checkEmployee(control: FormControl): {[s: string]: boolean} {
-    this.valid = false;
-    this.userService.accounts.forEach(user => {
-      if (user.email === control.value) {
-        this.valid = true;
-      }
+    console.log(data);
+    this.userService.postPendingList().subscribe(result => {
+
     });
-    if (this.valid) {
-      return null;
-    }
-    return {'notValidEmployee': true};
   }
 
-  filterUsers(name: string) {
-    return this.userService.accounts.filter(user =>
-      user.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  denyUser(mail: string) {
+    const data: PmFormResponse = new PmFormResponse;
+    data.mailUser = mail;
+    data.idTraining = this.userService.training.id;
+    data.status = 0;
+
+    console.log(data);
+
+    this.userService.postPendingList().subscribe(result => {
+
+    });
   }
 
   onSubmit() {
-    console.log(this.managerForm);
+    console.log(this.pmForm);
   }
 
 }
