@@ -73,6 +73,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTrainings(); 
+    this.getTrainings();
   }
 }

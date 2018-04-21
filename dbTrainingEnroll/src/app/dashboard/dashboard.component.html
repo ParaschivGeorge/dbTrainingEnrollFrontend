@@ -4,7 +4,7 @@
         <mat-tab label="All">
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-                    <div class="box" fxFlex="340px" *ngFor="let training of allTrainings" (click)="openDialog()" 
+                    <div class="box" fxFlex="340px" *ngFor="let training of allTrainings" (click)="openDialog(training)" 
                     infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(allTrainings, originalTrainings)">
                         <mat-card>
                             <mat-card-title>{{ training.technology }}</mat-card-title>
@@ -24,7 +24,7 @@
         <mat-tab label="Soft Skills">
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-                    <div class="box" fxFlex="340px" *ngFor="let training of softTrainings" (click)="openDialog()" 
+                    <div class="box" fxFlex="340px" *ngFor="let training of softTrainings" (click)="openDialog(training)" 
                     infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(softTrainings, allSoftTrainings)">
                         <mat-card>
                             <mat-card-title>{{ training.technology }}</mat-card-title>
@@ -44,7 +44,7 @@
         <mat-tab label="Technical">
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-                    <div class="box" fxFlex="340px" *ngFor="let training of techTrainings" (click)="openDialog()" 
+                    <div class="box" fxFlex="340px" *ngFor="let training of techTrainings" (click)="openDialog(training)" 
                     infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(techTrainings, allTechTrainings)">
                         <mat-card>
                             <mat-card-title>{{ training.technology }}</mat-card-title>
