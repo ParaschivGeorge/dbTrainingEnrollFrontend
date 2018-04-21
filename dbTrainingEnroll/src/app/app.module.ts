@@ -34,8 +34,7 @@ const appRoutes: Routes = [
     FooterComponent,
     DashboardComponent,
     EnrollmentsComponent,
-    ManagerFormComponent
-    SecondaryMenuComponent,
+    ManagerFormComponent,
     PmFormComponent
   ],
 
