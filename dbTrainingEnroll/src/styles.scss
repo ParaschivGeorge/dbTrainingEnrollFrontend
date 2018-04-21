@@ -91,10 +91,15 @@ button::after {
     background: $blue !important;
 }
 
+.mat-dialog-actions{
+    margin-bottom: 0 !important;
+    padding: 1em 1em 2.5em !important;
+}
+
 .mat-dialog-container {
     padding: 0 24px !important;
 }
 
-mat-tab-header {
-    margin: 0 1.25%;
+input.ng-invalid.ng-touched {
+    border: none !important;
 }
