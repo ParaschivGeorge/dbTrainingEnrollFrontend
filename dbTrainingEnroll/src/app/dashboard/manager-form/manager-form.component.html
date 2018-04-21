@@ -18,7 +18,7 @@
                   </mat-option>
                 </mat-autocomplete>                  
           </mat-form-field>
-          <button class="button add__button" type="button" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!userControl.valid"><mat-icon>add</mat-icon></button>
+          <button class="button add__button" type="button" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon>add</mat-icon></button>
           <button class="button remove__button" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon>remove</mat-icon></button>
         </div>      
       </div>     
