@@ -19,9 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
 import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
-import { SecondaryMenuComponent } from './secondary-menu/secondary-menu.component';
 import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
-
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent },
@@ -36,7 +34,7 @@ const appRoutes: Routes = [
     FooterComponent,
     DashboardComponent,
     EnrollmentsComponent,
-    ManagerFormComponent,
+    ManagerFormComponent
     SecondaryMenuComponent,
     PmFormComponent
   ],

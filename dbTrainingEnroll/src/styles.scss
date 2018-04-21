@@ -12,33 +12,28 @@
 
 body {
     min-height: 102vh;
-    background: linear-gradient(0deg, $dark-white 0%, $white 10%);    
-    /* font-family: $mono;
-    font-family: $sans-serif;
-    font-family: $serif; */
-
+    background: linear-gradient(0deg, rgba($dark-white, 1) 0%, $white 20%);    
     font-family: $sans-serif, $serif;
     margin: 0;
 }
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 7px rgba(black,0.1);
-    border-radius: 10px;
     background-color: $white;
 }
 
 ::-webkit-scrollbar {
     margin-top: 1%;
     margin-bottom: 1%;
-    width: 6px;
+    width: 0;
+    height: 0;
     background-color: $white;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 0;
     -webkit-box-shadow: inset 0 0 6px rgba(black,.1);
     background-color: $blue;
-
 }
 
 .mat-toolbar {
@@ -105,6 +100,6 @@ button::after {
     padding: 0 24px !important;
 }
 
-input.ng-invalid.ng-touched{
+input.ng-invalid.ng-touched {
     border: none !important;
 }

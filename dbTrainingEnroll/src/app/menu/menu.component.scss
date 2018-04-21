@@ -4,6 +4,9 @@
   height: 54px;
   min-height: 54px;
   max-height: 54px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
 .mat-toolbar-row img {
   height: 25px;
@@ -20,7 +23,7 @@
   }
 
   .mat-toolbar {
-    background: linear-gradient(45deg, rgba($dark-blue,1) 20%, rgba(50,60,127,1) 100%); /* w3c */
+    background: linear-gradient(45deg, rgba($dark-blue, .95) 20%, rgba($purple, .95) 100%); /* w3c */
     color: $white;
     box-shadow: 0 1px 6px rgba(black, .15), 0 5px 25px rgba(black, .2);
   }

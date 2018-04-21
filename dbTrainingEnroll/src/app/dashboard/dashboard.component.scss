@@ -6,8 +6,8 @@
 }
 
 .main {
-    padding: 20px;
-    margin: 20px auto 0 auto;   
+    padding: 10px;
+    margin: 70px auto 0 auto;   
 }
 
 h1 {
@@ -22,14 +22,13 @@ h1 {
     height: 36px;
 }
 
-form {
-    position: absolute;
-    top: 0;
-    right: 10px;
+.container {
+    padding: 20px 0;
 }
 
 .container .mat-card {
     margin: 15px 0;
+    height: 90px;
     padding: 50px 10px;
     background: linear-gradient(-135deg, #FCFCFC 0%, $white 100%);
     color: #062140;
@@ -64,7 +63,7 @@ form {
 }
 
 .mat-card hr {
-    width: 15%;
+    width: 10%;
     margin: 5px 0 5px 10px;
     background: $dark-blue;
     height: 1px;
@@ -125,6 +124,17 @@ form {
     font-weight: 500;
     letter-spacing: 1px;
     color: rgba(120,20,30,1);
+}
+
+.duration {
+    position: absolute;
+    bottom: 20px;
+    letter-spacing: 0;
+    font-size: 13px;
+    left: 20px;
+    text-transform: uppercase;
+    top: initial;
+    right: initial;
 }
 
 @media screen and (max-width: 1200px) {
