@@ -25,9 +25,6 @@ export class PmFormComponent implements OnInit {
     this.pmForm = new FormGroup({
       'users': new FormArray([])
     });
-
-    this.acceptUser(this.mail);
-    this.denyUser(this.mail);
     this.userService.getPendingList().subscribe(
       users => {
         this.userService.accounts = users;
@@ -38,6 +35,8 @@ export class PmFormComponent implements OnInit {
   }
 
   acceptUser(mail: string) {
+    let existingUser = this.modelList.find(el => el.mailUser === mail);
+    console.log(existingUser);
     const data: PmFormResponse = new PmFormResponse;
     data.mailUser = mail;
     data.idTraining = this.userService.training.id;
@@ -59,6 +58,7 @@ export class PmFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.userService.modelList = this.modelList;
     this.userService.postPendingList().subscribe(result => { });
   }
 

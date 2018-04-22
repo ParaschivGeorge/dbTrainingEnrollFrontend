@@ -10,7 +10,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Injectable()
 export class ApiService {
 
-  private _URL = 'https://db-training-enroll.herokuapp.com/trainings/';
+  private _URL = 'https://db-training-enroll.herokuapp.com/trainings';
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/pendingTrainings';
 

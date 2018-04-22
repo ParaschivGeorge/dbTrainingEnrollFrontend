@@ -21,7 +21,7 @@ export class EnrollmentsComponent implements OnInit {
     this.apiService.getEnrollmentsList()
     .subscribe(
       result => this.trainings = result,
-      error => console.log('Error: ' + error));
+      error => console.log(error));
   }
 
   openDialog(training: Training): void {

@@ -8,7 +8,7 @@
         <p class="p__train_date">{{ userService.training.date }}</p>
       </div>
       <div formArrayName="users" class="enrollment-form">
-          <div *ngFor="let user of userService.accounts; let i = index" class="pending-form">
+          <div *ngFor="let user of userService.accounts" class="pending-form">
             <div class="pending-form-part">
                 <p class="minip__train">Participant e-mail address</p>
                 <p class="p__train">{{ user.mail }}</p>
