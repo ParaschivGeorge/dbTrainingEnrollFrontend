@@ -5,7 +5,6 @@ import { Training } from './training';
 import { NgModule, VERSION } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng4LoadingSpinnerModule, Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +17,5 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    firebase.initializeApp({
-    apiKey: 'AIzaSyCFcM80Ag9NzXBBnOtvcmNSk5n7CFnxxVY',
-    authDomain: 'db-training-enrollment.firebaseapp.com'
-    });
   }
 }

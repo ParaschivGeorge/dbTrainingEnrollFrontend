@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
-    private spinnerService: Ng4LoadingSpinnerService,
+    protected spinnerService: Ng4LoadingSpinnerService,
     private userService: UserService) {}
 
   openDialog(training: Training): void {
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getTrainings(): void {
-    this.spinnerService.show(),
+    this.spinnerService.show();
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -73,6 +73,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinnerService.show();
     this.getTrainings();
   }
 }

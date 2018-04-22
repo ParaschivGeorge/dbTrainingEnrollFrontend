@@ -8,6 +8,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
 import { DashboardComponent } from './dashboard.component';
+import { AuthService } from '../auth.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { DashboardComponent } from './dashboard.component';
     FormsModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [AuthService],
   exports: [
     DashboardComponent, ManagerFormComponent
   ],
