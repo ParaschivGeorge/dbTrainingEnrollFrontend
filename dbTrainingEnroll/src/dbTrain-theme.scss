@@ -1,0 +1,14 @@
+@import '../node_modules/@angular/material/theming';
+@import "~custom-pallette.scss";
+
+@include mat-core();
+
+$dbTrain-theme-primary: mat-palette($mat-deepblue);
+$dbTrain-theme-accent: mat-palette($mat-accentaqua, A200, A100, A400);
+$dbTrain-theme-warn: mat-palette($mat-warningfire);
+
+
+$dbTrain-theme: mat-light-theme($dbTrain-theme-primary, $dbTrain-theme-accent, $dbTrain-theme-warn);
+
+@include angular-material-theme($dbTrain-theme);
+@include mat-tabs-theme($dbTrain-theme);
