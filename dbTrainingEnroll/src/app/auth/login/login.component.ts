@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   private router: Router) { }
 
   ngOnInit() {
+  
   }
 
   onLogin(form: NgForm) {
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userToken', data.token);
         console.log(data.token);
         this.router.navigate(['/enrollments']);
+        form.resetForm();
       },
       (error: HttpErrorResponse) => {
         this.isLoginError = true;

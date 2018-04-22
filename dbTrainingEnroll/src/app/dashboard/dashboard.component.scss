@@ -17,9 +17,18 @@ h1 {
     letter-spacing: 1px;
     line-height: normal;
     margin-left: 5px;
-    text-shadow: -2px 2px 5px rgba(black, .05);
+    text-shadow: 2px 2px 5px rgba(black, .05);
     color: $dark-blue;
     height: 36px;
+}
+
+.title {
+    margin: 14px 0 24px 0 !important;
+    display: block;
+    text-align: center;
+    margin: auto;
+    text-shadow: 2px 2px 5px rgba(black, .15);
+    text-transform: uppercase;
 }
 
 .container {
@@ -31,7 +40,7 @@ h1 {
     height: 90px;
     padding: 50px 10px;
     color: #062140;
-    box-shadow: -3px 3px 6px rgba(black, .15), 0 12px 30px -14px rgba(black, .7);
+    box-shadow: 3px 3px 6px rgba(black, .15), 0 12px 30px -14px rgba(black, .7);
     text-align: center;
     border-radius: 0;   
 }

@@ -23,9 +23,10 @@
   }
 
   .mat-toolbar {
-    background: linear-gradient(45deg, rgba(10, 60, 117, 0.95) 20%, rgba(50, 60, 127, 0.95) 100%);
+    background: linear-gradient(-45deg, rgba($darkest-blue, 0.95) 0%, rgba(50, 60, 127, 0.95) 100%);
+    box-shadow: 0 10px 20px -12px rgba($darkest-blue, .7);
     color: $white;
-    box-shadow: 0 1px 6px rgba(black, .15), 0 5px 25px rgba(black, .2);
+    // box-shadow: 0 1px 6px rgba(black, .15), 0 5px 25px rgba(black, .2);
   }
   
   .page-title {
@@ -35,7 +36,7 @@
   }
 
   button {
-    // background: linear-gradient(45deg, rgba(211,62,75,.95) 0%, rgba(204,53,73,.95) 100%);
+    background: linear-gradient(45deg, rgba(211,62,75,.95) 0%, rgba(204,53,73,.95) 100%);
     color: $button-white;
     margin: 0 10px;
     padding: 0 30px;
@@ -43,7 +44,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: $sans-serif;
-    text-shadow: -1px 2px 3px rgba(black, .4);
+    text-shadow: 1px 2px 3px rgba(black, .4);
   }
 
   button::after {

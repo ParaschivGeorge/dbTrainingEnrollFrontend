@@ -39,7 +39,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getTrainings(): void {
-    this.spinnerService.show();
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -52,11 +51,9 @@ export class DashboardComponent implements OnInit {
       } ,
       error => console.log('Error: ' + error)
     );
-    this.spinnerService.hide();
   }
 
   onScrollDown(all: Training[], original: Training[]) {
-    this.spinnerService.show();
     if (all.length < original.length - 4) {
       const len = all.length;
       console.log(len);
@@ -69,11 +66,9 @@ export class DashboardComponent implements OnInit {
     for (let j = all.length; j <= original.length - 1; j ++) {
       all.push(original[j]);
     }
-    this.spinnerService.hide();
   }
 
   ngOnInit(): void {
-    this.spinnerService.show();
     this.getTrainings();
   }
 }
