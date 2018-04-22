@@ -30,36 +30,49 @@ export class PmFormComponent implements OnInit {
         this.userService.accounts = users;
         console.log( this.userService.accounts);
       },
-      error => console.log('Error: ' + error)
+      error => console.log(error)
     );
   }
 
   acceptUser(mail: string) {
     let existingUser = this.modelList.find(el => el.mailUser === mail);
     console.log(existingUser);
-    const data: PmFormResponse = new PmFormResponse;
-    data.mailUser = mail;
-    data.idTraining = this.userService.training.id;
-    data.status = 1;
 
-    this.modelList.push(data);
+    if (existingUser) {
+      existingUser.status = 1;
+    } else {
+      const data: PmFormResponse = new PmFormResponse;
+      data.mailUser = mail;
+      data.idTraining = this.userService.training.id;
+      data.status = 1;
+  
+      this.modelList.push(data);
+    }
 
     console.log(this.modelList);
   }
 
   denyUser(mail: string) {
-    const data: PmFormResponse = new PmFormResponse;
-    data.mailUser = mail;
-    data.idTraining = this.userService.training.id;
-    data.status = 0;
+    let existingUser = this.modelList.find(el => el.mailUser === mail);
 
-    this.modelList.push(data);
+    if (existingUser) {
+      existingUser.status = 0;
+    } else {
+      const data: PmFormResponse = new PmFormResponse;
+      data.mailUser = mail;
+      data.idTraining = this.userService.training.id;
+      data.status = 0;
+
+      this.modelList.push(data);
+    }
 
   }
 
   onSubmit() {
     this.userService.modelList = this.modelList;
-    this.userService.postPendingList().subscribe(result => { });
+    this.userService.postPendingList().subscribe(result => {
+      this.userService.closeDialog.emit();
+     });
   }
 
 }
