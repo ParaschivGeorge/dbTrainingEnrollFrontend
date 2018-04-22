@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
-    protected spinnerService: Ng4LoadingSpinnerService,
-    private userService: UserService) {}
+    private userService: UserService,
+    private spinnerService: Ng4LoadingSpinnerService) {}
 
   openDialog(training: Training): void {
     this.userService.training = training;
@@ -35,10 +35,10 @@ export class DashboardComponent implements OnInit {
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(ManagerFormComponent, {
     });
-
   }
 
   getTrainings(): void {
+    this.spinnerService.show();    
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -48,12 +48,14 @@ export class DashboardComponent implements OnInit {
         this.softTrainings = this.allSoftTrainings.slice(0, 8),
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
+        this.spinnerService.hide();
       } ,
       error => console.log('Error: ' + error)
     );
   }
 
   onScrollDown(all: Training[], original: Training[]) {
+    this.spinnerService.show();        
     if (all.length < original.length - 4) {
       const len = all.length;
       console.log(len);
@@ -66,6 +68,7 @@ export class DashboardComponent implements OnInit {
     for (let j = all.length; j <= original.length - 1; j ++) {
       all.push(original[j]);
     }
+    this.spinnerService.hide();    
   }
 
   ngOnInit(): void {

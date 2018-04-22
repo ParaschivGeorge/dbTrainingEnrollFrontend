@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,15 @@ export class LoginComponent implements OnInit {
   isLoginError = false;
 
   constructor(private authService: AuthService,
-  private router: Router) { }
+  private router: Router,
+  private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
   
   }
 
   onLogin(form: NgForm) {
+    this.spinnerService.show();
     const username = form.value.username;
     const password = form.value.password;
 
@@ -31,9 +34,11 @@ export class LoginComponent implements OnInit {
         console.log(data.token);
         this.router.navigate(['/enrollments']);
         form.resetForm();
+        this.spinnerService.hide();
       },
       (error: HttpErrorResponse) => {
         this.isLoginError = true;
+        this.spinnerService.hide();
         console.log('error');
       }), console.error();
 

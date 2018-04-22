@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
 import { DashboardComponent } from './dashboard.component';
 import { AuthService } from '../auth.service';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { AuthService } from '../auth.service';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [AuthService],
   exports: [

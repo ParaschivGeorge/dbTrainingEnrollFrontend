@@ -4,6 +4,7 @@ import { Training } from '../training';
 import { PmFormComponent } from './pm-form/pm-form.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../user.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-enrollments',
@@ -15,13 +16,18 @@ export class EnrollmentsComponent implements OnInit {
   trainings: Training[];
   originalTrainings: Training[];
 
-  constructor(private apiService: ApiService, public dialog: MatDialog, private userService: UserService) { }
+  constructor(private apiService: ApiService, 
+    public dialog: MatDialog, 
+    private userService: UserService,
+    private spinnerService: Ng4LoadingSpinnerService) { }
 
   getEnrollmentsList(): void {
+    this.spinnerService.show();
     this.apiService.getEnrollmentsList()
     .subscribe(
       result => this.trainings = result,
       error => console.log(error));
+      this.spinnerService.hide();
   }
 
   openDialog(training: Training): void {
@@ -34,6 +40,7 @@ export class EnrollmentsComponent implements OnInit {
   }
 
   onScrollDown() {
+    this.spinnerService.show();    
     if (this.trainings.length < this.originalTrainings.length - 4) {
       const len = this.trainings.length;
       console.log(len);
@@ -46,6 +53,7 @@ export class EnrollmentsComponent implements OnInit {
     for (let j = this.trainings.length; j <= this.originalTrainings.length - 1; j ++) {
       this.trainings.push(this.originalTrainings[j]);
     }
+    this.spinnerService.hide();
   }
 
   ngOnInit() {

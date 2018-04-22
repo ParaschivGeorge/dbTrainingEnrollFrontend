@@ -8,6 +8,7 @@ import { PmFormComponent } from './pm-form/pm-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { EnrollmentsComponent } from '../enrollments/enrollments.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    Ng4LoadingSpinnerModule.forRoot()    
   ],
   providers: [],
   exports: [
