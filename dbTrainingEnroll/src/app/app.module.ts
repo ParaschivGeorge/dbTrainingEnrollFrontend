@@ -20,11 +20,14 @@ import { ManagerFormComponent } from './dashboard/manager-form/manager-form.comp
 import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent },
   { path: 'trainings', component: DashboardComponent },
   { path: '', redirectTo: '/trainings', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
@@ -35,7 +38,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     EnrollmentsComponent,
     ManagerFormComponent,
-    PmFormComponent
+    PmFormComponent,
+    LoginComponent
   ],
 
   imports: [
@@ -45,13 +49,13 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    HttpModule,
+    // HttpModule, (Deprecated)
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent],
-  providers: [UserService],
+  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

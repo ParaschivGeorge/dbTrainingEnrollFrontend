@@ -5,4 +5,5 @@ export interface Training {
     duration: number;
     technology: string;
     categoryType: string;
+    acceptedUsers: number;
 }

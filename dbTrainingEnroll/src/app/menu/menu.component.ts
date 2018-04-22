@@ -5,6 +5,8 @@ import { ApiService } from '../api.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { LoginComponent } from '../auth/login/login.component';
 
 @Component({
   selector: 'app-menu',
@@ -19,9 +21,15 @@ export class MenuComponent implements OnInit {
 
   constructor(private enrollmentsComponent: EnrollmentsComponent,
     private dashboardComponent: DashboardComponent,
-    public router: Router) { }
+    public router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openLogin(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+    });
   }
 
 }
