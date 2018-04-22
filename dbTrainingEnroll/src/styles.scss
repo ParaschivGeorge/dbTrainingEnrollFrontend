@@ -107,6 +107,12 @@ input.ng-invalid.ng-touched {
     margin: 0 2.5%;
 }
 
+.mat-tab-label-content{
+    font-family: 'Montserrat', $sans-serif;
+    font-size: 16px;
+    color: $dark-blue;
+}
+
 .login {
     padding: 40px 40px 10px 40px !important;
     background: #08125b;
