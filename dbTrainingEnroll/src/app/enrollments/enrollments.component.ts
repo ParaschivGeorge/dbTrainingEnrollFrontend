@@ -13,6 +13,11 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   providers: [ApiService]
 })
 export class EnrollmentsComponent implements OnInit {
+  allTrainings: Training[];
+  softTrainings: Training[];
+  allSoftTrainings: Training[];
+  techTrainings: Training[];
+  allTechTrainings: Training[];
   trainings: Training[];
   originalTrainings: Training[];
 
@@ -25,9 +30,17 @@ export class EnrollmentsComponent implements OnInit {
     this.spinnerService.show();
     this.apiService.getEnrollmentsList()
     .subscribe(
-      result => this.trainings = result,
-      error => console.log(error));
-      this.spinnerService.hide();
+      result => {
+        this.originalTrainings = result,
+        this.allTrainings = this.originalTrainings.slice(0, 8),
+        this.allSoftTrainings = this.originalTrainings.filter(data => data.categoryType === 'SOFT'),
+        this.softTrainings = this.allSoftTrainings.slice(0, 8),
+        this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
+        this.techTrainings = this.allTechTrainings.slice(0, 8);
+        this.spinnerService.hide();
+      } ,
+      error => console.log('Error: ' + error)
+    );
   }
 
   openDialog(training: Training): void {
