@@ -4,7 +4,7 @@
       <div>
         <h2 class="h1__train">Enrollments</h2>
         <h2 class="h2__train">{{ userService.training.name }}</h2>
-        <h3 class="h3__train"> TODO: technology<!--{{ userService.training.technology }}--></h3>
+        <h3 class="h3__train"> {{ userService.training.technology }}</h3>
         <p class="p__train_date">{{ userService.training.startDate }}</p>
         <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.numberOfParticipants }}</strong></h3>
         <h3 class="h3__train">You can add <strong class="participant__mark">{{ _MAX_NUMBER - formLength }}</strong> more participants</h3>

@@ -131,18 +131,20 @@ mat-icon{
 .clear__button{
     padding: 0;
     background: transparent;
-    color: $dark-blue;
-    margin: .75em 0 0;
     color: #CC3549;
 }
 
 .check__button{
     padding: 0;
     background: transparent;
-    color: $dark-blue;
-    margin: .75em 1em 0 0;
     color: $bright-blue;
     
+}
+
+.check__buton_checked{
+    padding: 0;
+    background: #78c6e2;
+    color: $bright-blue;
 }
 
 .approve-buttons{
