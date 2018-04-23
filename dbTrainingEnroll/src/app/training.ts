@@ -2,7 +2,7 @@ export interface Training {
     id: number;
     name: string;
     date: string;
-    duration: number;
+    duration: string;
     technology: string;
     categoryType: string;
     acceptedUsers: number;
