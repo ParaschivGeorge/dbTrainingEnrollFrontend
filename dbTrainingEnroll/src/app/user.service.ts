@@ -33,11 +33,11 @@ export class UserService {
     private authService: AuthService) {}
 
   getEnrollmentsList(): Observable<User[]> {
-    return this.http.post<User[]>(this._ENROLL_URL, {email: 'garyjb@verizon.net', id: this.training.id});
+    return this.http.post<User[]>(this._ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
   }
 
   getPendingList(): Observable<User[]> {
-    return this.http.post<User[]>(this._PENDING_ULR, {email: 'twoflower@optonline.net', id: this.training.id});
+    return this.http.post<User[]>(this._PENDING_ULR, {email: this.currentUser.email, id: this.training.id});
   }
 
   postPendingList(): Observable<Object> {
