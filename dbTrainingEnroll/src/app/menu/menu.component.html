@@ -5,13 +5,14 @@
       <span class="page-title">DB Training Enrollment</span>
     </a>
     <span class="example-spacer"></span>
-    <a routerLink="/enrollments"> 
+    <a routerLink="/enrollments" *ngIf="userService.currentUser.type === 'PM'"> 
       <button mat-raised-button *ngIf="router.url === '/trainings'">Enrollments</button>
     </a>       
     <a routerLink="/trainings"> 
       <button mat-raised-button *ngIf="router.url === '/enrollments'">Trainings</button>
     </a>       
-    <button mat-raised-button (click) = 'openLogin()'>Log In</button>   
+    <button mat-raised-button (click) = 'openLogin()' *ngIf="!userService.currentUser.token">Log In</button>   
+    <button mat-raised-button (click) = 'logout()' *ngIf="userService.currentUser.token">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
   

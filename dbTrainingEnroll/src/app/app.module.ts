@@ -4,9 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
-
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -22,9 +21,12 @@ import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
+import { AuthInterceptor } from './auth.interceptor';
+import { LoggingInterceptor } from './logging.interceptor';
 
 const appRoutes: Routes = [
-  { path: 'enrollments', component: EnrollmentsComponent },
+  { path: 'enrollments', component: EnrollmentsComponent, canActivate: [AuthGuard] },
   { path: 'trainings', component: DashboardComponent },
   { path: '', redirectTo: '/trainings', pathMatch: 'full' },
   { path: 'login', component: LoginComponent }
@@ -55,7 +57,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, AuthGuard,
+     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+     {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
