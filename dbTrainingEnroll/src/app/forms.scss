@@ -89,7 +89,7 @@ button:disabled {
 }
 
 .enrollment-field{
-    width: 90%;
+    width: 80%;
     margin: .5em 0;
 }
 
@@ -128,23 +128,8 @@ mat-icon{
     font-weight: 500;
 }
 
-.clear__button{
-    padding: 0;
-    background: transparent;
-    color: #CC3549;
-}
-
-.check__button{
-    padding: 0;
-    background: transparent;
-    color: $bright-blue;
-    
-}
-
-.check__buton_checked{
-    padding: 0;
-    background: #78c6e2;
-    color: $bright-blue;
+.align-icon{
+    margin-right: 0.3em;
 }
 
 .approve-buttons{
@@ -159,6 +144,15 @@ mat-icon{
 
 .check-btn{
     margin-right: .7em;
+}
+
+.button__manager-form{
+    display: inline-flex;
+    justify-content: flex-end;
+    float: right;
+    margin: 0;
+    padding: 0;
+    transition: .1s cubic-bezier(.56,.05,.83,.67);
 }
 
 .pending-form-part{
