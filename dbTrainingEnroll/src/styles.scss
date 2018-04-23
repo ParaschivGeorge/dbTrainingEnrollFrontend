@@ -242,4 +242,18 @@ input:-webkit-autofill {
     .page-title {
         display: none !important;
     }
+    .mat-tab-group {
+        width: 100vw;
+        margin-left: -10px;
+    }
+    .mat-tab-header {
+        margin: 0;
+    }
+    .container {
+        margin: 0;
+        flex: 100%;
+    }
+    .mat-card {
+        width: 90vw;
+    }
 }

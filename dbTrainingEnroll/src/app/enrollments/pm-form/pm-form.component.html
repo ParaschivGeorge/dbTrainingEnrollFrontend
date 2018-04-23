@@ -15,7 +15,6 @@
                 <p class="p__train">{{ user.mail }}</p>
             </div>
             <div class="approve-buttons">
-
               <mat-radio-group class="radio-group">
                 <mat-radio-button class="check-btn" color="accent" (click)="acceptUser(user.mail)" value="accept">Accept</mat-radio-button>
                 <mat-radio-button color="warn" (click)="denyUser(user.mail)" value="deny">Deny</mat-radio-button>
