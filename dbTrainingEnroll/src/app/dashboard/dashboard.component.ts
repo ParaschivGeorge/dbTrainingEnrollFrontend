@@ -17,12 +17,12 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   animations: [
     trigger('loadingAnimation', [
       state('loaded', style({
-        opacity: 1
+        opacity: 1,
       })),
       state('notLoaded', style({
         opacity: 0,
       })),
-      transition('notLoaded => loaded', animate('500ms ease'))
+      transition('notLoaded => loaded', animate('2500ms ease'))
     ]),
   ]
 })
