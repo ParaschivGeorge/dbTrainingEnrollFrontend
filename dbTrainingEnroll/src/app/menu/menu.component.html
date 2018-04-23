@@ -9,7 +9,7 @@
       <button mat-raised-button *ngIf="router.url === '/trainings'">Enrollments</button>
     </a>       
     <a routerLink="/trainings"> 
-      <button mat-raised-button *ngIf="router.url === '/enrollments'">Trainings</button>
+      <button mat-raised-button color="warn" *ngIf="router.url === '/enrollments'">Trainings</button>
     </a>       
     <button mat-raised-button (click) = 'openLogin()' *ngIf="!userService.currentUser.token">Log In</button>   
     <button mat-raised-button (click) = 'logout()' *ngIf="userService.currentUser.token">Log Out</button>

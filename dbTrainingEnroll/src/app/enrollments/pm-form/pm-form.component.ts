@@ -18,6 +18,7 @@ export class PmFormComponent implements OnInit {
   filteredUsers: Observable<any[]>;
   mail: string;
   modelList: PmFormResponse[] = [];
+  buttonIsClicked: boolean = false;
 
   constructor(private userService: UserService) { }
 
@@ -73,6 +74,15 @@ export class PmFormComponent implements OnInit {
     this.userService.postPendingList().subscribe(result => {
       this.userService.closeDialog.emit();
      });
+  }
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnDestroy(): void {
+    this.userService.accounts = [];
+  }
+
+  buttonClicked() {
+    return this.buttonIsClicked === true;
   }
 
 }
