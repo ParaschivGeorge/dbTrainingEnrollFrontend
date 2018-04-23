@@ -7,11 +7,11 @@
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
                     <div class="box" fxFlex="340px" *ngFor="let training of allTrainings" (click)="openDialog(training)" 
                     infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(allTrainings, originalTrainings)">
-                        <mat-card>
+                        <mat-card [@loadingAnimation]='state' (@loadingAnimation.done)='state.done'>
                             <mat-card-title>{{ training.technology }}</mat-card-title>
                             <hr>
-                            <div class="number free" *ngIf="training.acceptedUsers !== '0'">OPEN</div>
-                            <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
+                            <div class="number free" *ngIf="training.acceptedUsers !== 15">{{training.acceptedUsers}}/15</div>
+                            <div class="number full" *ngIf="training.acceptedUsers === 15">FULL</div>
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
                             <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Training } from '../training';
@@ -7,12 +7,24 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { UserService } from '../user.service';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [ApiService]
+  providers: [ApiService],
+  animations: [
+    trigger('loadingAnimation', [
+      state('loaded', style({
+        opacity: 1
+      })),
+      state('notLoaded', style({
+        opacity: 0,
+      })),
+      transition('notLoaded => loaded', animate('500ms ease'))
+    ]),
+  ]
 })
 export class DashboardComponent implements OnInit {
   allTrainings: Training[];
@@ -23,6 +35,7 @@ export class DashboardComponent implements OnInit {
   enrollmentsTrainings: Training[];
   name: string;
   originalTrainings: Training[];
+  state = 'notLoaded';
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
@@ -42,6 +55,7 @@ export class DashboardComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
+    this.state = 'notLoaded';
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -51,6 +65,7 @@ export class DashboardComponent implements OnInit {
         this.softTrainings = this.allSoftTrainings.slice(0, 8),
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
+        this.state = 'loaded';
         this.spinnerService.hide();
       } ,
       error => console.log('Error: ' + error)
