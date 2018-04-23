@@ -15,7 +15,7 @@
           <mat-form-field class="enrollment-field">
                 <input type="text" placeholder="Participant e-mail address" aria-label="Number" matInput  [formControlName]="i" [matAutocomplete]="auto">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.mail">
+                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.email">
                   <strong>{{ user.name }} </strong>{{ user.mail }}
                   </mat-option>
                 </mat-autocomplete>                  
