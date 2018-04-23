@@ -9,7 +9,7 @@ import { PmFormResponse } from './pm-from-response';
 @Component({
   selector: 'app-pm-form',
   templateUrl: './pm-form.component.html',
-  styleUrls: ['./pm-form.component.scss']
+  styleUrls: ['../../forms.scss']
 })
 export class PmFormComponent implements OnInit {
 

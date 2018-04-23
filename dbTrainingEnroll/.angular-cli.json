@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "img/favicon.ico"
+        "img/favicon.ico",
+        "img/logo.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,7 +21,8 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "dbTrain-theme.scss"
+        "dbTrain-theme.scss",
+        "img/logo.ico"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

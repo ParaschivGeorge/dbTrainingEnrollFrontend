@@ -12,33 +12,6 @@ div.enrollForm {
     width: 100%;
 }
 
-.button{
-    position: relative;
-    display: block;
-    margin: 0;
-    float: right;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: none;
-    text-align: center;
-    font-weight: 500;
-}
-
-.add__button {
-    padding: 0;
-    background: transparent;
-    color: $dark-blue;
-    margin: .75em 0 0;
-}
-
-.remove__button {
-    padding: 0;
-    background: transparent;
-    color: red;
-    margin: .75em 0 0;
-}
-
 button::after{
     box-shadow: none;
 }
@@ -46,14 +19,10 @@ button::after{
 .submit__button{
     background: $dark-blue;
     color: $bright-white;
-    float: right;
     margin: 0;
     padding: 1em 1.5em;
     font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     font-family: $sans-serif;
-    text-shadow: none;
 }
 
 span {
@@ -74,7 +43,7 @@ button:disabled {
     font-size: 30px;
     color:  $dark-blue;
     line-height: 38px;
-    margin-bottom: 1em;
+    margin-bottom: 15px;
 }
 
 .h2__train{
@@ -126,4 +95,72 @@ button:disabled {
 
 mat-icon{
     font-size: 28px;
+}
+
+.minip__train{
+    font-size: 11px;
+    line-height: 15px;
+    color: $dark-blue;
+    font-family: 'Raleway', sans-serif;
+}
+
+.p__train{
+    font-size: 17px;
+    line-height: 24px;
+    margin-top: .2em;
+    font-family: 'Raleway', sans-serif;
+}
+
+.pending-form{
+    margin: 1.3em 0;
+}
+
+.button{
+    position: relative;
+    display: block;
+    margin: 0;
+    float: right;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: none;
+    text-align: center;
+    font-weight: 500;
+}
+
+.clear__button{
+    padding: 0;
+    background: transparent;
+    color: $dark-blue;
+    margin: .75em 0 0;
+    color: #CC3549;
+}
+
+.check__button{
+    padding: 0;
+    background: transparent;
+    color: $dark-blue;
+    margin: .75em 1em 0 0;
+    color: $bright-blue;
+    
+}
+
+.approve-buttons{
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    float: right;
+}
+
+.pending-form-part{
+    width: 80%;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+hr {
+    height: 1px;
+    background: $darkest-blue;
+    width: 20px;
+    margin: 5px 0;
 }

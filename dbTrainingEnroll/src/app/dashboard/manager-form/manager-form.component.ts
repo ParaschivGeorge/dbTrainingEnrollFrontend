@@ -11,7 +11,7 @@ import { ManagerFormResponse } from './manager-form-response';
 @Component({
   selector: 'app-manager-form',
   templateUrl: './manager-form.component.html',
-  styleUrls: ['./manager-form.component.scss'],
+  styleUrls: ['../../forms.scss'],
 })
 export class ManagerFormComponent implements OnInit, OnDestroy {
   _MAX_NUMBER = 15;
