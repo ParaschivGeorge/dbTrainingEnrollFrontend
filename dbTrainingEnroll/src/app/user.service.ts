@@ -10,6 +10,7 @@ import { User } from './user';
 import { PmFormResponse } from './enrollments/pm-form/pm-from-response';
 import { AuthService } from './auth.service';
 import { Userdata } from './auth/login/userData';
+import { UserDto } from './userDto';
 
 @Injectable()
 export class UserService {
@@ -21,7 +22,7 @@ export class UserService {
   private _USER_DATA_URL = this._BASE_URL + '/getUserData';
 
   training: Training;
-  accounts: User[] = [];
+  accounts: UserDto[] = [];
   data: Object;
   modelList: Array<PmFormResponse>;
   closeDialog = new EventEmitter<boolean>();
@@ -32,12 +33,12 @@ export class UserService {
     spinnerService: Ng4LoadingSpinnerService,
     private authService: AuthService) {}
 
-  getEnrollmentsList(): Observable<User[]> {
-    return this.http.post<User[]>(this._ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
+  getEnrollmentsList(): Observable<UserDto[]> {
+    return this.http.post<UserDto[]>(this._ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
   }
 
-  getPendingList(): Observable<User[]> {
-    return this.http.post<User[]>(this._PENDING_ULR, {email: this.currentUser.email, id: this.training.id});
+  getPendingList(): Observable<UserDto[]> {
+    return this.http.post<UserDto[]>(this._PENDING_ULR, {email: this.currentUser.email, id: this.training.id});
   }
 
   postPendingList(): Observable<Object> {

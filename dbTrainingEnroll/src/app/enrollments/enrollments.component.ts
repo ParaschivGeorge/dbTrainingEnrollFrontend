@@ -52,19 +52,19 @@ export class EnrollmentsComponent implements OnInit {
     });
   }
 
-  onScrollDown() {
+  onScrollDown(all: Training[], original: Training[]) {
     this.spinnerService.show();
-    if (this.trainings.length < this.originalTrainings.length - 4) {
-      const len = this.trainings.length;
+    if (all.length < original.length - 4) {
+      const len = all.length;
       console.log(len);
 
       for (let i = len; i <= len + 4; i ++) {
-        this.trainings.push(this.originalTrainings[i]);
+        all.push(original[i]);
       }
     }
 
-    for (let j = this.trainings.length; j <= this.originalTrainings.length - 1; j ++) {
-      this.trainings.push(this.originalTrainings[j]);
+    for (let j = all.length; j <= original.length - 1; j ++) {
+      all.push(original[j]);
     }
     this.spinnerService.hide();
   }

@@ -150,12 +150,19 @@ mat-icon{
 .approve-buttons{
     display: flex;
     justify-content: flex-end;
-    width: 20%;
     float: right;
 }
 
+.radio-group{
+    margin-top: .9em !important;
+}
+
+.check-btn{
+    margin-right: .7em;
+}
+
 .pending-form-part{
-    width: 80%;
+    width: 70%;
     display: inline-flex;
     flex-direction: column;
 }
