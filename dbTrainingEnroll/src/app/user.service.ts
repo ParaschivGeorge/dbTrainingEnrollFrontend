@@ -9,14 +9,16 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { User } from './user';
 import { PmFormResponse } from './enrollments/pm-form/pm-from-response';
 import { AuthService } from './auth.service';
+import { Userdata } from './auth/login/userData';
 
 @Injectable()
 export class UserService {
-
-  private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/subordinates?Authorization=';
-  private _RESULT_ULR = 'https://db-training-enroll.herokuapp.com/subordinatesResult';
-  private _PENDING_ULR = 'https://db-training-enroll.herokuapp.com/pendingUsers';
-  private _PENDING_RESULT_ULR = 'https://db-training-enroll.herokuapp.com/approveList';
+  private _BASE_URL =  'https://db-training-enroll.herokuapp.com';
+  private _ENROLL_URL = this._BASE_URL + '/subordinates';
+  private _RESULT_ULR = this._BASE_URL + '/subordinatesResult';
+  private _PENDING_ULR = this._BASE_URL + '/pendingUsers';
+  private _PENDING_RESULT_ULR = this._BASE_URL + '/approveList';
+  private _USER_DATA_URL = this._BASE_URL + '/getUserData';
 
   training: Training;
   accounts: User[] = [];
@@ -24,10 +26,7 @@ export class UserService {
   modelList: Array<PmFormResponse>;
   closeDialog = new EventEmitter<boolean>();
 
-  currentUser = {
-    name: 'Manager',
-    email: 'manager@gmail.com'
-  };
+  currentUser = new User;
 
   constructor(private http: HttpClient,
     spinnerService: Ng4LoadingSpinnerService,
@@ -51,5 +50,9 @@ export class UserService {
 
   postEnrollmentsList(): Observable<Object> {
     return this.http.post(this._RESULT_ULR, this.data);
+  }
+
+  postUserData(): Observable<Userdata> {
+    return this.http.post<Userdata>(this._USER_DATA_URL, {email: this.currentUser.email});
   }
 }

@@ -66,7 +66,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   checkEmployee(control: FormControl): {[s: string]: boolean} {
     this.valid = false;
     this.userService.accounts.forEach(user => {
-      if (user.mail === control.value) {
+      if (user.email === control.value) {
         this.valid = true;
       }
     });
