@@ -1,6 +1,11 @@
 {
- "name": "App",
- "icons": [
+  "name": "DB Enrollment",
+  "short_name": "DB",
+  "description": "DB App for managing trainings attendees.",
+  "start_url": "/trainings",
+  "background_color": "#08125b",
+  "theme_color": "#08125b",
+  "icons": [
   {
    "src": "\/android-icon-36x36.png",
    "sizes": "36x36",

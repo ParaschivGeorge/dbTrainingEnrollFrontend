@@ -24,6 +24,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { LoggingInterceptor } from './logging.interceptor';
+import {MatRadioModule} from '@angular/material/radio';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent, canActivate: [AuthGuard] },
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
+    MatRadioModule,
     // HttpModule, (Deprecated)
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,

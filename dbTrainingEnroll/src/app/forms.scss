@@ -1,8 +1,8 @@
 @import "~variables.scss";
 
 div.enrollForm {
-    width: 35em;
-    min-height: 22em;
+    width: 400px;
+    min-height: 400px;
     height: auto;
     padding: 2.5em 1em;
     margin: 0 auto;
@@ -53,7 +53,6 @@ button:disabled {
     opacity: 0.8;
     font-weight: 400;
     line-height: 32px;
-    margin-bottom: .5em;
 }
 
 .h3__train{
@@ -61,9 +60,8 @@ button:disabled {
     font-size: 18px;
     color: $black;
     opacity: 0.8;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 28px;
-    margin-bottom: .5em;
 }
 
 .p__train_date{
@@ -89,7 +87,7 @@ button:disabled {
 }
 
 .enrollment-field{
-    width: 90%;
+    width: 80%;
     margin: .5em 0;
 }
 
@@ -128,41 +126,42 @@ mat-icon{
     font-weight: 500;
 }
 
-.clear__button{
-    padding: 0;
-    background: transparent;
-    color: #CC3549;
-}
-
-.check__button{
-    padding: 0;
-    background: transparent;
-    color: $bright-blue;
-    
-}
-
-.check__buton_checked{
-    padding: 0;
-    background: #78c6e2;
-    color: $bright-blue;
+.align-icon{
+    margin-right: 0.3em;
 }
 
 .approve-buttons{
     display: flex;
     justify-content: flex-end;
-    width: 20%;
     float: right;
 }
 
+.radio-group{
+    margin-top: -23px !important;
+}
+
+.check-btn{
+    margin-right: .7em;
+}
+
+.button__manager-form{
+    display: inline-flex;
+    justify-content: flex-end;
+    float: right;
+    margin: 0;
+    padding: 0;
+    transition: .1s cubic-bezier(.56,.05,.83,.67);
+}
+
 .pending-form-part{
-    width: 80%;
+    width: 70%;
     display: inline-flex;
     flex-direction: column;
 }
 
 hr {
     height: 1px;
-    background: $darkest-blue;
-    width: 20px;
-    margin: 5px 0;
+    background: $dark-blue;
+    width: 50px;
+    margin: 15px 0 20px 0;
 }
