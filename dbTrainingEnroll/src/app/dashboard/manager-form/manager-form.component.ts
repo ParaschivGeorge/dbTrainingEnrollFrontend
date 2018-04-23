@@ -23,8 +23,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    // remove comment when number of participants can be fetched
-    // this._MAX_NUMBER = 15 - this.userService.training.numberOfParticipants;
+    this._MAX_NUMBER = 15 - this.userService.training.acceptedUsers;
     this.managerForm = new FormGroup({
       'users': new FormArray([])
     });
