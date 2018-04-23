@@ -163,29 +163,3 @@ h1 {
     top: initial;
     right: initial;
 }
-
-@media screen and (max-width: 1200px) {
-    .box {
-        margin: auto !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    form {
-        position: relative;
-    }
-    button:nth-child(2) {
-        margin: 0;
-    }
-    .page-title {
-        display: none !important;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .box {
-        flex: 1 1 230px !important;
-        min-height: 230px;
-        max-height: 230px;
-    }
-}

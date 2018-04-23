@@ -52,7 +52,8 @@ export class DashboardComponent implements OnInit {
     private spinnerService: Ng4LoadingSpinnerService) {}
 
   openDialog(training: Training): void {
-    if (this.userService.currentUser.type !== 'MANAGER') {
+    if ((this.userService.currentUser.type !== 'MANAGER') ||
+      (training.acceptedUsers === 15)) {
       return;
     }
     this.userService.training = training;

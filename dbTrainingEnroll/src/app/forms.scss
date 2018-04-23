@@ -53,7 +53,6 @@ button:disabled {
     opacity: 0.8;
     font-weight: 400;
     line-height: 32px;
-    margin-bottom: .5em;
 }
 
 .h3__train{
@@ -61,9 +60,8 @@ button:disabled {
     font-size: 18px;
     color: $black;
     opacity: 0.8;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 28px;
-    margin-bottom: .5em;
 }
 
 .p__train_date{
@@ -139,7 +137,7 @@ mat-icon{
 }
 
 .radio-group{
-    margin-top: .9em !important;
+    margin-top: -23px !important;
 }
 
 .check-btn{
@@ -163,7 +161,7 @@ mat-icon{
 
 hr {
     height: 1px;
-    background: $darkest-blue;
-    width: 20px;
-    margin: 5px 0;
+    background: $dark-blue;
+    width: 50px;
+    margin: 15px 0 20px 0;
 }

@@ -180,6 +180,9 @@ input.ng-invalid.ng-touched {
         color: $dark-white;
         box-shadow: 0 9px 40px -8px rgba($purple, .85) !important;    
     }
+    .mat-form-field-placeholder {
+        color: $dark-white !important;
+    }
 }
 
 
@@ -241,5 +244,19 @@ input:-webkit-autofill {
     }
     .page-title {
         display: none !important;
+    }
+    .mat-tab-group {
+        width: 100vw;
+        margin-left: -10px;
+    }
+    .mat-tab-header {
+        margin: 0;
+    }
+    .container {
+        margin: 0;
+        flex: 100%;
+    }
+    .mat-card {
+        width: 90vw;
     }
 }
