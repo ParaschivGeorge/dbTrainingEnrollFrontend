@@ -35,7 +35,7 @@ export class PmFormComponent implements OnInit {
   }
 
   acceptUser(mail: string) {
-    let existingUser = this.modelList.find(el => el.mailUser === mail);
+    const existingUser = this.modelList.find(el => el.mailUser === mail);
     console.log(existingUser);
 
     if (existingUser) {
@@ -45,7 +45,7 @@ export class PmFormComponent implements OnInit {
       data.mailUser = mail;
       data.idTraining = this.userService.training.id;
       data.status = 1;
-  
+
       this.modelList.push(data);
     }
 
@@ -53,7 +53,7 @@ export class PmFormComponent implements OnInit {
   }
 
   denyUser(mail: string) {
-    let existingUser = this.modelList.find(el => el.mailUser === mail);
+    const existingUser = this.modelList.find(el => el.mailUser === mail);
 
     if (existingUser) {
       existingUser.status = 0;

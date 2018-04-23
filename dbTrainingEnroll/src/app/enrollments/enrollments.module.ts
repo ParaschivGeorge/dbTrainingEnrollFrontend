@@ -19,7 +19,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     ReactiveFormsModule,
     FormsModule,
     MatTabsModule,
-    Ng4LoadingSpinnerModule.forRoot()    
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [],
   exports: [

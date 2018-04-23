@@ -16,8 +16,8 @@ export class EnrollmentsComponent implements OnInit {
   trainings: Training[];
   originalTrainings: Training[];
 
-  constructor(private apiService: ApiService, 
-    public dialog: MatDialog, 
+  constructor(private apiService: ApiService,
+    public dialog: MatDialog,
     private userService: UserService,
     private spinnerService: Ng4LoadingSpinnerService) { }
 
@@ -40,7 +40,7 @@ export class EnrollmentsComponent implements OnInit {
   }
 
   onScrollDown() {
-    this.spinnerService.show();    
+    this.spinnerService.show();
     if (this.trainings.length < this.originalTrainings.length - 4) {
       const len = this.trainings.length;
       console.log(len);

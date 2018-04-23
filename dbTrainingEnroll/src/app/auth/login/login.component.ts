@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
-  
+
   }
 
   onLogin(form: NgForm) {
@@ -29,9 +29,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       (data: any) => {
-        console.log('succes');
         localStorage.setItem('userToken', data.token);
-        console.log(data.token);
         this.router.navigate(['/enrollments']);
         form.resetForm();
         this.spinnerService.hide();
@@ -39,9 +37,6 @@ export class LoginComponent implements OnInit {
       (error: HttpErrorResponse) => {
         this.isLoginError = true;
         this.spinnerService.hide();
-        console.log('error');
-      }), console.error();
-
-      console.log(this.isLoginError);
+      });
   }
 }
