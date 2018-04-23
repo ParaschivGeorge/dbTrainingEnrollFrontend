@@ -14,7 +14,7 @@ import { Userdata } from './auth/login/userData';
 @Injectable()
 export class UserService {
   private _BASE_URL =  'https://db-training-enroll.herokuapp.com';
-  private _ENROLL_URL = this._BASE_URL + '/subordinates?Authorization=';
+  private _ENROLL_URL = this._BASE_URL + '/subordinates';
   private _RESULT_ULR = this._BASE_URL + '/subordinatesResult';
   private _PENDING_ULR = this._BASE_URL + '/pendingUsers';
   private _PENDING_RESULT_ULR = this._BASE_URL + '/approveList';
