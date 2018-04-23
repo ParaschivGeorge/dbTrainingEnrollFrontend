@@ -25,6 +25,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { LoggingInterceptor } from './logging.interceptor';
 import {MatRadioModule} from '@angular/material/radio';
+import { RecommendationService } from './recommendation.service';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent, canActivate: [AuthGuard] },
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
-  providers: [UserService, AuthService, AuthGuard,
+  providers: [UserService, AuthService, RecommendationService, AuthGuard,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
   ],

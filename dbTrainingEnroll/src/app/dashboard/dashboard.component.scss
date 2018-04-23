@@ -27,8 +27,20 @@ h1 {
     display: block;
     text-align: center;
     margin: auto;
+    letter-spacing: 3px;
     text-shadow: 2px 2px 5px rgba(black, .15);
     text-transform: uppercase;
+}
+
+.subtitle{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Montserrat', $sans-serif;
+    margin: 3em 2em 0em 2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $dark-blue;
+    text-shadow: 2px 2px 7px rgba(black, .15);
 }
 
 .container {

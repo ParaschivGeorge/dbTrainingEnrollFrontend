@@ -8,12 +8,13 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { UserService } from '../user.service';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { RecommendationService } from '../recommendation.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [ApiService],
+  providers: [ApiService, RecommendationService],
   animations: [
     trigger('loadingAnimation', [
       state('loaded', style({
@@ -37,9 +38,17 @@ export class DashboardComponent implements OnInit {
   originalTrainings: Training[];
   state = 'notLoaded';
 
+  allRecommendedTrainings: Training[];
+  softRecommendedTrainings: Training[];
+  allRecommendedSoftTrainings: Training[];
+  techRecommendedTrainings: Training[];
+  allRecommendedTechTrainings: Training[];
+  originalRecommendedTrainings: Training[];
+
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
     private userService: UserService,
+    private recommendationService: RecommendationService,
     private spinnerService: Ng4LoadingSpinnerService) {}
 
   openDialog(training: Training): void {
@@ -65,6 +74,21 @@ export class DashboardComponent implements OnInit {
         this.softTrainings = this.allSoftTrainings.slice(0, 8),
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
+        this.state = 'loaded';
+        this.spinnerService.hide();
+      } ,
+      error => console.log('Error: ' + error)
+    );
+
+    this.recommendationService.getRecommendedTrainings()
+    .subscribe(
+      result => {
+        this.originalRecommendedTrainings = result,
+        this.allRecommendedTrainings = this.originalRecommendedTrainings,
+        this.allRecommendedSoftTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'SOFT'),
+        this.softRecommendedTrainings = this.allRecommendedSoftTrainings,
+        this.allRecommendedTechTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'TECHNICAL'),
+        this.techRecommendedTrainings = this.allRecommendedTechTrainings;
         this.state = 'loaded';
         this.spinnerService.hide();
       } ,
