@@ -26,7 +26,7 @@ body {
     margin-top: 1%;
     margin-bottom: 1%;
     width: 0;
-    height: 0;
+    // height: 0;
     background-color: $white;
 }
 
@@ -102,6 +102,10 @@ button::after {
 .mat-dialog-actions{
     margin-bottom: 0 !important;
     padding: 1em 1em 2.5em !important;
+}
+
+.mat-card {
+    width: 300px;
 }
 
 .mat-dialog-container {
@@ -206,4 +210,37 @@ input:-webkit-autofill {
     margin: 40px auto 0px auto;
     text-align: center;
     color: $white;
+}
+
+.mat-tab-body-content {
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .box {
+        margin: auto !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        position: relative;
+    }
+    button:nth-child(2) {
+        margin: 0;
+    }
+    .cdk-overlay-pane {
+        max-width: 100% !important;
+    }    
+}
+
+@media screen and (max-width: 600px) {
+    .box {
+        flex: 1 1 230px !important;
+        min-height: 230px !important;
+        max-height: 230px !important;
+    }
+    .page-title {
+        display: none !important;
+    }
 }
