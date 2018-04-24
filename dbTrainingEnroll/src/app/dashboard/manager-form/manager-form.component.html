@@ -8,7 +8,8 @@
         <h3 class="h3__train"> {{ userService.training.technology }}</h3>
         <p class="p__train_date">{{ userService.training.date }} {{ duration }}</p>
         <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.acceptedUsers }}</strong></h3>
-        <h3 class="h3__train">You can add <strong class="participant__mark">{{ _MAX_NUMBER - formLength }}</strong> more participants</h3>
+        <h3 class="h3__train" *ngIf="_MAX_NUMBER - formLength >= 0 ">You can add <strong class="participant__mark">{{ _MAX_NUMBER - formLength }}</strong> more participants</h3>
+        <h3 class="h3__train" *ngIf="_MAX_NUMBER - formLength < 0 ">You should remove <strong class="participant__mark">{{ - (_MAX_NUMBER - formLength) }}</strong> participants</h3>
       </div>
       <div formArrayName="users" class="enrollment-form">
         <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
