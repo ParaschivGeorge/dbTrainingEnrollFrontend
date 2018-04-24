@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
-import { Userdata } from './userData';
 import { MatSnackBar } from '@angular/material';
 
 @Component({

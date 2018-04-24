@@ -95,7 +95,6 @@ export class DashboardComponent implements OnInit {
         this.softRecommendedTrainings = this.allRecommendedSoftTrainings,
         this.allRecommendedTechTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techRecommendedTrainings = this.allRecommendedTechTrainings;
-        this.state = 'loaded';
         this.spinnerService.hide();
       } ,
       error => console.log('Error: ' + error)
