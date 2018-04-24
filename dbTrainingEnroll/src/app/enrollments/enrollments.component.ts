@@ -5,12 +5,32 @@ import { PmFormComponent } from './pm-form/pm-form.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../user.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 
 @Component({
   selector: 'app-enrollments',
   templateUrl: './enrollments.component.html',
   styleUrls: ['../dashboard/dashboard.component.scss'],
-  providers: [ApiService]
+  providers: [ApiService],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateY(0)'})),
+      transition('void => *', [
+        animate(300, keyframes([
+          style({opacity: 0, transform: 'translateY(40%)', offset: 0}),
+          style({opacity: 0.5, transform: 'translateY(10%)', offset: 0.8}),
+          style({opacity: 1, transform: 'translateY(0)', offset: 1.0})
+        ]))
+      ]),
+      transition('* => void', [
+        animate(300, keyframes([
+          style({opacity: 0, transform: 'translateY(40%)', offset: 0}),
+          style({opacity: 0.5, transform: 'translateY(10%)', offset: 0.8}),
+          style({opacity: 1, transform: 'translateY(0)', offset: 1.0})
+        ]))
+      ])
+    ])
+  ]
 })
 export class EnrollmentsComponent implements OnInit {
   allTrainings: Training[];

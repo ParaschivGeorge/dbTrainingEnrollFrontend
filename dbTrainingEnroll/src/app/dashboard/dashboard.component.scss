@@ -43,7 +43,22 @@ h1 {
     // box-shadow: 3px 3px 6px rgba(black, .15), 0 12px 30px -14px rgba(black, .7);
     box-shadow: 3px 5px 28px -5px rgba(0,0,0,0.22);
     text-align: center;
-    border-radius: 0;   
+    border-radius: 0;
+    filter: saturate(100%);
+    transition: .2s cubic-bezier(.57,.21,.69,1.25);
+    :hover {
+        transition: .1s cubic-bezier(.57,.21,.69,1.25);
+        filter: saturate(200%);
+    }
+}
+
+.box > .mat-card {
+    filter: contrast(100%);
+    transition: .5s cubic-bezier(.57,.21,.69,1.25);
+    :hover {
+        filter: contrast(150%);
+        transition: .2s cubic-bezier(.57,.21,.69,1.25);        
+    }  
 }
 
 /* .container::after {
@@ -53,7 +68,7 @@ h1 {
 
 .box {
     padding: 0;
-    margin: auto !important;
+    // margin: auto !important;
     cursor: pointer;
 }
 
@@ -61,7 +76,6 @@ h1 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 330px;
     text-align: left;
     padding: 20px 0 0 20px;
     font-family: "Montserrat", sans-serif;
@@ -90,7 +104,6 @@ h1 {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 330px;
     margin: 0;
     text-align: right;
     font-family: $mono;
@@ -150,4 +163,10 @@ h1 {
     text-transform: uppercase;
     top: initial;
     right: initial;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        margin-bottom: 40px !important;
+    }
 }

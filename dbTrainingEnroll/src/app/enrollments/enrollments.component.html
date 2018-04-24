@@ -13,7 +13,9 @@
                                         <div class="box" fxFlex="340px" 
                                         *ngFor="let training of allTrainings"
                                         (click)="openDialog(training)"                      
-                                        infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(allTrainings, originalTrainings)">
+                                        infinite-scroll [infiniteScrollThrottle]="300" 
+                                        (scrolled)="onScrollDown(allTrainings, originalTrainings)"
+                                        [@flyInOut]="'in'">
                                                 <mat-card>
                                                         <mat-card-title>{{ training.technology }}</mat-card-title>
                                                         <hr>

@@ -13,6 +13,7 @@ import { ManagerFormResponse } from './manager-form-response';
   templateUrl: './manager-form.component.html',
   styleUrls: ['../../forms.scss'],
 })
+
 export class ManagerFormComponent implements OnInit, OnDestroy {
   _MAX_NUMBER = 15;
   formLength = 0;
@@ -71,7 +72,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     });
 
     if (!this.valid) {
-      console.log(this.userService.accounts);      
+      console.log(this.userService.accounts);
       return {'notValidEmployee': true};
     }
 
