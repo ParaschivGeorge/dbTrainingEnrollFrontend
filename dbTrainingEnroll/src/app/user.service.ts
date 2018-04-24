@@ -21,7 +21,7 @@ export class UserService {
   private _PENDING_RESULT_ULR = this._BASE_URL + '/approveList';
   private _USER_DATA_URL = this._BASE_URL + '/getUserData';
   private _SELF_ENROLL_URL = this._BASE_URL + '/userSelfEnroll';
-  private _SELF_ENROLLED_USERS_URL = this._BASE_URL + 'TODO';
+  private _SELF_ENROLLED_USERS_URL = this._BASE_URL + '/getSelfEnrolled';
 
   training: Training;
   accounts: UserDto[] = [];
