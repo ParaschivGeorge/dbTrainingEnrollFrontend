@@ -97,6 +97,7 @@ button::after {
 
 .mat-dialog-content {
     background: $button-white;
+    max-height: 75vh !important;
 }
 
 .mat-dialog-actions{
