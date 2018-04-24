@@ -9,7 +9,6 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { User } from './user';
 import { PmFormResponse } from './enrollments/pm-form/pm-from-response';
 import { AuthService } from './auth.service';
-import { Userdata } from './auth/login/userData';
 import { UserDto } from './userDto';
 
 @Injectable()
@@ -55,8 +54,8 @@ export class UserService {
     return this.http.post(this._RESULT_ULR, this.data);
   }
 
-  postUserData(): Observable<Userdata> {
-    return this.http.post<Userdata>(this._USER_DATA_URL, {email: this.currentUser.email});
+  postUserData(): Observable<UserDto> {
+    return this.http.post<UserDto>(this._USER_DATA_URL, {email: this.currentUser.email});
   }
 
   postUserSelfEnroll(): Observable<Object> {
