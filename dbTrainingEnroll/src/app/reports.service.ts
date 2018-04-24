@@ -10,6 +10,8 @@ export class ReportsService {
   private _POP_URL = 'https://db-training-enroll.herokuapp.com/topAllAttendees';
   private _SOFT_POP_URL = 'https://db-training-enroll.herokuapp.com/topSoftAttendees';
   private _TECH_POP_URL = 'https://db-training-enroll.herokuapp.com/topTechnicalAttendees';
+  private _GENDER_URL = 'https://db-training-enroll.herokuapp.com/genderStats';
+  private _SvT_URL = 'https://db-training-enroll.herokuapp.com/genderStats';
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +25,14 @@ export class ReportsService {
 
   getSoftPopularity() {
     return this.http.get(this._SOFT_POP_URL).map(result => result);
+  }
+
+  getGender() {
+    return this.http.get(this._GENDER_URL).map(result => result);
+  }
+
+  getSoftTech() {
+    return this.http.get(this._SvT_URL).map(result => result);
   }
 
 }
