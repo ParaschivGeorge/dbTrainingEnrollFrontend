@@ -80,21 +80,17 @@ export class DashboardComponent implements OnInit {
       } ,
       error => console.log('Error: ' + error)
     );
+  }
 
-    this.recommendationService.getRecommendedTrainings()
-    .subscribe(
-      result => {
-        this.originalRecommendedTrainings = result,
-        this.allRecommendedTrainings = this.originalRecommendedTrainings,
-        this.allRecommendedSoftTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'SOFT'),
-        this.softRecommendedTrainings = this.allRecommendedSoftTrainings,
-        this.allRecommendedTechTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'TECHNICAL'),
-        this.techRecommendedTrainings = this.allRecommendedTechTrainings;
-        this.state = 'loaded';
-        this.spinnerService.hide();
-      } ,
-      error => console.log('Error: ' + error)
-    );
+  getRecommendedTrainings(): void {
+    this.originalRecommendedTrainings = this.recommendationService.trainings,
+    this.allRecommendedTrainings = this.originalRecommendedTrainings,
+    this.allRecommendedSoftTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'SOFT'),
+    this.softRecommendedTrainings = this.allRecommendedSoftTrainings,
+    this.allRecommendedTechTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'TECHNICAL'),
+    this.techRecommendedTrainings = this.allRecommendedTechTrainings;
+    this.state = 'loaded';
+    this.spinnerService.hide();
   }
 
   onScrollDown(all: Training[], original: Training[]) {
@@ -116,6 +112,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrainings();
+    this.recommendationService.gotRecommendations.subscribe(
+      result => { this.getRecommendedTrainings(); console.log(this.recommendationService.trainings); }
+    );
   }
 
   selfEnroll(training: Training) {
