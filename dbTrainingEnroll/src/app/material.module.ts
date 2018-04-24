@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatIconModule, MatToolbarModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatToolbarModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
 import { MatCardModule, MatGridListModule, MatTabsModule, MatSlideToggleModule } from '@angular/material';
 import { MatAutocompleteModule, MatButtonToggleModule, MatCheckboxModule, MatRippleModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -27,6 +27,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
         MatToolbarModule,
         MatSelectModule,
         MatTabsModule,
+        MatSnackBarModule,
         FormsModule,
         MatSlideToggleModule,
         ReactiveFormsModule,
@@ -46,6 +47,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
         MatProgressBarModule,
         MatSelectModule,
         MatRippleModule,
+        MatSnackBarModule,
         MatToolbarModule,
         MatSlideToggleModule,
         MatTabsModule,

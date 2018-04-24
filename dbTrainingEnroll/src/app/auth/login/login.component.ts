@@ -6,7 +6,11 @@ import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
+<<<<<<< HEAD
 import { RecommendationService } from '../../recommendation.service';
+=======
+import { MatSnackBar } from '@angular/material';
+>>>>>>> 39f608772d6b113b311530080762055b2aa86c40
 
 @Component({
   selector: 'app-login',
@@ -20,8 +24,12 @@ export class LoginComponent implements OnInit {
   private router: Router,
   private spinnerService: Ng4LoadingSpinnerService,
   private userService: UserService,
+<<<<<<< HEAD
   private recommendationService: RecommendationService
 ) { }
+=======
+  public loginSnackBar: MatSnackBar) { }
+>>>>>>> 39f608772d6b113b311530080762055b2aa86c40
 
   ngOnInit() {
 
@@ -61,11 +69,13 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['/enrollments']);
         form.resetForm();
+        this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 1800});
         this.spinnerService.hide();
       },
       (error: HttpErrorResponse) => {
         this.isLoginError = true;
         this.spinnerService.hide();
+        this.loginSnackBar.open('Logging failed!', 'Ok', {duration: 3000});
       });
   }
 }

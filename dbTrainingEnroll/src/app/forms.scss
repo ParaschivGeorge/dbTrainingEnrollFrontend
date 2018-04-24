@@ -2,7 +2,6 @@
 
 div.enrollForm {
     width: 400px;
-    min-height: 400px;
     height: auto;
     padding: 2.5em 1em;
     margin: 0 auto;
@@ -150,7 +149,7 @@ mat-icon{
     float: right;
     margin: 0;
     padding: 0;
-    transition: .1s cubic-bezier(.56,.05,.83,.67);
+    transition: .1s cubic-bezier(.57,.21,.69,1.25);
 }
 
 .pending-form-part{

@@ -2,12 +2,12 @@ import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/co
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Training } from '../training';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator, MatSnackBar } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { UserService } from '../user.service';
-import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 import { RecommendationService } from '../recommendation.service';
 
 @Component({
@@ -16,15 +16,23 @@ import { RecommendationService } from '../recommendation.service';
   styleUrls: ['./dashboard.component.scss'],
   providers: [ApiService, RecommendationService],
   animations: [
-    trigger('loadingAnimation', [
-      state('loaded', style({
-        opacity: 1,
-      })),
-      state('notLoaded', style({
-        opacity: 0,
-      })),
-      transition('notLoaded => loaded', animate('2500ms ease'))
-    ]),
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateY(0)'})),
+      transition('void => *', [
+        animate(300, keyframes([
+          style({opacity: 0, transform: 'translateY(40%)', offset: 0}),
+          style({opacity: 0.5, transform: 'translateY(10%)', offset: 0.8}),
+          style({opacity: 1, transform: 'translateY(0)', offset: 1.0})
+        ]))
+      ]),
+      transition('* => void', [
+        animate(300, keyframes([
+          style({opacity: 0, transform: 'translateY(40%)', offset: 0}),
+          style({opacity: 0.5, transform: 'translateY(10%)', offset: 0.8}),
+          style({opacity: 1, transform: 'translateY(0)', offset: 1.0})
+        ]))
+      ])
+    ])
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -36,7 +44,6 @@ export class DashboardComponent implements OnInit {
   enrollmentsTrainings: Training[];
   name: string;
   originalTrainings: Training[];
-  state = 'notLoaded';
 
   allRecommendedTrainings: Training[];
   softRecommendedTrainings: Training[];
@@ -65,7 +72,6 @@ export class DashboardComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
-    this.state = 'notLoaded';
     console.log('subscribe');
     
     this.recommendationService.gotRecommendations.subscribe(
@@ -80,7 +86,6 @@ export class DashboardComponent implements OnInit {
         this.softTrainings = this.allSoftTrainings.slice(0, 8),
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
-        this.state = 'loaded';
         this.spinnerService.hide();
       } ,
       error => console.log('Error: ' + error)
@@ -95,7 +100,6 @@ export class DashboardComponent implements OnInit {
     this.softRecommendedTrainings = this.allRecommendedSoftTrainings,
     this.allRecommendedTechTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'TECHNICAL'),
     this.techRecommendedTrainings = this.allRecommendedTechTrainings;
-    this.state = 'loaded';
     this.spinnerService.hide();
   }
 
