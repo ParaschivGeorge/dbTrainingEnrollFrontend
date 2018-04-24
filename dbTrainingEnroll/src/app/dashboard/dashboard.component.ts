@@ -117,4 +117,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getTrainings();
   }
+
+  selfEnroll(training: Training) {
+    this.userService.training = training;
+    this.userService.postUserSelfEnroll().subscribe(
+      result => {
+        // you enrolled notification
+      },
+      error => {
+        // you can't enrolled notification
+      }
+    );
+  }
 }
