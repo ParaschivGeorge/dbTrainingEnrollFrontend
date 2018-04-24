@@ -7,6 +7,7 @@ import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 import { forEach } from '@angular/router/src/utils/collection';
 import { ManagerFormResponse } from './manager-form-response';
+import { UserDto } from '../../userDto';
 
 @Component({
   selector: 'app-manager-form',
@@ -20,10 +21,18 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   managerForm: FormGroup;
   valid: boolean;
   filteredUsers: Observable<any[]>;
+  duration: string;
+  self_enrolled_users: UserDto[];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    if (this.userService.training.duration !== '-1') {
+      this.duration = this.userService.training.duration;
+    } else {
+      this.duration = '';
+    }
+    
     this._MAX_NUMBER = 15 - this.userService.training.acceptedUsers;
     this.managerForm = new FormGroup({
       'users': new FormArray([])
@@ -34,10 +43,23 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;
-        console.log( this.userService.accounts);
+        // console.log( this.userService.accounts);
       },
       error => console.log('Error: ' + error)
     );
+
+    this.userService.getSelfEnrolledList().subscribe(
+      self_enrolled_users => {
+        this.self_enrolled_users = self_enrolled_users;
+      }
+    );
+
+    this.self_enrolled_users.forEach(self_enrolled_user => {
+      const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
+      control.setValue(self_enrolled_user.mail);
+      (<FormArray>this.managerForm.get('users')).push(control);
+      this.formLength++;
+    });
   }
 
   onAddUser() {

@@ -4,4 +4,5 @@ export class User {
     type: string;
     token: string;
     gender: string;
+    lastLoginDate: string;
 }

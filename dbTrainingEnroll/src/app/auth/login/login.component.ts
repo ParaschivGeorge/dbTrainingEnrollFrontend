@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
             console.log(result);
             this.userService.currentUser.name = result.name;
             this.userService.currentUser.type = result.userType;
+            this.userService.currentUser.lastLoginDate = result.lastLoginDate;
           });
         this.userService.closeDialog.emit(true);
 

@@ -3,6 +3,36 @@
     <h1 class="title">Trainings</h1>
     <mat-tab-group>
         <mat-tab label="All">
+            <div *ngIf="allRecommendedTrainings">
+                <h2 class="subtitle">Reccommended for you</h2>
+                <mat-grid-list class="dashboard__grid" cols="4">
+                    <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                        <div class="box" fxFlex="340px" *ngFor="let training of allRecommendedTrainings" (click)="openDialog(training)">
+                            <mat-card [@loadingAnimation]='state' (@loadingAnimation.done)='state.done'>
+                                <mat-card-title>{{ training.technology }}</mat-card-title>
+                                <hr>
+                                <button mat-raised-button class="button__enroll" color="accent">Enroll</button>
+                                <div class="number free" *ngIf="training.acceptedUsers !== 15">{{training.acceptedUsers}}/15</div>
+                                <div class="number full" *ngIf="training.acceptedUsers === 15">FULL</div>
+                                <mat-card-content> {{ training.name }} </mat-card-content>
+                                <mat-card-footer> {{ training.date }} </mat-card-footer>
+                                <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                                <button
+                                    mat-raised-button class="button__enroll"
+                                    color="primary"
+                                    (click)="selfEnroll(training)"
+                                    *ngIf="userService.currentUser.type === 'USER'">
+                                    Enroll
+                                </button>
+                                <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                                <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-grid-list>
+                <h2 class="subtitle">All available trainings</h2>
+            </div>
+            
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
                     <div class="box" fxFlex="340px" *ngFor="let training of allTrainings" (click)="openDialog(training)" 
@@ -15,7 +45,14 @@
                             <div class="number full" *ngIf="training.acceptedUsers === 15">FULL</div>
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
-                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                            <!-- <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div> -->
+                            <button
+                                mat-raised-button class="button__enroll"
+                                color="primary"
+                                (click)="selfEnroll(training)"
+                                *ngIf="userService.currentUser.type === 'USER'">
+                                Enroll
+                            </button>
                             <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                             <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                         </mat-card>
@@ -24,6 +61,28 @@
             </mat-grid-list>
         </mat-tab>
         <mat-tab label="Soft Skills">
+            <div *ngIf="allRecommendedTrainings">
+                <h2 class="subtitle">Reccommended for you</h2>
+                <mat-grid-list class="dashboard__grid" cols="4">
+                    <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                        <div class="box" fxFlex="340px" *ngFor="let training of softRecommendedTrainings" (click)="openDialog(training)">
+                            <mat-card>
+                                <mat-card-title>{{ training.technology }}</mat-card-title>
+                                <hr>
+                                <div class="number free" *ngIf="training.acceptedUsers !== '0'">OPEN</div>
+                                <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
+                                <mat-card-content> {{ training.name }} </mat-card-content>
+                                <mat-card-footer> {{ training.date }} </mat-card-footer>
+                                <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>   
+                                <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                         
+                                <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                                <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-grid-list>
+                <h2 class="subtitle">All available trainings</h2>
+            </div>
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
                     <div class="box" fxFlex="340px" *ngFor="let training of softTrainings" (click)="openDialog(training)" 
@@ -35,7 +94,8 @@
                             <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
-                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>                            
+                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                            <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                            
                             <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                             <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                         </mat-card>
@@ -44,6 +104,28 @@
             </mat-grid-list>
         </mat-tab>
         <mat-tab label="Technical">
+            <div *ngIf="allRecommendedTrainings">
+                <h2 class="subtitle">Reccommended for you</h2>
+                <mat-grid-list class="dashboard__grid" cols="4">
+                    <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+                        <div class="box" fxFlex="340px" *ngFor="let training of techRecommendedTrainings" (click)="openDialog(training)">
+                            <mat-card>
+                                <mat-card-title>{{ training.technology }}</mat-card-title>
+                                <hr>
+                                <div class="number free" *ngIf="training.acceptedUsers !== '0'">OPEN</div>
+                                <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
+                                <mat-card-content> {{ training.name }} </mat-card-content>
+                                <mat-card-footer> {{ training.date }} </mat-card-footer>
+                                <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>  
+                                <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                          
+                                <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+                                <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+                            </mat-card>
+                        </div>
+                    </div>
+                </mat-grid-list>
+                <h2 class="subtitle">All available trainings</h2>
+            </div>
             <mat-grid-list class="dashboard__grid" cols="4">
                 <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
                     <div class="box" fxFlex="340px" *ngFor="let training of techTrainings" (click)="openDialog(training)" 
@@ -55,7 +137,8 @@
                             <div class="number full" *ngIf="training.acceptedUsers === '0'">FULL</div>
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
-                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>                            
+                            <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>   
+                            <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                         
                             <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                             <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                         </mat-card>
