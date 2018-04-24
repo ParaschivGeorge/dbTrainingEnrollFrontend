@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ChartsModule } from 'ng2-charts';
 
 import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
 import { UserService } from './user.service';
@@ -26,12 +27,14 @@ import { AuthInterceptor } from './auth.interceptor';
 import { LoggingInterceptor } from './logging.interceptor';
 import {MatRadioModule} from '@angular/material/radio';
 import { RecommendationService } from './recommendation.service';
+import { ReportsComponent } from './reports/reports.component';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent, canActivate: [AuthGuard] },
   { path: 'trainings', component: DashboardComponent },
   { path: '', redirectTo: '/trainings', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'reports', component: ReportsComponent }
 ];
 
 @NgModule({
@@ -43,7 +46,8 @@ const appRoutes: Routes = [
     EnrollmentsComponent,
     ManagerFormComponent,
     PmFormComponent,
-    LoginComponent
+    LoginComponent,
+    ReportsComponent
   ],
 
   imports: [
@@ -57,6 +61,7 @@ const appRoutes: Routes = [
     // HttpModule, (Deprecated)
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
+    ChartsModule,
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],

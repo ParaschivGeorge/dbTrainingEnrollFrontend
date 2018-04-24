@@ -5,20 +5,22 @@ import { Training } from './training';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { User } from './user';
 
 @Injectable()
 export class RecommendationService {
 
   // private _URL = 'https://db-training-enroll.herokuapp.com/trainings';
-  private _URL = 'https://next.json-generator.com/api/json/get/4kH3CMvnE';
+  private _URL = 'https://db-training-enroll.herokuapp.com/recommend';
 
   constructor(private http: HttpClient) {
   }
 
   trainings: Training[];
+  currentUser = new User;
 
    getRecommendedTrainings(): Observable<Training[]> {
-     return this.http.get<Training[]>(this._URL);
+     return this.http.post<Training[]>(this._URL, {email: this.currentUser.email});
    }
 
    private handleError(error: Response) {
