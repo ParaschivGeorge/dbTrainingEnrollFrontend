@@ -20,6 +20,8 @@ export class UserService {
   private _PENDING_ULR = this._BASE_URL + '/pendingUsers';
   private _PENDING_RESULT_ULR = this._BASE_URL + '/approveList';
   private _USER_DATA_URL = this._BASE_URL + '/getUserData';
+  private _SELF_ENROLL_URL = this._BASE_URL + '/userSelfEnroll';
+  private _SELF_ENROLLED_USERS_URL = this._BASE_URL + 'TODO';
 
   training: Training;
   accounts: UserDto[] = [];
@@ -55,5 +57,13 @@ export class UserService {
 
   postUserData(): Observable<Userdata> {
     return this.http.post<Userdata>(this._USER_DATA_URL, {email: this.currentUser.email});
+  }
+
+  postUserSelfEnroll(): Observable<Object> {
+    return this.http.post(this._SELF_ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
+  }
+
+  getSelfEnrolledList(): Observable<UserDto[]> {
+    return this.http.post<UserDto[]>(this._SELF_ENROLLED_USERS_URL, {email: this.currentUser.email, id: this.training.id});
   }
 }
