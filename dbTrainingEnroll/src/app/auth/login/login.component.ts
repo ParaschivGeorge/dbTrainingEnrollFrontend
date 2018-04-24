@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['/enrollments']);
         form.resetForm();
-        this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 15500000});
+        this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 1800});
         this.spinnerService.hide();
       },
       (error: HttpErrorResponse) => {

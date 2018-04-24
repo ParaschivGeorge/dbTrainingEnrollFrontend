@@ -54,7 +54,6 @@ h1 {
 
 .box > .mat-card {
     filter: contrast(100%);
-    transition: .5s cubic-bezier(.57,.21,.69,1.25);
     :hover {
         filter: contrast(150%);
         transition: .2s cubic-bezier(.57,.21,.69,1.25);        
