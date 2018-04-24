@@ -66,6 +66,11 @@ export class DashboardComponent implements OnInit {
   getTrainings(): void {
     this.spinnerService.show();
     this.state = 'notLoaded';
+    console.log('subscribe');
+    
+    this.recommendationService.gotRecommendations.subscribe(
+      result => { this.getRecommendedTrainings(); console.log(this.recommendationService.trainings); }
+    );
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -83,6 +88,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getRecommendedTrainings(): void {
+    console.log('suntem aici');
     this.originalRecommendedTrainings = this.recommendationService.trainings,
     this.allRecommendedTrainings = this.originalRecommendedTrainings,
     this.allRecommendedSoftTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'SOFT'),
@@ -112,9 +118,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrainings();
-    this.recommendationService.gotRecommendations.subscribe(
-      result => { this.getRecommendedTrainings(); console.log(this.recommendationService.trainings); }
-    );
   }
 
   selfEnroll(training: Training) {

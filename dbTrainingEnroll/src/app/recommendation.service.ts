@@ -19,6 +19,7 @@ export class RecommendationService {
 
   trainings: Training[];
   gotRecommendations = new EventEmitter<boolean>();
+  
 
    getRecommendedTrainings(): Observable<Training[]> {
      return this.http.post<Training[]>(this._URL, {email: this.userService.currentUser.email});

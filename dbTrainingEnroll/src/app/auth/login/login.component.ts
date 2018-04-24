@@ -50,8 +50,9 @@ export class LoginComponent implements OnInit {
               this.recommendationService.getRecommendedTrainings().subscribe(
                 recommended => {
                   this.recommendationService.trainings = recommended;
-                  // console.log(recommended);
+                  console.log(this.recommendationService.trainings);
                   this.recommendationService.gotRecommendations.emit(true);
+                  console.log(this.recommendationService.gotRecommendations.observers);
                }
               );
             }
