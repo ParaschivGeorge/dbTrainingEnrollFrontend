@@ -3,16 +3,32 @@
     <h1 class="title">Reports</h1>
 </div>
 
-<div class="row">
-      <div style="display: block;">
-      <canvas baseChart width="200px" height="200px"
-                  [datasets]="lineChartData"
-                  [labels]="lineChartLabels"
-                  [options]="lineChartOptions"
-                  [colors]="lineChartColors"
-                  [legend]="lineChartLegend"
-                  [chartType]="lineChartType"
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)"></canvas>
-      </div>
-  </div>
+<div class="charts__container">
+    <mat-card class="chart__popularity">
+        <mat-card-title class="chart__title">
+            Popularity
+            <div class="button__row">
+                <button mat-raised-button class="chart__button" color="primary" (click)="getPopularity()">All</button>
+                <button mat-raised-button class="chart__button" color="primary" (click)="getSoftPopularity()">Soft Skills</button>
+                <button mat-raised-button class="chart__button" color="primary" (click)="getTechPopularity()">Technical</button>
+            </div>
+        </mat-card-title>
+        <mat-card-content class="chart__populairty__in">
+            <div style="display: block">
+                    <canvas baseChart
+                    [data]="barChartData"
+                    [labels]="barChartLabels"
+                    [colors]="barChartColors"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+            </div>
+        </mat-card-content>
+    
+    </mat-card>
+</div>
+
+
+
