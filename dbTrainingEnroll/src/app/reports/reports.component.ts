@@ -7,17 +7,17 @@ import { ReportsService } from '../reports.service';
   selector: 'app-reports',
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.scss']
-  
+
 })
 export class ReportsComponent implements OnInit {
   public barChartData: number[] = [];
-  public barChartType: string = 'bar';
-  public doughnutChartType: string = 'doughnut';
+  public barChartType = 'bar';
+  public doughnutChartType = 'doughnut';
   public doughnutChartLabels: string[];
   public doughnuTechSoftChartLabels: string[];
 
-  public barChartLegend: boolean = false;
-  public doughnutChartLegend: boolean = false;
+  public barChartLegend = false;
+  public doughnutChartLegend = false;
   public doughnutWomenChartData: number[]  = [];
   public doughnutMenChartData: number[]  = [];
   public doughnutSoftChartData: number[]  = [];
@@ -102,11 +102,9 @@ export class ReportsComponent implements OnInit {
   getPopularity(): void {
     this.reportsService.getPopularity().subscribe(
       result => {
-        console.log(result);
-        // let labels: string[];
-        let labels = (result as Array<any>).map(res => res.technology);
+        const labels = (result as Array<any>).map(res => res.technology);
         this.barChartLabels = labels;
-        let data = (result as Array<any>).map(res => res.attendees);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
       });
@@ -128,8 +126,8 @@ export class ReportsComponent implements OnInit {
   getTechPopularity(): void {
     this.reportsService.getTechPopularity().subscribe(
       result => {
-        let labels = (result as Array<any>).map(res => res.technology);
-        let data = (result as Array<any>).map(res => res.attendees);
+        const labels = (result as Array<any>).map(res => res.technology);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
         this.barChartLabels = labels;
@@ -139,8 +137,8 @@ export class ReportsComponent implements OnInit {
   getGender(): void {
     this.reportsService.getGender().subscribe(
       result => {
-        let labels = ['Men', 'Women'];
-        let data = (result as Array<any>).map(res => res);
+        const labels = ['Men', 'Women'];
+        const data = (result as Array<any>).map(res => res);
         let totalGender: number;
 
         // let data = [19, 14];
@@ -157,8 +155,8 @@ export class ReportsComponent implements OnInit {
   getSoftTech(): void {
     this.reportsService.getSoftTech().subscribe(
       result => {
-        let labels = ['Tech', 'Soft'];
-        let data = (result as Array<any>).map(res => res);
+        const labels = ['Tech', 'Soft'];
+        const data = (result as Array<any>).map(res => res);
         let totalTrain: number;
 
         // let data = [19, 14];
