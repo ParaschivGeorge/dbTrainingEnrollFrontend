@@ -54,25 +54,14 @@ export class DashboardComponent implements OnInit {
   originalRecommendedTrainings: Training[] = [];
   showRecommendations: boolean;
 
-  
   private subscription: Subscription;
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
     private userService: UserService,
     private recommendationService: RecommendationService,
-    private spinnerService: Ng4LoadingSpinnerService) {   
-    
-  }
-
-  setRecTrainings(myTrainings, recvTrainings) {
-    myTrainings = recvTrainings;
-    this.setOtherTrainings();
-  }
-
-  setOtherTrainings() {
-    
-  }
+    private spinnerService: Ng4LoadingSpinnerService,
+    public snackBar: MatSnackBar) { }
 
   openDialog(training: Training): void {
     if ((this.userService.currentUser.type !== 'MANAGER') ||
@@ -88,7 +77,6 @@ export class DashboardComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
-    
     this.apiService.getTrainings()
     .subscribe(
       result => {
@@ -99,8 +87,7 @@ export class DashboardComponent implements OnInit {
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
         this.spinnerService.hide();
-      } ,
-      error => console.log('Error: ' + error)
+      }
     );
   }
 
@@ -108,7 +95,6 @@ export class DashboardComponent implements OnInit {
     this.spinnerService.show();
     if (all.length < original.length - 4) {
       const len = all.length;
-      console.log(len);
 
       for (let i = len; i <= len + 4; i ++) {
         all.push(original[i]);
@@ -125,8 +111,6 @@ export class DashboardComponent implements OnInit {
     this.showRecommendations = false;
     this.subscription = this.recommendationService.getTrainings().subscribe(
       trainings => {
-        console.log('suntem aici');
-        console.log(trainings);
         this.originalRecommendedTrainings = trainings;
         this.allRecommendedTrainings = this.originalRecommendedTrainings;
         this.allRecommendedSoftTrainings = this.originalRecommendedTrainings.filter(data => data.categoryType === 'SOFT');
@@ -135,7 +119,6 @@ export class DashboardComponent implements OnInit {
         this.techRecommendedTrainings = this.allRecommendedTechTrainings;
         this.spinnerService.hide();
         this.showRecommendations = true;
-        console.log(this.showRecommendations);
       }
     );
     this.getTrainings();
@@ -145,16 +128,11 @@ export class DashboardComponent implements OnInit {
     this.userService.training = training;
     this.userService.postUserSelfEnroll().subscribe(
       result => {
-        // you enrolled notification
+        this.snackBar.open('You enrolled!', 'Ok', {duration: 1800});
       },
       error => {
-        // you can't enrolled notification
+        this.snackBar.open('Enroll error!', 'Ok', {duration: 1800});
       }
     );
-  }
-
-  showBool() {
-    console.log(this.showRecommendations);
-    
   }
 }

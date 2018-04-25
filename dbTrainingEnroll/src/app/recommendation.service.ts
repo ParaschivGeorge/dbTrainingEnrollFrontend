@@ -8,7 +8,6 @@ import 'rxjs/add/operator/catch';
 import { User } from './user';
 import { UserService } from './user.service';
 import { Subject } from 'rxjs/Subject';
-import {BehaviorSubject} from 'rxjs/Rx';
 
 @Injectable()
 export class RecommendationService {
@@ -22,7 +21,7 @@ export class RecommendationService {
   trainings: Training[];
   gotRecommendations = new EventEmitter<boolean>();
   private subject = new Subject<Training[]>( );
-  
+
 
   getRecommendedTrainings(): Observable<Training[]> {
     return this.http.post<Training[]>(this._URL, {email: this.userService.currentUser.email});
@@ -31,7 +30,7 @@ export class RecommendationService {
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }
-  
+
   sendTrainings() {
     this.subject.next(this.trainings);
   }

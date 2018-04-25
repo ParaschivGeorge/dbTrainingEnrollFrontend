@@ -58,14 +58,12 @@ export class EnrollmentsComponent implements OnInit {
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
         this.techTrainings = this.allTechTrainings.slice(0, 8);
         this.spinnerService.hide();
-      } ,
-      error => console.log('Error: ' + error)
+      }
     );
   }
 
   openDialog(training: Training): void {
     this.userService.training = training;
-    console.log(this.userService.training.id);
     this.userService.getPendingList().subscribe(result => {}, error => {});
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(PmFormComponent, {
@@ -76,7 +74,6 @@ export class EnrollmentsComponent implements OnInit {
     this.spinnerService.show();
     if (all.length < original.length - 4) {
       const len = all.length;
-      console.log(len);
 
       for (let i = len; i <= len + 4; i ++) {
         all.push(original[i]);

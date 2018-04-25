@@ -35,8 +35,8 @@ export class ReportsComponent implements OnInit {
   };
 
   public barChartLabels: string[] = ['2006', '2007', '2008', '2009'];
-  public barChartType: string = 'bar';
-  public barChartLegend: boolean = false;
+  public barChartType = 'bar';
+  public barChartLegend = false;
 
   public barChartColors: Array<any> = [
     { // grey
@@ -53,39 +53,35 @@ export class ReportsComponent implements OnInit {
   getPopularity(): void {
     this.reportsService.getPopularity().subscribe(
       result => {
-        console.log(result);
-        let labels = (result as Array<any>).map(res => res.technology);
-        let data = (result as Array<any>).map(res => res.attendees);
+
+        const labels = (result as Array<any>).map(res => res.technology);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
-
-        console.log(data);
       });
   }
 
   getSoftPopularity(): void {
     this.reportsService.getSoftPopularity().subscribe(
       result => {
-        console.log(result);
-        let labels = (result as Array<any>).map(res => res.technology);
-        let data = (result as Array<any>).map(res => res.attendees);
+
+        const labels = (result as Array<any>).map(res => res.technology);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
 
-        console.log(data);
       });
   }
 
   getTechPopularity(): void {
     this.reportsService.getTechPopularity().subscribe(
       result => {
-        console.log(result);
-        let labels = (result as Array<any>).map(res => res.technology);
-        let data = (result as Array<any>).map(res => res.attendees);
+
+        const labels = (result as Array<any>).map(res => res.technology);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
 
-        console.log(data);
       });
   }
 
