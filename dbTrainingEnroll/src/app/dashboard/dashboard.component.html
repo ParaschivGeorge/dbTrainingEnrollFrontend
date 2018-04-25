@@ -74,7 +74,13 @@
                                 <mat-card-content> {{ training.name }} </mat-card-content>
                                 <mat-card-footer> {{ training.date }} </mat-card-footer>
                                 <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>   
-                                <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                         
+                                <button
+                                    mat-raised-button class="button__enroll"
+                                    color="primary"
+                                    (click)="selfEnroll(training)"
+                                    *ngIf="userService.currentUser.type === 'USER'">
+                                    Enroll
+                                </button>                        
                                 <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                                 <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                             </mat-card>
@@ -95,7 +101,13 @@
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
                             <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
-                            <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                            
+                            <button
+                                mat-raised-button class="button__enroll"
+                                color="primary"
+                                (click)="selfEnroll(training)"
+                                *ngIf="userService.currentUser.type === 'USER'">
+                                Enroll
+                            </button>                          
                             <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                             <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                         </mat-card>
@@ -117,7 +129,13 @@
                                 <mat-card-content> {{ training.name }} </mat-card-content>
                                 <mat-card-footer> {{ training.date }} </mat-card-footer>
                                 <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>  
-                                <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                          
+                                <button
+                                    mat-raised-button class="button__enroll"
+                                    color="primary"
+                                    (click)="selfEnroll(training)"
+                                    *ngIf="userService.currentUser.type === 'USER'">
+                                    Enroll
+                                </button>                         
                                 <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                                 <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                             </mat-card>
@@ -138,7 +156,13 @@
                             <mat-card-content> {{ training.name }} </mat-card-content>
                             <mat-card-footer> {{ training.date }} </mat-card-footer>
                             <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>   
-                            <button mat-raised-button class="button__enroll" color="primary">Enroll</button>                         
+                            <button
+                                mat-raised-button class="button__enroll"
+                                color="primary"
+                                (click)="selfEnroll(training)"
+                                *ngIf="userService.currentUser.type === 'USER'">
+                                Enroll
+                            </button>                         
                             <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                             <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                         </mat-card>
