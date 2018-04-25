@@ -44,6 +44,8 @@ export class MenuComponent implements OnInit {
     this.userService.currentUser.email = null;
     this.userService.currentUser.type = null;
     this.userService.currentUser.name = null;
+    this.userService.currentUser.gender = null;
+    this.userService.currentUser.lastLoginDate = null;
     this.router.navigate(['/trainings']);
     }
 }
