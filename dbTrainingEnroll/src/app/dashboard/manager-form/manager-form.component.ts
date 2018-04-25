@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators/map';
 import { forEach } from '@angular/router/src/utils/collection';
 import { ManagerFormResponse } from './manager-form-response';
 import { UserDto } from '../../userDto';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-manager-form',
@@ -24,7 +25,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   duration: string;
   self_enrolled_users: UserDto[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+  private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.userService.training.duration !== '-1') {
@@ -59,7 +61,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
           this.formLength++;
         });
       }
-    );    
+    );
   }
 
   onAddUser() {
@@ -134,6 +136,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.postEnrollmentsList().subscribe(result => {
       this.userService.closeDialog.emit();
     });
+    this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000} );
   }
 
   ngOnDestroy(): void {

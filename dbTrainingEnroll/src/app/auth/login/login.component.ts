@@ -44,7 +44,13 @@ export class LoginComponent implements OnInit {
             this.userService.currentUser.type = result.userType;
             this.userService.currentUser.lastLoginDate = result.lastLoginDate;
             this.userService.loggedIn.emit(true);
-
+            if (this.userService.currentUser.type === 'USER') {
+              this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 2000});
+            } else if (this.userService.currentUser.type === 'MANAGER') {
+              this.loginSnackBar.open('You are logged in as Manager!', 'Ok', {duration: 2000});
+            } else if (this.userService.currentUser.type === 'PM') {
+              this.loginSnackBar.open('You are logged in as PM!', 'Ok', {duration: 2000});
+            }
             if (this.userService.currentUser.type === 'USER') {
               this.recommendationService.getRecommendedTrainings().subscribe(
                 recommended => {
@@ -55,10 +61,8 @@ export class LoginComponent implements OnInit {
             }
           });
         this.userService.closeDialog.emit(true);
-
         this.router.navigate(['/enrollments']);
         form.resetForm();
-        this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 1800});
         this.spinnerService.hide();
       },
       (error: HttpErrorResponse) => {

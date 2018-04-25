@@ -5,6 +5,7 @@ import { UserService } from '../../user.service';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { PmFormResponse } from './pm-from-response';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-pm-form',
@@ -20,7 +21,8 @@ export class PmFormComponent implements OnInit {
   modelList: PmFormResponse[] = [];
   buttonIsClicked = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+  private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.pmForm = new FormGroup({
@@ -43,7 +45,6 @@ export class PmFormComponent implements OnInit {
       data.mailUser = mail;
       data.idTraining = this.userService.training.id;
       data.status = 1;
-
       this.modelList.push(data);
     }
 
@@ -70,6 +71,7 @@ export class PmFormComponent implements OnInit {
     this.userService.postPendingList().subscribe(result => {
       this.userService.closeDialog.emit();
      });
+     this.submitSnackBar.open('List submitted!', 'Ok', {duration: 2000});
   }
 
   // tslint:disable-next-line:use-life-cycle-interface

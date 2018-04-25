@@ -5,6 +5,7 @@
       <span class="page-title">DB Training Enrollment</span>
     </a>
     <span class="example-spacer"></span>
+    <h4 *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
     <a routerLink="/enrollments" *ngIf="userService.currentUser.type === 'PM'"> 
       <button mat-raised-button *ngIf="router.url === '/trainings'">Enrollments</button>
     </a>       
