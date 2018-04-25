@@ -11,8 +11,6 @@ import { ReportsService } from '../reports.service';
 })
 export class ReportsComponent implements OnInit {
   public barChartData: number[] = [];
-
-
   public barChartOptions: any = {
     scaleShowVerticalLines: true,
     responsive: true,

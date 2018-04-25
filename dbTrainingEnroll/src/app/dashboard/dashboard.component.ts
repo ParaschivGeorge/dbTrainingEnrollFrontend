@@ -15,7 +15,6 @@ import { Subscription } from 'rxjs/Subscription';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  // providers: [ApiService, RecommendationService],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateY(0)'})),
