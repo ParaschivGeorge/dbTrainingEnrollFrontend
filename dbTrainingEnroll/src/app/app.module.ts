@@ -29,6 +29,7 @@ import { LoggingInterceptor } from './logging.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
 import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
+import { ReportsService } from './reports.service';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -70,7 +71,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
-  providers: [UserService, AuthService, RecommendationService, AuthGuard,
+  providers: [UserService, AuthService, RecommendationService, AuthGuard, ReportsService,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
   ],

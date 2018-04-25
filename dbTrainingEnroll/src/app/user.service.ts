@@ -27,7 +27,7 @@ export class UserService {
   data: Object;
   modelList: Array<PmFormResponse>;
   closeDialog = new EventEmitter<boolean>();
-
+  loggedIn = new EventEmitter<boolean>();
   currentUser = new User;
 
   constructor(private http: HttpClient,
@@ -51,8 +51,6 @@ export class UserService {
   }
 
   postEnrollmentsList(): Observable<Object> {
-    console.log(this.data);
-    
     return this.http.post(this._RESULT_ULR, this.data);
   }
 

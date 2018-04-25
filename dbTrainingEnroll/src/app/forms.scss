@@ -52,6 +52,7 @@ button:disabled {
     opacity: 0.8;
     font-weight: 400;
     line-height: 32px;
+    margin-bottom: .3em;
 }
 
 .h3__train{
@@ -61,6 +62,7 @@ button:disabled {
     opacity: 0.8;
     font-weight: 300;
     line-height: 28px;
+    margin-bottom: .2em;
 }
 
 .p__train_date{
@@ -76,7 +78,7 @@ button:disabled {
 .participant__mark{
     font-weight: bold;
     color: $dark-blue;
-    margin-left: .5em;
+    margin-left: 2px;
     font-size: 20px;
 }
 

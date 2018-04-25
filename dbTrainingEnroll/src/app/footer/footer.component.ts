@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  footerText: string;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.loggedIn.subscribe(result => {
+      this.footerText = 'Last Login Date: ' + this.userService.currentUser.lastLoginDate;
+    });
   }
-
 }

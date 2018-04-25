@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private user: UserService) { }
+    private userService: UserService) { }
 
   ngOnInit() {
     this.router.events
@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
       .filter((route) => route.outlet === 'primary')
       .mergeMap((route) => route.data)
       .subscribe((event) => {
-        if (this.user.currentUser.name) {
-          this.titleService.setTitle('DB' + ' - Hello ' + this.user.currentUser.name);
+        if (this.userService.currentUser.name) {
+          this.titleService.setTitle('DB' + ' - Hello ' + this.userService.currentUser.name);
         } else {
         this.titleService.setTitle(event['title']);
         }

@@ -4,30 +4,110 @@
 </div>
 
 <div class="charts__container">
-    <mat-card class="chart__popularity">
-        <mat-card-title class="chart__title">
-            Popularity
-            <div class="button__row">
-                <button mat-raised-button class="chart__button" color="primary" (click)="getPopularity()">All</button>
-                <button mat-raised-button class="chart__button" color="primary" (click)="getSoftPopularity()">Soft Skills</button>
-                <button mat-raised-button class="chart__button" color="primary" (click)="getTechPopularity()">Technical</button>
-            </div>
-        </mat-card-title>
-        <mat-card-content class="chart__populairty__in">
-            <div style="display: block">
-                    <canvas baseChart
-                    [data]="barChartData"
-                    [labels]="barChartLabels"
-                    [colors]="barChartColors"
-                    [options]="barChartOptions"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
-            </div>
-        </mat-card-content>
+    <mat-grid-list cols="2">
+        <mat-card class="chart__popularity">
+            <mat-card-title class="chart__title">
+                Popularity
+                <div class="button__row">
+                    <button mat-raised-button class="chart__button" color="primary" (click)="getPopularity()">All</button>
+                    <button mat-raised-button class="chart__button" color="primary" (click)="getSoftPopularity()">Soft Skills</button>
+                    <button mat-raised-button class="chart__button" color="primary" (click)="getTechPopularity()">Technical</button>
+                </div>
+            </mat-card-title>
+            <mat-card-content class="chart__populairty__in">
+                <div *ngIf="barChartLabels.length > 0" style="display: block">
+                        <canvas baseChart
+                        [data]="barChartData"
+                        [labels]="barChartLabels"
+                        [colors]="barChartColors"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+                </div>
+            </mat-card-content>
+        
+        </mat-card>
     
-    </mat-card>
+        <mat-card class="chart__gender">
+            <mat-card-title class="chart__title baby-title">
+                Gender Report
+            </mat-card-title>
+            <mat-card-content class="chart__gender__in">
+                <div class="women">
+                        <div style="display: block">
+                            <canvas baseChart width="1" height="1"
+                            [data]="doughnutWomenChartData"
+                            [colors]="doughnutWomenChartColors"
+                            [labels]="doughnutChartLabels"
+                            [chartType]="doughnutChartType"
+                            [options]="doughnutChartOptions"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)">
+                        </canvas>
+                        <span class="gender_percentage perc-women">{{ percWomen }} %</span>
+                        <span class="gender_name perc-women">WOMEN</span>
+                    </div>
+                </div>
+    
+                <div class="men">
+                        <div style="display: block">
+                            <canvas baseChart width="1" height="1"
+                            [data]="doughnutMenChartData"
+                            [labels]="doughnutChartLabels"
+                            [colors]="doughnutMenChartColors"
+                            [options]="doughnutChartOptions"
+                            [chartType]="doughnutChartType"
+                            (chartHover)="chartHovered($event)"
+                            (chartClick)="chartClicked($event)"></canvas>
+                            <span class="gender_percentage perc-men">{{ percMen }} %</span>
+                            <span class="gender_name name-men">MEN</span>
+                    </div>
+                </div>
+                
+            </mat-card-content>
+        </mat-card>
+            
+        <mat-card class="chart__gender chart__soft-tech">
+            <mat-card-title class="chart__title baby-title">
+                Soft vs. Tech
+            </mat-card-title>
+            <mat-card-content class="chart__gender__in">
+                    <div class="women">
+                            <div style="display: block">
+                                <canvas baseChart width="1" height="1"
+                                [data]="doughnutSoftChartData"
+                                [colors]="doughnutSoftChartColors"
+                                [labels]="doughnuTechSoftChartLabels"
+                                [options]="doughnutChartOptions"
+                                [chartType]="doughnutChartType"
+                                (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)"></canvas>
+                                <span class="gender_percentage perc-soft">{{ percSoft }} %</span>
+                                <span class="gender_name name-soft">SOFT</span>
+                        </div>
+                    </div>
+        
+                    <div class="men">
+                            <div style="display: block">
+                                <canvas baseChart width="1" height="1"
+                                [data]="doughnutTechChartData"
+                                [labels]="doughnuTechSoftChartLabels"
+                                [colors]="doughnutTechChartColors"
+                                [options]="doughnutChartOptions"
+                                [chartType]="doughnutChartType"
+                                (chartHover)="chartHovered($event)"
+                                (chartClick)="chartClicked($event)"></canvas>
+                                <span class="gender_percentage perc-tech">{{ percTech }} %</span>
+                                <span class="gender_name name-tech">TECH</span>
+                        </div>
+                    </div>
+                    
+                </mat-card-content>
+        </mat-card>
+    </mat-grid-list>
+    
 </div>
 
 
