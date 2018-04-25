@@ -45,22 +45,21 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;
+        this.userService.getSelfEnrolledList().subscribe(
+          self_enrolled_users => {
+            this.self_enrolled_users = self_enrolled_users;
+            this.self_enrolled_users.forEach(self_enrolled_user => {
+              const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
+              control.setValue(self_enrolled_user.mail);
+              control.updateValueAndValidity();
+              this.userService.accounts.push(self_enrolled_user);
+              (<FormArray>this.managerForm.get('users')).insert(0, control);
+              this.formLength++;
+              this.managerForm.updateValueAndValidity();
+            });
+          }
+        );
       },
-    );
-
-    this.userService.getSelfEnrolledList().subscribe(
-      self_enrolled_users => {
-        this.self_enrolled_users = self_enrolled_users;
-        this.self_enrolled_users.forEach(self_enrolled_user => {
-          const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-          control.setValue(self_enrolled_user.mail);
-          control.updateValueAndValidity();
-          this.userService.accounts.push(self_enrolled_user);
-          (<FormArray>this.managerForm.get('users')).insert(0, control);          
-          this.formLength++;
-          this.managerForm.updateValueAndValidity();
-        });
-      }
     );
   }
 
