@@ -3,7 +3,7 @@
     <h1 class="title">Trainings</h1>
     <mat-tab-group>
         <mat-tab label="All">
-            <div *ngIf="allRecommendedTrainings.length > 0">
+            <div *ngIf="allRecommendedTrainings.length > 0 && userService.currentUser.type === 'USER'">
                 <h2 class="subtitle">Recommended for you</h2>
                 <mat-grid-list class="dashboard__grid" cols="4">
                     <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
@@ -61,7 +61,7 @@
             </mat-grid-list>
         </mat-tab>
         <mat-tab label="Soft Skills">
-            <div *ngIf="softRecommendedTrainings.length > 0">
+            <div *ngIf="softRecommendedTrainings.length > 0  && userService.currentUser.type === 'USER'">
                 <h2 class="subtitle">Recommended for you</h2>
                 <mat-grid-list class="dashboard__grid" cols="4">
                     <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
@@ -116,7 +116,7 @@
             </mat-grid-list>
         </mat-tab>
         <mat-tab label="Technical">
-            <div *ngIf="techRecommendedTrainings.length > 0">
+            <div *ngIf="techRecommendedTrainings.length > 0  && userService.currentUser.type === 'USER'">
                 <h2 class="subtitle">Recommended for you</h2>
                 <mat-grid-list class="dashboard__grid" cols="4">
                     <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
