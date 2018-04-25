@@ -29,7 +29,6 @@ import { LoggingInterceptor } from './logging.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
 import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
-import { MetaModule } from '@ngx-meta/core';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
