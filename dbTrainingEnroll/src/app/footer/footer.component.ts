@@ -14,8 +14,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.userService.loggedIn.subscribe(result => {
-      this.footerText = this.userService.currentUser.name + '<br>Last Login Date: '
-  + this.userService.currentUser.lastLoginDate;
+      this.footerText = 'Last Login Date: ' + this.userService.currentUser.lastLoginDate;
     });
   }
 }

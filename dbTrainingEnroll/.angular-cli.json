@@ -8,9 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "img/favicon.ico"
-      ],
+        "assets"      ],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
