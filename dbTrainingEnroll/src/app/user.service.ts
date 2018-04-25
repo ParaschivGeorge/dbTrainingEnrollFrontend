@@ -27,7 +27,7 @@ export class UserService {
   data: Object;
   modelList: Array<PmFormResponse>;
   closeDialog = new EventEmitter<boolean>();
-
+  loggedIn = new EventEmitter<boolean>();
   currentUser = new User;
 
   constructor(private http: HttpClient,
