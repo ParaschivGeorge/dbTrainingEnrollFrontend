@@ -5,6 +5,13 @@ import { Training } from './training';
 import { NgModule, VERSION } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng4LoadingSpinnerModule, Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import { User } from './user';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +21,28 @@ import { Ng4LoadingSpinnerModule, Ng4LoadingSpinnerService } from 'ng4-loading-s
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private user: UserService) { }
 
   ngOnInit() {
+    this.router.events
+      .filter((event) => event instanceof NavigationEnd)
+      .map(() => this.activatedRoute)
+      .map((route) => {
+        while (route.firstChild) { route = route.firstChild; }
+        return route;
+      })
+      .filter((route) => route.outlet === 'primary')
+      .mergeMap((route) => route.data)
+      .subscribe((event) => {
+        if (this.user.currentUser.name) {
+          this.titleService.setTitle('DB' + ' - Hello ' + this.user.currentUser.name);
+        } else {
+        this.titleService.setTitle(event['title']);
+        }
+      });
   }
 }
