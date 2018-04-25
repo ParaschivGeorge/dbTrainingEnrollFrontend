@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -25,17 +26,21 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { LoggingInterceptor } from './logging.interceptor';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 
 const appRoutes: Routes = [
-  { path: 'enrollments', component: EnrollmentsComponent, canActivate: [AuthGuard] },
-  { path: 'trainings', component: DashboardComponent },
-  { path: '', redirectTo: '/trainings', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'reports', component: ReportsComponent }
+  { path: 'enrollments', component: EnrollmentsComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'DB Enrollments' } },
+  { path: 'trainings',
+    data: { title: 'DB Trainings'},
+    component: DashboardComponent },
+  { path: '', redirectTo: '/trainings', data: { title: 'DB Home' }, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, data: { title: 'DB Login' } },
+  { path: 'reports', component: ReportsComponent, data: { title: 'DB Reports' } }
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material';
 import { LoginComponent } from '../auth/login/login.component';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
+import { RecommendationService } from '../recommendation.service';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,8 @@ export class MenuComponent implements OnInit {
     public router: Router,
     private dialog: MatDialog,
     private authService: AuthService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private recommendationsService: RecommendationService) { }
 
   ngOnInit() {
   }
@@ -44,6 +46,10 @@ export class MenuComponent implements OnInit {
     this.userService.currentUser.email = null;
     this.userService.currentUser.type = null;
     this.userService.currentUser.name = null;
+    this.userService.currentUser.gender = null;
+    this.userService.currentUser.lastLoginDate = null;
     this.router.navigate(['/trainings']);
+    this.recommendationsService.trainings = [];
+    this.recommendationsService.sendTrainings();
     }
 }

@@ -38,22 +38,18 @@ export class LoginComponent implements OnInit {
         this.userService.currentUser = new User;
         this.userService.currentUser.email = username;
         this.userService.currentUser.token = data.token;
-
         this.userService.postUserData().subscribe(
           result => {
-            console.log(result);
             this.userService.currentUser.name = result.name;
             this.userService.currentUser.type = result.userType;
             this.userService.currentUser.lastLoginDate = result.lastLoginDate;
-            console.log(this.userService.currentUser.type);
+            this.userService.loggedIn.emit(true);
 
             if (this.userService.currentUser.type === 'USER') {
               this.recommendationService.getRecommendedTrainings().subscribe(
                 recommended => {
                   this.recommendationService.trainings = recommended;
-                  console.log(this.recommendationService.trainings);
-                  this.recommendationService.gotRecommendations.emit(true);
-                  console.log(this.recommendationService.gotRecommendations.observers);
+                  this.recommendationService.sendTrainings();
                }
               );
             }

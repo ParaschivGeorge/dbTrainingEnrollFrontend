@@ -115,14 +115,13 @@ export class ReportsComponent implements OnInit {
   getSoftPopularity(): void {
     this.reportsService.getSoftPopularity().subscribe(
       result => {
-        console.log(result);
-        let labels = (result as Array<any>).map(res => res.technology);
-        let data = (result as Array<any>).map(res => res.attendees);
+
+        const labels = (result as Array<any>).map(res => res.technology);
+        const data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
         this.barChartLabels = labels;
 
-        console.log(data);
       });
   }
 

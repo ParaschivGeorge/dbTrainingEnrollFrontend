@@ -32,7 +32,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     } else {
       this.duration = '';
     }
-    
+
     this._MAX_NUMBER = 15 - this.userService.training.acceptedUsers;
     this.managerForm = new FormGroup({
       'users': new FormArray([])
@@ -43,23 +43,23 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;
-        // console.log( this.userService.accounts);
       },
-      error => console.log('Error: ' + error)
     );
 
     this.userService.getSelfEnrolledList().subscribe(
       self_enrolled_users => {
         this.self_enrolled_users = self_enrolled_users;
+        this.self_enrolled_users.forEach(self_enrolled_user => {
+          const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
+          control.setValue(self_enrolled_user.mail);
+          control.updateValueAndValidity();
+          this.userService.accounts.push(self_enrolled_user);
+          (<FormArray>this.managerForm.get('users')).insert(0, control);
+          this.managerForm.updateValueAndValidity();
+          this.formLength++;
+        });
       }
-    );
-
-    this.self_enrolled_users.forEach(self_enrolled_user => {
-      const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-      control.setValue(self_enrolled_user.mail);
-      (<FormArray>this.managerForm.get('users')).push(control);
-      this.formLength++;
-    });
+    );    
   }
 
   onAddUser() {
@@ -94,7 +94,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     });
 
     if (!this.valid) {
-      console.log(this.userService.accounts);
       return {'notValidEmployee': true};
     }
 
@@ -132,7 +131,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       data.emails.push(control.value);
     });
     this.userService.data = data;
-    console.log(data);
     this.userService.postEnrollmentsList().subscribe(result => {
       this.userService.closeDialog.emit();
     });

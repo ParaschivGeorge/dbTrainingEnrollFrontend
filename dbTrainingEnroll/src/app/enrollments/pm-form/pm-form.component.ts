@@ -29,15 +29,12 @@ export class PmFormComponent implements OnInit {
     this.userService.getPendingList().subscribe(
       users => {
         this.userService.accounts = users;
-        console.log( this.userService.accounts);
       },
-      error => console.log(error)
     );
   }
 
   acceptUser(mail: string) {
     const existingUser = this.modelList.find(el => el.mailUser === mail);
-    console.log(existingUser);
 
     if (existingUser) {
       existingUser.status = 1;
@@ -50,7 +47,6 @@ export class PmFormComponent implements OnInit {
       this.modelList.push(data);
     }
 
-    console.log(this.modelList);
   }
 
   denyUser(mail: string) {
