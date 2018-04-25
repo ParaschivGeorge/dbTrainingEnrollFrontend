@@ -6,8 +6,8 @@ import { ReportsService } from '../reports.service';
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss'],
-  providers: [ReportsService]
+  styleUrls: ['./reports.component.scss']
+  
 })
 export class ReportsComponent implements OnInit {
   public barChartData: number[] = [];
@@ -22,6 +22,11 @@ export class ReportsComponent implements OnInit {
   public doughnutMenChartData: number[]  = [];
   public doughnutSoftChartData: number[]  = [];
   public doughnutTechChartData: number[]  = [];
+
+  public percWomen: number;
+  public percMen: number;
+  public percSoft: number;
+  public percTech: number;
   // public barChartLabels: string[];
 
 
@@ -51,7 +56,7 @@ export class ReportsComponent implements OnInit {
     cutoutPercentage: 85
   };
 
-  public barChartLabels: string[] = ['2006', '2007', '2008', '2009'];
+  public barChartLabels: string[] = [];
 
   public barChartColors: Array<any> = [
     { // primary
@@ -100,14 +105,10 @@ export class ReportsComponent implements OnInit {
         console.log(result);
         // let labels: string[];
         let labels = (result as Array<any>).map(res => res.technology);
-        // this.barChartLabels = labels;
-        console.log(this.barChartLabels);
+        this.barChartLabels = labels;
         let data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
-        // this.barChartLabels = labels;
-
-        console.log(data);
       });
   }
 
@@ -119,6 +120,7 @@ export class ReportsComponent implements OnInit {
         let data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
+        this.barChartLabels = labels;
 
         console.log(data);
       });
@@ -127,13 +129,11 @@ export class ReportsComponent implements OnInit {
   getTechPopularity(): void {
     this.reportsService.getTechPopularity().subscribe(
       result => {
-        console.log(result);
         let labels = (result as Array<any>).map(res => res.technology);
         let data = (result as Array<any>).map(res => res.attendees);
 
         this.barChartData = data;
-
-        console.log(data);
+        this.barChartLabels = labels;
       });
   }
 
@@ -142,13 +142,16 @@ export class ReportsComponent implements OnInit {
       result => {
         let labels = ['Men', 'Women'];
         let data = (result as Array<any>).map(res => res);
+        let totalGender: number;
 
         // let data = [19, 14];
         this.doughnutWomenChartData = data.reverse();
         this.doughnutMenChartData = data;
         this.doughnutChartLabels = labels;
 
-        console.log(this.doughnutMenChartData);
+        totalGender = data[0] + data[1];
+        this.percMen = Math.round((data[1] / totalGender) * 100);
+        this.percWomen = Math.round((data[0] / totalGender) * 100);
       });
   }
 
@@ -157,13 +160,16 @@ export class ReportsComponent implements OnInit {
       result => {
         let labels = ['Tech', 'Soft'];
         let data = (result as Array<any>).map(res => res);
+        let totalTrain: number;
 
         // let data = [19, 14];
         this.doughnutSoftChartData = data.reverse();
         this.doughnutTechChartData = data;
         this.doughnuTechSoftChartLabels = labels;
 
-        console.log(this.doughnutMenChartData);
+        totalTrain = data[0] + data[1];
+        this.percTech = Math.round((data[1] / totalTrain) * 100);
+        this.percSoft = Math.round((data[0] / totalTrain) * 100);
       });
   }
 

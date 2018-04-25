@@ -117,3 +117,56 @@ h1 {
     height: 12em;
     margin-top: -1.5em;
 }
+
+.gender_percentage{
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    top: 42%;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 5.5%;
+}
+
+.gender_name{
+    position: absolute;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    top: 58%;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 5.5%;
+}
+
+.perc-women{
+    color: $red;
+}
+
+.perc-soft{
+    color: #1C8E89;
+}
+
+.perc-tech{
+    color: #3EADD6;
+}
+
+.perc-men{
+    color: $dark-blue;
+}
+
+.name-men{
+    color: $dark-blue;
+    margin-left: 7%;
+    letter-spacing: 4px;
+}
+
+.name-tech{
+    color: #3EADD6;
+    margin-left: 7%;
+    letter-spacing: 4px;
+}
+
+.name-soft{
+    color: #1C8E89;
+    margin-left: 7%;
+    letter-spacing: 4px;
+}
