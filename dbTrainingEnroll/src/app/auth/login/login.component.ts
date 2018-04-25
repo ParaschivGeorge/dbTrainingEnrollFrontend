@@ -38,13 +38,12 @@ export class LoginComponent implements OnInit {
         this.userService.currentUser = new User;
         this.userService.currentUser.email = username;
         this.userService.currentUser.token = data.token;
-
         this.userService.postUserData().subscribe(
           result => {
-
             this.userService.currentUser.name = result.name;
             this.userService.currentUser.type = result.userType;
             this.userService.currentUser.lastLoginDate = result.lastLoginDate;
+            this.userService.loggedIn.emit(true);
 
             if (this.userService.currentUser.type === 'USER') {
               this.recommendationService.getRecommendedTrainings().subscribe(
