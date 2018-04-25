@@ -130,7 +130,7 @@ export class DashboardComponent implements OnInit {
         this.snackBar.open('You enrolled!', 'Ok', {duration: 1800});
       },
       error => {
-        this.snackBar.open('Enroll error!', 'Ok', {duration: 1800});
+        this.snackBar.open('You are already on the list or there was a server error!', 'Ok', {duration: 1800});
       }
     );
   }
