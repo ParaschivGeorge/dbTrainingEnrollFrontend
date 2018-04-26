@@ -112,7 +112,7 @@ button::after {
 }
 
 .mat-dialog-container {
-    padding: 24px !important;
+    padding: 0 24px !important;
 }
 
 input.ng-invalid.ng-touched {
@@ -277,7 +277,7 @@ input:-webkit-autofill {
         margin: 0;
     }
     .cdk-overlay-pane {
-        max-width: 95% !important;
+        max-width: 100% !important;
     }    
 }
 
@@ -322,5 +322,9 @@ input:-webkit-autofill {
         margin-top: -2px !important;
     }
     .name { display: none;
+    }
+    .mat-dialog-container {
+        width: 95vw !important;
+        margin: auto !important;
     }
 }
