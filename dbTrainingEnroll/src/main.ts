@@ -3,9 +3,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-if (environment.production) {
-  enableProdMode();
-}
+enableProdMode();
 
 platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
   // Ensure Angular destroys itself on hot reloads.
