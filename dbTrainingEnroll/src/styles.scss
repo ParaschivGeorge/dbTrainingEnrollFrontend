@@ -112,7 +112,7 @@ button::after {
 }
 
 .mat-dialog-container {
-    padding: 0 24px !important;
+    padding: 24px !important;
 }
 
 input.ng-invalid.ng-touched {
@@ -265,7 +265,6 @@ input:-webkit-autofill {
     .box {
         margin: auto !important;
     }
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -276,7 +275,7 @@ input:-webkit-autofill {
         margin: 0;
     }
     .cdk-overlay-pane {
-        max-width: 100% !important;
+        max-width: 95% !important;
     }    
 }
 
