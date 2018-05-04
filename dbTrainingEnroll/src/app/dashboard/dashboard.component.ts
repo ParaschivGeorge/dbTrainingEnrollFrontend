@@ -10,6 +10,8 @@ import { UserService } from '../user.service';
 import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 import { RecommendationService } from '../recommendation.service';
 import { Subscription } from 'rxjs/Subscription';
+import { FilterPipe } from '../filter.pipe';
+import { resolve, reject } from 'q';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,7 +35,7 @@ import { Subscription } from 'rxjs/Subscription';
         ]))
       ])
     ])
-  ]
+  ],
 })
 export class DashboardComponent implements OnInit {
   allTrainings: Training[];

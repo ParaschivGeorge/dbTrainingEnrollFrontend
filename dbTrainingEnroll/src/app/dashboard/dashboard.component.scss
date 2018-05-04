@@ -187,6 +187,28 @@ h1 {
     right: initial;
 }
 
+.search-box mat-form-field {
+    position: absolute;
+    margin-top: 18px;
+    right: 40px;
+    font-size: 16px;
+    z-index: 999;
+}
+
+@media screen and (max-width: 1200px) {
+    .search-box mat-form-field {
+        position: relative;
+        left: calc(50% - 15vw);
+        width: 30vw;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 20px auto 0 auto;
+    }
+    .search-box .mat-form-field-label-wrapper {
+        margin: 0;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .title {
         margin-bottom: 40px !important;

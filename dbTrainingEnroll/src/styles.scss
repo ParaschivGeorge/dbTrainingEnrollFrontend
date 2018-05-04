@@ -257,6 +257,9 @@ input:-webkit-autofill {
     }
 }
 
+.search-box .mat-form-field-label-wrapper {
+    margin-top: -8px !important;
+}
 
 .mat-simple-snackbar-action {
     color: $red !important;
@@ -266,6 +269,13 @@ input:-webkit-autofill {
 @media screen and (max-width: 1200px) {
     .box {
         margin: auto !important;
+    }
+    .search-box .mat-form-field-underline {
+        background: transparent;
+        height: 0;
+    }
+    .search-box .mat-form-field-label {
+        color: $dark-blue;
     }
 }
 

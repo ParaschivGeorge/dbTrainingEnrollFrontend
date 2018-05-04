@@ -32,6 +32,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 import { AdminComponent } from './admin/admin.component';
 import 'hammerjs';
+import { FilterPipe } from './filter.pipe';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     PmFormComponent,
     LoginComponent,
     ReportsComponent,
-    AdminComponent
+    AdminComponent,
+    FilterPipe
   ],
 
   imports: [
