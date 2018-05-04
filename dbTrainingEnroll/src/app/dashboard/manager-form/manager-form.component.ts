@@ -26,7 +26,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   self_enrolled_users: UserDto[];
 
   constructor(private userService: UserService,
-  private submitSnackBar: MatSnackBar) { }
+    private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.userService.training.duration !== '-1') {

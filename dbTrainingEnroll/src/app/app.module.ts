@@ -30,6 +30,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     component: DashboardComponent },
   { path: '', redirectTo: '/trainings', data: { title: 'DB Home' }, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: 'DB Login' } },
-  { path: 'reports', component: ReportsComponent, data: { title: 'DB Reports' } }
+  { path: 'reports', component: ReportsComponent, data: { title: 'DB Reports' } },
+  { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } }
 ];
 
 @NgModule({
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     ManagerFormComponent,
     PmFormComponent,
     LoginComponent,
-    ReportsComponent
+    ReportsComponent,
+    AdminComponent
   ],
 
   imports: [
