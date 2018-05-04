@@ -244,6 +244,7 @@ input:-webkit-autofill {
     box-shadow: 0 0 30px -5px rgba($black,.4) !important;
 }
 
+
 .mat-snack-bar-container {
     background: linear-gradient(0deg, $darkest-blue 0%, $dark-blue 100%) !important;
     box-shadow: 0 -6px 30px -4px rgba(50,30,200,0.8), 0 0 4px rgba($darkest-blue, .5);
@@ -256,6 +257,7 @@ input:-webkit-autofill {
     }
 }
 
+
 .mat-simple-snackbar-action {
     color: $red !important;
     text-shadow: 0 0 8px -1px rgba($black,.8);
@@ -265,7 +267,6 @@ input:-webkit-autofill {
     .box {
         margin: auto !important;
     }
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -316,5 +317,10 @@ input:-webkit-autofill {
     .login-container {
         width: 70vw;
         margin: auto;
+    }
+    .reports {
+        margin-top: -2px !important;
+    }
+    .name { display: none;
     }
 }

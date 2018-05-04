@@ -31,6 +31,7 @@ import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 import { AdminComponent } from './admin/admin.component';
+import 'hammerjs';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
