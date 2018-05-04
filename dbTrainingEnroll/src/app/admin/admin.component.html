@@ -1,3 +1,17 @@
-<p>
-  admin works!
-</p>
+<div class="admin__dashboard">
+  <form [formGroup]="adminAddForm"> 
+      <!-- (ngSubmit)="onSubmit()" -->
+    <input type="file"
+      id="file"
+      (change)="handleFileInput($event.target.files)"
+      accept=".xlsx"
+      class="form-control"
+      formControlName="excelInput">
+
+    <button type="submit" class="form__button">Submit</button>
+
+  </form>
+
+  <!-- <button type="submit" (click)="onSubmit()">Submit</button> -->
+</div>
+
