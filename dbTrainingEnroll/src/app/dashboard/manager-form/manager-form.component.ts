@@ -148,9 +148,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     data.emails = [];
 
     const formArray = (<FormArray>this.managerForm.get('users')).controls;
-    // formArray.forEach(control => {
-    //   data.emails.push(control.value);
-    // });
 
     formArray.forEach(controlGroup => {
       data.emails.push(controlGroup.get('email').value);
