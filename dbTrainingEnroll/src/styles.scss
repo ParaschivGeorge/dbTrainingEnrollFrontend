@@ -266,6 +266,14 @@ input:-webkit-autofill {
     text-shadow: 0 0 8px -1px rgba($black,.8);
 }
 
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background: $blue !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $blue !important;
+}
+
 @media screen and (max-width: 1200px) {
     .box {
         margin: auto !important;

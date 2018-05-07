@@ -88,8 +88,15 @@ button:disabled {
 }
 
 .enrollment-field{
-    width: 80%;
-    margin: .5em 0;
+    width: 100%;
+}
+
+.mat-radio-button {
+    margin: 0 5px;
+}
+
+textarea.mat-input-element {
+    columns: $dark-blue;
 }
 
 mat-icon{
@@ -139,6 +146,10 @@ mat-icon{
 
 .radio-group{
     margin-top: -23px !important;
+}
+
+.radio {
+    margin: 10px 0;
 }
 
 .check-btn{
