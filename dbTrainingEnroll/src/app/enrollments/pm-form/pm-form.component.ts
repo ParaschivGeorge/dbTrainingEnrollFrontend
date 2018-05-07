@@ -6,6 +6,7 @@ import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { PmFormResponse } from './pm-from-response';
 import { MatSnackBar } from '@angular/material';
+import {UserDto} from "../../userDto";
 
 @Component({
   selector: 'app-pm-form',
@@ -31,6 +32,12 @@ export class PmFormComponent implements OnInit {
     this.userService.getPendingList().subscribe(
       users => {
         this.userService.accounts = users;
+        this.userService.accounts.forEach(user => {
+          const form_group = new FormGroup({
+            'comment': new FormControl('')
+          });
+          (<FormArray>this.pmForm.get('users')).insert(0, form_group);
+        });
       },
     );
   }
