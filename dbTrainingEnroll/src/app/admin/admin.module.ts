@@ -11,6 +11,7 @@ import { AddTrainingsComponent } from './add-trainings/add-trainings.component';
     MaterialModule,
     MatTabsModule
   ],
+  exports: [AddTrainingsComponent],
   declarations: [AdminComponent, AddTrainingsComponent]
 })
 export class AdminModule { }

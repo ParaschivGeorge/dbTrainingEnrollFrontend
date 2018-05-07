@@ -32,6 +32,8 @@ import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 import 'hammerjs';
 import {AdminComponent} from "./admin/admin.component";
+import {AddTrainingsComponent} from "./admin/add-trainings/add-trainings.component";
+import {NgUploaderModule} from "ngx-uploader";
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -57,7 +59,8 @@ const appRoutes: Routes = [
     PmFormComponent,
     LoginComponent,
     ReportsComponent,
-    AdminComponent
+    AdminComponent,
+    AddTrainingsComponent
   ],
 
   imports: [
@@ -72,6 +75,7 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,
     ChartsModule,
+    NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
