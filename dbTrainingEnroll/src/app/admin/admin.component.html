@@ -1,9 +1,9 @@
 <div class="admin__dashboard">
-  <form [formGroup]="adminAddForm"> 
+  <form [formGroup]="adminAddForm" (ngSubmit)="onSubmit()">
       <!-- (ngSubmit)="onSubmit()" -->
     <input type="file"
       id="file"
-      (change)="handleFileInput($event.target.files)"
+      (change)="incomingfile($event)"
       accept=".xlsx"
       class="form-control"
       formControlName="excelInput">
