@@ -7,11 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Ng4LoadingSpinnerModule, Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { User } from './user';
+import { UserService } from './user.service';
+
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import { User } from './user';
-import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
