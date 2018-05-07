@@ -9,6 +9,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { ManagerFormResponse } from './manager-form-response';
 import { UserDto } from '../../userDto';
 import { MatSnackBar } from '@angular/material';
+import { EnrollmentDetailsDto } from './enrollmentDetailsDto';
 
 @Component({
   selector: 'app-manager-form',
@@ -62,13 +63,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
               form_group.updateValueAndValidity();
 
-              // const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-              // control.setValue(self_enrolled_user.mail);
-              // control.updateValueAndValidity();
-
               this.userService.accounts.push(self_enrolled_user);
-
-              // (<FormArray>this.managerForm.get('users')).insert(0, control);
               (<FormArray>this.managerForm.get('users')).insert(0, form_group);
               this.formLength++;
               this.managerForm.updateValueAndValidity();
@@ -89,18 +84,11 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       'urgency': new FormControl('medium'),
       'comment': new FormControl('')
     });
-    // const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-    // this.filteredUsers = control.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
-    //   );
 
     this.filteredUsers = form_group.get('email').valueChanges.pipe(
       startWith(''),
       map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
-    );  
-    // (<FormArray>this.managerForm.get('users')).push(control);
+    );
 
     (<FormArray>this.managerForm.get('users')).push(form_group);
     this.formLength++;
@@ -126,12 +114,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     if (!this.valid) {
       return {'notValidEmployee': true};
     }
-
-    // (<FormControl[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formControl => {
-    //   if ((control !== formControl) && (formControl.value === control.value)) {
-    //     this.valid = false;
-    //   }
-    // });
 
     (<FormGroup[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formGroup => {
       if ((control !== formGroup.get('email')) && (formGroup.get('email').value === control.value)) {
@@ -161,15 +143,17 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     const data: ManagerFormResponse = new ManagerFormResponse;
 
     data.trainingId = this.userService.training.id;
-    data.emails = [];
+    data.enrollmentDetails = [];
 
     const formArray = (<FormArray>this.managerForm.get('users')).controls;
-    // formArray.forEach(control => {
-    //   data.emails.push(control.value);
-    // });
 
     formArray.forEach(controlGroup => {
-      data.emails.push(controlGroup.get('email').value);
+      const enrollmentDetails = new EnrollmentDetailsDto;
+      enrollmentDetails.userEmail = controlGroup.get('email').value;
+      enrollmentDetails.trainingType = controlGroup.get('type').value;
+      enrollmentDetails.urgencyType = controlGroup.get('urgency').value;
+      enrollmentDetails.comment = controlGroup.get('comment').value;
+      data.enrollmentDetails.push(enrollmentDetails);
     });
 
     this.userService.data = data;
