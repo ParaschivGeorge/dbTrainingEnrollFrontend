@@ -62,13 +62,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
 
               form_group.updateValueAndValidity();
 
-              // const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-              // control.setValue(self_enrolled_user.mail);
-              // control.updateValueAndValidity();
-
               this.userService.accounts.push(self_enrolled_user);
 
-              // (<FormArray>this.managerForm.get('users')).insert(0, control);
               (<FormArray>this.managerForm.get('users')).insert(0, form_group);
               this.formLength++;
               this.managerForm.updateValueAndValidity();
@@ -89,12 +84,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       'urgency': new FormControl('medium'),
       'comment': new FormControl('')
     });
-    // const control = new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]);
-    // this.filteredUsers = control.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(name => name ? this.filterUsers(name) : this.userService.accounts.slice())
-    //   );
 
     this.filteredUsers = form_group.get('email').valueChanges.pipe(
       startWith(''),
@@ -127,12 +116,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       return {'notValidEmployee': true};
     }
 
-    // (<FormControl[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formControl => {
-    //   if ((control !== formControl) && (formControl.value === control.value)) {
-    //     this.valid = false;
-    //   }
-    // });
-
     (<FormGroup[]>(<FormArray>this.managerForm.get('users')).controls).forEach(formGroup => {
       if ((control !== formGroup.get('email')) && (formGroup.get('email').value === control.value)) {
         this.valid = false;
@@ -164,9 +147,6 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     data.emails = [];
 
     const formArray = (<FormArray>this.managerForm.get('users')).controls;
-    // formArray.forEach(control => {
-    //   data.emails.push(control.value);
-    // });
 
     formArray.forEach(controlGroup => {
       data.emails.push(controlGroup.get('email').value);
