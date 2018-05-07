@@ -3,4 +3,8 @@ export class UserDto {
     mail: string;
     userType: string;
     lastLoginDate: string;
+    departmentId: number;
+    departmentName: string;
+    subdepartmentId: number;
+    subdepartmentName: string;
 }

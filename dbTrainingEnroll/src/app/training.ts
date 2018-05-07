@@ -6,4 +6,7 @@ export interface Training {
     technology: string;
     categoryType: string;
     acceptedUsers: number;
+    nrMin: number;
+    nrMax: number;
+    trainingAccountableId: number;
 }
