@@ -51,6 +51,8 @@ export class UserService {
   }
 
   postEnrollmentsList(): Observable<Object> {
+    console.log(this.data);
+    
     return this.http.post(this._RESULT_ULR, this.data);
   }
 

@@ -26,8 +26,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   duration: string;
   self_enrolled_users: UserDto[];
 
-  types = ['build', 'grow'];
-  urgencies = ['low', 'medium', 'high'];
+  types = ['BUILD', 'GROW'];
+  urgencies = ['LOW', 'MEDIUM', 'HIGH'];
 
   constructor(private userService: UserService,
     private submitSnackBar: MatSnackBar) { }
@@ -56,8 +56,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
             this.self_enrolled_users.forEach(self_enrolled_user => {
               const form_group = new FormGroup({
                 'email': new FormControl(self_enrolled_user.mail, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-                'type': new FormControl('build'),
-                'urgency': new FormControl('medium'),
+                'type': new FormControl('BUILD'),
+                'urgency': new FormControl('MEDIUM'),
                 'comment': new FormControl('')
               });
 
@@ -80,8 +80,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     }
     const form_group = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-      'type': new FormControl('build'),
-      'urgency': new FormControl('medium'),
+      'type': new FormControl('BUILD'),
+      'urgency': new FormControl('MEDIUM'),
       'comment': new FormControl('')
     });
 
@@ -143,7 +143,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     const data: ManagerFormResponse = new ManagerFormResponse;
 
     data.trainingId = this.userService.training.id;
-    data.enrollmentDetails = [];
+    data.enrollmentDetailsDto = [];
 
     const formArray = (<FormArray>this.managerForm.get('users')).controls;
 
@@ -153,7 +153,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       enrollmentDetails.trainingType = controlGroup.get('type').value;
       enrollmentDetails.urgencyType = controlGroup.get('urgency').value;
       enrollmentDetails.comment = controlGroup.get('comment').value;
-      data.enrollmentDetails.push(enrollmentDetails);
+      data.enrollmentDetailsDto.push(enrollmentDetails);
     });
 
     this.userService.data = data;

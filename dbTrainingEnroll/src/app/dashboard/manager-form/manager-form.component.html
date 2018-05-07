@@ -37,13 +37,13 @@
               <div class="radio">
                 <label>Type:</label>
                 <mat-radio-group formControlName="type">
-                  <mat-radio-button *ngFor="let type of types" [value]="type">{{type}}</mat-radio-button>
+                  <mat-radio-button *ngFor="let type of types" [value]="type">{{type | lowercase}}</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="radio">
                 <label>Urgency:</label>
                 <mat-radio-group formControlName="urgency">
-                  <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}</mat-radio-button>
+                  <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency | lowercase}}</mat-radio-button>
                 </mat-radio-group>
               </div>
             <textarea matInput placeholder="Comment"></textarea>
