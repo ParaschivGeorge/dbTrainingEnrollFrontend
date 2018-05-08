@@ -12,18 +12,6 @@
         <h3 class="h3__train" *ngIf="_MAX_NUMBER - formLength < 0 ">You should remove <strong class="participant__mark">{{ - (_MAX_NUMBER - formLength) }}</strong> participants</h3>
       </div>
       <div formArrayName="users" class="enrollment-form">
-        <!-- <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
-          <mat-form-field class="enrollment-field">
-                <input type="text" placeholder="Participant e-mail address" aria-label="Number" matInput  [formControlName]="i" [matAutocomplete]="auto">
-                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                  <mat-option *ngFor="let user of filteredUsers | async" [value]="user.mail">
-                  <strong>{{ user.name }} </strong>{{ user.mail }}
-                  </mat-option>
-                </mat-autocomplete>                  
-          </mat-form-field>
-          <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">add</mat-icon></button>
-          <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">remove</mat-icon></button>
-        </div>       -->
         <div *ngFor="let userControl of managerForm.get('users').controls; let i = index">
           <div [formGroupName]="i">
             <mat-form-field class="enrollment-field">              
@@ -47,23 +35,6 @@
                 </mat-radio-group>
               </div>
             <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
-            <!-- <div class="radio" *ngFor="let type of types">
-              <label>
-                <input
-                  type="radio"
-                  formControlName="type"
-                  [value]="type">{{ type }}
-              </label>
-            </div> -->
-            <!-- <div class="radio" *ngFor="let urgency of urgencies">
-                <label>
-                  <input
-                    type="radio"
-                    formControlName="urgency"
-                    [value]="urgency">{{ urgency }}
-                </label>
-              </div> -->
-              <!-- <input type="text" placeholder="Comment" formControlName="comment"> -->
             <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">add</mat-icon></button>
             <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">remove</mat-icon></button>
           </div>
