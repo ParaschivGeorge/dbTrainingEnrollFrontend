@@ -6,7 +6,7 @@
     </a>
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
-    <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'PM'"> 
+    <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'"> 
       <button mat-raised-button color="warn"*ngIf="router.url !== '/enrollments'">Enrollments</button>
     </a>       
     <a routerLink="/trainings" class="trainings"> 

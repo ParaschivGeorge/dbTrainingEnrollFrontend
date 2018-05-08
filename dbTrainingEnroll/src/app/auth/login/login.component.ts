@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
               this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 2000});
             } else if (this.userService.currentUser.type === 'MANAGER') {
               this.loginSnackBar.open('You are logged in as Manager!', 'Ok', {duration: 2000});
-            } else if (this.userService.currentUser.type === 'PM') {
-              this.loginSnackBar.open('You are logged in as PM!', 'Ok', {duration: 2000});
+            } else if (this.userService.currentUser.type === 'SPOC') {
+              this.loginSnackBar.open('You are logged in as SPOC!', 'Ok', {duration: 2000});
             }
             if (this.userService.currentUser.type === 'USER') {
               this.recommendationService.getRecommendedTrainings().subscribe(

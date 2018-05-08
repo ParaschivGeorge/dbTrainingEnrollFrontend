@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PmFormComponent } from './pm-form.component';
+import { SpocFormComponent } from './spoc-form.component';
 
-describe('PmFormComponent', () => {
-  let component: PmFormComponent;
-  let fixture: ComponentFixture<PmFormComponent>;
+describe('SpocFormComponent', () => {
+  let component: SpocFormComponent;
+  let fixture: ComponentFixture<SpocFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PmFormComponent ]
+      declarations: [ SpocFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PmFormComponent);
+    fixture = TestBed.createComponent(SpocFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

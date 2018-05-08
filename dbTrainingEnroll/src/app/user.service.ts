@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { User } from './user';
-import { PmFormResponse } from './enrollments/pm-form/pm-from-response';
+import { SpocFormResponse } from './enrollments/spoc-form/spoc-form-response';
 import { AuthService } from './auth.service';
 import { UserDto } from './userDto';
 
@@ -25,7 +25,7 @@ export class UserService {
   training: Training;
   accounts: UserDto[] = [];
   data: Object;
-  modelList: Array<PmFormResponse>;
+  modelList: Array<SpocFormResponse>;
   closeDialog = new EventEmitter<boolean>();
   loggedIn = new EventEmitter<boolean>();
   currentUser = new User;
@@ -51,6 +51,7 @@ export class UserService {
   }
 
   postEnrollmentsList(): Observable<Object> {
+    console.log(this.data);
     return this.http.post(this._RESULT_ULR, this.data);
   }
 

@@ -1,3 +1,3 @@
-export class PmSubmit {
+export class SpocSubmit {
     response: Array<any>;
 }

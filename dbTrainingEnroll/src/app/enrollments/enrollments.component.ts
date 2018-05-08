@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Training } from '../training';
-import { PmFormComponent } from './pm-form/pm-form.component';
+import { SpocFormComponent } from './spoc-form/spoc-form.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../user.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
@@ -66,7 +66,7 @@ export class EnrollmentsComponent implements OnInit {
     this.userService.training = training;
     this.userService.getPendingList().subscribe(result => {}, error => {});
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
-    const dialogRef = this.dialog.open(PmFormComponent, {
+    const dialogRef = this.dialog.open(SpocFormComponent, {
     });
   }
 

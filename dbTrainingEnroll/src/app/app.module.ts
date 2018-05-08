@@ -20,7 +20,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ManagerFormComponent } from './dashboard/manager-form/manager-form.component';
 import { UserService } from './user.service';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
-import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
+import { SpocFormComponent } from './enrollments/spoc-form/spoc-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -55,7 +55,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     EnrollmentsComponent,
     ManagerFormComponent,
-    PmFormComponent,
+    SpocFormComponent,
     LoginComponent,
     ReportsComponent,
     AdminComponent,
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
     ChartsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent],
   providers: [UserService, AuthService, RecommendationService, AuthGuard, ReportsService,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
