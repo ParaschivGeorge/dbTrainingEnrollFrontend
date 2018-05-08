@@ -46,7 +46,7 @@
                   <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency | lowercase}}</mat-radio-button>
                 </mat-radio-group>
               </div>
-            <textarea matInput placeholder="Comment"></textarea>
+            <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
             <!-- <div class="radio" *ngFor="let type of types">
               <label>
                 <input
