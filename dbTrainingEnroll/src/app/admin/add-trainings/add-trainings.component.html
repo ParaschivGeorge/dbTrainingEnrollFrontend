@@ -1,0 +1,34 @@
+<mat-dialog-content>
+  <div class="enrollForm">
+    <h2 class="subtitle">Add trainings</h2>
+
+    <div class="drag-drop-module">
+      <div class="drop-container" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+        <p class="drag-drop">
+          Drag a file here or
+          <label class="upload-button">
+            <input type="file" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+            browse
+          </label>
+          to upload.
+        </p>
+      </div>
+
+      <div class="upload-items">
+        <div class="upload-item" *ngFor="let f of files; let i = index;">
+        <span class="filename">
+          <span>{{ f.name }} ({{ f.id }}) - {{ f.progress?.data?.percentage }}%</span>
+        </span>
+          <div class="progress">
+            <span class="bar" [style.width]="f?.progress?.data?.percentage + '%'"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
+  </mat-dialog-actions>
+</mat-dialog-content>
+
+
