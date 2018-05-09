@@ -1,3 +1,5 @@
+import { UserDto } from "./userDto";
+
 export interface Training {
     id: number;
     name: string;
@@ -8,6 +10,6 @@ export interface Training {
     acceptedUsers: number;
     nrMin: number;
     nrMax: number;
-    trainingResponsibleEmail: string;
+    trainingResponsible: UserDto;
     vendor: string;
 }
