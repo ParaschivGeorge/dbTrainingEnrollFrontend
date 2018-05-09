@@ -6,6 +6,7 @@ import {MatTabsModule} from '@angular/material';
 import { AddTrainingsComponent } from './add-trainings/add-trainings.component';
 import { ShowTrainingsComponent } from './show-trainings/show-trainings.component';
 import { AddTrainingFormComponent } from './add-training-form/add-training-form.component';
+import { EditTrainingFormComponent } from './edit-training-form/edit-training-form.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { AddTrainingFormComponent } from './add-training-form/add-training-form.
     MaterialModule,
     MatTabsModule
   ],
-  exports: [AddTrainingsComponent],
-  declarations: [AdminComponent, AddTrainingsComponent, AddTrainingFormComponent],
+  exports: [AddTrainingsComponent, EditTrainingFormComponent],
+  declarations: [AdminComponent, AddTrainingsComponent, AddTrainingFormComponent, EditTrainingFormComponent],
   entryComponents: [AddTrainingsComponent]
 })
 export class AdminModule { }

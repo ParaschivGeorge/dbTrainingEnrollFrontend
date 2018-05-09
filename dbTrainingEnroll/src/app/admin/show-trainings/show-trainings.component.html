@@ -1,16 +1,21 @@
 <h2 class="subtitle">All trainings</h2>
 <mat-grid-list class="dashboard__grid" cols="1">
   <div class="container">
-    <div class="box" fxFlex="340px" *ngFor="let training of trainings" (click)="openDialog(training)">
+    <div class="box" *ngFor="let training of trainings" (click)="openEditDialog(training)">
       <mat-card [@flyInOut]="'in'">
-        <mat-card-title>{{ training.name }}</mat-card-title>
+        <mat-card-title class="training-name">{{ training.name }}</mat-card-title>
         <hr>
-        <mat-card-content> {{ training.vendor }} {{ trainingResponsible }} </mat-card-content>
-        <mat-card-footer> {{ training.date }} </mat-card-footer>
-        <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
-        <button mat-raised-button class="button__enroll" color="primary">
-          Enroll
-        </button>
+        <mat-card-content>
+          <h2 class="vendor-name">{{ training.trainingResponsible.name }} </h2>
+        </mat-card-content>
+        <mat-card-footer>
+          <p class="training-date">
+            {{ training.date }}
+          </p>
+        </mat-card-footer>
+        <!--<button mat-raised-button class="button__enroll" color="primary">-->
+          <!--Enroll-->
+        <!--</button>-->
         <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
         <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
       </mat-card>

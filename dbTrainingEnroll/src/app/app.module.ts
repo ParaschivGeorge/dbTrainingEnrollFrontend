@@ -39,6 +39,7 @@ import {AddTrainingsComponent} from './admin/add-trainings/add-trainings.compone
 import {NgUploaderModule} from 'ngx-uploader';
 import {ShowTrainingsComponent} from './admin/show-trainings/show-trainings.component';
 import {AddTrainingFormComponent} from './admin/add-training-form/add-training-form.component';
+import {EditTrainingFormComponent} from "./admin/edit-training-form/edit-training-form.component";
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     UserTrainingsComponent,
     AddTrainingsComponent,
     ShowTrainingsComponent,
-    AddTrainingFormComponent
+    AddTrainingFormComponent,
+    EditTrainingFormComponent
   ],
 
   imports: [
@@ -90,7 +92,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent,
-     AddTrainingsComponent, AdminComponent, AddTrainingFormComponent],
+     AddTrainingsComponent, AdminComponent, AddTrainingFormComponent, EditTrainingFormComponent],
   providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
     UserGuard,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
