@@ -23,7 +23,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   managerForm: FormGroup;
   valid: boolean;
   filteredUsers: Observable<any[]>;
-  duration: string;
+  vendor: string;
   self_enrolled_users: UserDto[];
 
   types = ['BUILD', 'GROW'];
@@ -33,10 +33,10 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {
-    if (this.userService.training.duration !== '-1') {
-      this.duration = this.userService.training.duration;
+    if (this.userService.training.vendor !== '-1') {
+      this.vendor = this.userService.training.vendor;
     } else {
-      this.duration = '';
+      this.vendor = '';
     }
 
     this._MAX_NUMBER = 15 - this.userService.training.acceptedUsers;

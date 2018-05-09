@@ -24,7 +24,7 @@
                                                         <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                                                         <mat-card-content> {{ training.name }} </mat-card-content>
                                                         <mat-card-footer> {{ training.date }} </mat-card-footer>
-                                                        <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                                                        <div class="number vendor" *ngIf="training.vendor !== '-1'"> {{ training.vendor }} </div>
                                                         <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                                                         <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                                                 </mat-card>
@@ -44,7 +44,7 @@
                                                         <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                                                         <mat-card-content> {{ training.name }} </mat-card-content>
                                                         <mat-card-footer> {{ training.date }} </mat-card-footer>
-                                                        <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                                                        <div class="number vendor" *ngIf="training.vendor !== '-1'"> {{ training.vendor }} </div>
                                                         <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                                                         <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                                                 </mat-card>
@@ -64,7 +64,7 @@
                                                         <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                                                         <mat-card-content> {{ training.name }} </mat-card-content>
                                                         <mat-card-footer> {{ training.date }} </mat-card-footer>
-                                                        <div class="number duration" *ngIf="training.duration !== '-1'"> {{ training.duration }} </div>
+                                                        <div class="number vendor" *ngIf="training.vendor !== '-1'"> {{ training.vendor }} </div>
                                                         <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
                                                         <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
                                                 </mat-card>

@@ -7,7 +7,6 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, term: any, propName: string): any {
     if (term === undefined || term === '' || term === 0) {
-      console.log('something');
        return value;
      }
      const filteredTrainings = [];

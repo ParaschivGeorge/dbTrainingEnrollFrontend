@@ -303,6 +303,12 @@ input:-webkit-autofill {
   }
 }
 
+@media screen and (max-width: 924px) {
+  .name {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
     form {
         position: relative;
