@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (this.userService.currentUser.type === 'PM') {
+      if (this.userService.currentUser.type === 'SPOC') {
         return true;
       }
       this.router.navigate(['/trainings']);
