@@ -1,4 +1,4 @@
-import { UserDto } from "./userDto";
+import { UserDto } from './userDto';
 
 export interface Training {
     id: number;

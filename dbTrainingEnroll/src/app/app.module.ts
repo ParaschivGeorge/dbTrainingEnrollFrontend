@@ -23,7 +23,7 @@ import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { SpocFormComponent } from './enrollments/spoc-form/spoc-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './services/auth.service';
-import { UserGuard } from "./guards/user.guard";
+import { UserGuard } from './guards/user.guard';
 import { EnrollmentGuard } from './guards/enrollment.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
@@ -35,10 +35,10 @@ import { AdminComponent } from './admin/admin.component';
 import 'hammerjs';
 import { FilterPipe } from './pipes/filter.pipe';
 import { UserTrainingsComponent } from './user-trainings/user-trainings.component';
-import {AddTrainingsComponent} from "./admin/add-trainings/add-trainings.component";
-import {NgUploaderModule} from "ngx-uploader";
-import {ShowTrainingsComponent} from "./admin/show-trainings/show-trainings.component";
-import {AddTrainingFormComponent} from "./admin/add-training-form/add-training-form.component";
+import {AddTrainingsComponent} from './admin/add-trainings/add-trainings.component';
+import {NgUploaderModule} from 'ngx-uploader';
+import {ShowTrainingsComponent} from './admin/show-trainings/show-trainings.component';
+import {AddTrainingFormComponent} from './admin/add-training-form/add-training-form.component';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -89,7 +89,8 @@ const appRoutes: Routes = [
     NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent, AddTrainingsComponent, AdminComponent, AddTrainingFormComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent,
+     AddTrainingsComponent, AdminComponent, AddTrainingFormComponent],
   providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
     UserGuard,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
