@@ -23,7 +23,8 @@ import { EnrollmentsComponent } from './enrollments/enrollments.component';
 import { PmFormComponent } from './enrollments/pm-form/pm-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
+import { UserGuard } from "./guards/user.guard";
+import { EnrollmentGuard } from './guards/enrollment.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { LoggingInterceptor } from './logging.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
@@ -33,10 +34,11 @@ import { ReportsService } from './reports.service';
 import { AdminComponent } from './admin/admin.component';
 import 'hammerjs';
 import { FilterPipe } from './filter.pipe';
+import { UserTrainingsComponent } from './user-trainings/user-trainings.component';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [EnrollmentGuard],
     data: { title: 'DB Enrollments' } },
   { path: 'trainings',
     data: { title: 'DB Trainings'},
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/trainings', data: { title: 'DB Home' }, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, data: { title: 'DB Login' } },
   { path: 'reports', component: ReportsComponent, data: { title: 'DB Reports' } },
-  { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } }
+  { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } },
+  { path: 'myTrainings', component: UserTrainingsComponent, data: {title: 'DB My Trainings'},
+    canActivate: [UserGuard]}
 ];
 
 @NgModule({
@@ -59,7 +63,8 @@ const appRoutes: Routes = [
     LoginComponent,
     ReportsComponent,
     AdminComponent,
-    FilterPipe
+    FilterPipe,
+    UserTrainingsComponent
   ],
 
   imports: [
@@ -77,7 +82,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
-  providers: [UserService, AuthService, RecommendationService, AuthGuard, ReportsService,
+  providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
+    UserGuard,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
   ],
