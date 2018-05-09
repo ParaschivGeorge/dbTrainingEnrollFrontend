@@ -26,3 +26,11 @@ h1 {
   text-shadow: 2px 2px 5px rgba(black, .15);
   text-transform: uppercase;
 }
+
+.add-training-button{
+  float: right;
+  margin: 2em 2.8em;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', $sans-serif;
+  padding: .5em 2em;
+}
