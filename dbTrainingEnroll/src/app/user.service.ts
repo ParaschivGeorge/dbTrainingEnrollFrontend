@@ -10,6 +10,7 @@ import { User } from './user';
 import { SpocFormResponse } from './enrollments/spoc-form/spoc-form-response';
 import { AuthService } from './auth.service';
 import { UserDto } from './userDto';
+import { EnrollmentDetailsDto } from './enrollmentDetailsDto';
 
 @Injectable()
 export class UserService {
@@ -29,6 +30,7 @@ export class UserService {
   closeDialog = new EventEmitter<boolean>();
   loggedIn = new EventEmitter<boolean>();
   currentUser = new User;
+  enrollmentList: EnrollmentDetailsDto[] = [];
 
   constructor(private http: HttpClient,
     spinnerService: Ng4LoadingSpinnerService,
@@ -38,8 +40,8 @@ export class UserService {
     return this.http.post<UserDto[]>(this._ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
   }
 
-  getPendingList(): Observable<UserDto[]> {
-    return this.http.post<UserDto[]>(this._PENDING_ULR, {email: this.currentUser.email, id: this.training.id});
+  getPendingList(): Observable<EnrollmentDetailsDto[]> {
+    return this.http.post<EnrollmentDetailsDto[]>(this._PENDING_ULR, {email: this.currentUser.email, id: this.training.id});
   }
 
   postPendingList(): Observable<Object> {

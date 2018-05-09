@@ -9,22 +9,21 @@
         <p class="p__train_date">{{ userService.training.date }}</p>
       </div>
       <div formArrayName="users" class="enrollment-form">
-        <div *ngFor="let user of userService.accounts; let i = index" class="pending-form">
+        <div *ngFor="let enrollment of userService.enrollmentList; let i = index" class="pending-form">
           <div [formGroupName]="i">
             <div class="spoc-details-left">
                 <p class="minip__train">Participant e-mail address</p>
-                <p class="p__train">{{ user.mail }}</p>
-                <textarea class="spoc-comment" formControlName="comment" matInput placeholder="Your comment"></textarea>
+                <p class="p__train">{{ enrollment.userEmail }}</p>
+                <textarea class="spoc-comment" formControlName="comment" (change)="updateComment(enrollment.userEmail, i)" matInput placeholder="Your comment"></textarea>
                 <mat-radio-group class="radio-group">
-                  <mat-radio-button class="check-btn" color="accent" (click)="acceptUser(user.mail)" value="accept">Accept</mat-radio-button>
-                  <mat-radio-button color="warn" (click)="denyUser(user.mail)" value="deny">Deny</mat-radio-button>
+                  <mat-radio-button class="check-btn" color="accent" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
+                  <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
                 </mat-radio-group>
             </div>
             <div class="spoc-details-right">
-              <p>Type: {{userService.training.type}}</p>
-              <p>Urgency: {{userService.training.urgency}}</p>
-              <h3>Manager comment:</h3>
-              <p>Lorem ipsum dolor sit adipisicing elit.</p>
+              <p>Type: {{enrollment.trainingType}}</p>
+              <p>Urgency: {{enrollment.urgencyType}}</p>
+              <h3>Manager comment: {{enrollment.comment}}</h3>
             </div>
             <!-- <button mat-icon-button color="accent" class="button check__button" type="button" [ngStyle] = "buttonClicked()" (click)="acceptUser(user.mail, check__button)"><mat-icon>check</mat-icon></button>
                   <button mat-icon-button color="warn" class="button clear__button" type="button" ><mat-icon>clear</mat-icon></button> -->

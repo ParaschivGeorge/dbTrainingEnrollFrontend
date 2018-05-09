@@ -9,7 +9,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { ManagerFormResponse } from './manager-form-response';
 import { UserDto } from '../../userDto';
 import { MatSnackBar } from '@angular/material';
-import { EnrollmentDetailsDto } from './enrollmentDetailsDto';
+import { EnrollmentDetailsDto } from '../../enrollmentDetailsDto';
 
 @Component({
   selector: 'app-manager-form',
