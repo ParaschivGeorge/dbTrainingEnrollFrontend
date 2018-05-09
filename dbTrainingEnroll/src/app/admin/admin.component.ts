@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {AddTrainingsComponent} from './add-trainings/add-trainings.component';
+import {AddTrainingFormComponent} from "./add-training-form/add-training-form.component";
 
 @Component({
   selector: 'app-admin',
@@ -27,7 +28,7 @@ export class AdminComponent implements OnInit {
   }
 
   openTrainingForm(){
-    const dialogRef = this.dialog.open(AddTrainingsComponent, {
+    const dialogRef = this.dialog.open(AddTrainingFormComponent, {
     });
   }
 

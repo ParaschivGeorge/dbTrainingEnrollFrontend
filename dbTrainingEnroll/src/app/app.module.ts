@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import {NgModule, Component, OnInit} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +38,7 @@ import { UserTrainingsComponent } from './user-trainings/user-trainings.componen
 import {AddTrainingsComponent} from "./admin/add-trainings/add-trainings.component";
 import {NgUploaderModule} from "ngx-uploader";
 import {ShowTrainingsComponent} from "./admin/show-trainings/show-trainings.component";
+import {AddTrainingFormComponent} from "./admin/add-training-form/add-training-form.component";
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     FilterPipe,
     UserTrainingsComponent,
     AddTrainingsComponent,
-    ShowTrainingsComponent
+    ShowTrainingsComponent,
+    AddTrainingFormComponent
   ],
 
   imports: [
@@ -87,7 +89,7 @@ const appRoutes: Routes = [
     NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent, AddTrainingsComponent, AdminComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent, AddTrainingsComponent, AdminComponent, AddTrainingFormComponent],
   providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
     UserGuard,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
