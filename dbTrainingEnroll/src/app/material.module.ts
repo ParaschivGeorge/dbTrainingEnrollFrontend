@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import {MatExpansionModule} from "@angular/material/expansion";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
     imports: [

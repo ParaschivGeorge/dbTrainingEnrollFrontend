@@ -1,4 +1,4 @@
-import {UploadFile} from "ngx-uploader";
+import {UploadFile} from 'ngx-uploader';
 
 export class UploadOutput {
   type: 'addedToQueue' | 'allAddedToQueue' | 'uploading' | 'done' | 'removed' | 'start' | 'cancelled' | 'dragOver' | 'dragOut' | 'drop';

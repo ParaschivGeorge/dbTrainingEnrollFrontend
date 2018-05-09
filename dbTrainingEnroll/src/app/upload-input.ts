@@ -1,4 +1,4 @@
-import {UploadFile} from "ngx-uploader";
+import {UploadFile} from 'ngx-uploader';
 
 export class UploadInput {
   type: 'uploadAll' | 'uploadFile' | 'cancel' | 'cancelAll' | 'remove' | 'removeAll';

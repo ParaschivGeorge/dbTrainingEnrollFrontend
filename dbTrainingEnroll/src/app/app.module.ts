@@ -80,7 +80,7 @@ const appRoutes: Routes = [
     NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent, AdminComponent, AddTrainingsComponent],
   providers: [UserService, AuthService, RecommendationService, AuthGuard, ReportsService,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}

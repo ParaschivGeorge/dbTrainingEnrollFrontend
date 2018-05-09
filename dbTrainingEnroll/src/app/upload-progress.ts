@@ -1,4 +1,4 @@
-import {UploadStatus} from "ngx-uploader";
+import {UploadStatus} from 'ngx-uploader';
 
 export class UploadProgress {
   status: UploadStatus; // current status of upload for specific file (Queue | Uploading | Done | Canceled)
