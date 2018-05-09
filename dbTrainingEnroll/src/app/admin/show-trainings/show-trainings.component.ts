@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../../services/api.service";
-import {Ng4LoadingSpinnerService} from "ng4-loading-spinner";
-import {Training} from "../../models/training";
+import {ApiService} from '../../services/api.service';
+import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
+import {Training} from '../../models/training';
 
 @Component({
   selector: 'app-show-trainings',

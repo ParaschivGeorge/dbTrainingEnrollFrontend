@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Training} from "../models/training";
-import {ApiService} from "../services/api.service";
-import {UserService} from "../services/user.service";
-import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
+import {Training} from '../models/training';
+import {ApiService} from '../services/api.service';
+import {UserService} from '../services/user.service';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-user-trainings',
@@ -40,6 +40,6 @@ export class UserTrainingsComponent implements OnInit {
       result => {
         this.allMyTrainings = result;
       }
-    )
+    );
   }
 }
