@@ -7,8 +7,8 @@ import {UploadOutput} from '../../upload-output';
 @Component({
   selector: 'app-add-trainings',
   templateUrl: './add-trainings.component.html',
-  // styleUrls: ['./add-trainings.component.scss']
-  styleUrls: ['../../forms.scss'],
+  styleUrls: ['./add-trainings.component.scss']
+  // styleUrls: ['../../forms.scss'],
 })
 export class AddTrainingsComponent implements OnInit {
 
