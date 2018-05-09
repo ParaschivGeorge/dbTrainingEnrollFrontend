@@ -1,11 +1,18 @@
 @import "../../../styles/variables.scss";
+
 .subtitle{
   font-size: 20px;
   font-weight: 500;
   font-family: 'Montserrat', $sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 5em 2.5em 2em;
+  margin: 1.5em 2.5em 2em;
   color: $dark-blue;
   text-shadow: 2px 2px 7px rgba(black, .15);
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start !important;
 }
