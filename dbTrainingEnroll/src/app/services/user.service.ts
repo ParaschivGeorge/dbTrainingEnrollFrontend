@@ -1,16 +1,16 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Training } from './training';
+import { Training } from '../models/training';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { User } from './user';
-import { SpocFormResponse } from './enrollments/spoc-form/spoc-form-response';
+import { User } from '../models/user';
+import { SpocFormResponse } from '../enrollments/spoc-form/spoc-form-response';
 import { AuthService } from './auth.service';
-import { UserDto } from './userDto';
-import { EnrollmentDetailsDto } from './enrollmentDetailsDto';
+import { UserDto } from '../models/userDto';
+import { EnrollmentDetailsDto } from '../models/enrollmentDetailsDto';
 
 @Injectable()
 export class UserService {

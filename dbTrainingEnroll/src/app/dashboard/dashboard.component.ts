@@ -1,16 +1,16 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../api.service';
-import { Training } from '../training';
+import { ApiService } from '../services/api.service';
+import { Training } from '../models/training';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, PageEvent, MatPaginator, MatSnackBar } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
-import { RecommendationService } from '../recommendation.service';
+import { RecommendationService } from '../services/recommendation.service';
 import { Subscription } from 'rxjs/Subscription';
-import { FilterPipe } from '../filter.pipe';
+import { FilterPipe } from '../pipes/filter.pipe';
 import { resolve, reject } from 'q';
 
 @Component({

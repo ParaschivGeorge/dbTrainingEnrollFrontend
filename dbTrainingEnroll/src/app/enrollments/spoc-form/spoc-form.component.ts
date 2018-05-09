@@ -1,17 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
-import { UserService } from '../../user.service';
+import { UserService } from '../../services/user.service';
 import { startWith } from 'rxjs/operators/startWith';
 import { map } from 'rxjs/operators/map';
 import { SpocFormResponse } from './spoc-form-response';
 import { MatSnackBar } from '@angular/material';
-import {UserDto} from '../../userDto';
+import {UserDto} from '../../models/userDto';
 
 @Component({
   selector: 'app-spoc-form',
   templateUrl: './spoc-form.component.html',
-  styleUrls: ['../../forms.scss']
+  styleUrls: ['../../../styles/forms.scss']
 })
 export class SpocFormComponent implements OnInit, OnDestroy {
 
@@ -48,7 +48,7 @@ export class SpocFormComponent implements OnInit, OnDestroy {
     if (existingUser) {
       existingUser.status = 1;
       console.log((<FormArray>this.spocForm.get('users')).get('' + i).get('comment'));
-      
+
       existingUser.comment = (<FormArray>this.spocForm.get('users')).get('' + i).get('comment').value;
     } else {
       const data: SpocFormResponse = new SpocFormResponse;

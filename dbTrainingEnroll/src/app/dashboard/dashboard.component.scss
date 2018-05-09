@@ -1,4 +1,4 @@
-@import "~variables.scss";
+@import "../../styles/variables.scss";
 
 .container {
     flex-flow: row wrap;
@@ -7,7 +7,7 @@
 
 .main {
     padding: 10px;
-    margin: 70px auto 0 auto;   
+    margin: 70px auto 0 auto;
 }
 
 h1 {
@@ -79,8 +79,8 @@ h1 {
     filter: contrast(100%);
     :hover {
         filter: contrast(150%);
-        transition: .2s cubic-bezier(.57,.21,.69,1.25);        
-    }  
+        transition: .2s cubic-bezier(.57,.21,.69,1.25);
+    }
 }
 
 /* .container::after {
@@ -150,7 +150,7 @@ h1 {
 
 .soft-skills {
     background: linear-gradient(45deg, #348F50 0%, #56B4D3 100%);
-    box-shadow: 0 1px 20px rgba(52,143,80,.4);    
+    box-shadow: 0 1px 20px rgba(52,143,80,.4);
 }
 
 .number {

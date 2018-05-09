@@ -1,4 +1,4 @@
-import { EnrollmentDetailsDto } from "../../enrollmentDetailsDto";
+import { EnrollmentDetailsDto } from "../../models/enrollmentDetailsDto";
 
 export class ManagerFormResponse {
     trainingId: number;

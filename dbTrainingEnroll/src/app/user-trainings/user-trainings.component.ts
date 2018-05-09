@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Training} from "../training";
-import {ApiService} from "../api.service";
-import {UserService} from "../user.service";
+import {Training} from "../models/training";
+import {ApiService} from "../services/api.service";
+import {UserService} from "../services/user.service";
 import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
 
 @Component({

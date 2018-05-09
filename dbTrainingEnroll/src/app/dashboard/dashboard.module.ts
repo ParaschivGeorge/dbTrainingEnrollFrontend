@@ -8,7 +8,7 @@ import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
 import { DashboardComponent } from './dashboard.component';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({

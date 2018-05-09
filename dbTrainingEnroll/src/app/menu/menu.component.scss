@@ -1,4 +1,4 @@
-@import "~variables.scss";
+@import "../../styles/variables.scss";
 
 .mat-toolbar, .mat-toolbar-multiple-rows {
   height: 54px;
@@ -17,7 +17,7 @@
 .example-icon {
     padding: 0 14px;
   }
-  
+
   .example-spacer {
     flex: 1 1 auto;
   }
@@ -28,7 +28,7 @@
     color: $white;
     // box-shadow: 0 1px 6px rgba(black, .15), 0 5px 25px rgba(black, .2);
   }
-  
+
   .page-title {
     font-family: 'Montserrat', $sans-serif;
     font-size: 17px;

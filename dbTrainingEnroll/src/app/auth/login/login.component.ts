@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { UserService } from '../../user.service';
-import { User } from '../../user';
-import { RecommendationService } from '../../recommendation.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
+import { RecommendationService } from '../../services/recommendation.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({

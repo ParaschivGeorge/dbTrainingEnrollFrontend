@@ -1,7 +1,7 @@
 import * as Chart from 'chart.js';
 import { Component, OnInit } from '@angular/core';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { ReportsService } from '../reports.service';
+import { ReportsService } from '../services/reports.service';
 
 @Component({
   selector: 'app-reports',

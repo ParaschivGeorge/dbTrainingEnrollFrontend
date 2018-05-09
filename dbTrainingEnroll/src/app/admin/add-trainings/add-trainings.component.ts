@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {UploaderOptions} from 'ngx-uploader';
-import {UploadFile} from '../../upload-file';
-import {UploadInput} from '../../upload-input';
-import {UploadOutput} from '../../upload-output';
+import {UploadFile} from '../../upload/upload-file';
+import {UploadInput} from '../../upload/upload-input';
+import {UploadOutput} from '../../upload/upload-output';
 
 @Component({
   selector: 'app-add-trainings',

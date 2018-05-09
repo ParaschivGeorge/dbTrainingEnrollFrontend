@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "dbTrain-theme.scss"
+        "styles/dbTrain-theme.scss"
       ],
       "scripts": [
         "../node_modules/chart.js/src/chart.js"

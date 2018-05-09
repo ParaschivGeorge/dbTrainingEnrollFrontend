@@ -1,20 +1,20 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../../user.service';
+import { UserService } from '../../services/user.service';
 
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
 import { forEach } from '@angular/router/src/utils/collection';
 import { ManagerFormResponse } from './manager-form-response';
-import { UserDto } from '../../userDto';
+import { UserDto } from '../../models/userDto';
 import { MatSnackBar } from '@angular/material';
-import { EnrollmentDetailsDto } from '../../enrollmentDetailsDto';
+import { EnrollmentDetailsDto } from '../../models/enrollmentDetailsDto';
 
 @Component({
   selector: 'app-manager-form',
   templateUrl: './manager-form.component.html',
-  styleUrls: ['../../forms.scss'],
+  styleUrls: ['../../../styles/forms.scss'],
 })
 
 export class ManagerFormComponent implements OnInit, OnDestroy {

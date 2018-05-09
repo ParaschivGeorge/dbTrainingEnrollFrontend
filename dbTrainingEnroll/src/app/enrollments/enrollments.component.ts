@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { Training } from '../training';
+import { ApiService } from '../services/api.service';
+import { Training } from '../models/training';
 import { SpocFormComponent } from './spoc-form/spoc-form.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { trigger, state, style, transition, animate, keyframes, group } from '@angular/animations';
 

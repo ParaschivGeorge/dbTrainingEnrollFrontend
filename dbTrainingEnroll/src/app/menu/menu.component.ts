@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, trigger } from '@angular/core';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
-import { Training } from '../training';
-import { ApiService } from '../api.service';
+import { Training } from '../models/training';
+import { ApiService } from '../services/api.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from '../auth/login/login.component';
-import { AuthService } from '../auth.service';
-import { UserService } from '../user.service';
-import { RecommendationService } from '../recommendation.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { RecommendationService } from '../services/recommendation.service';
 
 @Component({
   selector: 'app-menu',
