@@ -1,0 +1,20 @@
+<div class="main">
+  <h1 class="title">My Trainings</h1>
+</div>
+<mat-grid-list class="dashboard__grid" cols="4">
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+    <div class="box" fxFlex="340px" *ngFor="let myTraining of allMyTrainings">
+      <mat-card [@flyInOut]="'in'">
+        <mat-card-title>{{ myTraining.technology }}</mat-card-title>
+        <hr>
+        <div class="number free" *ngIf="myTraining.acceptedUsers !== 15">{{myTraining.acceptedUsers}}/15</div>
+        <div class="number full" *ngIf="myTraining.acceptedUsers === 15">FULL</div>
+        <mat-card-content> {{ myTraining.name }} </mat-card-content>
+        <mat-card-footer> {{ myTraining.date }} </mat-card-footer>
+        <div class="number duration" *ngIf="myTraining.duration !== '-1'"> {{ myTraining.duration }} </div>
+        <div class="progress-bar soft-skills" *ngIf="myTraining.categoryType === 'SOFT'"></div>
+        <div class="progress-bar technical" *ngIf="myTraining.categoryType === 'TECHNICAL'"></div>
+      </mat-card>
+    </div>
+  </div>
+</mat-grid-list>

@@ -1,22 +1,24 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <a routerLink="/trainings" class="a__home"> 
+    <a routerLink="/trainings" class="a__home">
       <img src="../../assets/img/db_logo_white.png" alt="Deutsche Bank Logo">
       <span class="page-title">DB Training Enrollment</span>
     </a>
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
-    <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'"> 
+    <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'">
       <button mat-raised-button color="warn"*ngIf="router.url !== '/enrollments'">Enrollments</button>
-    </a>       
-    <a routerLink="/trainings" class="trainings"> 
+    </a>
+    <a routerLink="/trainings" class="trainings">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/trainings'">Trainings</button>
-    </a> 
-    <a routerLink="/reports" class="reports" *ngIf="userService.currentUser.type"> 
+    </a>
+    <a routerLink="/reports" class="reports" *ngIf="userService.currentUser.type">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/reports'">Reports</button>
     </a>
-    <button mat-raised-button color="warn" (click) = 'openLogin()' *ngIf="!userService.currentUser.token">Log In</button>   
+    <a routerLink="/myTrainings" class="reports" *ngIf="userService.currentUser.type === 'USER'">
+      <button mat-raised-button color="warn" *ngIf="router.url !== '/myTrainings'">My Trainings</button>
+    </a>
+    <button mat-raised-button color="warn" (click) = 'openLogin()' *ngIf="!userService.currentUser.token">Log In</button>
     <button mat-raised-button color="warn" (click) = 'logout()' *ngIf="userService.currentUser.token">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>
-  
