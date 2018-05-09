@@ -34,6 +34,7 @@ import 'hammerjs';
 import {AdminComponent} from "./admin/admin.component";
 import {AddTrainingsComponent} from "./admin/add-trainings/add-trainings.component";
 import {NgUploaderModule} from "ngx-uploader";
+import {ShowTrainingsComponent} from "./admin/show-trainings/show-trainings.component";
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     LoginComponent,
     ReportsComponent,
     AdminComponent,
-    AddTrainingsComponent
+    AddTrainingsComponent,
+    ShowTrainingsComponent
   ],
 
   imports: [

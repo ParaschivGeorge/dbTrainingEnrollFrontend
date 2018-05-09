@@ -4,15 +4,15 @@ import { AdminComponent } from './admin.component';
 import {MaterialModule} from "../material.module";
 import {MatTabsModule} from "@angular/material";
 import { AddTrainingsComponent } from './add-trainings/add-trainings.component';
-import {MatExpansionModule} from "@angular/material/expansion";
+import { ShowTrainingsComponent } from './show-trainings/show-trainings.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    MatTabsModule,MatExpansionModule
+    MatTabsModule
   ],
-  exports: [AddTrainingsComponent],
-  declarations: [AdminComponent, AddTrainingsComponent]
+  exports: [AddTrainingsComponent, ShowTrainingsComponent],
+  declarations: [AdminComponent, AddTrainingsComponent, ShowTrainingsComponent]
 })
 export class AdminModule { }
