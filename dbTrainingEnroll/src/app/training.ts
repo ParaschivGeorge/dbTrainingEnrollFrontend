@@ -8,6 +8,6 @@ export interface Training {
     acceptedUsers: number;
     nrMin: number;
     nrMax: number;
-    trainingResponsibleId: number;
+    trainingResponsibleEmail: string;
     vendor: string;
 }
