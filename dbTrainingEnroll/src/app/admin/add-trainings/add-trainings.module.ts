@@ -1,9 +1,9 @@
-import {AddTrainingsComponent} from "./add-trainings.component";
-import {MatExpansionModule} from "@angular/material/expansion";
-import {MaterialModule} from "../../material.module";
-import {AdminComponent} from "../admin.component";
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
+import {AddTrainingsComponent} from './add-trainings.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MaterialModule} from '../../material.module';
+import {AdminComponent} from '../admin.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [

@@ -1,4 +1,4 @@
-import {UploadProgress} from "./upload-progress";
+import {UploadProgress} from './upload-progress';
 
 export class UploadFile {
   id: string; // unique id of uploaded file instance

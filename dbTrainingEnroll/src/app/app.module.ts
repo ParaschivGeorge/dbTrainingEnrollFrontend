@@ -31,9 +31,9 @@ import { RecommendationService } from './recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './reports.service';
 import 'hammerjs';
-import {AdminComponent} from "./admin/admin.component";
-import {AddTrainingsComponent} from "./admin/add-trainings/add-trainings.component";
-import {NgUploaderModule} from "ngx-uploader";
+import {AdminComponent} from './admin/admin.component';
+import {AddTrainingsComponent} from './admin/add-trainings/add-trainings.component';
+import {NgUploaderModule} from 'ngx-uploader';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -78,7 +78,7 @@ const appRoutes: Routes = [
     NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent],
+  entryComponents: [DashboardComponent, ManagerFormComponent, PmFormComponent, LoginComponent, AdminComponent, AddTrainingsComponent],
   providers: [UserService, AuthService, RecommendationService, AuthGuard, ReportsService,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}

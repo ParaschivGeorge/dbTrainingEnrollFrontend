@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from "@angular/material";
-import {AddTrainingsComponent} from "./add-trainings/add-trainings.component";
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {AddTrainingsComponent} from './add-trainings/add-trainings.component';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +11,7 @@ export class AdminComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  openDialog(){
+  openDialog() {
     const dialogRef = this.dialog.open(AddTrainingsComponent, {
     });
   }
