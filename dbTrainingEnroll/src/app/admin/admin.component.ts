@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {AddTrainingsComponent} from './add-trainings/add-trainings.component';
-import {AddTrainingFormComponent} from "./add-training-form/add-training-form.component";
+import {AddTrainingFormComponent} from './add-training-form/add-training-form.component';
 
 @Component({
   selector: 'app-admin',
@@ -13,10 +13,10 @@ import {AddTrainingFormComponent} from "./add-training-form/add-training-form.co
 })
 export class AdminComponent implements OnInit {
 
-  arrayBuffer:any;
-  fileToUpload:File;
+  arrayBuffer: any;
+  fileToUpload: File;
   // file: File = null;
-  file:File;
+  file: File;
   adminAddForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
@@ -27,7 +27,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  openTrainingForm(){
+  openTrainingForm() {
     const dialogRef = this.dialog.open(AddTrainingFormComponent, {
     });
   }

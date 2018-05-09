@@ -18,6 +18,11 @@ export class AddTrainingsComponent implements OnInit {
   uploadInput: EventEmitter<UploadInput>;
   dragOver: boolean;
 
+  arrayBuffer: any;
+  fileToUpload: File;
+  // file: File = null;
+  file: File;
+
   constructor() {
     this.files = []; // local uploading files array
     this.uploadInput = new EventEmitter<UploadInput>(); // input events, we use this to emit data to ngx-uploader
@@ -49,29 +54,6 @@ export class AddTrainingsComponent implements OnInit {
     } else if (output.type === 'drop') {
       this.dragOver = false;
     }
-  }
-
-  startUpload(): void {
-    const event: UploadInput = {
-      type: 'uploadAll',
-      url: 'http://ngx-uploader.com/upload',
-      method: 'POST',
-      data: { foo: 'bar' }
-    };
-
-    this.uploadInput.emit(event);
-  }
-
-  cancelUpload(id: string): void {
-    this.uploadInput.emit({ type: 'cancel', id: id });
-  }
-
-  removeFile(id: string): void {
-    this.uploadInput.emit({ type: 'remove', id: id });
-  }
-
-  removeAllFiles(): void {
-    this.uploadInput.emit({ type: 'removeAll' });
   }
 
   ngOnInit() {
