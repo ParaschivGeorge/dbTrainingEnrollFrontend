@@ -10,6 +10,7 @@ import { LoginComponent } from '../auth/login/login.component';
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { RecommendationService } from '../services/recommendation.service';
+import { NotificationComponent } from './notification/notification.component';
 
 @Component({
   selector: 'app-menu',
@@ -51,5 +52,10 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/trainings']);
     this.recommendationsService.trainings = [];
     this.recommendationsService.sendTrainings();
-    }
+  }
+
+  openNotifications(): void {
+    const dialogRef = this.dialog.open(NotificationComponent, {
+    });
+  }
 }

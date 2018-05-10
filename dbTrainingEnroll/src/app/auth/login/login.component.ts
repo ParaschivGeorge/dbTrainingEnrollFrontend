@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   public loginSnackBar: MatSnackBar) { }
 
   ngOnInit() {
-
   }
 
   onLogin(form: NgForm) {
@@ -48,11 +47,6 @@ export class LoginComponent implements OnInit {
               this.userService.getNewNotifications().subscribe(
                 newNotications => {
                   this.userService.newNoticationsList = newNotications;
-                  if (this.userService.newNoticationsList) {
-                    console.log(this.userService.newNoticationsList);
-                  } else {
-                    console.log('no notifications');
-                  }
                   this.userService.loggedIn.emit(true);
                 },
                 error => {

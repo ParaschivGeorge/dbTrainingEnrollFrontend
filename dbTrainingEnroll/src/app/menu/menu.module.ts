@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { EnrollmentsComponent } from '../enrollments/enrollments.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { EnrollmentsComponent } from '../enrollments/enrollments.component';
     DashboardComponent,
     EnrollmentsComponent
   ],
-  declarations: [MenuComponent]
+  declarations: [MenuComponent, NotificationComponent]
 })
 export class MenuModule { }
