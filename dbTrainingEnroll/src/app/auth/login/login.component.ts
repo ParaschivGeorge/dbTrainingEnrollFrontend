@@ -43,7 +43,24 @@ export class LoginComponent implements OnInit {
             this.userService.currentUser.name = result.name;
             this.userService.currentUser.type = result.userType;
             this.userService.currentUser.lastLoginDate = result.lastLoginDate;
-            this.userService.loggedIn.emit(true);
+
+            if (this.userService.currentUser.type === 'USER') {
+              this.userService.getNewNotifications().subscribe(
+                newNotications => {
+                  this.userService.newNoticationsList = newNotications;
+                  if (this.userService.newNoticationsList) {
+                    console.log(this.userService.newNoticationsList);
+                  } else {
+                    console.log('no notifications');
+                  }
+                  this.userService.loggedIn.emit(true);
+                },
+                error => {
+                  console.log(error);
+                }
+              );
+            }
+
             if (this.userService.currentUser.type === 'USER') {
               this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 2000});
             } else if (this.userService.currentUser.type === 'MANAGER') {
