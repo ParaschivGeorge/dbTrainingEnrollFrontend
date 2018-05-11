@@ -1,24 +1,43 @@
+<!---->
+<!--<mat-grid-list class="dashboard__grid" cols="1">-->
+  <!--<div class="container">-->
+    <!--<div class="box" *ngFor="let training of trainings" (click)="openEditDialog(training)">-->
+      <!--<mat-card >-->
+        <!--<mat-card-title class="training-name">{{ training.name }}</mat-card-title>-->
+        <!--<hr>-->
+        <!--<mat-card-content>-->
+          <!-- </h2>-->
+        <!--</mat-card-content>-->
+        <!--<mat-card-footer>-->
+          <!--<p class="training-date">-->
+            <!--{{ training.date }}-->
+          <!--</p>-->
+        <!--</mat-card-footer>-->
+        <!--&lt;!&ndash;<button mat-raised-button class="button__enroll" color="primary">&ndash;&gt;-->
+          <!--&lt;!&ndash;Enroll&ndash;&gt;-->
+        <!--&lt;!&ndash;</button>&ndash;&gt;-->
+
+      <!--</mat-card>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</mat-grid-list>-->
 <h2 class="subtitle">All trainings</h2>
-<mat-grid-list class="dashboard__grid" cols="1">
-  <div class="container">
-    <div class="box" *ngFor="let training of trainings" (click)="openEditDialog(training)">
-      <mat-card [@flyInOut]="'in'">
-        <mat-card-title class="training-name">{{ training.name }}</mat-card-title>
-        <hr>
-        <mat-card-content>
-          <h2 class="vendor-name">{{ training.trainingResponsible.name }} </h2>
-        </mat-card-content>
-        <mat-card-footer>
-          <p class="training-date">
-            {{ training.date }}
-          </p>
-        </mat-card-footer>
-        <!--<button mat-raised-button class="button__enroll" color="primary">-->
-          <!--Enroll-->
-        <!--</button>-->
-        <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
-        <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
-      </mat-card>
-    </div>
+<mat-accordion>
+  <div *ngFor="let training of trainings">
+  <mat-expansion-panel [@flyInOut]="'in'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h2 class="training-name">{{ training.name }}</h2>
+      </mat-panel-title>
+      <mat-panel-description>
+        <h2 class="vendor-name">{{ training.trainingResponsible.name }}</h2>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <ng-template matExpansionPanelContent>
+    </ng-template>
+    <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
+    <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
+  </mat-expansion-panel>
   </div>
-</mat-grid-list>
+</mat-accordion>
