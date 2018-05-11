@@ -9,9 +9,7 @@
           <!-- </h2>-->
         <!--</mat-card-content>-->
         <!--<mat-card-footer>-->
-          <!--<p class="training-date">-->
-            <!--{{ training.date }}-->
-          <!--</p>-->
+
         <!--</mat-card-footer>-->
         <!--&lt;!&ndash;<button mat-raised-button class="button__enroll" color="primary">&ndash;&gt;-->
           <!--&lt;!&ndash;Enroll&ndash;&gt;-->
@@ -30,11 +28,35 @@
         <h2 class="training-name">{{ training.name }}</h2>
       </mat-panel-title>
       <mat-panel-description>
-        <h2 class="vendor-name">{{ training.trainingResponsible.name }}</h2>
+        <h2 class="vendor-name">{{ training.vendor }}</h2>
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
+      <div class="info-group">
+        <p class="minip__train">Technology</p>
+        <p class="vendor-name">{{ training.technology }}</p>
+      </div>
+      <div class="info-group">
+        <p class="minip__train">Vendor</p>
+        <p class="vendor-name">{{ training.vendor }}</p>
+      </div>
+      <div class="info-group">
+        <p class="minip__train">Training Responsible</p>
+        <p class="vendor-name">{{ training.trainingResponsible.name }}</p>
+      </div>
+      <div class="info-group">
+        <p class="minip__train">Training Responsible e-mail address</p>
+        <p class="vendor-name">{{ training.trainingResponsible.mail }}</p>
+      </div>
+      <div class="info-group">
+        <p class="minip__train">Date</p>
+        <p class="training-date">{{ training.date }}</p>
+      </div>
+      <div class="info-group">
+        <p class="minip__train">Available seats</p>
+        <p class="training-date">{{ training.nrMin }} - {{training.nrMax}}</p>
+      </div>
     </ng-template>
     <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
     <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
