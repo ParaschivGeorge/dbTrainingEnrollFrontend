@@ -75,11 +75,13 @@ export class AdminComponent implements OnInit {
   // }
 
   incomingfile(event) {
+    console.log('1');
     this.file = event.target.files[0];
   }
 
   onSubmit() {
     // console.log(this.adminAddForm);
+    console.log('2');
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
       this.arrayBuffer = fileReader.result;

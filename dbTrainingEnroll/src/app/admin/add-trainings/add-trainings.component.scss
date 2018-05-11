@@ -62,6 +62,7 @@ mat-dialog-content hr {
   padding: 1em 1.5em;
   font-weight: 500;
   font-family: $sans-serif;
+  position: relative;
 }
 
 button::after{

@@ -24,6 +24,7 @@ export class UserService {
   private _SELF_ENROLLED_USERS_URL = this._BASE_URL + '/getSelfEnrolled';
   private _NEW_NOTIFICATIONS_URL = this._BASE_URL + '/getNewNotifications';
   private _ALL_NOTIFICATIONS_URL = this._BASE_URL + '/getAllNotifications';
+  private _INSERT_TRAININGS_URL = this._BASE_URL + '/insertTrainings';
 
   training: Training;
   accounts: UserDto[] = [];
@@ -35,6 +36,7 @@ export class UserService {
   enrollmentList: EnrollmentDetailsDto[] = [];
   newNoticationsList: Notification[] = [];
   allNoticationsList: Notification[] = [];
+  newTrainingsList: Training[] = [];
 
   constructor(private http: HttpClient,
     spinnerService: Ng4LoadingSpinnerService,
@@ -79,5 +81,10 @@ export class UserService {
 
   getNewNotifications(): Observable<Notification[]> {
     return this.http.post<Notification[]>(this._NEW_NOTIFICATIONS_URL, {email: this.currentUser.email});
+  }
+
+  insertNewTrainings(): Observable<Training[]> {
+    console.log(this.newTrainingsList);
+    return this.http.post<Training[]>(this._INSERT_TRAININGS_URL, this.newTrainingsList);
   }
 }
