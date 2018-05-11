@@ -11,7 +11,6 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
   selector: 'app-enrollments',
   templateUrl: './enrollments.component.html',
   styleUrls: ['../dashboard/dashboard.component.scss'],
-  providers: [ApiService],
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateY(0)'})),

@@ -39,8 +39,9 @@ import {AddTrainingsComponent} from './admin/add-trainings/add-trainings.compone
 import {NgUploaderModule} from 'ngx-uploader';
 import {ShowTrainingsComponent} from './admin/show-trainings/show-trainings.component';
 import {AddTrainingFormComponent} from './admin/add-training-form/add-training-form.component';
-import {EditTrainingFormComponent} from "./admin/edit-training-form/edit-training-form.component";
+import {EditTrainingFormComponent} from './admin/edit-training-form/edit-training-form.component';
 import { NotificationComponent } from './menu/notification/notification.component';
+import { ApiService } from './services/api.service';
 
 const appRoutes: Routes = [
   { path: 'enrollments', component: EnrollmentsComponent,
@@ -97,7 +98,7 @@ const appRoutes: Routes = [
     AddTrainingsComponent, AdminComponent, AddTrainingFormComponent, EditTrainingFormComponent,
     NotificationComponent],
   providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
-    UserGuard,
+    UserGuard, ApiService,
      {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
      {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
   ],
