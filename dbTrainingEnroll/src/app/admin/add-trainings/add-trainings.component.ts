@@ -34,10 +34,10 @@ export class AddTrainingsComponent implements OnInit {
   }
 
   incomingfile(event: UploadOutput) {
-    console.log('1');
     if (event.type === 'addedToQueue'  && typeof event.file !== 'undefined') { // add file to array when added
-      console.log(event.file);
+      console.log(event.file.nativeFile);
       this.file = event.file.nativeFile;
+
     } else if (event.type === 'dragOver') {
       this.dragOver = true;
     } else if (event.type === 'dragOut') {
@@ -48,11 +48,15 @@ export class AddTrainingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.file = null;
+  }
+
+  onDelete() {
+    this.file = null;
   }
 
   onSubmit() {
     this.userService.newTrainingsList = [];
-    console.log('2');
     const fileReader = new FileReader();
     fileReader.onload = (e) => {
       this.arrayBuffer = fileReader.result;
@@ -99,7 +103,7 @@ export class AddTrainingsComponent implements OnInit {
         this.userService.newTrainingsList.push(newTraining);
       });
       this.userService.insertNewTrainings().subscribe(result => {
-        console.log('trainings inserted');
+        this.userService.closeDialog.emit(true);
       },
       error => {
         console.log(error);

@@ -2,7 +2,7 @@
   <div class="enrollForm">
     <h2 class="subtitle">Add trainings</h2>
 
-    <div class="drag-drop-module">
+    <div class="drag-drop-module" *ngIf="!file">
       <div class="drop-container" accept=".xlsx" ngFileDrop [options]="options" (uploadOutput)="incomingfile($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
         <p class="drag-drop">
           Drag a file here or
@@ -12,7 +12,12 @@
           </label>
           to upload.
         </p>
-      </div>
+      </div>      
+    </div>
+    <div class="file">      
+      <h4 class="file__name" *ngIf="file">{{file.name}} </h4>
+      <button mat-button color="primary" *ngIf="file" 
+      class="delete__button" type="button" (click)="onDelete()">X</button>
     </div>
   </div>
   <mat-dialog-actions align="end">
