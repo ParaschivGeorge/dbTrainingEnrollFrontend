@@ -71,6 +71,32 @@ mat-dialog-content hr {
   padding: 1em 1.5em;
   font-weight: 500;
   font-family: $sans-serif;
+  position: relative;
+}
+
+.file {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+}
+
+.file__name {
+  float: left;
+  height: 100%;
+  width: 80%;
+  text-align: left;
+}
+
+.delete__button{
+  text-align: center;
+  width: 20%;
+  height: 40px;
+  color: $red;
+  margin-top: -20px;
+  font-weight: 900;
+  font-family: $sans-serif;
+  position: relative;
 }
 
 button::after{
