@@ -84,7 +84,6 @@ export class UserService {
   }
 
   insertNewTrainings(): Observable<Training[]> {
-    console.log(this.newTrainingsList);
     return this.http.post<Training[]>(this._INSERT_TRAININGS_URL, this.newTrainingsList);
   }
 }
