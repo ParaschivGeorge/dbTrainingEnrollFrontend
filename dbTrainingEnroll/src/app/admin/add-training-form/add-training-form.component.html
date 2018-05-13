@@ -1,50 +1,57 @@
 <form [formGroup]="addTrainingForm" (ngSubmit)="onSubmit()">
-    <div class="add-training-form">
-      <h2>Add a training</h2>
-      <hr>
-      <!--<mat-form-field>
-        <mat-select formControlName="trainingType" required>
-          <mat-option *ngFor="let trainingType of trainingTypes" [value]="trainingType">{{trainingType}}</mat-option>
-        </mat-select>
-        <mat-label>Training Type</mat-label>
-      </mat-form-field>
-       <mat-form-field color="primary">
-        <input formControlName="trainingName" matInput #input minlength="1" placeholder="Training name" required>
-        <mat-hint align="end">Training's Name</mat-hint>
-      </mat-form-field>
-      <br>
-      <mat-form-field color="primary">
-        <input formControlName="trainingDescription" matInput #input minlength="6" placeholder="Training description" required>
-        <mat-hint align="end">{{input.value?.length || 0}}/6</mat-hint>
-      </mat-form-field>
-      <mat-form-field color="primary">
-        <input formControlName="trainingResponsible" matInput #input minlength="1" placeholder="Training responsible" required>
-        <mat-hint align="end">Training needs a representative</mat-hint>
-      </mat-form-field>
-      <mat-form-field color="primary">
-        <input formControlName="trainingVendor" matInput #input placeholder="Vendor">
-        <mat-hint align="end">Optional Vendor Name / Mail</mat-hint>
-      </mat-form-field> -->
-      <mat-form-field class="form-date" color="primary">
-        <input matInput formControlName="startDate" [matDatepickerFilter]="noSaturdayAndSunday" [matDatepicker]="startDate" placeholder="Start Date" [disabled]
-          required>
-        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-        <mat-datepicker #startDate [disabled]="false"></mat-datepicker>
-      </mat-form-field> <!--
-      <br>
-      <mat-form-field class="form-date" color="primary">
-        <input formControlName="endDate" matInput [matDatepickerFilter]="noSaturdayAndSunday" [matDatepicker]="endDate" placeholder="End Date" [disabled] required>
-        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-        <mat-datepicker #endDate [disabled]="false"></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field color="primary">
-        <input formControlName="minParticipants" matInput #input minlength="1" placeholder="Minimum participants" required>
-      </mat-form-field>
-      <mat-form-field color="primary">
-        <input formControlName="maxParticipants" matInput #input minlength="1" placeholder="Maximum participants" required>
-      </mat-form-field>
-      <br>-->
-      <span *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data!</span>
-      <button mat-button type="submit">Submit</button>
+  <div class="add-training-form">
+    <h2>Add a training</h2>
+    <hr>
+    <mat-form-field>
+      <mat-select formControlName="trainingType">
+        <mat-option *ngFor="let trainingType of trainingTypes" [value]="trainingType">{{trainingType}}</mat-option>
+      </mat-select>
+      <mat-label>Training Type</mat-label>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input type="text" formControlName="trainingName" matInput #trainingName minlength="1" placeholder="Training name">
+      <mat-hint align="end">Training's Name</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field color="primary">
+      <input type="text" formControlName="trainingDescription" matInput #trainingDescription minlength="6" placeholder="Training description">
+      <mat-hint align="end">{{trainingDescription.value?.length || 0}}/6</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input type="text" formControlName="trainingResponsible" matInput #trainingRepresentative minlength="1" placeholder="Training responsible">
+      <mat-hint align="end">Training needs a representative</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input type="text" formControlName="trainingVendor" matInput #trainingVendor placeholder="Vendor">
+      <mat-hint align="end">Optional Vendor Name / Mail</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="form-date" color="primary">
+      <input type="datetime" matInput formControlName="startDate" readonly [matDatepickerFilter]="noSaturdayAndSunday" [matDatepicker]="startDate"
+        placeholder="Start Date">
+      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+      <mat-datepicker #startDate></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="form-date" color="primary">
+      <input type="datetime" formControlName="endDate" matInput readonly [matDatepickerFilter]="noSaturdayAndSunday" [matDatepicker]="endDate"
+        placeholder="End Date">
+      <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+      <mat-datepicker #endDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input type="number" formControlName="minParticipants" matInput #minParticipants min="0" max="15" placeholder="Minimum participants">
+      <mat-hint align="end">{{ minParticipants?.value || 0 }} / 15</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input type="number" formControlName="maxParticipants" matInput #maxParticipants [min]="minParticipants.value" max="99" placeholder="Maximum participants">
+      <mat-hint align="end">{{ minParticipants?.value || 0 }} / {{ maxParticipants?.value || 0 }} / 99</mat-hint>
+    </mat-form-field>
+    <br>
+    <div *ngIf="!addTrainingForm.valid">
+      <button mat-button type="submit" class="disabled_button" disabled>Submit</button>
     </div>
+    <div *ngIf="addTrainingForm.valid">
+      <button color="primary" mat-button type="submit" class="submit_button">Submit</button>
+    </div>
+  </div>
 </form>

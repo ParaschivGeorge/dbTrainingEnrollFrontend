@@ -27,4 +27,11 @@
     letter-spacing: -0.5px;
     margin: 10px 0 0 0;
   }
+  .disabled_button {
+    background: rgba($red, .3);
+  }
+  .submit_button {
+    background: $dark-blue;
+    color: $white;
+  }
 }

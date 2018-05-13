@@ -12,18 +12,18 @@
         <div *ngFor="let enrollment of userService.enrollmentList; let i = index" class="pending-form">
           <div [formGroupName]="i">
             <div class="spoc-details-left">
-                <p class="minip__train">Participant e-mail address</p>
-                <p class="p__train">{{ enrollment.userEmail }}</p>
-                <textarea class="spoc-comment" formControlName="comment" (change)="updateComment(enrollment.userEmail, i)" matInput placeholder="Your comment"></textarea>
-                <mat-radio-group class="radio-group">
-                  <mat-radio-button class="check-btn" color="primary" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
-                  <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
-                </mat-radio-group>
+              <p class="minip__train">Participant e-mail address</p>
+              <p class="p__train">{{ enrollment.userEmail }}</p>
+              <textarea class="spoc-comment" formControlName="comment" (change)="updateComment(enrollment.userEmail, i)" matInput placeholder="Your comment"></textarea>
+              <mat-radio-group class="radio-group">
+                <mat-radio-button class="check-btn" color="primary" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
+                <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
+              </mat-radio-group>
             </div>
             <div class="spoc-details-right">
               <p>Type: {{enrollment.trainingType}}</p>
               <p>Urgency: {{enrollment.urgencyType}}</p>
-              <h3>Manager comment: {{enrollment.comment}}</h3>
+              <p>Manager comment: {{enrollment.comment}}</p>
             </div>
             <!-- <button mat-icon-button color="primary" class="button check__button" type="button" [ngStyle] = "buttonClicked()" (click)="acceptUser(user.mail, check__button)"><mat-icon>check</mat-icon></button>
                   <button mat-icon-button color="warn" class="button clear__button" type="button" ><mat-icon>clear</mat-icon></button> -->
@@ -31,8 +31,8 @@
         </div>
       </div>
     </form>
+    <mat-dialog-actions align="end">
+      <button class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
+    </mat-dialog-actions>
   </div>
-  <mat-dialog-actions align="end">
-    <button class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
-  </mat-dialog-actions>
 </mat-dialog-content>

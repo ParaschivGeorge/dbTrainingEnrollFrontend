@@ -290,6 +290,10 @@ input:-webkit-autofill {
   }
 }
 
+.mat-select-panel {
+  max-height: 100% !important;
+}
+
 @media screen and (max-width: 1200px) {
   .box {
     margin: auto !important;
