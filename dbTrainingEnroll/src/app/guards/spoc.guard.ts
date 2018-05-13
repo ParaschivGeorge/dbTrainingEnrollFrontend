@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { UserService } from '../services/user.service';
 
 @Injectable()
-export class EnrollmentGuard implements CanActivate {
+export class SpocGuard implements CanActivate {
   constructor(private router: Router,
   private userService: UserService) { }
 

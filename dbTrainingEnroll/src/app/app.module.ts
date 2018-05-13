@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, Component, OnInit} from '@angular/core';
+import { NgModule, Component, OnInit } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +24,6 @@ import { SpocFormComponent } from './enrollments/spoc-form/spoc-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthService } from './services/auth.service';
 import { UserGuard } from './guards/user.guard';
-import { EnrollmentGuard } from './guards/enrollment.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
@@ -32,30 +31,51 @@ import { RecommendationService } from './services/recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './services/reports.service';
 import { AdminComponent } from './admin/admin.component';
-import 'hammerjs';
 import { FilterPipe } from './pipes/filter.pipe';
 import { UserTrainingsComponent } from './user-trainings/user-trainings.component';
-import {AddTrainingsComponent} from './admin/add-trainings/add-trainings.component';
-import {NgUploaderModule} from 'ngx-uploader';
-import {ShowTrainingsComponent} from './admin/show-trainings/show-trainings.component';
-import {AddTrainingFormComponent} from './admin/add-training-form/add-training-form.component';
-import {EditTrainingFormComponent} from './admin/edit-training-form/edit-training-form.component';
+import { AddTrainingsComponent } from './admin/add-trainings/add-trainings.component';
+import { NgUploaderModule } from 'ngx-uploader';
+import { ShowTrainingsComponent } from './admin/show-trainings/show-trainings.component';
+import { AddTrainingFormComponent } from './admin/add-training-form/add-training-form.component';
+import { EditTrainingFormComponent } from './admin/edit-training-form/edit-training-form.component';
 import { NotificationComponent } from './menu/notification/notification.component';
 import { ApiService } from './services/api.service';
+import 'hammerjs';
+import { SpocGuard } from './guards/spoc.guard';
+
 
 const appRoutes: Routes = [
-  { path: 'enrollments', component: EnrollmentsComponent,
-    canActivate: [EnrollmentGuard],
-    data: { title: 'DB Enrollments' } },
-  { path: 'trainings',
-    data: { title: 'DB Trainings'},
-    component: DashboardComponent },
-  { path: '', redirectTo: '/trainings', data: { title: 'DB Home' }, pathMatch: 'full' },
+  {
+    path: 'enrollments',
+    component: EnrollmentsComponent,
+    canActivate: [SpocGuard],
+    data: { title: 'DB Enrollments' }
+  },
+  {
+    path: 'trainings',
+    data: { title: 'DB Trainings' },
+    component: DashboardComponent
+  },
+  {
+    path: '',
+    redirectTo: '/trainings',
+    data: { title: 'DB Home' },
+    pathMatch: 'full'
+  },
   { path: 'login', component: LoginComponent, data: { title: 'DB Login' } },
-  { path: 'reports', component: ReportsComponent, data: { title: 'DB Reports' } },
+  {
+    path: 'reports',
+    component: ReportsComponent,
+    canActivate: [UserGuard],
+    data: { title: 'DB Reports' }
+  },
   { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } },
-  { path: 'myTrainings', component: UserTrainingsComponent, data: {title: 'DB My Trainings'},
-    canActivate: [UserGuard]}
+  {
+    path: 'myTrainings',
+    component: UserTrainingsComponent,
+    data: { title: 'DB My Trainings' },
+    canActivate: [UserGuard]
+  }
 ];
 
 @NgModule({
@@ -94,14 +114,28 @@ const appRoutes: Routes = [
     NgUploaderModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [DashboardComponent, ManagerFormComponent, SpocFormComponent, LoginComponent,
-    AddTrainingsComponent, AdminComponent, AddTrainingFormComponent, EditTrainingFormComponent,
-    NotificationComponent],
-  providers: [UserService, AuthService, RecommendationService, EnrollmentGuard, ReportsService,
-    UserGuard, ApiService,
-     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-     {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true}
+  entryComponents: [
+    DashboardComponent,
+    ManagerFormComponent,
+    SpocFormComponent,
+    LoginComponent,
+    AddTrainingsComponent,
+    AdminComponent,
+    AddTrainingFormComponent,
+    EditTrainingFormComponent,
+    NotificationComponent
+  ],
+  providers: [
+    UserService,
+    AuthService,
+    RecommendationService,
+    SpocGuard,
+    ReportsService,
+    UserGuard,
+    ApiService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
