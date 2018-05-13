@@ -8,8 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "img/favicon.ico"
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -23,7 +22,6 @@
         "styles/dbTrain-theme.scss"
       ],
       "scripts": [
-        "../node_modules/chart.js/src/chart.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
