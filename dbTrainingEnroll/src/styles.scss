@@ -155,8 +155,12 @@ input.ng-invalid.ng-touched {
   border: none !important;
 }
 
-.mat-tab-header {
+.mat-tab-group {
   margin: 0 2.5em;
+}
+
+.admin__tabs {
+  margin: 0 !important;
 }
 
 .mat-tab-label {
