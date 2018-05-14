@@ -30,6 +30,10 @@
       <mat-panel-description>
         <h2 class="vendor-name">{{ training.vendor }}</h2>
       </mat-panel-description>
+      <!-- <span (click)="onDelete(training)"><mat-icon>delete</mat-icon></span> -->
+      <button (click)="onDelete(training)" mat-icon-button color="warn">
+        <mat-icon aria-label="Delete this training!">delete</mat-icon>
+      </button>
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>

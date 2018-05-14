@@ -112,3 +112,9 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
 .mat-expansion-panel-header.mat-expanded.mat-expansion-panel-header-description {
   visibility: hidden !important;
 }
+
+.mat-icon-button {
+  margin-right: 20px;
+  height: 20px;
+  width: 20px;
+}

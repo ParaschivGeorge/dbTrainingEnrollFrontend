@@ -25,6 +25,7 @@ export class UserService {
   private _NEW_NOTIFICATIONS_URL = this._BASE_URL + '/getNewNotifications';
   private _ALL_NOTIFICATIONS_URL = this._BASE_URL + '/getAllNotifications';
   private _INSERT_TRAININGS_URL = this._BASE_URL + '/insertTrainings';
+  private _DELETE_TRAININGS_URL = this._BASE_URL + '/deleteTrainings';
 
   training: Training;
   accounts: UserDto[] = [];
@@ -37,6 +38,7 @@ export class UserService {
   newNoticationsList: Notification[] = [];
   allNoticationsList: Notification[] = [];
   newTrainingsList: Training[] = [];
+  deleteTrainingsIdList: number[] = [];
 
   constructor(private http: HttpClient,
     spinnerService: Ng4LoadingSpinnerService,
@@ -85,5 +87,9 @@ export class UserService {
 
   insertNewTrainings(): Observable<Training[]> {
     return this.http.post<Training[]>(this._INSERT_TRAININGS_URL, this.newTrainingsList);
+  }
+
+  deleteTrainings(): Observable<number[]> {
+    return this.http.post<number[]>(this._DELETE_TRAININGS_URL, this.deleteTrainingsIdList);
   }
 }
