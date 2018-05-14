@@ -89,8 +89,6 @@ export class AddTrainingFormComponent implements OnInit {
 
       this.userService.newTrainingsList.push(training);
 
-      console.log(this.userService.newTrainingsList);
-
       this.userService.insertNewTrainings().subscribe(result => {
         this.userService.closeDialog.emit(true);
       },
