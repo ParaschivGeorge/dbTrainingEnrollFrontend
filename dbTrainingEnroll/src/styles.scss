@@ -36,6 +36,24 @@ body {
   background-color: $blue;
 }
 
+:host ::ng-deep {
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background: none !important;
+  }
+}
+
+@-webkit-keyframes autofill {
+  to {
+      color: $white;
+      background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 a, a:hover {
   text-decoration: none;
 }

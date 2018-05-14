@@ -54,7 +54,7 @@ export class ShowTrainingsComponent implements OnInit {
   }
 
   saveEditable(value) {
-    //call to http service
+    // call to http service
     console.log(value);
   }
 

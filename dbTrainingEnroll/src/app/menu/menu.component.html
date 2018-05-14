@@ -22,7 +22,7 @@
     <a routerLink="/trainings" class="trainings">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/trainings'">Trainings</button>
     </a>
-    <a routerLink="/reports" class="reports" *ngIf="userService.currentUser.type">
+    <a routerLink="/reports" class="reports" *ngIf="userService.currentUser.type === 'ADMIN'">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/reports'">Reports</button>
     </a>
     <a routerLink="/myTrainings" class="reports" *ngIf="userService.currentUser.type === 'USER'">

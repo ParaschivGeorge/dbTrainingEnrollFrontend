@@ -5,7 +5,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MaterialModule} from '../../material.module';
 import {AdminComponent} from '../admin.component';
 import {InlineEditorModule} from '@qontu/ngx-inline-editor';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 @NgModule({

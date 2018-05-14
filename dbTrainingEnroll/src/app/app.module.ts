@@ -41,18 +41,19 @@ import { EditTrainingFormComponent } from './admin/edit-training-form/edit-train
 import { NotificationComponent } from './menu/notification/notification.component';
 import { ApiService } from './services/api.service';
 import 'hammerjs';
-import { SpocGuard } from './guards/spoc.guard';
-import {InlineEditorModule} from '@qontu/ngx-inline-editor';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { InlineEditorModule } from '@qontu/ngx-inline-editor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
-
 
 const appRoutes: Routes = [
   {
     path: 'enrollments',
     component: EnrollmentsComponent,
-    canActivate: [SpocGuard],
-    data: { title: 'DB Enrollments' }
+    canActivate: [UserGuard],
+    data: {
+      title: 'DB Enrollments',
+      roles: ['SPOC']
+    }
   },
   {
     path: 'trainings',
@@ -70,13 +71,13 @@ const appRoutes: Routes = [
     path: 'reports',
     component: ReportsComponent,
     canActivate: [UserGuard],
-    data: { title: 'DB Reports' }
+    data: { title: 'DB Reports', roles: ['ADMIN'] }
   },
   { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } },
   {
     path: 'myTrainings',
     component: UserTrainingsComponent,
-    data: { title: 'DB My Trainings' },
+    data: { title: 'DB My Trainings', roles: ['USER'] },
     canActivate: [UserGuard]
   }
 ];
@@ -136,7 +137,6 @@ const appRoutes: Routes = [
     UserService,
     AuthService,
     RecommendationService,
-    SpocGuard,
     ReportsService,
     UserGuard,
     ApiService,
