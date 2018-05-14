@@ -1,6 +1,6 @@
 import { UserDto } from './userDto';
 
-export interface Training {
+export class Training {
     id: number;
     name: string;
     date: string;

@@ -17,7 +17,6 @@ import { UserService } from './services/user.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [ApiService]
 })
 export class AppComponent implements OnInit {
 

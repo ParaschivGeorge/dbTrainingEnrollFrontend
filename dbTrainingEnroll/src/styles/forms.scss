@@ -3,7 +3,7 @@
 div.enrollForm {
     width: 400px;
     height: auto;
-    padding: 2.5em 1em;
+    padding: 30px 20px;
     margin: 0 auto;
 }
 
@@ -84,7 +84,6 @@ button:disabled {
 
 .enrollment-form{
     width: 100%;
-    margin: 2.5em 0;
 }
 
 .enrollment-field{
@@ -174,6 +173,7 @@ mat-icon{
     display: block;
     text-align: right;
     font-weight: 300;
+    left: -1px;
 }
 
 .button__manager-form{

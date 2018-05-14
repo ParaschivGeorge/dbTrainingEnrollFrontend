@@ -17,15 +17,16 @@ import { MatSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
   isLoginError = false;
 
-  constructor(private authService: AuthService,
-  private router: Router,
-  private spinnerService: Ng4LoadingSpinnerService,
-  private userService: UserService,
-  private recommendationService: RecommendationService,
-  public loginSnackBar: MatSnackBar) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private userService: UserService,
+    private recommendationService: RecommendationService,
+    public loginSnackBar: MatSnackBar
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onLogin(form: NgForm) {
     this.spinnerService.show();
@@ -34,43 +35,48 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       (data: any) => {
-        this.userService.currentUser = new User;
+        this.userService.currentUser = new User();
         this.userService.currentUser.email = username;
         this.userService.currentUser.token = data.token;
-        this.userService.postUserData().subscribe(
-          result => {
-            this.userService.currentUser.name = result.name;
-            this.userService.currentUser.type = result.userType;
-            this.userService.currentUser.lastLoginDate = result.lastLoginDate;
+        this.userService.postUserData().subscribe(result => {
+          this.userService.currentUser.name = result.name;
+          this.userService.currentUser.type = result.userType;
+          this.userService.currentUser.lastLoginDate = result.lastLoginDate;
 
-            if (this.userService.currentUser.type === 'USER') {
-              this.userService.getNewNotifications().subscribe(
-                newNotications => {
-                  this.userService.newNoticationsList = newNotications;
-                  this.userService.loggedIn.emit(true);
-                },
-                error => {
-                  console.log(error);
-                }
-              );
-            }
+          if (this.userService.currentUser.type === 'USER') {
+            this.userService.getNewNotifications().subscribe(
+              newNotications => {
+                this.userService.newNoticationsList = newNotications;
+                this.userService.loggedIn.emit(true);
+              },
+              error => {
+                console.log(error);
+              }
+            );
+          }
 
-            if (this.userService.currentUser.type === 'USER') {
-              this.loginSnackBar.open('You are logged in!', 'Ok', {duration: 2000});
-            } else if (this.userService.currentUser.type === 'MANAGER') {
-              this.loginSnackBar.open('You are logged in as Manager!', 'Ok', {duration: 2000});
-            } else if (this.userService.currentUser.type === 'SPOC') {
-              this.loginSnackBar.open('You are logged in as SPOC!', 'Ok', {duration: 2000});
-            }
-            if (this.userService.currentUser.type === 'USER') {
-              this.recommendationService.getRecommendedTrainings().subscribe(
-                recommended => {
-                  this.recommendationService.trainings = recommended;
-                  this.recommendationService.sendTrainings();
-               }
-              );
-            }
-          });
+          if (this.userService.currentUser.type === 'USER') {
+            this.loginSnackBar.open('You are logged in!', 'Ok', {
+              duration: 2000
+            });
+          } else if (this.userService.currentUser.type === 'MANAGER') {
+            this.loginSnackBar.open('You are logged in as Manager!', 'Ok', {
+              duration: 2000
+            });
+          } else if (this.userService.currentUser.type === 'SPOC') {
+            this.loginSnackBar.open('You are logged in as SPOC!', 'Ok', {
+              duration: 2000
+            });
+          }
+          if (this.userService.currentUser.type === 'USER') {
+            this.recommendationService
+              .getRecommendedTrainings()
+              .subscribe(recommended => {
+                this.recommendationService.trainings = recommended;
+                this.recommendationService.sendTrainings();
+              });
+          }
+        });
         this.userService.closeDialog.emit(true);
         this.router.navigate(['/enrollments']);
         form.resetForm();
@@ -79,7 +85,8 @@ export class LoginComponent implements OnInit {
       (error: HttpErrorResponse) => {
         this.isLoginError = true;
         this.spinnerService.hide();
-        this.loginSnackBar.open('Logging failed!', 'Ok', {duration: 3000});
-      });
+        this.loginSnackBar.open('Logging failed!', 'Ok', { duration: 3000 });
+      }
+    );
   }
 }
