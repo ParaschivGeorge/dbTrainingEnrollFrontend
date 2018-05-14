@@ -123,6 +123,25 @@ button::after {
   max-height: 75vh !important;
 }
 
+.mat-menu-content {
+  padding: 0 !important;
+}
+
+.notification {
+  padding: 12px 8px;
+  font-family: $serif;
+  letter-spacing: -1px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  color: $black;
+  background: $white;
+  line-height: 18px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.notification:last-child {
+  border-bottom: 0;
+}
+
 .mat-dialog-actions {
   margin-bottom: 0 !important;
   padding: 1em 1em 2.5em !important;
