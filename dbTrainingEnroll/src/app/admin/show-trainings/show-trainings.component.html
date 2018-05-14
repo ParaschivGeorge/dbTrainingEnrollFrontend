@@ -57,6 +57,10 @@
         <p class="minip__train">Available seats</p>
         <p class="training-date">{{ training.nrMin }} - {{training.nrMax}}</p>
       </div>
+      <div class="info-group">
+        <p class="minip__train">Accepted participants</p>
+        <p class="training-date">{{ training.acceptedUsers }}</p>
+      </div>
     </ng-template>
     <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
     <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
