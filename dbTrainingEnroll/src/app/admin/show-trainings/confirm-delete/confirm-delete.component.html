@@ -1,0 +1,7 @@
+<p>Are you sure you want to delete {{ userService.training.name }}</p>
+<button (click)="onConfirm()" mat-icon-button color="warn">
+  <mat-icon aria-label="Delete this training!">check</mat-icon>
+</button>
+<button (click)="onClose()" mat-icon-button color="primary">
+  <mat-icon aria-label="Delete this training!">close</mat-icon>
+</button>

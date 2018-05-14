@@ -25,7 +25,6 @@ export class AddTrainingsComponent implements OnInit {
 
   arrayBuffer: any;
   fileToUpload: File;
-  // file: File = null;
   file: File;
 
   constructor(private userService: UserService) {
@@ -35,7 +34,6 @@ export class AddTrainingsComponent implements OnInit {
 
   incomingfile(event: UploadOutput) {
     if (event.type === 'addedToQueue'  && typeof event.file !== 'undefined') { // add file to array when added
-      console.log(event.file.nativeFile);
       this.file = event.file.nativeFile;
 
     } else if (event.type === 'dragOver') {

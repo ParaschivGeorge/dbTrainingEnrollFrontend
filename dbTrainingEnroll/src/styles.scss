@@ -123,6 +123,25 @@ button::after {
   max-height: 75vh !important;
 }
 
+.mat-menu-content {
+  padding: 0 !important;
+}
+
+.notification {
+  padding: 12px 8px;
+  font-family: $serif;
+  letter-spacing: -1px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  color: $black;
+  background: $white;
+  line-height: 18px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.notification:last-child {
+  border-bottom: 0;
+}
+
 .mat-dialog-actions {
   margin-bottom: 0 !important;
   padding: 1em 1em 2.5em !important;
@@ -136,8 +155,12 @@ input.ng-invalid.ng-touched {
   border: none !important;
 }
 
-.mat-tab-header {
+.mat-tab-group {
   margin: 0 2.5em;
+}
+
+.admin__tabs {
+  margin: 0 !important;
 }
 
 .mat-tab-label {
@@ -310,6 +333,18 @@ input:-webkit-autofill {
 
 .mat-select-panel {
   max-height: 100% !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+mat-panel-title {
+  flex-grow: 2 !important;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 1 !important;
 }
 
 @media screen and (max-width: 1200px) {

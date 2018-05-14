@@ -14,11 +14,11 @@
     </mat-form-field>
     <br>
     <mat-form-field color="primary">
-      <input type="text" formControlName="trainingDescription" matInput #trainingDescription minlength="6" placeholder="Training description">
-      <mat-hint align="end">{{trainingDescription.value?.length || 0}}/6</mat-hint>
+      <input type="text" formControlName="trainingTechnology" matInput #trainingTechnology minlength="6" placeholder="Training technology">
+      <mat-hint align="end">{{trainingTechnology.value?.length || 0}}/6</mat-hint>
     </mat-form-field>
     <mat-form-field color="primary">
-      <input type="text" formControlName="trainingResponsible" matInput #trainingRepresentative minlength="1" placeholder="Training responsible">
+      <input type="email" formControlName="trainingResponsible" matInput #trainingRepresentative minlength="1" placeholder="Training responsible's email">
       <mat-hint align="end">Training needs a representative</mat-hint>
     </mat-form-field>
     <mat-form-field color="primary">

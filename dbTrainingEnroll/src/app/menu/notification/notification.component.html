@@ -1,3 +1,6 @@
-<div *ngFor="let notification of userService.allNoticationsList">
-  <p>{{ notification.message }}</p>
-</div>
+
+<mat-menu #appMenu="matMenu">
+    <div *ngFor="let notification of userService.allNoticationsList">
+        <p>{{ notification.message }}</p>
+      </div>      
+</mat-menu>

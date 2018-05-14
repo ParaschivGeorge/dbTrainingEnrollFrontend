@@ -7,6 +7,7 @@ import {ManagerFormComponent} from '../../dashboard/manager-form/manager-form.co
 import {UserService} from '../../services/user.service';
 import {MatDialog} from '@angular/material';
 import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 @Component({
   selector: 'app-show-trainings',
@@ -61,6 +62,25 @@ export class ShowTrainingsComponent implements OnInit {
     this.userService.training = training;
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(EditTrainingFormComponent, {
+    });
+  }
+
+  onDelete(training: Training) {
+    this.userService.training = training;
+    this.userService.deleteTrainingsIdList = [];
+
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+    });
+    this.userService.closeDialog.subscribe(bool => {
+      if (bool) {
+        this.userService.deleteTrainingsIdList.push(training.id);
+        this.userService.deleteTrainings().subscribe(result => {
+        },
+        error => {
+          console.log(error);
+        });
+      }
+      this.dialog.closeAll();
     });
   }
 

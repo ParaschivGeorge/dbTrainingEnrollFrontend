@@ -6,12 +6,18 @@
     </a>
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
-    <span *ngIf="userService.currentUser.type === 'USER'" (click)=openNotifications()>      
-      <mat-icon *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
-      <mat-icon *ngIf="!userService.newNoticationsList.length">notifications_none</mat-icon>
+    <span  *ngIf="userService.currentUser.type === 'USER'" (click)=openNotifications()>
+      <mat-icon class="notificationButton" [matMenuTriggerFor]="menu" *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
+      <mat-icon [matMenuTriggerFor]="menu" *ngIf="!userService.newNoticationsList.length">notifications_none</mat-icon>
+      <mat-menu #menu="matMenu">
+        <p class="notification" *ngFor="let notification of userService.allNoticationsList">{{ notification.message }}</p>
+      </mat-menu>
     </span>
     <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'">
-      <button mat-raised-button color="warn"*ngIf="router.url !== '/enrollments'">Enrollments</button>
+      <button mat-raised-button color="warn" *ngIf="router.url !== '/enrollments'">Enrollments</button>
+    </a>
+    <a routerLink="/admin" class="trainings" *ngIf="userService.currentUser.type === 'ADMIN'">
+      <button mat-raised-button color="warn" *ngIf="router.url !== '/admin'">Admin</button>
     </a>
     <a routerLink="/trainings" class="trainings">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/trainings'">Trainings</button>
@@ -22,7 +28,7 @@
     <a routerLink="/myTrainings" class="reports" *ngIf="userService.currentUser.type === 'USER'">
       <button mat-raised-button color="warn" *ngIf="router.url !== '/myTrainings'">My Trainings</button>
     </a>
-    <button mat-raised-button color="warn" (click) = 'openLogin()' *ngIf="!userService.currentUser.token">Log In</button>
-    <button mat-raised-button color="warn" (click) = 'logout()' *ngIf="userService.currentUser.token">Log Out</button>
+    <button mat-raised-button color="warn" (click)='openLogin()' *ngIf="!userService.currentUser.token">Log In</button>
+    <button mat-raised-button color="warn" (click)='logout()' *ngIf="userService.currentUser.token">Log Out</button>
   </mat-toolbar-row>
 </mat-toolbar>

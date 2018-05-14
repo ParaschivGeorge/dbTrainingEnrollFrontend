@@ -55,7 +55,13 @@ export class MenuComponent implements OnInit {
   }
 
   openNotifications(): void {
-    const dialogRef = this.dialog.open(NotificationComponent, {
-    });
+    this.userService.getAllNotifications().subscribe(
+      allNotifications => {
+        this.userService.allNoticationsList = allNotifications;
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

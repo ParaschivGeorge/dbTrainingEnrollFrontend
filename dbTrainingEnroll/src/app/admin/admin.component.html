@@ -19,12 +19,12 @@
 
 <div class="main">
   <h1 class="title">Admin Dashboard</h1>
-  <mat-tab-group>
+  <mat-tab-group class="admin__tabs">
     <mat-tab label="Overview">
     </mat-tab>
     <mat-tab label="Trainings Management">
       <button mat-raised-button class="add-training-button" (click)="openDialog()" color="warn">Add Trainings from File</button>
-      <button mat-raised-button class="add-training-button" (click)="openTrainingForm()" color="warn">Add Trainings</button>
+      <button mat-raised-button class="add-training-button" (click)="openTrainingForm()" color="warn">Add Training</button>
       <app-show-trainings></app-show-trainings>
     </mat-tab>
     <mat-tab label="User Management">

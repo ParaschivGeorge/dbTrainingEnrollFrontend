@@ -44,6 +44,7 @@ import 'hammerjs';
 import { SpocGuard } from './guards/spoc.guard';
 import {InlineEditorModule} from '@qontu/ngx-inline-editor';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
 
 
 const appRoutes: Routes = [
@@ -98,7 +99,8 @@ const appRoutes: Routes = [
     ShowTrainingsComponent,
     AddTrainingFormComponent,
     EditTrainingFormComponent,
-    NotificationComponent
+    NotificationComponent,
+    ConfirmDeleteComponent
   ],
 
   imports: [
@@ -127,7 +129,8 @@ const appRoutes: Routes = [
     AdminComponent,
     AddTrainingFormComponent,
     EditTrainingFormComponent,
-    NotificationComponent
+    NotificationComponent,
+    ConfirmDeleteComponent
   ],
   providers: [
     UserService,
