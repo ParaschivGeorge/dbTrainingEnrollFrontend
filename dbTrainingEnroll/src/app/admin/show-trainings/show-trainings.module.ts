@@ -4,6 +4,7 @@ import {MatTabsModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MaterialModule} from '../../material.module';
 import {AdminComponent} from '../admin.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import {AdminComponent} from '../admin.component';
     MatExpansionModule
   ],
   exports: [ShowTrainingsModule],
-  declarations: [AdminComponent, ShowTrainingsModule]
+  declarations: [AdminComponent, ShowTrainingsModule, ConfirmDeleteComponent]
 })
 export class ShowTrainingsModule { }

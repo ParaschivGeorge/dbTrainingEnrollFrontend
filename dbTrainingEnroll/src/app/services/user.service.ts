@@ -90,6 +90,6 @@ export class UserService {
   }
 
   deleteTrainings(): Observable<number[]> {
-    return this.http.post<number[]>(this._DELETE_TRAININGS_URL, this.deleteTrainingsIdList);
+    return this.http.request<number[]>('delete', this._DELETE_TRAININGS_URL, { body: this.deleteTrainingsIdList});
   }
 }

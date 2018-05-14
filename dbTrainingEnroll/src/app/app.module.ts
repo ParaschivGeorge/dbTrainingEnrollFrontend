@@ -42,6 +42,7 @@ import { NotificationComponent } from './menu/notification/notification.componen
 import { ApiService } from './services/api.service';
 import 'hammerjs';
 import { SpocGuard } from './guards/spoc.guard';
+import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
 
 
 const appRoutes: Routes = [
@@ -96,7 +97,8 @@ const appRoutes: Routes = [
     ShowTrainingsComponent,
     AddTrainingFormComponent,
     EditTrainingFormComponent,
-    NotificationComponent
+    NotificationComponent,
+    ConfirmDeleteComponent
   ],
 
   imports: [
@@ -123,7 +125,8 @@ const appRoutes: Routes = [
     AdminComponent,
     AddTrainingFormComponent,
     EditTrainingFormComponent,
-    NotificationComponent
+    NotificationComponent,
+    ConfirmDeleteComponent
   ],
   providers: [
     UserService,
