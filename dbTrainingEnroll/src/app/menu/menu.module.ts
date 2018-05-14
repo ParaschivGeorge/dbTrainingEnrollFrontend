@@ -14,9 +14,7 @@ import { NotificationComponent } from './notification/notification.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    DashboardComponent,
-    EnrollmentsComponent
   ],
-  declarations: [MenuComponent, NotificationComponent]
+  declarations: []
 })
 export class MenuModule { }

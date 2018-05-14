@@ -9,10 +9,9 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   imports: [
     CommonModule,
     MaterialModule,
-    AuthService,
     Ng4LoadingSpinnerModule
   ],
-  declarations: [LoginComponent],
+  declarations: [],
   providers: [AuthService]
 })
 export class LoginModule { }

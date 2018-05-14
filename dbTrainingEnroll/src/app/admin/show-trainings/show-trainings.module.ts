@@ -12,7 +12,7 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
     MaterialModule,
     MatExpansionModule
   ],
-  exports: [ShowTrainingsModule],
-  declarations: [AdminComponent, ShowTrainingsModule, ConfirmDeleteComponent]
+  exports: [],
+  declarations: []
 })
 export class ShowTrainingsModule { }

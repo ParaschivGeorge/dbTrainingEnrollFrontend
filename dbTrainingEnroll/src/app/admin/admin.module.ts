@@ -15,8 +15,8 @@ import {ShowTrainingsComponent} from "./show-trainings/show-trainings.component"
     MatTabsModule,
     MatExpansionModule
   ],
-  exports: [AddTrainingsComponent, EditTrainingFormComponent],
-  declarations: [AdminComponent, AddTrainingsComponent, AddTrainingFormComponent, EditTrainingFormComponent,ShowTrainingsComponent],
-  entryComponents: [AddTrainingsComponent]
+  exports: [],
+  declarations: [],
+  entryComponents: []
 })
 export class AdminModule { }

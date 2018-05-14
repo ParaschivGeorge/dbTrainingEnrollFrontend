@@ -15,7 +15,7 @@ before_script:
   - npm install
 
 script:
-  - ng build
+  - ng build --prod
 
 after_success:
   - firebase deploy --token 1/MbsP3R6c3sncU0tN_2KuBkhlTXppnxn6kiZ6B5vwG-8Wo28uZdP68UBQyeOarfQ8

@@ -38,6 +38,9 @@ import { resolve, reject } from 'q';
   ],
 })
 export class DashboardComponent implements OnInit {
+
+term: any;
+
   allTrainings: Training[];
   softTrainings: Training[];
   allSoftTrainings: Training[];
@@ -59,7 +62,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
-    private userService: UserService,
+    public userService: UserService,
     private recommendationService: RecommendationService,
     private spinnerService: Ng4LoadingSpinnerService,
     public snackBar: MatSnackBar) { }

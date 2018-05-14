@@ -23,9 +23,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   ],
   providers: [],
   exports: [
-    EnrollmentsComponent, SpocFormComponent
   ],
-  declarations: [SpocFormComponent, EnrollmentsComponent]
+  declarations: []
 })
 
 export class EnrollmentsModule { }

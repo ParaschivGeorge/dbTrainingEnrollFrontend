@@ -10,7 +10,7 @@ export class FooterComponent implements OnInit {
 
   footerText: string;
 
-  constructor(private userService: UserService) { }
+  constructor(public userService: UserService) { }
 
   ngOnInit() {
     this.userService.loggedIn.subscribe(result => {

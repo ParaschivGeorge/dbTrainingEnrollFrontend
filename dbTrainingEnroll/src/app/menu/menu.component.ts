@@ -28,8 +28,8 @@ export class MenuComponent implements OnInit {
     private dashboardComponent: DashboardComponent,
     public router: Router,
     private dialog: MatDialog,
-    private authService: AuthService,
-    private userService: UserService,
+    public authService: AuthService,
+    public userService: UserService,
     private recommendationsService: RecommendationService) { }
 
   ngOnInit() {

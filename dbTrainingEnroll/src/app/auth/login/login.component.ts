@@ -16,6 +16,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
   isLoginError = false;
+  hide: any;
 
   constructor(
     private authService: AuthService,

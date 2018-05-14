@@ -6,6 +6,6 @@ import { FooterComponent } from './footer.component';
   imports: [
     CommonModule
   ],
-  declarations: [FooterComponent]
+  declarations: []
 })
 export class FooterModule { }

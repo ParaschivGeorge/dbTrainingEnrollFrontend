@@ -10,6 +10,8 @@ import { ReportsService } from '../services/reports.service';
 
 })
 export class ReportsComponent implements OnInit {
+  chartHovered: any;
+  chartClicked: any;
   public barChartData: number[] = [];
   public barChartType = 'bar';
   public doughnutChartType = 'doughnut';

@@ -24,8 +24,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   ],
   providers: [AuthService],
   exports: [
-    DashboardComponent, ManagerFormComponent
   ],
-  declarations: [ManagerFormComponent, DashboardComponent]
+  declarations: []
 })
 export class DashboardModule { }

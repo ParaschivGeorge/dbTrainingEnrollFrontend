@@ -11,7 +11,7 @@ import {CommonModule} from '@angular/common';
     MaterialModule,
     MatExpansionModule
   ],
-  exports: [AddTrainingsComponent],
-  declarations: [AdminComponent, AddTrainingsComponent]
+  exports: [],
+  declarations: []
 })
 export class AddTrainingsModule { }

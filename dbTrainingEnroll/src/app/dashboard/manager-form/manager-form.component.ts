@@ -18,9 +18,10 @@ import { EnrollmentDetailsDto } from '../../models/enrollmentDetailsDto';
 })
 
 export class ManagerFormComponent implements OnInit, OnDestroy {
+
   _MAX_NUMBER = 15;
   formLength = 0;
-  managerForm: FormGroup;
+  managerForm: any;
   valid: boolean;
   filteredUsers: Observable<any[]>;
   vendor: string;
@@ -29,7 +30,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   types = ['BUILD', 'GROW'];
   urgencies = ['LOW', 'MEDIUM', 'HIGH'];
 
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
     private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {
