@@ -69,8 +69,6 @@
         <inline-editor [(ngModel)]="training.acceptedUsers" (onSave)="saveEditable($event)" class="training-date">{{ training.acceptedUsers }}</inline-editor>
       </div>
     </ng-template>
-    <div class="progress-bar soft-skills" *ngIf="training.categoryType === 'SOFT'"></div>
-    <div class="progress-bar technical" *ngIf="training.categoryType === 'TECHNICAL'"></div>
   </mat-expansion-panel>
   </div>
 </mat-accordion>

@@ -116,6 +116,10 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
   padding-left: 22px;
 }
 
+.info-group:last-child{
+  padding-bottom: 1.5em;
+}
+
 .mat-expansion-panel-header.mat-expanded.mat-expansion-panel-header-description {
   visibility: hidden !important;
 }
