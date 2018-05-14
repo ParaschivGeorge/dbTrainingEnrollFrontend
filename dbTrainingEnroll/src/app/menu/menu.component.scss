@@ -26,8 +26,22 @@
     background: linear-gradient(-45deg, rgba($darkest-blue, 0.95) 0%, rgba(50, 60, 127, 0.95) 100%);
     box-shadow: 0 10px 20px -12px rgba($darkest-blue, .7);
     color: $white;
+
     // box-shadow: 0 1px 6px rgba(black, .15), 0 5px 25px rgba(black, .2);
   }
+
+  .mat-menu-content {
+    padding: 0;
+  }
+
+.notification {
+  padding: 5px 10px;
+  font-family: $serif;
+  letter-spacing: -0.5px;
+  color: $red;
+  margin: 2px 0;
+  background: $darkest-blue;
+}
 
   .page-title {
     font-family: 'Montserrat', $sans-serif;

@@ -11,14 +11,6 @@ export class NotificationComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAllNotifications().subscribe(
-      allNotifications => {
-        this.userService.allNoticationsList = allNotifications;
-      },
-      error => {
-        console.log(error);
-      }
-    );
   }
 
 }
