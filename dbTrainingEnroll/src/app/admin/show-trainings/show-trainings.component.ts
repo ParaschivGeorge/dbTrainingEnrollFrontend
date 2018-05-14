@@ -53,6 +53,11 @@ export class ShowTrainingsComponent implements OnInit {
       );
   }
 
+  saveEditable(value) {
+    //call to http service
+    console.log(value);
+  }
+
   openEditDialog(training: Training) {
     this.userService.training = training;
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());

@@ -422,3 +422,61 @@ mat-panel-title {
     display: none;
   }
 }
+
+
+a.c-inline-editor {
+  text-decoration: none;
+  border-bottom: none;
+  cursor: pointer;
+  line-height: 2;
+}
+
+a.c-inline-editor:hover{
+  color: #000;
+}
+.c-inline-editor.editable-empty,
+.c-inline-editor.editable-empty:hover,
+.c-inline-editor.editable-empty:focus,
+.c-inline-editor.a.editable-empty,
+.c-inline-editor.a.editable-empty:hover,
+.c-inline-editor.a.editable-empty:focus {
+  font-style: italic;
+  color: #DD1144;
+  text-decoration: none;
+}
+
+.c-inline-editor.inlineEditForm {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+}
+
+#inlineEditWrapper {
+  display: inline-block;
+}
+
+.c-inline-editor.inlineEditForm input,
+.c-inline-editor.select {
+  width: 50%;
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.c-inline-editor.inline-editor-button-group {
+  display: inline-block;
+}
+
+.c-inline-editor.editInvalid {
+  color: #a94442;
+  margin-bottom: 0;
+}
+
+.c-inline-editor.error {
+  border-color: #a94442;
+}
+
+[hidden].c-inline-editor {
+  display: none;
+}
