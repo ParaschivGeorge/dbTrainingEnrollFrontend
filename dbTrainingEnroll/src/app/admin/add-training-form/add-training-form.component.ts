@@ -6,6 +6,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { AddTrainingFormData } from '../../models/add-training-form-data';
 import { CustomValidators } from 'ng2-validation';
+import * as moment from 'moment';
+import { UserDto } from '../../models/userDto';
 
 @Component({
   selector: 'app-add-training-form',
@@ -13,7 +15,6 @@ import { CustomValidators } from 'ng2-validation';
   styleUrls: ['./add-training-form.component.scss']
 })
 export class AddTrainingFormComponent implements OnInit {
-  training: Training[];
   addTrainingForm: FormGroup;
   trainingTypes = [
     'SOFT',
@@ -28,7 +29,7 @@ export class AddTrainingFormComponent implements OnInit {
   noSaturdayAndSunday = (d: Date): boolean => {
     const day = d.getDay();
     return day !== 0 && day !== 6;
-  };
+  }
 
   constructor(
     private userService: UserService,
@@ -41,13 +42,13 @@ export class AddTrainingFormComponent implements OnInit {
       trainingType: new FormControl('TECHNICAL', [Validators.required]),
       trainingName: new FormControl(null, [
         Validators.required,
-        Validators.maxLength(15)
+        Validators.maxLength(30)
       ]),
-      trainingDescription: new FormControl(null, [
+      trainingTechnology: new FormControl(null, [
         Validators.required,
         Validators.minLength(6)
       ]),
-      trainingResponsible: new FormControl(null, [Validators.required]),
+      trainingResponsible: new FormControl(null, [Validators.required, Validators.email]),
       trainingVendor: new FormControl(null),
       startDate: new FormControl(null, [Validators.required]),
       endDate: new FormControl(null, [Validators.required]),
@@ -66,6 +67,39 @@ export class AddTrainingFormComponent implements OnInit {
 
   onSubmit() {
     if (this.addTrainingForm.valid) {
+
+      this.userService.newTrainingsList = [];
+
+      const training = new Training();
+
+      training.name = this.addTrainingForm.get('trainingName').value;
+      training.technology = this.addTrainingForm.get('trainingTechnology').value;
+      training.categoryType = this.addTrainingForm.get('trainingType').value;
+      training.acceptedUsers = 0;
+      let d = new Date(this.addTrainingForm.get('startDate').value);
+      training.date = moment(d).format('DD/MM/YYYY');
+      d = new Date(this.addTrainingForm.get('endDate').value);
+      training.date += ' - ' + moment(d).format('DD/MM/YYYY');
+      training.nrMax = this.addTrainingForm.get('maxParticipants').value;
+      training.nrMin = this.addTrainingForm.get('minParticipants').value;
+      training.trainingResponsible = new UserDto();
+      training.trainingResponsible.userType = 'USER';
+      training.trainingResponsible.mail = this.addTrainingForm.get('trainingResponsible').value;
+      training.vendor = this.addTrainingForm.get('trainingVendor').value;
+
+      this.userService.newTrainingsList.push(training);
+
+      console.log(this.userService.newTrainingsList);
+
+      this.userService.insertNewTrainings().subscribe(result => {
+        this.userService.closeDialog.emit(true);
+      },
+      error => {
+        console.log(error);
+      });
+
+      this.addTrainingForm.reset();
+
       this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000 });
     } else {
       this.submitSnackBar.open('Form is not valid', 'Ok', { duration: 2000 });
