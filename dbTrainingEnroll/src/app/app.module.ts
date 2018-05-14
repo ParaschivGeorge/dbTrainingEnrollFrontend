@@ -42,6 +42,8 @@ import { NotificationComponent } from './menu/notification/notification.componen
 import { ApiService } from './services/api.service';
 import 'hammerjs';
 import { SpocGuard } from './guards/spoc.guard';
+import {InlineEditorModule} from '@qontu/ngx-inline-editor';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 const appRoutes: Routes = [
@@ -112,7 +114,9 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule,
     ChartsModule,
     NgUploaderModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    InlineEditorModule,
+    NgbModule.forRoot()
   ],
   entryComponents: [
     DashboardComponent,

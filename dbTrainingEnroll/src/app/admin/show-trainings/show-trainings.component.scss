@@ -37,6 +37,26 @@
   font-weight: normal;
 }
 
+//input.form-control.inline-editor-text.ng-touched.ng-valid{
+//  font-family: 'Montserrat', sans-serif;
+//  font-size: 14px;
+//  font-weight: normal;
+//}
+
+//.inline-editor-text {
+//  width: 50%;
+//  font-family: 'Montserrat', sans-serif;
+//  font-size: 14px;
+//  font-weight: normal;
+//  border: 0;
+//}
+
+//.form-control.ng-pristine.ng-valid.ng-touched{
+//  width: 50%;
+//  border: 0;
+//
+//}
+
 .training-date{
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -99,6 +119,14 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
 
 .minip__train{
   font-size: 11px;
+  margin-bottom: .2em;
+  line-height: 15px;
+  color: $dark-blue;
+  font-family: 'Raleway', sans-serif;
+}
+
+.babyp__train{
+  font-size: 10px;
   margin-bottom: .2em;
   line-height: 15px;
   color: $dark-blue;
