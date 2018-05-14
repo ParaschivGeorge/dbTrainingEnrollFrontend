@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
 import {Training} from '../../models/training';
-import {animate, keyframes, state, style, transition, trigger} from "@angular/animations";
-import {ManagerFormComponent} from "../../dashboard/manager-form/manager-form.component";
-import {UserService} from "../../services/user.service";
-import {MatDialog} from "@angular/material";
-import {EditTrainingFormComponent} from "../edit-training-form/edit-training-form.component";
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {ManagerFormComponent} from '../../dashboard/manager-form/manager-form.component';
+import {UserService} from '../../services/user.service';
+import {MatDialog} from '@angular/material';
+import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 
 @Component({
   selector: 'app-show-trainings',
@@ -52,7 +52,7 @@ export class ShowTrainingsComponent implements OnInit {
       );
   }
 
-  openEditDialog(training: Training){
+  openEditDialog(training: Training) {
     this.userService.training = training;
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(EditTrainingFormComponent, {

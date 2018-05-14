@@ -22,7 +22,7 @@ export class SpocFormComponent implements OnInit, OnDestroy {
   modelList: SpocFormResponse[] = [];
   buttonIsClicked = false;
 
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
   private submitSnackBar: MatSnackBar) { }
 
   ngOnInit() {

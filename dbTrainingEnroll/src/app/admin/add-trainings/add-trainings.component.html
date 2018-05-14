@@ -1,23 +1,30 @@
 <mat-dialog-content>
   <div class="enrollForm">
     <h2 class="subtitle">Add trainings</h2>
+    <h3 class="subtitle">Please make sure your excel has the same model as the one below!</h3>
+    <a href="../../assets/Trainings.xlsx">
+      <button mat-raised-button color="primary">Download Excel Model</button>
+    </a>
 
-    <div class="drag-drop-module">
-      <div class="drop-container" accept=".xlsx" ngFileDrop [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+    <div class="drag-drop-module" *ngIf="!file">
+      <div class="drop-container" accept=".xlsx" ngFileDrop [options]="options" (uploadOutput)="incomingfile($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
         <p class="drag-drop">
           Drag a file here or
           <label class="upload-button">
-            <input type="file" accept=".xlsx" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+            <input type="file" accept=".xlsx" ngFileSelect [options]="options" (uploadOutput)="incomingfile($event)" [uploadInput]="uploadInput" multiple>
             <strong>browse</strong>
           </label>
           to upload.
         </p>
-      </div>
+      </div>      
+    </div>
+    <div class="file">      
+      <h4 class="file__name" *ngIf="file">{{file.name}} </h4>
+      <button mat-button color="primary" *ngIf="file" 
+      class="delete__button" type="button" (click)="onDelete()">X</button>
     </div>
   </div>
   <mat-dialog-actions align="end">
     <button class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
   </mat-dialog-actions>
 </mat-dialog-content>
-
-
