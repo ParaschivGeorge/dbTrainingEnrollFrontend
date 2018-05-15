@@ -115,6 +115,17 @@ button::after {
   color: white;
 }
 
+.mat-grid-tile .mat-figure {
+  flex-direction: column !important;
+  position: absolute !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+#show-trainings.mat-grid-list {
+  padding-bottom: 16em !important;
+}
+
 .spinner {
   background: linear-gradient(
     rgba(black, 0) 0%,
@@ -197,6 +208,13 @@ input.ng-invalid.ng-touched {
   text-shadow: 2px 1px 8px rgba($black, 0.2);
 }
 
+textarea.mat-input-element{
+  border: 1px solid rgba(10, 60, 117, .7);
+  padding: 0.4em;
+  width: 97%;
+  min-height: 11vh;
+  font-size: 14px;
+}
 .login {
   padding: 40px 40px 10px 40px !important;
   background: #08125b;
@@ -324,9 +342,21 @@ input:-webkit-autofill {
   text-shadow: 0 0 8px -1px rgba($black, 0.8);
 }
 
+mat-radio-group{
+  display: inline-flex;
+  margin-left: 1em;
+}
+
+.mat-radio-label-content{
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px !important;
+}
+
 .type {
   .mat-radio-button.mat-accent .mat-radio-inner-circle {
     background: $blue !important;
+    width: 15px !important;
+    height: 15px !important;
   }
 }
 
@@ -334,6 +364,8 @@ input:-webkit-autofill {
 .urgency {
   .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: $blue !important;
+    width: 15px !important;
+    height: 15px !important;
   }
 }
 
@@ -439,62 +471,4 @@ mat-panel-title {
   .name {
     display: none;
   }
-}
-
-
-a.c-inline-editor {
-  text-decoration: none;
-  border-bottom: none;
-  cursor: pointer;
-  line-height: 2;
-}
-
-a.c-inline-editor:hover{
-  color: #000;
-}
-.c-inline-editor.editable-empty,
-.c-inline-editor.editable-empty:hover,
-.c-inline-editor.editable-empty:focus,
-.c-inline-editor.a.editable-empty,
-.c-inline-editor.a.editable-empty:hover,
-.c-inline-editor.a.editable-empty:focus {
-  font-style: italic;
-  color: #DD1144;
-  text-decoration: none;
-}
-
-.c-inline-editor.inlineEditForm {
-  display: inline-block;
-  white-space: nowrap;
-  margin: 0;
-}
-
-#inlineEditWrapper {
-  display: inline-block;
-}
-
-.c-inline-editor.inlineEditForm input,
-.c-inline-editor.select {
-  width: 50%;
-  display: inline;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-.c-inline-editor.inline-editor-button-group {
-  display: inline-block;
-}
-
-.c-inline-editor.editInvalid {
-  color: #a94442;
-  margin-bottom: 0;
-}
-
-.c-inline-editor.error {
-  border-color: #a94442;
-}
-
-[hidden].c-inline-editor {
-  display: none;
 }

@@ -25,18 +25,18 @@
               <div class="radio">
                 <label>Type:</label>
                 <mat-radio-group class="type" formControlName="type">
-                  <mat-radio-button *ngFor="let type of types" [value]="type">{{type}}</mat-radio-button>
+                  <mat-radio-button color="primary" *ngFor="let type of types" [value]="type">{{type}}</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="radio">
                 <label>Urgency:</label>
                 <mat-radio-group class="urgency" formControlName="urgency">
-                  <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}</mat-radio-button>
+                  <mat-radio-button color="primary" *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}</mat-radio-button>
                 </mat-radio-group>
               </div>
             <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
-            <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">add</mat-icon></button>
-            <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">remove</mat-icon></button>
+            <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">person_add</mat-icon></button>
+            <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">delete</mat-icon></button>
           </div>
         </div>
       </div>

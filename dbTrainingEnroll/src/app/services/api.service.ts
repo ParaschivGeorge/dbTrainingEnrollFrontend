@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 export class ApiService {
 
   private _URL = 'https://db-training-enroll.herokuapp.com/trainings';
+  private _ADMIN_URL = 'https://db-training-enroll.herokuapp.com/trainingsAdmin';
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/pendingTrainings';
   private _USER_TRAININGS = 'https://db-training-enroll.herokuapp.com/testingquery';
@@ -23,6 +24,10 @@ export class ApiService {
 
    getTrainings(): Observable<Training[]> {
      return this.http.get<Training[]>(this._URL);
+   }
+
+   getAdminTrainings(): Observable<Training[]> {
+     return this.http.get<Training[]>(this._ADMIN_URL);
    }
 
    getEnrollmentsList(): Observable<Training[]> {

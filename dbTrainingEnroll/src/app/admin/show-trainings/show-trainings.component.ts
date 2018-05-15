@@ -44,7 +44,7 @@ export class ShowTrainingsComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
-    this.apiService.getTrainings()
+    this.apiService.getAdminTrainings()
       .subscribe(
         result => {
           this.trainings = result;
@@ -53,7 +53,7 @@ export class ShowTrainingsComponent implements OnInit {
       );
   }
 
-  saveEditable(value) {
+  onEdit(value) {
     // call to http service
     console.log(value);
   }

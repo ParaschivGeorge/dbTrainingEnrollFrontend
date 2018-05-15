@@ -37,37 +37,48 @@
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
-      <div class="info-group">
-        <p class="minip__train">Technology</p>
-        <inline-editor [(ngModel)]="training.technology" (onSave)="saveEditable($event)" class="vendor-name">{{ training.technology }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Vendor</p>
-        <inline-editor [(ngModel)]="training.vendor" (onSave)="saveEditable($event)" class="vendor-name">{{ training.vendor }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Training Responsible</p>
-        <inline-editor [(ngModel)]="training.trainingResponsible.name" (onSave)="saveEditable($event)" class="vendor-name">{{ training.trainingResponsible.name }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Training Responsible e-mail address</p>
-        <inline-editor [(ngModel)]="training.trainingResponsible.mail" (onSave)="saveEditable($event)" class="vendor-name">{{ training.trainingResponsible.mail }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Date</p>
-        <inline-editor [(ngModel)]="training.date" (onSave)="saveEditable($event)" class="training-date">{{ training.date }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Available seats</p>
-        <p class="babyp__train">Minimum number of seats</p>
-          <inline-editor [(ngModel)]="training.nrMin" (onSave)="saveEditable($event)" class="training-date">{{ training.nrMin }}</inline-editor>
-        <p class="babyp__train">Maximum number of seats</p>
-          <inline-editor [(ngModel)]="training.nrMax" (onSave)="saveEditable($event)" class="training-date">{{ training.nrMax }}</inline-editor>
-      </div>
-      <div class="info-group">
-        <p class="minip__train">Accepted participants</p>
-        <inline-editor [(ngModel)]="training.acceptedUsers" (onSave)="saveEditable($event)" class="training-date">{{ training.acceptedUsers }}</inline-editor>
-      </div>
+      <mat-grid-list id="show-trainings" cols="2">
+        <mat-grid-tile>
+          <div class="info-group">
+            <p class="minip__train">Technology</p>
+            <div class="editable">
+              <button (click)="onEdit(training)" mat-icon-button color="primary">
+                <mat-icon aria-label="Edit">edit</mat-icon>
+              </button>
+              <span class="vendor-name">{{ training.technology }}</span>
+            </div>
+          </div>
+          <div class="info-group">
+            <p class="minip__train">Vendor</p>
+            <p class="vendor-name">{{ training.vendor }}</p>
+          </div>
+          <div class="info-group">
+            <p class="minip__train">Training Responsible</p>
+            <p class="vendor-name">{{ training.trainingResponsible.name }}</p>
+          </div>
+          <div class="info-group">
+            <p class="minip__train">Training Responsible e-mail address</p>
+            <p class="vendor-name">{{ training.trainingResponsible.mail }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="info-group">
+            <p class="minip__train">Date</p>
+            <p class="training-date">{{ training.date }}</p>
+          </div>
+          <div class="info-group">
+            <p class="minip__train">Available seats</p>
+            <p class="babyp__train">Minimum number of seats</p>
+            <p class="training-date">{{ training.nrMin }}</p>
+            <p class="babyp__train">Maximum number of seats</p>
+            <p class="training-date">{{ training.nrMax }}</p>
+          </div>
+          <div class="info-group">
+            <p class="minip__train">Accepted participants</p>
+            <p class="training-date">{{ training.acceptedUsers }}</p>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
     </ng-template>
   </mat-expansion-panel>
   </div>

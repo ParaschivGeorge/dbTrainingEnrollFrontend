@@ -83,6 +83,7 @@ button:disabled {
 }
 
 .enrollment-form{
+  margin-top: 2em;
     width: 100%;
 }
 
@@ -142,6 +143,10 @@ mat-icon{
 
 .radio {
     margin: 10px 0;
+}
+
+.radio:last-child{
+  margin-bottom: 1.5em;
 }
 
 .radio-group {

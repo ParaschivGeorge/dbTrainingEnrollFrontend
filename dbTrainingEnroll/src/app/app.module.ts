@@ -41,8 +41,6 @@ import { EditTrainingFormComponent } from './admin/edit-training-form/edit-train
 import { NotificationComponent } from './menu/notification/notification.component';
 import { ApiService } from './services/api.service';
 import 'hammerjs';
-import { InlineEditorModule } from '@qontu/ngx-inline-editor';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
 
 const appRoutes: Routes = [
@@ -117,9 +115,7 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule,
     ChartsModule,
     NgUploaderModule,
-    RouterModule.forRoot(appRoutes),
-    InlineEditorModule,
-    NgbModule.forRoot()
+    RouterModule.forRoot(appRoutes)
   ],
   entryComponents: [
     DashboardComponent,
