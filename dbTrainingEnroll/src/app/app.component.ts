@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { User } from './models/user';
 import { UserService } from './services/user.service';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,14 @@ export class AppComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private userService: UserService) { }
+    private userService: UserService,
+    private translate: TranslateService) {
+      translate.addLangs(['en', 'ro']);
+      translate.setDefaultLang('ro');
+
+      const browserLang = translate.getBrowserLang();
+      translate.use(browserLang.match(/en|ro/) ? browserLang : 'en');
+     }
 
   ngOnInit() {
     this.router.events

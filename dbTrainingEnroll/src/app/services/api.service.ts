@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 @Injectable()
 export class ApiService {
 
-  private _URL = 'https://db-training-enroll.herokuapp.com/trainings';
+  private _TRAININGS_URL = 'https://db-training-enroll.herokuapp.com/trainings';
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/pendingTrainings';
   private _USER_TRAININGS = 'https://db-training-enroll.herokuapp.com/testingquery';
@@ -22,7 +22,7 @@ export class ApiService {
   trainings: Training[];
 
    getTrainings(): Observable<Training[]> {
-     return this.http.get<Training[]>(this._URL);
+     return this.http.get<Training[]>(this._TRAININGS_URL);
    }
 
    getEnrollmentsList(): Observable<Training[]> {
