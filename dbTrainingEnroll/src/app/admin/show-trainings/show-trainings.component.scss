@@ -34,22 +34,18 @@
 
 .vendor-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-}
-.training-date {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  margin-left: .4em;
   font-weight: normal;
 }
 
-//mat-card-content{
-//  margin-bottom: .6em;
-//}
-//
-//mat-card-footer{
-//  margin: 0;
-//}
+.training-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin-left: .4em;
+  font-weight: normal;
+}
+
 .progress-bar {
   display: block;
   height: 2px;
@@ -96,7 +92,7 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
 }
 
 .minip__train {
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: .2em;
   line-height: 15px;
   color: $dark-blue;
@@ -107,6 +103,7 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
   font-size: 10px;
   margin-bottom: .2em;
   line-height: 15px;
+  margin-top: 0.8em;
   color: $dark-blue;
   font-family: 'Raleway', sans-serif;
 }

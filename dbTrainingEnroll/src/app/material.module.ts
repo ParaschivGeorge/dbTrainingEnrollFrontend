@@ -11,6 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { TranslateModule } from 'ng2-translate';
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatExpansionModule,
         MatDatepickerModule,
         NativeDateModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        TranslateModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -67,7 +69,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
         InfiniteScrollModule,
         MatExpansionModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        TranslateModule
     ]
 })
 

@@ -122,10 +122,6 @@ button::after {
   justify-content: flex-start !important;
 }
 
-#show-trainings.mat-grid-list {
-  padding-bottom: 16em !important;
-}
-
 .spinner {
   background: linear-gradient(
     rgba(black, 0) 0%,
@@ -217,6 +213,29 @@ textarea.mat-input-element{
   font-size: 14px;
   margin-top: 1.5em;
   margin-bottom: 1em;
+}
+
+#show-trainings{
+  .mat-grid-list {
+    padding-bottom: 16em !important;
+  }
+
+  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+    font-size: 94% !important;
+    line-height: .75!important;
+  }
+
+  .mat-form-field-underline{
+    height: 0px !important;
+  }
+
+  .mat-input-underline{
+    bottom: .6em !important;
+  }
+
+  .mat-input-wrapper{
+    padding-bottom: .3em!important;
+  }
 }
 .login {
   padding: 40px 40px 10px 40px !important;

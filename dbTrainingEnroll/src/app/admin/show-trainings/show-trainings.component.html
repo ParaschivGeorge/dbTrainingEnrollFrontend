@@ -38,46 +38,65 @@
 
     <ng-template matExpansionPanelContent>
       <mat-grid-list id="show-trainings" cols="2">
-        <mat-grid-tile>
-          <div class="info-group">
-            <p class="minip__train">Technology</p>
-            <div class="editable">
-              <button (click)="onEdit(training)" mat-icon-button color="primary">
-                <mat-icon aria-label="Edit">edit</mat-icon>
-              </button>
-              <span class="vendor-name">{{ training.technology }}</span>
+          <mat-grid-tile>
+            <div class="info-group">
+              <p class="minip__train">Technology</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="vendor-name" matInput [(ngModel)]="training.technology">
+              </mat-form-field>
             </div>
-          </div>
-          <div class="info-group">
-            <p class="minip__train">Vendor</p>
-            <p class="vendor-name">{{ training.vendor }}</p>
-          </div>
-          <div class="info-group">
-            <p class="minip__train">Training Responsible</p>
-            <p class="vendor-name">{{ training.trainingResponsible.name }}</p>
-          </div>
-          <div class="info-group">
-            <p class="minip__train">Training Responsible e-mail address</p>
-            <p class="vendor-name">{{ training.trainingResponsible.mail }}</p>
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <div class="info-group">
-            <p class="minip__train">Date</p>
-            <p class="training-date">{{ training.date }}</p>
-          </div>
-          <div class="info-group">
-            <p class="minip__train">Available seats</p>
-            <p class="babyp__train">Minimum number of seats</p>
-            <p class="training-date">{{ training.nrMin }}</p>
-            <p class="babyp__train">Maximum number of seats</p>
-            <p class="training-date">{{ training.nrMax }}</p>
-          </div>
-          <div class="info-group">
-            <p class="minip__train">Accepted participants</p>
-            <p class="training-date">{{ training.acceptedUsers }}</p>
-          </div>
-        </mat-grid-tile>
+            <div class="info-group">
+              <p class="minip__train">Vendor</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="vendor-name" matInput [(ngModel)]="training.vendor">
+              </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Training Responsible</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.name">
+              </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Training Responsible e-mail address</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.mail">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="info-group">
+              <p class="minip__train">Date</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="training-date" matInput [(ngModel)]="training.date">
+              </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Available seats</p>
+              <p class="babyp__train">Minimum number of seats</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="training-date" matInput [(ngModel)]="training.nrMin">
+              </mat-form-field>
+              <p class="babyp__train">Maximum number of seats</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="training-date" matInput [(ngModel)]="training.nrMax">
+              </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Accepted participants</p>
+              <mat-form-field>
+                <mat-icon matPrefix color="primary">edit</mat-icon>
+                <input class="training-date" matInput [(ngModel)]="training.acceptedUsers">
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
       </mat-grid-list>
     </ng-template>
   </mat-expansion-panel>

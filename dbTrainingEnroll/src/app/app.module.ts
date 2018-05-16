@@ -3,7 +3,7 @@ import { NgModule, Component, OnInit } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -27,6 +27,7 @@ import { UserGuard } from './guards/user.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoggingInterceptor } from './interceptors/logging.interceptor';
 import { MatRadioModule } from '@angular/material/radio';
+import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
 import { RecommendationService } from './services/recommendation.service';
 import { ReportsComponent } from './reports/reports.component';
 import { ReportsService } from './services/reports.service';
@@ -80,6 +81,9 @@ const appRoutes: Routes = [
   }
 ];
 
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,7 +119,12 @@ const appRoutes: Routes = [
     Ng4LoadingSpinnerModule,
     ChartsModule,
     NgUploaderModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    })
   ],
   entryComponents: [
     DashboardComponent,
