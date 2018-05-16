@@ -32,6 +32,7 @@ export class UserService {
   data: Object;
   modelList: Array<SpocFormResponse>;
   closeDialog = new EventEmitter<boolean>();
+  closeDeleteDialog = new EventEmitter<boolean>();
   loggedIn = new EventEmitter<boolean>();
   currentUser = new User;
   enrollmentList: EnrollmentDetailsDto[] = [];
@@ -61,7 +62,6 @@ export class UserService {
   }
 
   postEnrollmentsList(): Observable<Object> {
-    console.log(this.data);
     return this.http.post(this._RESULT_ULR, this.data);
   }
 

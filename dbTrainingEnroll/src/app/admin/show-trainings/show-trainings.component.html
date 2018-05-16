@@ -21,7 +21,7 @@
 <!--</mat-grid-list>-->
 <h2 class="subtitle">All trainings</h2>
 <mat-accordion>
-  <div *ngFor="let training of trainings">
+  <div *ngFor="let training of apiService.trainings">
   <mat-expansion-panel [@flyInOut]="'in'">
     <mat-expansion-panel-header>
       <mat-panel-title>
