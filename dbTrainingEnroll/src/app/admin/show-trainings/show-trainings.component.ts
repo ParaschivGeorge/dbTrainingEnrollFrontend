@@ -35,8 +35,6 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 })
 export class ShowTrainingsComponent implements OnInit {
 
-  trainings: Training[];
-
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               private apiService: ApiService,
               private userService: UserService,
@@ -44,10 +42,10 @@ export class ShowTrainingsComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
-    this.apiService.getTrainings()
+    this.apiService.getAdminTrainings()
       .subscribe(
         result => {
-          this.trainings = result;
+          this.apiService.trainings = result;
           this.spinnerService.hide();
         }
       );
@@ -60,7 +58,10 @@ export class ShowTrainingsComponent implements OnInit {
 
   openEditDialog(training: Training) {
     this.userService.training = training;
-    this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
+    this.userService.closeDialog.subscribe(result => {
+      this.getTrainings();
+      this.dialog.closeAll();
+    });
     const dialogRef = this.dialog.open(EditTrainingFormComponent, {
     });
   }
@@ -71,21 +72,25 @@ export class ShowTrainingsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
     });
-    this.userService.closeDialog.subscribe(bool => {
-      if (bool) {
-        this.userService.deleteTrainingsIdList.push(training.id);
-        this.userService.deleteTrainings().subscribe(result => {
-        },
-        error => {
-          console.log(error);
-        });
-      }
-      this.dialog.closeAll();
-    });
   }
 
   ngOnInit() {
     this.getTrainings();
+
+    this.userService.closeDeleteDialog.subscribe(bool => {
+      if (bool) {
+        this.userService.deleteTrainingsIdList.push(this.userService.training.id);
+        this.userService.deleteTrainings().subscribe(result => {
+          this.getTrainings();
+          this.dialog.closeAll();
+        },
+        error => {
+          console.log(error);
+        });
+      } else {
+        this.dialog.closeAll();
+      }
+    });
   }
 
 }

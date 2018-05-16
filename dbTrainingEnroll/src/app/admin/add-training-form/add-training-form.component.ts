@@ -96,7 +96,7 @@ export class AddTrainingFormComponent implements OnInit {
         console.log(error);
       });
 
-      this.addTrainingForm.reset();
+      // this.addTrainingForm.reset();
 
       this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000 });
     } else {

@@ -14,11 +14,11 @@ export class ConfirmDeleteComponent implements OnInit {
   }
 
   onConfirm() {
-    this.userService.closeDialog.emit(true);
+    this.userService.closeDeleteDialog.emit(true);
   }
 
   onClose() {
-    this.userService.closeDialog.emit(false);
+    this.userService.closeDeleteDialog.emit(false);
   }
 
 }
