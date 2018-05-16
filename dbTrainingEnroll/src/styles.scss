@@ -174,6 +174,7 @@ button::after {
 .mat-dialog-actions {
   margin-bottom: 0 !important;
   padding: 1em 1em 2.5em !important;
+  width: 37.5vw !important;
 }
 
 .mat-dialog-container {
@@ -214,6 +215,8 @@ textarea.mat-input-element{
   width: 97%;
   min-height: 11vh;
   font-size: 14px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 .login {
   padding: 40px 40px 10px 40px !important;
