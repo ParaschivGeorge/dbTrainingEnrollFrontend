@@ -14,7 +14,7 @@ export class ApiService {
   private _TRAININGS_URL = 'https://db-training-enroll.herokuapp.com/trainings';
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = 'https://db-training-enroll.herokuapp.com/pendingTrainings';
-  private _USER_TRAININGS = 'https://db-training-enroll.herokuapp.com/testingquery';
+  private _USER_TRAININGS = 'https://db-training-enroll.herokuapp.com/myTrainings';
 
   constructor(private http: HttpClient, spinnerService: Ng4LoadingSpinnerService, private userService: UserService) {
   }
