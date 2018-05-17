@@ -86,6 +86,14 @@ export class ShowTrainingsComponent implements OnInit {
     }
   }
 
+  save(i: number, prop: string) {
+    if (prop === 'trainingResponsible') {
+      this.apiService.trainingsCopy[i][prop].mail = this.apiService.trainings[i][prop].mail;
+    } else {
+      this.apiService.trainingsCopy[i][prop] = this.apiService.trainings[i][prop];
+    }
+  }
+
   ngOnInit() {
     this.getTrainings();
 
