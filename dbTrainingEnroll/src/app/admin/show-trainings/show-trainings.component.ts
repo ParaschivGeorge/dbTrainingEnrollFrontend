@@ -37,7 +37,7 @@ import {FormGroup} from "@angular/forms";
 export class ShowTrainingsComponent implements OnInit {
 
   trainings: Training[];
-  trainingForm: FormGroup;
+
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               public apiService: ApiService,
               private userService: UserService,
@@ -54,19 +54,17 @@ export class ShowTrainingsComponent implements OnInit {
       );
   }
 
-  onEdit(value) {
-    // call to http service
-    console.log(value);
-  }
+  onSubmit(training: Training){
+    this.userService.updateTrainingsList = [];
+    this.userService.updateTrainingsList.push(training);
 
-  openEditDialog(training: Training) {
-    this.userService.training = training;
-    this.userService.closeDialog.subscribe(result => {
-      this.getTrainings();
-      this.dialog.closeAll();
-    });
-    const dialogRef = this.dialog.open(EditTrainingFormComponent, {
-    });
+    this.userService.updateTrainings().subscribe(result => {
+        this.getTrainings();
+        console.log('merge');
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   onDelete(training: Training) {

@@ -25,6 +25,7 @@ export class UserService {
   private _NEW_NOTIFICATIONS_URL = this._BASE_URL + '/getNewNotifications';
   private _ALL_NOTIFICATIONS_URL = this._BASE_URL + '/getAllNotifications';
   private _INSERT_TRAININGS_URL = this._BASE_URL + '/insertTrainings';
+  private _UPDATE_TRAININGS_URL = this._BASE_URL + '/updateTrainings';
   private _DELETE_TRAININGS_URL = this._BASE_URL + '/deleteTrainings';
 
   training: Training;
@@ -39,6 +40,7 @@ export class UserService {
   newNoticationsList: Notification[] = [];
   allNoticationsList: Notification[] = [];
   newTrainingsList: Training[] = [];
+  updateTrainingsList: Training[] = [];
   deleteTrainingsIdList: number[] = [];
 
   constructor(private http: HttpClient,
@@ -87,6 +89,10 @@ export class UserService {
 
   insertNewTrainings(): Observable<Training[]> {
     return this.http.post<Training[]>(this._INSERT_TRAININGS_URL, this.newTrainingsList);
+  }
+
+  updateTrainings(): Observable<Training[]> {
+    return this.http.put<Training[]>(this._UPDATE_TRAININGS_URL, this.updateTrainingsList);
   }
 
   deleteTrainings(): Observable<number[]> {
