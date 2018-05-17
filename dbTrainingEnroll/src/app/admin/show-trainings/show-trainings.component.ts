@@ -9,6 +9,7 @@ import {MatDialog} from '@angular/material';
 import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 import {FormGroup} from "@angular/forms";
+import _ = require('lodash');
 
 @Component({
   selector: 'app-show-trainings',
@@ -49,12 +50,13 @@ export class ShowTrainingsComponent implements OnInit {
       .subscribe(
         result => {
           this.apiService.trainings = result;
+          this.apiService.trainingsCopy = _.cloneDeep(result);
           this.spinnerService.hide();
         }
       );
   }
 
-  onSubmit(training: Training){
+  onSubmit(training: Training) {
     this.userService.updateTrainingsList = [];
     this.userService.updateTrainingsList.push(training);
 
@@ -73,6 +75,14 @@ export class ShowTrainingsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
     });
+  }
+
+  revert(i: number, prop: string) {
+    if (prop === 'trainingResponsible') {
+      this.apiService.trainings[i][prop].mail = this.apiService.trainingsCopy[i][prop].mail;
+    } else {
+      this.apiService.trainings[i][prop] = this.apiService.trainingsCopy[i][prop];
+    }
   }
 
   ngOnInit() {

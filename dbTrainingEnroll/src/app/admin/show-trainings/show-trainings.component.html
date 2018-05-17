@@ -21,7 +21,7 @@
 <!--</mat-grid-list>-->
 <h2 class="subtitle">All trainings</h2>
 <mat-accordion>
-  <div *ngFor="let training of apiService.trainings">
+  <div *ngFor="let training of apiService.trainings; let i = index">
   <mat-expansion-panel [@flyInOut]="'in'">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -44,6 +44,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.technology">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'technology')">close</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -51,13 +52,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.vendor">
-              </mat-form-field>
-            </div>
-            <div class="info-group">
-              <p class="minip__train">Training Responsible</p>
-              <mat-form-field>
-                <mat-icon matPrefix color="primary">edit</mat-icon>
-                <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.name">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'vendor')">close</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -65,6 +60,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.mail">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'trainingResponsible')">close</mat-icon>
               </mat-form-field>
             </div>
           </mat-grid-tile>
@@ -74,6 +70,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.date">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'date')">close</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -81,6 +78,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMin">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMin')">close</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -88,6 +86,7 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMax">
+                <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMax')">close</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">

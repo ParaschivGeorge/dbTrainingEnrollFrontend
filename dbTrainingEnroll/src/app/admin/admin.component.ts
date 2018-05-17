@@ -7,6 +7,7 @@ import {AddTrainingsComponent} from './add-trainings/add-trainings.component';
 import {AddTrainingFormComponent} from './add-training-form/add-training-form.component';
 import { UserService } from '../services/user.service';
 import { ApiService } from '../services/api.service';
+import _ = require('lodash');
 
 @Component({
   selector: 'app-admin',
@@ -48,6 +49,7 @@ export class AdminComponent implements OnInit {
         .subscribe(
           trainings => {
             this.apiService.trainings = trainings;
+            this.apiService.trainingsCopy =  _.cloneDeep(trainings);
             this.dialog.closeAll();
           }
         );
