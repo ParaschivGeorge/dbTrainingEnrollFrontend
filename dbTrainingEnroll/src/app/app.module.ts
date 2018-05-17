@@ -45,6 +45,7 @@ import 'hammerjs';
 import { InlineEditorModule } from '@qontu/ngx-inline-editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
+import { InfiniteScrollDirective } from './dashboard/infinite-scroll.directive';
 
 const appRoutes: Routes = [
   {
@@ -103,6 +104,7 @@ export function createTranslateLoader(http: Http) {
     AddTrainingsComponent,
     ShowTrainingsComponent,
     AddTrainingFormComponent,
+    InfiniteScrollDirective,
     EditTrainingFormComponent,
     NotificationComponent,
     ConfirmDeleteComponent

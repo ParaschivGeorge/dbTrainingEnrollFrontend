@@ -10,6 +10,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { DashboardComponent } from './dashboard.component';
 import { AuthService } from '../services/auth.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { InfiniteScrollDirective } from './infinite-scroll.directive';
 
 @NgModule({
   imports: [
@@ -25,6 +26,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   providers: [AuthService],
   exports: [
   ],
-  declarations: []
+  declarations: [InfiniteScrollDirective]
 })
 export class DashboardModule { }

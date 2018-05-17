@@ -44,7 +44,7 @@ export class ShowTrainingsComponent implements OnInit {
 
   getTrainings(): void {
     this.spinnerService.show();
-    this.apiService.getTrainings()
+    this.apiService.getTrainingsByPage(1, 100)
       .subscribe(
         result => {
           this.trainings = result;

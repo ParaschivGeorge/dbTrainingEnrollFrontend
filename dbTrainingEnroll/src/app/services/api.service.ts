@@ -25,6 +25,10 @@ export class ApiService {
      return this.http.get<Training[]>(this._TRAININGS_URL);
    }
 
+   getTrainingsByPage(page: Number, size: Number): Observable<Training[]> {
+    return this.http.get<Training[]>(this._TRAININGS_URL + '?page=' + page + '&size=' + size);
+  }
+
    getEnrollmentsList(): Observable<Training[]> {
     return this.http.post<Training[]>(this._ENROLL_URL, {email: this.userService.currentUser.email});
   }

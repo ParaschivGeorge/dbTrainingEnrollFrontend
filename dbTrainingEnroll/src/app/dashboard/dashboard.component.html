@@ -18,7 +18,7 @@
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
                 <button mat-raised-button class="button__enroll" color="accent">Enroll</button>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
@@ -37,13 +37,13 @@
       </div>
 
       <mat-grid-list class="dashboard__grid" cols="4">
-        <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
+        <div class="container" infiniteScroll (infiniteScrollAction)="onScrollDown()" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
           <div class="box" fxFlex="340px" *ngFor="let training of allTrainings | filter:term:'technology'" (click)="openDialog(training)"
-            infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(allTrainings, originalTrainings)" [@flyInOut]="'in'">
+             [@flyInOut]="'in'">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
@@ -68,7 +68,7 @@
               <mat-card>
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
@@ -87,12 +87,11 @@
       </div>
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="340px" *ngFor="let training of softTrainings | filter:term:'technology'" (click)="openDialog(training)" infinite-scroll [infiniteScrollThrottle]="300"
-            (scrolled)="onScrollDown(softTrainings, allSoftTrainings)">
+          <div class="box" fxFlex="340px" infiniteScroll (infiniteScrollAction)="onScrollDown()" *ngFor="let training of allSoftTrainings | filter:term:'technology'" (click)="openDialog(training)">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
@@ -117,7 +116,7 @@
               <mat-card>
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
@@ -136,12 +135,11 @@
       </div>
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="340px" *ngFor="let training of techTrainings | filter:term:'technology'" (click)="openDialog(training)"
-            infinite-scroll [infiniteScrollThrottle]="300" (scrolled)="onScrollDown(techTrainings, allTechTrainings)">
+          <div class="box" fxFlex="340px" infiniteScroll (infiniteScrollAction)="onScrollDown()" *ngFor="let training of allTechTrainings | filter:term:'technology'" (click)="openDialog(training)">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>              
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
