@@ -79,6 +79,15 @@ const appRoutes: Routes = [
     component: UserTrainingsComponent,
     data: { title: 'DB My Trainings', roles: ['USER'] },
     canActivate: [UserGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationComponent,
+    canActivate: [UserGuard],
+    data: {
+      title: 'DB Notifications',
+      roles: ['USER']
+    }
   }
 ];
 
