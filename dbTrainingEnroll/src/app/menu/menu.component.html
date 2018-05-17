@@ -6,11 +6,14 @@
     </a>
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
-    <span  *ngIf="userService.currentUser.type === 'USER'" (click)=openNotifications()>
+    <span  *ngIf="userService.currentUser.type === 'USER'">
       <mat-icon class="notificationButton" [matMenuTriggerFor]="menu" *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
       <mat-icon [matMenuTriggerFor]="menu" *ngIf="!userService.newNoticationsList.length">notifications_none</mat-icon>
       <mat-menu #menu="matMenu">
-        <p class="notification" *ngFor="let notification of userService.allNoticationsList">{{ notification.message }}</p>
+        <p class="notification" *ngFor="let notification of userService.newNoticationsList">{{ notification.message }}</p>
+        <a routerLink="/notifications" class="notification">
+          <p class="notification" *ngIf="router.url !== '/notifications'">See all notifications.</p>
+        </a>`
       </mat-menu>
     </span>
     <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'">
