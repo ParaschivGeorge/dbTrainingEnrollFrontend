@@ -39,7 +39,7 @@ export class ShowTrainingsComponent implements OnInit {
   trainings: Training[];
   trainingForm: FormGroup;
   constructor(private spinnerService: Ng4LoadingSpinnerService,
-              private apiService: ApiService,
+              public apiService: ApiService,
               private userService: UserService,
               public dialog: MatDialog) { }
 
