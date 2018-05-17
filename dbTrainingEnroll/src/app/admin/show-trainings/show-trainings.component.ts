@@ -8,6 +8,7 @@ import {UserService} from '../../services/user.service';
 import {MatDialog} from '@angular/material';
 import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-show-trainings',
@@ -35,6 +36,8 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 })
 export class ShowTrainingsComponent implements OnInit {
 
+  trainings: Training[];
+  trainingForm: FormGroup;
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               public apiService: ApiService,
               private userService: UserService,
@@ -51,7 +54,7 @@ export class ShowTrainingsComponent implements OnInit {
       );
   }
 
-  saveEditable(value) {
+  onEdit(value) {
     // call to http service
     console.log(value);
   }

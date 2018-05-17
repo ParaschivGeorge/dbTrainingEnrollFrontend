@@ -11,12 +11,12 @@ import { UserService } from './user.service';
 @Injectable()
 export class ApiService {
 
+  private _ADMIN_URL = 'https://db-training-enroll.herokuapp.com/trainingsAdmin';
+  private _TRAININGS_URL = 'https://db-training-enroll.herokuapp.com/trainings';
   private _BASE_URL =  'https://db-training-enroll.herokuapp.com';
-  private _TRAININGS_URL = this._BASE_URL + '/trainings';
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = this._BASE_URL +  '/pendingTrainings';
   private _USER_TRAININGS = this._BASE_URL + '/myTrainings';
-  private _ADMIN_GET_TRAININGS_URL = this._BASE_URL + '/trainingsAdmin';
 
   constructor(private http: HttpClient, spinnerService: Ng4LoadingSpinnerService, private userService: UserService) {
   }
@@ -28,8 +28,8 @@ export class ApiService {
    }
 
    getAdminTrainings(): Observable<Training[]> {
-    return this.http.get<Training[]>(this._ADMIN_GET_TRAININGS_URL);
-  }
+     return this.http.get<Training[]>(this._ADMIN_URL);
+   }
 
    getEnrollmentsList(): Observable<Training[]> {
     return this.http.post<Training[]>(this._ENROLL_URL, {email: this.userService.currentUser.email});

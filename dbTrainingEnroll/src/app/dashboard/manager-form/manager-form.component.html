@@ -6,7 +6,8 @@
         <hr>
         <h2 class="h2__train">{{ userService.training.name }}</h2>
         <h3 class="h3__train"> {{ userService.training.technology }}</h3>
-        <p class="p__train_date">{{ userService.training.date }} {{ userService.training.vendor }}</p>
+        <h3 class="h3__train">{{ userService.training.vendor }}</h3>
+        <p class="p__train_date">{{ userService.training.date }}</p>
         <h3 class="h3__train">Number of participants: <strong class="participant__mark">{{ userService.training.acceptedUsers }}</strong></h3>
         <h3 class="h3__train" *ngIf="_MAX_NUMBER - formLength >= 0 ">You can add <strong class="participant__mark">{{ _MAX_NUMBER - formLength }}</strong> more participants</h3>
         <h3 class="h3__train" *ngIf="_MAX_NUMBER - formLength < 0 ">You should remove <strong class="participant__mark">{{ - (_MAX_NUMBER - formLength) }}</strong> participants</h3>
@@ -25,18 +26,18 @@
               <div class="radio">
                 <label>Type:</label>
                 <mat-radio-group class="type" formControlName="type">
-                  <mat-radio-button *ngFor="let type of types" [value]="type">{{type}}</mat-radio-button>
+                  <mat-radio-button color="primary" *ngFor="let type of types" [value]="type">{{type}}</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="radio">
                 <label>Urgency:</label>
                 <mat-radio-group class="urgency" formControlName="urgency">
-                  <mat-radio-button *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}</mat-radio-button>
+                  <mat-radio-button color="primary" *ngFor="let urgency of urgencies" [value]="urgency">{{urgency}}</mat-radio-button>
                 </mat-radio-group>
               </div>
             <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
-            <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">add</mat-icon></button>
-            <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">remove</mat-icon></button>
+            <button mat-icon-button color="primary" class="button__manager-form" (click)="onAddUser()" [ngStyle]="setStyleAdd(i)" [disabled]="!managerForm.valid"><mat-icon class="align-icon">person_add</mat-icon></button>
+            <button mat-icon-button color="warn" class="button__manager-form" type="button" (click)="onRemoveUser(i)" [ngStyle]="setStyleRemove(i)" [disabled]="formLength==1"><mat-icon class="align-icon">delete</mat-icon></button>
           </div>
         </div>
       </div>
