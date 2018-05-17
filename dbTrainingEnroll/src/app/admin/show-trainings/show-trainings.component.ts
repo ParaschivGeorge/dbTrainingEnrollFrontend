@@ -36,7 +36,7 @@ import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.componen
 export class ShowTrainingsComponent implements OnInit {
 
   constructor(private spinnerService: Ng4LoadingSpinnerService,
-              private apiService: ApiService,
+              public apiService: ApiService,
               private userService: UserService,
               public dialog: MatDialog) { }
 
