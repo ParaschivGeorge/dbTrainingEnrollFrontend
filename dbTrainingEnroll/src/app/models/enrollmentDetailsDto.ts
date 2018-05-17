@@ -3,5 +3,7 @@ export class EnrollmentDetailsDto {
     trainingType: string;
     urgencyType: string;
     comment: string;
+    department: string;
+    managerName: string;
+    subdepartment: string;
 }
-

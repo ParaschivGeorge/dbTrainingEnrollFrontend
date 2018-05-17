@@ -32,6 +32,8 @@ export class SpocFormComponent implements OnInit, OnDestroy {
     this.userService.getPendingList().subscribe(
       enrollments => {
         this.userService.enrollmentList = enrollments;
+        console.log(enrollments);
+        
         this.userService.enrollmentList.forEach(enrollment => {
           const form_group = new FormGroup({
             'comment': new FormControl('')
