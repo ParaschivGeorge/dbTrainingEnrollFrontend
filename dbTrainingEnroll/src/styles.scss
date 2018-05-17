@@ -84,7 +84,6 @@ a, a:hover {
 }
 
 button {
-  background: $bright-blue;
   color: $button-white;
   margin: 0 0 0 10px;
   padding: 0 30px;
@@ -152,19 +151,29 @@ button::after {
   padding: 0 !important;
 }
 
-.notification {
-  padding: 12px 8px;
-  font-family: $serif;
-  letter-spacing: -1px;
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  color: $black;
-  background: $white;
-  line-height: 18px;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+.notification__p {
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0px;
 }
 
-.notification:last-child {
-  border-bottom: 0;
+.notification{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.see-more{
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.notification-card{
+  padding: 16px !important;
+}
+
+.notification > .mat-icon{
+  margin-right: 12px;
 }
 
 .mat-dialog-actions {
