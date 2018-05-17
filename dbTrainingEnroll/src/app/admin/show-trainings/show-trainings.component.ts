@@ -8,8 +8,9 @@ import {UserService} from '../../services/user.service';
 import {MatDialog} from '@angular/material';
 import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
-import {FormGroup} from "@angular/forms";
-import _ = require('lodash');
+import {FormGroup} from '@angular/forms';
+import * as Lodash from 'lodash';
+
 
 @Component({
   selector: 'app-show-trainings',
@@ -50,7 +51,7 @@ export class ShowTrainingsComponent implements OnInit {
       .subscribe(
         result => {
           this.apiService.trainings = result;
-          this.apiService.trainingsCopy = _.cloneDeep(result);
+          this.apiService.trainingsCopy = Lodash.cloneDeep(result);
           this.spinnerService.hide();
         }
       );
