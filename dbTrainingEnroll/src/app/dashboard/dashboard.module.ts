@@ -26,6 +26,6 @@ import { InfiniteScrollDirective } from './infinite-scroll.directive';
   providers: [AuthService],
   exports: [
   ],
-  declarations: [InfiniteScrollDirective]
+  declarations: []
 })
 export class DashboardModule { }
