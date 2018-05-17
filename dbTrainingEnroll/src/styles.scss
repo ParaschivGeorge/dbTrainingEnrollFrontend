@@ -215,11 +215,12 @@ textarea.mat-input-element{
   margin-bottom: 1em;
 }
 
-#show-trainings{
-  .mat-grid-list {
-    padding-bottom: 16em !important;
-  }
+#show-trainings.mat-grid-list {
+  padding-bottom: 25em !important;
+}
 
+
+#show-trainings{
   .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
     font-size: 94% !important;
     line-height: .75!important;
