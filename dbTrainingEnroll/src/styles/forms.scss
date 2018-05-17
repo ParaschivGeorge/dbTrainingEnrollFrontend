@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 div.enrollForm {
-    width: 400px;
+    width: 70vw;
     height: auto;
     padding: 30px 20px;
     margin: 0 auto;
@@ -83,13 +83,11 @@ button:disabled {
 }
 
 .enrollment-form{
-  margin-top: 2em;
     width: 100%;
 }
 
 .enrollment-field{
     width: 100%;
-    margin-top: 2em;
 }
 
 .mat-radio-button {

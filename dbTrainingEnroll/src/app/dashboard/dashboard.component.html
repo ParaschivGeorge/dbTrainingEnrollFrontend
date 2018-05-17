@@ -19,7 +19,7 @@
                 <hr>
                 <button mat-raised-button class="button__enroll" color="accent">Enroll</button>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
@@ -44,7 +44,7 @@
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
@@ -69,7 +69,7 @@
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
@@ -92,7 +92,7 @@
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
@@ -117,7 +117,7 @@
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
                 <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
                 <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
@@ -140,7 +140,7 @@
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.acceptedUsers}}/{{training.nrMax}}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
