@@ -9,7 +9,7 @@
     <span  *ngIf="userService.currentUser.type === 'USER'">
       <mat-icon class="notificationButton" color="warn" [matMenuTriggerFor]="menu" *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
       <a routerLink="/notifications">
-        <mat-icon color="warn" *ngIf="!userService.newNoticationsList.length">notifications_none</mat-icon>
+        <mat-icon color="warn" *ngIf="!userService.newNoticationsList.length && router.url !== '/notifications'">notifications_none</mat-icon>
       </a>
       <mat-menu #menu="matMenu" id="notification-menu">
         <div *ngFor="let notification of userService.newNoticationsList">

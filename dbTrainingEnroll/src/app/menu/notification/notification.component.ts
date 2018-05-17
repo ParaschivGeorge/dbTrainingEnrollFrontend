@@ -11,10 +11,11 @@ export class NotificationComponent implements OnInit {
   constructor(public userService: UserService) { }
 
   ngOnInit() {
+    this.userService.newNoticationsList = [];
     this.userService.getAllNotifications().subscribe(
       allNotifications => {
         this.userService.allNoticationsList = allNotifications;
-        console.log(this.userService.allNoticationsList)
+        console.log(this.userService.allNoticationsList);
       },
       error => {
         console.log(error);
