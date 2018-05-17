@@ -42,8 +42,6 @@ import { EditTrainingFormComponent } from './admin/edit-training-form/edit-train
 import { NotificationComponent } from './menu/notification/notification.component';
 import { ApiService } from './services/api.service';
 import 'hammerjs';
-import { InlineEditorModule } from '@qontu/ngx-inline-editor';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
 import { InfiniteScrollDirective } from './dashboard/infinite-scroll.directive';
 
@@ -124,8 +122,6 @@ export function createTranslateLoader(http: Http) {
     ChartsModule,
     NgUploaderModule,
     RouterModule.forRoot(appRoutes),
-    InlineEditorModule,
-    NgbModule.forRoot(),
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),

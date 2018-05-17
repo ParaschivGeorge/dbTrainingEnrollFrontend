@@ -64,7 +64,10 @@ export class EnrollmentsComponent implements OnInit {
   openDialog(training: Training): void {
     this.userService.training = training;
     this.userService.getPendingList().subscribe(result => {}, error => {});
-    this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
+    this.userService.closeDialog.subscribe(result => {
+      this.getEnrollmentsList();
+      this.dialog.closeAll();
+    });
     const dialogRef = this.dialog.open(SpocFormComponent, {
     });
   }

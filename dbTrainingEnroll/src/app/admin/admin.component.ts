@@ -6,6 +6,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {AddTrainingsComponent} from './add-trainings/add-trainings.component';
 import {AddTrainingFormComponent} from './add-training-form/add-training-form.component';
 import { UserService } from '../services/user.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-admin',
@@ -22,18 +23,35 @@ export class AdminComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               public dialog: MatDialog,
-              private userService: UserService) { }
+              private userService: UserService,
+              private apiService: ApiService) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(AddTrainingsComponent, {
     });
-    this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
+    this.userService.closeDialog.subscribe(result => {
+      this.apiService.getAdminTrainings()
+      .subscribe(
+        trainings => {
+          this.apiService.trainings = trainings;
+          this.dialog.closeAll();
+        }
+      );
+    });
   }
 
   openTrainingForm() {
     const dialogRef = this.dialog.open(AddTrainingFormComponent, {
     });
-    this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
+    this.userService.closeDialog.subscribe(result => {
+      this.apiService.getAdminTrainings()
+        .subscribe(
+          trainings => {
+            this.apiService.trainings = trainings;
+            this.dialog.closeAll();
+          }
+        );
+    });
   }
 
   ngOnInit() {

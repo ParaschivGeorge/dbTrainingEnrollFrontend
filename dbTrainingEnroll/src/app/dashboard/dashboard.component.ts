@@ -101,14 +101,12 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   openDialog(training: Training): void {
-    if (
-      this.userService.currentUser.type !== 'MANAGER' ||
-      training.acceptedUsers === 15
-    ) {
+    if ((this.userService.currentUser.type !== 'MANAGER') ||
+      (training.acceptedUsers === training.nrMax)) {
       return;
     }
     this.userService.training = training;
-    this.userService.getEnrollmentsList().subscribe(result => {}, error => {});
+    // this.userService.getEnrollmentsList().subscribe(result => {}, error => {});
     this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
     const dialogRef = this.dialog.open(ManagerFormComponent, {});
   }
