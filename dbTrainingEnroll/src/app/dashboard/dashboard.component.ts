@@ -69,7 +69,6 @@ import { resolve, reject } from 'q';
 export class DashboardComponent implements OnInit {
   term: any;
   name: string;
-  cantScroll = false;
   numberOfTrainings = 8;
   page = 0;
   bool = false;
@@ -177,7 +176,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.cantScroll);
     this.getFirstTrainings();
     this.showRecommendations = false;
     this.subscription = this.recommendationService
@@ -196,6 +194,5 @@ export class DashboardComponent implements OnInit {
         this.spinnerService.hide();
         this.showRecommendations = true;
       });
-    console.log(this.cantScroll);
   }
 }
