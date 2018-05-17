@@ -43,6 +43,7 @@ import { NotificationComponent } from './menu/notification/notification.componen
 import { ApiService } from './services/api.service';
 import 'hammerjs';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
+import { InfiniteScrollDirective } from './dashboard/infinite-scroll.directive';
 
 const appRoutes: Routes = [
   {
@@ -78,6 +79,15 @@ const appRoutes: Routes = [
     component: UserTrainingsComponent,
     data: { title: 'DB My Trainings', roles: ['USER'] },
     canActivate: [UserGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationComponent,
+    canActivate: [UserGuard],
+    data: {
+      title: 'DB Notifications',
+      roles: ['USER']
+    }
   }
 ];
 
@@ -101,6 +111,7 @@ export function createTranslateLoader(http: Http) {
     AddTrainingsComponent,
     ShowTrainingsComponent,
     AddTrainingFormComponent,
+    InfiniteScrollDirective,
     EditTrainingFormComponent,
     NotificationComponent,
     ConfirmDeleteComponent

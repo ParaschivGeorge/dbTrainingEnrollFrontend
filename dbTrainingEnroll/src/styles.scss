@@ -215,11 +215,17 @@ textarea.mat-input-element{
   margin-bottom: 1em;
 }
 
-#show-trainings{
-  .mat-grid-list {
-    padding-bottom: 16em !important;
-  }
 
+#show-trainings-action.mat-raised-button{
+  font-family: 'Montserrat', sans-serif !important;
+  margin-right: 1em !important;
+}
+
+#show-trainings.mat-grid-list {
+  padding-bottom: 20em !important;
+}
+
+#show-trainings{
   .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
     font-size: 94% !important;
     line-height: .75!important;
@@ -388,6 +394,7 @@ mat-radio-group{
     border-color: $blue !important;
     width: 15px !important;
     height: 15px !important;
+
   }
 }
 

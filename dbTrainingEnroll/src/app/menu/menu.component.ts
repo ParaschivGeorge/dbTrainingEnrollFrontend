@@ -53,15 +53,4 @@ export class MenuComponent implements OnInit {
     this.recommendationsService.trainings = [];
     this.recommendationsService.sendTrainings();
   }
-
-  openNotifications(): void {
-    this.userService.getAllNotifications().subscribe(
-      allNotifications => {
-        this.userService.allNoticationsList = allNotifications;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
 }
