@@ -83,6 +83,7 @@
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMin">
                 <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMin')">close</mat-icon>
+                <mat-icon matPrefix color="primary" (click)="save(i, 'nrMin')">check</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -91,6 +92,7 @@
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMax">
                 <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMax')">close</mat-icon>
+                <mat-icon matPrefix color="primary" (click)="save(i, 'nrMax')">check</mat-icon>
               </mat-form-field>
             </div>
             <div class="info-group">
