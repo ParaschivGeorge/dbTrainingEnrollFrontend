@@ -28,7 +28,7 @@
         <h2 class="training-name">{{ training.name }}</h2>
       </mat-panel-title>
       <mat-panel-description>
-        <h2 class="vendor-name">{{ training.vendor }}</h2>
+        <h2 class="vendor-name">{{ training.categoryType }}</h2>
       </mat-panel-description>
       <!-- <span (click)="onDelete(training)"><mat-icon>delete</mat-icon></span> -->
       <button (click)="onDelete(training)" mat-icon-button color="warn">
@@ -77,13 +77,14 @@
               </mat-form-field>
             </div>
             <div class="info-group">
-              <p class="minip__train">Available seats</p>
-              <p class="babyp__train">Minimum number of seats</p>
+              <p class="minip__train">Minimum number of participants</p>
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMin">
               </mat-form-field>
-              <p class="babyp__train">Maximum number of seats</p>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Maximum number of participants</p>
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMax">
@@ -98,6 +99,9 @@
             </div>
           </mat-grid-tile>
       </mat-grid-list>
+      <mat-action-row id="show-trainings-action">
+        <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
+      </mat-action-row>
     </ng-template>
   </mat-expansion-panel>
   </div>
