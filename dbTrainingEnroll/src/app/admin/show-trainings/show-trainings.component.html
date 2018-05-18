@@ -44,8 +44,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.technology">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'technology')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'technology')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'technology')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'technology')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -53,8 +55,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.vendor">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'vendor')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'vendor')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'vendor')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'vendor')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -62,9 +66,15 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.mail">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'trainingResponsible')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'trainingResponsible')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'trainingResponsible')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'trainingResponsible')">check</mat-icon>
+                </div>
               </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Accepted participants</p>
+              <p class="training-date">{{ training.acceptedUsers }}</p>
             </div>
           </mat-grid-tile>
           <mat-grid-tile>
@@ -73,8 +83,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.date">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'date')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'date')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'date')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'date')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -82,8 +94,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMin">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMin')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'nrMin')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'nrMin')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'nrMin')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -91,13 +105,11 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMax">
-                <mat-icon matPrefix color="primary" (click)="revert(i, 'nrMax')">close</mat-icon>
-                <mat-icon matPrefix color="primary" (click)="save(i, 'nrMax')">check</mat-icon>
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'nrMax')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'nrMax')">check</mat-icon>
+                </div>
               </mat-form-field>
-            </div>
-            <div class="info-group">
-              <p class="minip__train">Accepted participants</p>
-              <p class="training-date">{{ training.acceptedUsers }}</p>
             </div>
           </mat-grid-tile>
       </mat-grid-list>

@@ -45,30 +45,33 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       'users': new FormArray([])
     });
 
-    this.managerForm.setValidators(this.checkMaxNumber.bind(this));
-    this.onAddUser();
+    this.managerForm.setValidators(this.checkMaxNumber.bind(this));    
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;
         this.userService.getSelfEnrolledList().subscribe(
           self_enrolled_users => {
-            this.self_enrolled_users = self_enrolled_users;
+            if (self_enrolled_users.length) {
+              this.self_enrolled_users = self_enrolled_users;
 
-            this.self_enrolled_users.forEach(self_enrolled_user => {
-              const form_group = new FormGroup({
-                'email': new FormControl(self_enrolled_user.mail, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-                'type': new FormControl('BUILD'),
-                'urgency': new FormControl('MEDIUM'),
-                'comment': new FormControl('')
+              this.self_enrolled_users.forEach(self_enrolled_user => {
+                const form_group = new FormGroup({
+                  'email': new FormControl(self_enrolled_user.mail, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
+                  'type': new FormControl('BUILD'),
+                  'urgency': new FormControl('MEDIUM'),
+                  'comment': new FormControl('')
+                });
+
+                form_group.updateValueAndValidity();
+
+                this.userService.accounts.push(self_enrolled_user);
+                (<FormArray>this.managerForm.get('users')).insert(0, form_group);
+                this.formLength++;
+                this.managerForm.updateValueAndValidity();
               });
-
-              form_group.updateValueAndValidity();
-
-              this.userService.accounts.push(self_enrolled_user);
-              (<FormArray>this.managerForm.get('users')).insert(0, form_group);
-              this.formLength++;
-              this.managerForm.updateValueAndValidity();
-            });
+            } else {
+              this.onAddUser();
+            }
           }
         );
       },
