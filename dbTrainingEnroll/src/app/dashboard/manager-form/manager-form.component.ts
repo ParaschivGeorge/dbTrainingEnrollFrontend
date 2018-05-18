@@ -45,7 +45,7 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
       'users': new FormArray([])
     });
 
-    this.managerForm.setValidators(this.checkMaxNumber.bind(this));    
+    this.managerForm.setValidators(this.checkMaxNumber.bind(this));
     this.userService.getEnrollmentsList().subscribe(
       users => {
         this.userService.accounts = users;

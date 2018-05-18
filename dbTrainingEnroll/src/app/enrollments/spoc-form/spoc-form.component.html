@@ -19,6 +19,7 @@
                 <mat-radio-button class="check-btn" color="primary" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
                 <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
               </mat-radio-group>
+              <p *ngIf="!spocForm.get('users').get('' + i).get('comment').valid">You must give a reason for denial.</p>
             </div>
             <div class="spoc-details-right">
               <p>Type: {{enrollment.trainingType}}</p>

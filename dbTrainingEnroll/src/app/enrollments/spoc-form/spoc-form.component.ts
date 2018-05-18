@@ -32,16 +32,39 @@ export class SpocFormComponent implements OnInit, OnDestroy {
     this.userService.getPendingList().subscribe(
       enrollments => {
         this.userService.enrollmentList = enrollments;
-        console.log(enrollments);
-        
         this.userService.enrollmentList.forEach(enrollment => {
           const form_group = new FormGroup({
-            'comment': new FormControl('')
+            'comment': new FormControl('', [this.checkComment.bind(this)])
           });
           (<FormArray>this.spocForm.get('users')).insert(0, form_group);
         });
       },
     );
+  }
+
+  checkComment(control: FormControl): {[s: string]: boolean} {
+    let valid = true;
+    let i = 0;
+    let pos = 0;
+    (<FormGroup[]>(<FormArray>this.spocForm.get('users')).controls).forEach(formGroup => {
+      i++;
+      if (formGroup.get('comment') === control) {
+        pos = i;
+      }
+    });
+
+    i = 0;
+    this.modelList.forEach(spocFormResponse => {
+      i++;
+      if (i === pos && spocFormResponse.status === 0 && control.value === '') {
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      return {'commentNotProvided': true};
+    }
+    return null;
   }
 
   acceptUser(mail: string, i: number) {
@@ -87,11 +110,19 @@ export class SpocFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.userService.modelList = this.modelList;
-    this.userService.postPendingList().subscribe(result => {
-      this.userService.closeDialog.emit();
-     });
-     this.submitSnackBar.open('List submitted!', 'Ok', {duration: 2000});
+    (<FormGroup[]>(<FormArray>this.spocForm.get('users')).controls).forEach(formGroup => {
+      formGroup.get('comment').updateValueAndValidity();
+    });
+    this.spocForm.get('users').updateValueAndValidity();
+    this.spocForm.updateValueAndValidity();
+    
+    if (this.spocForm.valid) {
+      this.userService.modelList = this.modelList;
+      this.userService.postPendingList().subscribe(result => {
+        this.userService.closeDialog.emit();
+       });
+       this.submitSnackBar.open('List submitted!', 'Ok', {duration: 2000});
+    }
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
