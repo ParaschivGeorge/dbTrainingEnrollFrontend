@@ -91,7 +91,7 @@ export class DashboardComponent implements OnInit {
   private subscription: Subscription;
 
   constructor(
-    private apiService: ApiService,
+    public apiService: ApiService,
     public dialog: MatDialog,
     public userService: UserService,
     private recommendationService: RecommendationService,

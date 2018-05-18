@@ -17,11 +17,13 @@ export class ApiService {
   // private _URL = 'https://next.json-generator.com/api/json/get/N1qt3EE24';
   private _ENROLL_URL = this._BASE_URL +  '/pendingTrainings';
   private _USER_TRAININGS = this._BASE_URL + '/myTrainings';
+  private _SELF_ENROLLED_TRAININGS = this._BASE_URL + '/selfEnrolledTrainings';
 
   constructor(private http: HttpClient, spinnerService: Ng4LoadingSpinnerService, private userService: UserService) {
   }
 
   trainings: Training[];
+  selfEnrolledTrainings: Training[] = [];
 
    getTrainings(): Observable<Training[]> {
      return this.http.get<Training[]>(this._TRAININGS_URL);
@@ -47,4 +49,7 @@ export class ApiService {
      return this.http.post<Training[]>(this._USER_TRAININGS, {email: this.userService.currentUser.email});
    }
 
+   getSelfEnrolledTrainings(): Observable<Training[]> {
+     return this.http.post<Training[]>(this._SELF_ENROLLED_TRAININGS, {email: this.userService.currentUser.email});
+   }
 }

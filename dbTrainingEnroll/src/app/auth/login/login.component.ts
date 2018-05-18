@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { RecommendationService } from '../../services/recommendation.service';
 import { MatSnackBar } from '@angular/material';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -23,9 +24,20 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private spinnerService: Ng4LoadingSpinnerService,
     private userService: UserService,
+    private apiService: ApiService,
     private recommendationService: RecommendationService,
     public loginSnackBar: MatSnackBar
   ) {}
+
+  getPendingTrainings(): void {
+    this.spinnerService.show();
+    this.apiService
+      .getSelfEnrolledTrainings()
+      .subscribe(result => {
+        (this.apiService.selfEnrolledTrainings = result),
+        this.spinnerService.hide();
+      });
+  }
 
   ngOnInit() {}
 
@@ -63,6 +75,9 @@ export class LoginComponent implements OnInit {
           } else if (this.userService.currentUser.type === 'MANAGER') {
             this.loginSnackBar.open('You are logged in as Manager!', 'Ok', {
               duration: 2000
+            });
+            this.apiService.getSelfEnrolledTrainings().subscribe(getSelfEnrolledTrainings => {
+              this.apiService.selfEnrolledTrainings = getSelfEnrolledTrainings;
             });
           } else if (this.userService.currentUser.type === 'SPOC') {
             this.loginSnackBar.open('You are logged in as SPOC!', 'Ok', {
