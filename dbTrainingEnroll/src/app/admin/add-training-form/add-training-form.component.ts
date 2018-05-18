@@ -25,6 +25,7 @@ export class AddTrainingFormComponent implements OnInit {
     'PROFESSIONAL',
     'BUSINESS'
   ];
+  error: string;
 
   noSaturdayAndSunday = (d: Date): boolean => {
     const day = d.getDay();
@@ -93,6 +94,7 @@ export class AddTrainingFormComponent implements OnInit {
         this.userService.closeDialog.emit(true);
       },
       error => {
+        this.error = error.error.message;
       });
 
       // this.addTrainingForm.reset();

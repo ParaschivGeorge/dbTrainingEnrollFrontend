@@ -38,7 +38,6 @@ import { AddTrainingsComponent } from './admin/add-trainings/add-trainings.compo
 import { NgUploaderModule } from 'ngx-uploader';
 import { ShowTrainingsComponent } from './admin/show-trainings/show-trainings.component';
 import { AddTrainingFormComponent } from './admin/add-training-form/add-training-form.component';
-import { EditTrainingFormComponent } from './admin/edit-training-form/edit-training-form.component';
 import { NotificationComponent } from './menu/notification/notification.component';
 import { ApiService } from './services/api.service';
 import 'hammerjs';
@@ -117,7 +116,6 @@ export function createTranslateLoader(http: Http) {
     ShowTrainingsComponent,
     AddTrainingFormComponent,
     InfiniteScrollDirective,
-    EditTrainingFormComponent,
     NotificationComponent,
     ConfirmDeleteComponent
   ],
@@ -150,7 +148,6 @@ export function createTranslateLoader(http: Http) {
     AddTrainingsComponent,
     AdminComponent,
     AddTrainingFormComponent,
-    EditTrainingFormComponent,
     NotificationComponent,
     ConfirmDeleteComponent
   ],

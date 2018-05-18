@@ -22,6 +22,7 @@ export class AddTrainingsComponent implements OnInit {
   files: UploadFile[];
   uploadInput: EventEmitter<UploadInput>;
   dragOver: boolean;
+  error: string;
 
   arrayBuffer: any;
   fileToUpload: File;
@@ -103,6 +104,7 @@ export class AddTrainingsComponent implements OnInit {
         this.userService.closeDialog.emit(true);
       },
       error => {
+        this.error = error.error.message;
       });
     };
     fileReader.readAsArrayBuffer(this.file);
