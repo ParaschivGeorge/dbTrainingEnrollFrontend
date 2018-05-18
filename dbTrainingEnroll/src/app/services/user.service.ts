@@ -73,8 +73,8 @@ export class UserService {
     return this.http.post<UserDto>(this._USER_DATA_URL, {email: this.currentUser.email});
   }
 
-  postUserSelfEnroll(): Observable<Object> {
-    return this.http.post(this._SELF_ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
+  postUserSelfEnroll(): Observable<UserDto[]> {
+    return this.http.post<UserDto[]>(this._SELF_ENROLL_URL, {email: this.currentUser.email, id: this.training.id});
   }
 
   getSelfEnrolledList(): Observable<UserDto[]> {

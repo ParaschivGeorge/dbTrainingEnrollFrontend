@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private userService: UserService,
-    private translate: TranslateService) {
+    public translate: TranslateService) {
       translate.addLangs(['en', 'ro']);
-      translate.setDefaultLang('ro');
+      translate.setDefaultLang('en');
 
       const browserLang = translate.getBrowserLang();
       translate.use(browserLang.match(/en|ro/) ? browserLang : 'en');

@@ -12,7 +12,7 @@
           <h2 class="subtitle">Enrollments waiting for your approval</h2>
           <mat-grid-list class="dashboard__grid" cols="4">
             <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-              <div class="box" fxFlex="340px" *ngFor="let training of apiService.selfEnrolledTrainings" (click)="openDialog(training)">
+              <div class="box" fxFlex="380px" *ngFor="let training of apiService.selfEnrolledTrainings" (click)="openDialog(training)">
                 <mat-card>
                   <mat-card-title>{{ training.technology }}</mat-card-title>
                   <hr>
