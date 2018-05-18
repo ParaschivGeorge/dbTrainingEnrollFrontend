@@ -6,7 +6,6 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 import {ManagerFormComponent} from '../../dashboard/manager-form/manager-form.component';
 import {UserService} from '../../services/user.service';
 import {MatDialog} from '@angular/material';
-import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 import {FormGroup} from '@angular/forms';
 import * as Lodash from 'lodash';
@@ -39,6 +38,7 @@ import * as Lodash from 'lodash';
 export class ShowTrainingsComponent implements OnInit {
 
   trainings: Training[];
+  error: string;
 
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               public apiService: ApiService,
@@ -67,6 +67,7 @@ export class ShowTrainingsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.error = error.error.message;
       });
   }
 

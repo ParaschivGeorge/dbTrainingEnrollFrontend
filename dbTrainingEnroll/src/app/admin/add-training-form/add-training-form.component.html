@@ -53,5 +53,6 @@
     <div *ngIf="addTrainingForm.valid">
       <button color="primary" mat-button type="submit" class="submit_button">Submit</button>
     </div>
+    <p *ngIf="error">{{ error }}</p>
   </div>
 </form>
