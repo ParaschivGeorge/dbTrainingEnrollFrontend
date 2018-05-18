@@ -94,7 +94,6 @@ export class AddTrainingFormComponent implements OnInit {
         this.userService.closeDialog.emit(true);
       },
       error => {
-        console.log(error);
         this.error = error.error.message;
       });
 

@@ -72,8 +72,6 @@ export class SpocFormComponent implements OnInit, OnDestroy {
 
     if (existingUser) {
       existingUser.status = 1;
-      console.log((<FormArray>this.spocForm.get('users')).get('' + i).get('comment'));
-
       existingUser.comment = (<FormArray>this.spocForm.get('users')).get('' + i).get('comment').value;
     } else {
       const data: SpocFormResponse = new SpocFormResponse;

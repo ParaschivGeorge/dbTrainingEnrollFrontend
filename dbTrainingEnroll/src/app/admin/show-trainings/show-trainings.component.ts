@@ -63,10 +63,8 @@ export class ShowTrainingsComponent implements OnInit {
 
     this.userService.updateTrainings().subscribe(result => {
         this.getTrainings();
-        console.log('merge');
       },
       error => {
-        console.log(error);
         this.error = error.error.message;
       });
   }
@@ -106,7 +104,6 @@ export class ShowTrainingsComponent implements OnInit {
           this.dialog.closeAll();
         },
         error => {
-          console.log(error);
         });
       } else {
         this.dialog.closeAll();

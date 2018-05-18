@@ -67,7 +67,6 @@ export class AddTrainingsComponent implements OnInit {
       const first_sheet_name = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[first_sheet_name];
       XLSX.utils.sheet_to_json(worksheet, {raw: true}).forEach(row => {
-        console.log(row);
         // tslint:disable-next-line:forin
         const newTraining: Training = new Training();
         let i = 0;
@@ -105,7 +104,6 @@ export class AddTrainingsComponent implements OnInit {
         this.userService.closeDialog.emit(true);
       },
       error => {
-        console.log(error);
         this.error = error.error.message;
       });
     };

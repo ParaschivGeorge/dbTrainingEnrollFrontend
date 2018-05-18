@@ -31,7 +31,6 @@ export class InfiniteScrollDirective implements OnInit {
     }
 
     ngOnInit() {
-        console.log('works');
         if (this.infiniteScrollContext === 'document') {
             document.addEventListener('scroll', () => {
                 if (this.elementEndReachedInDocumentScrollbarContext(window, this.el) && this.canTriggerAction) {

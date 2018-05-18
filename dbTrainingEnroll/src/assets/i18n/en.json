@@ -1,4 +1,6 @@
 {
+  "PAGE_TITLE": "DB Training Enrollment",
+  "HELLO": "Hello",
   "HOME": {
     "TITLE": "Hello Angular 2 with ng2-translate!",
     "SELECT": "Change language"
