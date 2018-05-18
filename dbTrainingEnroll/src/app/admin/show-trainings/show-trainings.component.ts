@@ -8,7 +8,9 @@ import {UserService} from '../../services/user.service';
 import {MatDialog} from '@angular/material';
 import {EditTrainingFormComponent} from '../edit-training-form/edit-training-form.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
-import {FormGroup} from "@angular/forms";
+import {FormGroup} from '@angular/forms';
+import * as Lodash from 'lodash';
+
 
 @Component({
   selector: 'app-show-trainings',
@@ -37,7 +39,7 @@ import {FormGroup} from "@angular/forms";
 export class ShowTrainingsComponent implements OnInit {
 
   trainings: Training[];
-  trainingForm: FormGroup;
+
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               public apiService: ApiService,
               private userService: UserService,
@@ -49,24 +51,23 @@ export class ShowTrainingsComponent implements OnInit {
       .subscribe(
         result => {
           this.apiService.trainings = result;
+          this.apiService.trainingsCopy = Lodash.cloneDeep(result);
           this.spinnerService.hide();
         }
       );
   }
 
-  onEdit(value) {
-    // call to http service
-    console.log(value);
-  }
+  onSubmit(training: Training) {
+    this.userService.updateTrainingsList = [];
+    this.userService.updateTrainingsList.push(training);
 
-  openEditDialog(training: Training) {
-    this.userService.training = training;
-    this.userService.closeDialog.subscribe(result => {
-      this.getTrainings();
-      this.dialog.closeAll();
-    });
-    const dialogRef = this.dialog.open(EditTrainingFormComponent, {
-    });
+    this.userService.updateTrainings().subscribe(result => {
+        this.getTrainings();
+        console.log('merge');
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   onDelete(training: Training) {
@@ -75,6 +76,22 @@ export class ShowTrainingsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
     });
+  }
+
+  revert(i: number, prop: string) {
+    if (prop === 'trainingResponsible') {
+      this.apiService.trainings[i][prop].mail = this.apiService.trainingsCopy[i][prop].mail;
+    } else {
+      this.apiService.trainings[i][prop] = this.apiService.trainingsCopy[i][prop];
+    }
+  }
+
+  save(i: number, prop: string) {
+    if (prop === 'trainingResponsible') {
+      this.apiService.trainingsCopy[i][prop].mail = this.apiService.trainings[i][prop].mail;
+    } else {
+      this.apiService.trainingsCopy[i][prop] = this.apiService.trainings[i][prop];
+    }
   }
 
   ngOnInit() {

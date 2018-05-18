@@ -21,7 +21,7 @@
 <!--</mat-grid-list>-->
 <h2 class="subtitle">All trainings</h2>
 <mat-accordion>
-  <div *ngFor="let training of apiService.trainings">
+  <div *ngFor="let training of apiService.trainings; let i = index">
   <mat-expansion-panel [@flyInOut]="'in'">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -44,6 +44,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.technology">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'technology')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'technology')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -51,13 +55,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.vendor">
-              </mat-form-field>
-            </div>
-            <div class="info-group">
-              <p class="minip__train">Training Responsible</p>
-              <mat-form-field>
-                <mat-icon matPrefix color="primary">edit</mat-icon>
-                <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.name">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'vendor')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'vendor')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -65,7 +66,15 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="vendor-name" matInput [(ngModel)]="training.trainingResponsible.mail">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'trainingResponsible')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'trainingResponsible')">check</mat-icon>
+                </div>
               </mat-form-field>
+            </div>
+            <div class="info-group">
+              <p class="minip__train">Accepted participants</p>
+              <p class="training-date">{{ training.acceptedUsers }}</p>
             </div>
           </mat-grid-tile>
           <mat-grid-tile>
@@ -74,6 +83,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.date">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'date')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'date')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -81,6 +94,10 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMin">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'nrMin')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'nrMin')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
             <div class="info-group">
@@ -88,19 +105,16 @@
               <mat-form-field>
                 <mat-icon matPrefix color="primary">edit</mat-icon>
                 <input class="training-date" matInput [(ngModel)]="training.nrMax">
-              </mat-form-field>
-            </div>
-            <div class="info-group">
-              <p class="minip__train">Accepted participants</p>
-              <mat-form-field>
-                <mat-icon matPrefix color="primary">edit</mat-icon>
-                <input class="training-date" matInput [(ngModel)]="training.acceptedUsers">
+                <div class="action-buttonns">
+                  <mat-icon matSuffix color="warn" class="action-icon" (click)="revert(i, 'nrMax')">clear</mat-icon>
+                  <mat-icon matSuffix color="accent" class="action-icon" (click)="save(i, 'nrMax')">check</mat-icon>
+                </div>
               </mat-form-field>
             </div>
           </mat-grid-tile>
       </mat-grid-list>
       <mat-action-row id="show-trainings-action">
-        <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit(training)">Submit</button>
       </mat-action-row>
     </ng-template>
   </mat-expansion-panel>
