@@ -10,7 +10,7 @@
           <mat-icon color="primary" *ngIf="notification.type === 'UPDATE'">update</mat-icon>
           <mat-icon color="warn" *ngIf="notification.type === 'DELETE'">whatshot</mat-icon>
           <p class="notification__p">{{ notification.message }}</p>
-          <p class="minip__train">{{ notification.message }}</p>
+          <p class="minip__train">{{ notification.date }}</p>
         </div>
       </mat-card>
     </div>
@@ -19,13 +19,16 @@
   <div *ngFor="let notification of userService.allNoticationsList">
     <div *ngIf="notification.status === 'OLD'">
       <mat-card class="notification-page">
-        <div class="notification">
-          <mat-icon color="accent" *ngIf="notification.type === 'APPROVAL'">event_available</mat-icon>
-          <mat-icon color="warn" *ngIf="notification.type === 'DENIAL'">event_busy</mat-icon>
-          <mat-icon color="primary" *ngIf="notification.type === 'UPDATE'">update</mat-icon>
-          <mat-icon color="warn" *ngIf="notification.type === 'DELETE'">whatshot</mat-icon>
-          <p class="notification__p">{{ notification.message }}</p>
-        </div>
+        <mat-card-content>
+          <div class="notification">
+            <mat-icon color="accent" *ngIf="notification.type === 'APPROVAL'">event_available</mat-icon>
+            <mat-icon color="warn" *ngIf="notification.type === 'DENIAL'">event_busy</mat-icon>
+            <mat-icon color="primary" *ngIf="notification.type === 'UPDATE'">update</mat-icon>
+            <mat-icon color="warn" *ngIf="notification.type === 'DELETE'">whatshot</mat-icon>
+              <p class="notification__p">{{ notification.message }}</p>
+              <p class="minip__train">{{ notification.date }}</p>
+          </div>
+        </mat-card-content>
       </mat-card>
     </div>
   </div>

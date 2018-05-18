@@ -12,14 +12,15 @@
         <mat-icon color="warn" *ngIf="!userService.newNoticationsList.length && router.url !== '/notifications'">notifications_none</mat-icon>
       </a>
       <mat-menu #menu="matMenu" id="notification-menu">
-        <div *ngFor="let notification of userService.newNoticationsList">
+        <div *ngFor="let notification of userService.newNoticationsList | slice : 0 : 4">
           <mat-card class="notification-card">
             <div class="notification">
               <mat-icon color="accent" *ngIf="notification.type === 'APPROVAL'">event_available</mat-icon>
               <mat-icon color="warn" *ngIf="notification.type === 'DENIAL'">event_busy</mat-icon>
               <mat-icon color="primary" *ngIf="notification.type === 'UPDATE'">update</mat-icon>
               <mat-icon color="warn" *ngIf="notification.type === 'DELETE'">whatshot</mat-icon>
-              <p class="notification__p">{{ notification.message }}</p>
+              <p class="notification__p-popup">{{ notification.message }}</p>
+              <p class="minip__train-popup">{{ notification.date }}</p>
             </div>
           </mat-card>
         </div>
