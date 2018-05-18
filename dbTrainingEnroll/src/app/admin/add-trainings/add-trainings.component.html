@@ -28,4 +28,5 @@
   <mat-dialog-actions align="end">
     <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
   </mat-dialog-actions>
+  <p *ngIf="error">{{ error }}</p>
 </mat-dialog-content>
