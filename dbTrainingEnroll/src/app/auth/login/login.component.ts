@@ -91,6 +91,9 @@ export class LoginComponent implements OnInit {
                 this.recommendationService.trainings = recommended;
                 this.recommendationService.sendTrainings();
               });
+            this.userService.getUserEnrollments().subscribe(userEnrollmentsIdList => {
+              this.userService.userEnrollmentsIdList = userEnrollmentsIdList;
+            });
           }
         });
         this.userService.closeDialog.emit(true);

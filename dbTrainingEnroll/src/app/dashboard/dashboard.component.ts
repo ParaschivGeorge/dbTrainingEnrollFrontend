@@ -163,7 +163,10 @@ export class DashboardComponent implements OnInit {
     this.userService.training = training;
     this.userService.postUserSelfEnroll().subscribe(
       result => {
-        this.snackBar.open('You enrolled!', 'Ok', { duration: 1800 });
+        this.userService.getUserEnrollments().subscribe(userEnrollmentsIdList => {
+          this.userService.userEnrollmentsIdList = userEnrollmentsIdList;
+          this.snackBar.open('You enrolled!', 'Ok', { duration: 1800 });
+        });
       },
       error => {
         this.snackBar.open(

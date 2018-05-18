@@ -27,6 +27,7 @@ export class UserService {
   private _INSERT_TRAININGS_URL = this._BASE_URL + '/insertTrainings';
   private _UPDATE_TRAININGS_URL = this._BASE_URL + '/updateTrainings';
   private _DELETE_TRAININGS_URL = this._BASE_URL + '/deleteTrainings';
+  private _USER_ENROLLMENTS_URL = this._BASE_URL + '/enrolledTrainings';
 
   training: Training;
   accounts: UserDto[] = [];
@@ -42,6 +43,7 @@ export class UserService {
   newTrainingsList: Training[] = [];
   updateTrainingsList: Training[] = [];
   deleteTrainingsIdList: number[] = [];
+  userEnrollmentsIdList: number[] = [];
 
   constructor(private http: HttpClient,
     spinnerService: Ng4LoadingSpinnerService,
@@ -97,5 +99,9 @@ export class UserService {
 
   deleteTrainings(): Observable<number[]> {
     return this.http.request<number[]>('delete', this._DELETE_TRAININGS_URL, { body: this.deleteTrainingsIdList});
+  }
+
+  getUserEnrollments(): Observable<number[]> {
+    return this.http.post<number[]>(this._USER_ENROLLMENTS_URL, {email: this.currentUser.email});
   }
 }
