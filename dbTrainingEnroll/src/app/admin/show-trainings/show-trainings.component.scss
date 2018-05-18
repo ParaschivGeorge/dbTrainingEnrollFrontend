@@ -126,3 +126,13 @@ div.mat-expansion-panel-content:not(.mat-expanded) {
   height: 20px;
   width: 20px;
 }
+
+.action-buttonns{
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.action-icon{
+  font-size: 16px !important;
+  padding-top: 5px !important;
+}
