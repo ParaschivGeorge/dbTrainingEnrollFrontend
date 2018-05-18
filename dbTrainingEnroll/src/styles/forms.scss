@@ -167,6 +167,21 @@ mat-icon{
     left: -1px;
 }
 
+.spoc-warning{
+  font-size: 14px;
+  font-weight: bold;
+  color: #cc3549;
+  margin-left: 10px;
+}
+
+.warning{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
 .spoc-detail-form{
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;

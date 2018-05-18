@@ -256,6 +256,10 @@ padding-bottom: calc(((1 * ((25% - 0.5px) * 1)) + 0px) + 0px) !important;
   margin-top: 1em !important;
 }
 
+#warning-icon.mat-icon{
+  font-size: 22px !important;
+}
+
 #show-trainings{
   .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
     font-size: 94% !important;
