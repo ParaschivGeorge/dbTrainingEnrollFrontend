@@ -22,6 +22,7 @@ export class ApiService {
   }
 
   trainings: Training[];
+  trainingsCopy: Training[];
 
    getTrainings(): Observable<Training[]> {
      return this.http.get<Training[]>(this._TRAININGS_URL);

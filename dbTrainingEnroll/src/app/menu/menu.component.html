@@ -7,13 +7,25 @@
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">Hello, {{ userService.currentUser.name }}</h4>
     <span  *ngIf="userService.currentUser.type === 'USER'">
-      <mat-icon class="notificationButton" [matMenuTriggerFor]="menu" *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
-      <mat-icon [matMenuTriggerFor]="menu" *ngIf="!userService.newNoticationsList.length">notifications_none</mat-icon>
-      <mat-menu #menu="matMenu">
-        <p class="notification" *ngFor="let notification of userService.newNoticationsList">{{ notification.message }}</p>
+      <mat-icon class="notificationButton" color="warn" [matMenuTriggerFor]="menu" *ngIf="userService.newNoticationsList.length">notifications_active</mat-icon>
+      <a routerLink="/notifications">
+        <mat-icon color="warn" *ngIf="!userService.newNoticationsList.length && router.url !== '/notifications'">notifications_none</mat-icon>
+      </a>
+      <mat-menu #menu="matMenu" id="notification-menu">
+        <div *ngFor="let notification of userService.newNoticationsList">
+          <mat-card class="notification-card">
+            <div class="notification">
+              <mat-icon color="accent" *ngIf="notification.type === 'APPROVAL'">event_available</mat-icon>
+              <mat-icon color="warn" *ngIf="notification.type === 'DENIAL'">event_busy</mat-icon>
+              <mat-icon color="primary" *ngIf="notification.type === 'UPDATE'">update</mat-icon>
+              <mat-icon color="warn" *ngIf="notification.type === 'DELETE'">whatshot</mat-icon>
+              <p class="notification__p">{{ notification.message }}</p>
+            </div>
+          </mat-card>
+        </div>
         <a routerLink="/notifications" class="notification">
-          <p class="notification" *ngIf="router.url !== '/notifications'">See all notifications.</p>
-        </a>`
+          <button mat-raised-button color="primary" class="see-more" *ngIf="router.url !== '/notifications'">See all notifications.</button>
+        </a>
       </mat-menu>
     </span>
     <a routerLink="/enrollments" class="trainings" *ngIf="userService.currentUser.type === 'SPOC'">
