@@ -73,7 +73,12 @@ const appRoutes: Routes = [
     canActivate: [UserGuard],
     data: { title: 'DB Reports', roles: ['ADMIN'] }
   },
-  { path: 'admin', component: AdminComponent, data: { title: 'DB Admin' } },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    data: { title: 'DB Admin', roles: ['ADMIN'] },
+    canActivate: [UserGuard]
+  },
   {
     path: 'myTrainings',
     component: UserTrainingsComponent,
