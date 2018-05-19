@@ -11,4 +11,5 @@ export class Training {
     nrMax: number;
     trainingResponsible: UserDto;
     vendor: string;
+    rating: number;
 }

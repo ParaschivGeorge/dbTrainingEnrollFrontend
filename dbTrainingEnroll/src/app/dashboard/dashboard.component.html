@@ -57,7 +57,7 @@
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" infiniteScroll (infiniteScrollAction)="onScrollDown()" fxLayout fxLayout.xs="column" fxLayoutGap="20px"
           fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="380px" *ngFor="let training of allTrainings | filter:term:'technology'" (click)="openDialog(training)"
+          <div class="box" fxFlex="380px" *ngFor="let training of allTrainings | filter:term:'technology'; let i = index" (click)="openDialog(training)"
             [@flyInOut]="'in'">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
@@ -66,6 +66,9 @@
               <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
               <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
+              <div *ngIf="userService.currentUser.type === 'USER'">
+                <rating [(ngModel)]="starsCount[i]" (click)="onStarClick(i)" [float]="true"></rating>
+              </div>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
               <div class="number vendor"> {{ training.vendor }} </div>
               <button mat-raised-button class="button__enroll" color="primary" (click)="selfEnroll(training)" *ngIf="userService.currentUser.type === 'USER' && userService.userEnrollmentsIdList.indexOf(training.id) === -1">
