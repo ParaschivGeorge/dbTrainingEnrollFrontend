@@ -1,12 +1,17 @@
 <ng4-loading-spinner> </ng4-loading-spinner>
 <div class="main">
   <h1 class="title">Pending Trainings</h1>
+  <form class="example-form search-box">
+    <mat-form-field class="example-full-width">
+      <input type="text" name="Search" matInput placeholder="Search" [(ngModel)]="term">
+      <!-- <mat-icon matSuffix>mode_search</mat-icon> -->
+    </mat-form-field>
+  </form>
   <mat-tab-group>
     <mat-tab label="All">
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="380px" *ngFor="let training of allTrainings" (click)="openDialog(training)" infinite-scroll [infiniteScrollThrottle]="300"
-            (scrolled)="onScrollDown(allTrainings, originalTrainings)" [@flyInOut]="'in'">
+          <div class="box" fxFlex="380px" *ngFor="let training of originalTrainings | filter:term:'technology'" (click)="openDialog(training)" [@flyInOut]="'in'">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
@@ -26,8 +31,7 @@
     <mat-tab label="Soft Skills">
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="380px" *ngFor="let training of softTrainings" (click)="openDialog(training)" infinite-scroll [infiniteScrollThrottle]="300"
-            (scrolled)="onScrollDown(softTrainings, allSoftTrainings)">
+          <div class="box" fxFlex="380px" *ngFor="let training of allSoftTrainings | filter:term:'technology'" (click)="openDialog(training)" [@flyInOut]="'in'">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
@@ -47,8 +51,7 @@
     <mat-tab label="Technical">
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
-          <div class="box" fxFlex="380px" *ngFor="let training of techTrainings" (click)="openDialog(training)" infinite-scroll [infiniteScrollThrottle]="300"
-            (scrolled)="onScrollDown(techTrainings, allTechTrainings)">
+          <div class="box" fxFlex="380px" *ngFor="let training of allTechTrainings | filter:term:'technology'" (click)="openDialog(training)" [@flyInOut]="'in'">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>

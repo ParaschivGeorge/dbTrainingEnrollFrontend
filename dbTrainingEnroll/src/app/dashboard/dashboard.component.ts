@@ -19,7 +19,6 @@ import {
   _MatProgressSpinnerMixinBase
 } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { UserService } from '../services/user.service';
 import {

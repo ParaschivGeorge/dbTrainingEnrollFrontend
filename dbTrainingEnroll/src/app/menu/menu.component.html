@@ -4,8 +4,8 @@
       <img src="../../assets/img/db_logo_white.png" alt="Deutsche Bank Logo">
       <span class="page-title">{{ 'PAGE_TITLE' | translate }}</span>
     </a>
-    <button class="language-button" *ngIf="translate.currentLang === 'en'" mat-button (click)="switchLanguage('ro')">RO</button>
-    <button class="language-button" *ngIf="translate.currentLang === 'ro'" mat-button (click)="switchLanguage('en')">EN</button>
+    <button class="language-button" *ngIf="translate.currentLang === 'ro'" (click)="switchLanguage('en')">RO</button>
+    <button class="language-button" *ngIf="translate.currentLang === 'en'" (click)="switchLanguage('ro')">EN</button>
     <span class="example-spacer"></span>
     <h4 class="name" *ngIf="userService.currentUser.name">{{ 'HELLO' | translate }}, {{ userService.currentUser.name }}</h4>
     <span  *ngIf="userService.currentUser.type === 'USER'">
