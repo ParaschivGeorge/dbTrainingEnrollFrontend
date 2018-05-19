@@ -1,24 +1,24 @@
 <ng4-loading-spinner> </ng4-loading-spinner>
 <div class="main">
-  <h1 class="title">Trainings</h1>
+  <h1 class="title">{{ 'TRAININGS' | translate }}</h1>
   <form class="example-form search-box">
     <mat-form-field class="example-full-width">
-      <input type="text" name="Search" matInput placeholder="Search" [(ngModel)]="term">
+      <input type="text" name="search" matInput placeholder="{{ 'SEARCH' | translate }}" [(ngModel)]="term">
       <!-- <mat-icon matSuffix>mode_search</mat-icon> -->
     </mat-form-field>
   </form>
   <mat-tab-group>
-    <mat-tab label="Pending Users" *ngIf="userService.currentUser.type === 'MANAGER'">
-      <h2 class="subtitle">Enrollments waiting for your approval</h2>
+    <mat-tab label="{{ 'PENDINGUSERS' | translate }}" *ngIf="userService.currentUser.type === 'MANAGER'">
+      <h2 class="subtitle">{{ 'ENROLLMENTSWAITING' | translate }}</h2>
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
           <div class="box" fxFlex="380px" *ngFor="let training of apiService.selfEnrolledTrainings" (click)="openDialog(training)">
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} {{ 'ENROLLED' | translate }}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} {{ 'AVAILABLESEATS' | translate }}</div>
+              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
               <div class="number vendor"> {{ training.vendor }} </div>
@@ -27,18 +27,18 @@
         </div>
       </mat-grid-list>
     </mat-tab>
-    <mat-tab label="All">
+    <mat-tab label="{{ 'ALL' | translate }}">
       <div *ngIf="allRecommendedTrainings.length > 0 && userService.currentUser.type === 'USER'">
-        <h2 class="subtitle">Recommended for you</h2>
+        <h2 class="subtitle">{{ 'RECOMMENDED' | translate }}</h2>
         <mat-grid-list class="dashboard__grid" cols="4">
           <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
             <div class="box" fxFlex="380px" *ngFor="let training of allRecommendedTrainings | filter:term:'technology'" (click)="openDialog(training)">
               <mat-card [@flyInOut]="'in'">
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
                 <div class="number vendor"> {{ training.vendor }} </div>
@@ -51,7 +51,6 @@
             </div>
           </div>
         </mat-grid-list>
-        <h2 class="subtitle">All available trainings</h2>
       </div>
 
       <mat-grid-list class="dashboard__grid" cols="4">
@@ -62,9 +61,9 @@
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <div *ngIf="userService.currentUser.type === 'USER'">
                 <rating [(ngModel)]="starsCount[i]" (click)="onStarClick(i)" [float]="true"></rating>
@@ -81,7 +80,7 @@
         </div>
       </mat-grid-list>
     </mat-tab>
-    <mat-tab label="Soft Skills">
+    <mat-tab label="{{ 'SOFTSKILLS' | translate }}">
       <div *ngIf="softRecommendedTrainings.length > 0  && userService.currentUser.type === 'USER'">
         <h2 class="subtitle">Recommended for you</h2>
         <mat-grid-list class="dashboard__grid" cols="4">
@@ -90,9 +89,9 @@
               <mat-card>
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
                 <div class="number vendor"> {{ training.vendor }} </div>
@@ -105,7 +104,6 @@
             </div>
           </div>
         </mat-grid-list>
-        <h2 class="subtitle">All available trainings</h2>
       </div>
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
@@ -114,9 +112,9 @@
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
               <div class="number vendor"> {{ training.vendor }} </div>
@@ -130,7 +128,7 @@
         </div>
       </mat-grid-list>
     </mat-tab>
-    <mat-tab label="Technical">
+    <mat-tab label="{{ 'TECHNICAL' | translate }}">
       <div *ngIf="techRecommendedTrainings.length > 0  && userService.currentUser.type === 'USER'">
         <h2 class="subtitle">Recommended for you</h2>
         <mat-grid-list class="dashboard__grid" cols="4">
@@ -139,9 +137,9 @@
               <mat-card>
                 <mat-card-title>{{ training.technology }}</mat-card-title>
                 <hr>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+                <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
                 <mat-card-content> {{ training.name }} </mat-card-content>
                 <mat-card-footer> {{ training.date }} </mat-card-footer>
                 <div class="number vendor"> {{ training.vendor }} </div>
@@ -154,7 +152,6 @@
             </div>
           </div>
         </mat-grid-list>
-        <h2 class="subtitle">All available trainings</h2>
       </div>
       <mat-grid-list class="dashboard__grid" cols="4">
         <div class="container" fxLayout fxLayout.xs="column" fxLayoutGap="20px" fxLayoutGap.xs="4px" fxFlex="auto">
@@ -163,9 +160,9 @@
             <mat-card>
               <mat-card-title>{{ training.technology }}</mat-card-title>
               <hr>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}} enrolled</div>
-              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}} available seats</div>
-              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">FULL</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax === null)">{{training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number free" *ngIf="(training.acceptedUsers !== training.nrMax) && (training.nrMax !== null)">{{training.nrMax - training.acceptedUsers}}  {{ 'ENROLLED' | translate }}</div>
+              <div class="number full" *ngIf="training.acceptedUsers === training.nrMax">{{ 'FULL' | translate }}</div>
               <mat-card-content> {{ training.name }} </mat-card-content>
               <mat-card-footer> {{ training.date }} </mat-card-footer>
               <div class="number vendor"> {{ training.vendor }} </div>
