@@ -38,7 +38,7 @@ import * as Lodash from 'lodash';
 export class ShowTrainingsComponent implements OnInit {
 
   trainings: Training[];
-  error: string;
+  errors: string[];
 
   constructor(private spinnerService: Ng4LoadingSpinnerService,
               public apiService: ApiService,
@@ -53,19 +53,26 @@ export class ShowTrainingsComponent implements OnInit {
           this.apiService.trainings = result;
           this.apiService.trainingsCopy = Lodash.cloneDeep(result);
           this.spinnerService.hide();
+          
+          this.errors = [];
+
+          result.forEach(element => {
+            this.errors.push('');
+          });
         }
       );
   }
 
-  onSubmit(training: Training) {
+  onSubmit(training: Training, i: number) {
     this.userService.updateTrainingsList = [];
     this.userService.updateTrainingsList.push(training);
 
     this.userService.updateTrainings().subscribe(result => {
         this.getTrainings();
+        this.errors[i] = '';
       },
       error => {
-        this.error = error.error.message;
+        this.errors[i] = error.error.message;
       });
   }
 

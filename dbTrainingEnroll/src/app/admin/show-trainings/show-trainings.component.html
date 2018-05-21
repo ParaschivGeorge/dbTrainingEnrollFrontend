@@ -93,9 +93,9 @@
           </mat-grid-tile>
       </mat-grid-list>
       <mat-action-row id="show-trainings-action">
-        <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit(training)">Submit</button>
+        <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit(training, i)">Submit</button>
       </mat-action-row>
-      <p *ngIf="error">{{ error }}</p>
+      <p *ngIf="errors[i]">{{ errors[i] }}</p>
     </ng-template>
   </mat-expansion-panel>
   </div>
