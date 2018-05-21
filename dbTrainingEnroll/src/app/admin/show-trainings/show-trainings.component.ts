@@ -63,6 +63,7 @@ export class ShowTrainingsComponent implements OnInit {
 
     this.userService.updateTrainings().subscribe(result => {
         this.getTrainings();
+        this.error = '';
       },
       error => {
         this.error = error.error.message;

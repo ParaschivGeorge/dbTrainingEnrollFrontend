@@ -242,6 +242,10 @@ input.ng-invalid.ng-touched {
   margin-right: 1em !important;
 }
 
+#show-trainings-action.mat-action-row{
+  justify-content: space-between !important;
+}
+
 #show-trainings.mat-grid-list {
   padding-bottom: 23em !important;
 }
@@ -260,6 +264,9 @@ padding-bottom: calc(((1 * ((25% - 0.5px) * 1)) + 0px) + 0px) !important;
   font-size: 22px !important;
 }
 
+.warning-icon{
+  font-size: 22px !important;
+}
 #show-trainings{
   .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
     font-size: 94% !important;
