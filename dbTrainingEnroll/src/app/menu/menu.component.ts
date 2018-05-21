@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { RecommendationService } from '../services/recommendation.service';
 import { NotificationComponent } from './notification/notification.component';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-menu',
@@ -18,28 +19,31 @@ import { NotificationComponent } from './notification/notification.component';
   styleUrls: ['./menu.component.scss'],
   providers: [EnrollmentsComponent, DashboardComponent]
 })
-
 export class MenuComponent implements OnInit {
   userClaims: 'none';
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private enrollmentsComponent: EnrollmentsComponent,
+  constructor(
+    private enrollmentsComponent: EnrollmentsComponent,
     private dashboardComponent: DashboardComponent,
     public router: Router,
     private dialog: MatDialog,
     public authService: AuthService,
     public userService: UserService,
-    private recommendationsService: RecommendationService) { }
+    private recommendationsService: RecommendationService,
+    public translate: TranslateService
+  ) { }
 
-  ngOnInit() {
+  switchLanguage(language: string) {
+    this.translate.use(language);
   }
 
+  ngOnInit() {}
+
   openLogin(): void {
-    this.userService.closeDialog.subscribe(result =>
-    this.dialog.closeAll());
-    const dialogRef = this.dialog.open(LoginComponent, {
-    });
+    this.userService.closeDialog.subscribe(result => this.dialog.closeAll());
+    const dialogRef = this.dialog.open(LoginComponent, {});
   }
 
   logout(): void {

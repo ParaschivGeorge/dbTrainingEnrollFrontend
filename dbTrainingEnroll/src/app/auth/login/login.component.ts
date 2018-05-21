@@ -63,7 +63,6 @@ export class LoginComponent implements OnInit {
                 this.userService.loggedIn.emit(true);
               },
               error => {
-                console.log(error);
               }
             );
           }

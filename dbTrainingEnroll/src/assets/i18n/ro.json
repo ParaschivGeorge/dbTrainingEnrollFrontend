@@ -1,6 +1,23 @@
 {
-  "HOME": {
-    "TITLE": "RO!",
-    "SELECT": "RO"
-  }
+  "PAGE_TITLE": "DB Inrolarea Angajatilor",
+  "HELLO": "Salut",
+  "SEEALLNOTIFICATIONS": "Vezi toate notificarile.",
+  "ENROLLMENTSROUTER": "Inrolari",
+  "TRAININGSROUTER": "Training-uri",
+  "REPORTSROUTER": "Rapoarte",
+  "MYTRAININGSROUTER": "Training-urile mele",
+  "LOGIN": "Autentificare",
+  "LOGOUT": "Delogare",
+  "ENROLLMENTSWAITING": "Inrolari care asteapta un raspuns",
+  "TRAININGS": "Training-uri",
+  "FULL": "PLIN",
+  "ENROLLED": "inrolati",
+  "AVAILABLESEATS": "locuri libere",
+  "RECOMMENDED": "Recomandate",
+  "SEARCH": "Cauta",
+  "ALL": "Toate",
+  "PENDINGUSERS": "Oameni in asteptare",
+  "SOFTSKILLS": "Nontehnice",
+  "TECHNICAL": "Tehnice",
+  "COPYRIGHT": "Drepturi Rezervate"
 }

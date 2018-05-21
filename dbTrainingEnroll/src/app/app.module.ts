@@ -43,6 +43,7 @@ import { ApiService } from './services/api.service';
 import 'hammerjs';
 import { ConfirmDeleteComponent } from './admin/show-trainings/confirm-delete/confirm-delete.component';
 import { InfiniteScrollDirective } from './dashboard/infinite-scroll.directive';
+import {RatingModule} from "ngx-rating";
 
 const appRoutes: Routes = [
   {
@@ -128,6 +129,7 @@ export function createTranslateLoader(http: Http) {
     FormsModule,
     HttpClientModule,
     MatRadioModule,
+    RatingModule,
     // HttpModule, (Deprecated)
     NgxPaginationModule,
     Ng4LoadingSpinnerModule,

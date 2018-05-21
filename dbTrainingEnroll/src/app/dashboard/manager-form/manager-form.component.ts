@@ -57,9 +57,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
               this.self_enrolled_users.forEach(self_enrolled_user => {
                 const form_group = new FormGroup({
                   'email': new FormControl(self_enrolled_user.mail, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-                  'type': new FormControl('BUILD'),
-                  'urgency': new FormControl('MEDIUM'),
-                  'comment': new FormControl('')
+                  'type': new FormControl(this.types[0], []),
+                  'urgency': new FormControl(this.urgencies[0], []),
+                  'comment': new FormControl('', [])
                 });
 
                 form_group.updateValueAndValidity();
@@ -84,9 +84,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     }
     const form_group = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-      'type': new FormControl('BUILD'),
-      'urgency': new FormControl('MEDIUM'),
-      'comment': new FormControl('')
+      'type': new FormControl(this.types[0], []),
+      'urgency': new FormControl(this.urgencies[0], []),
+      'comment': new FormControl('', [])
     });
 
     this.filteredUsers = form_group.get('email').valueChanges.pipe(

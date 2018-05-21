@@ -133,6 +133,11 @@ button::after {
   opacity: 1;
 }
 
+textarea.mat-input-element{
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
 .lds-roller {
   left: calc(100vw / 2 - 32px) !important;
   top: calc(100% / 2 - 32px) !important;
@@ -231,16 +236,6 @@ input.ng-invalid.ng-touched {
   text-shadow: 2px 1px 8px rgba($black, 0.2);
 }
 
-textarea.mat-input-element{
-  border: 1px solid rgba(10, 60, 117, .7);
-  padding: 0.4em;
-  width: 97%;
-  min-height: 11vh;
-  font-size: 14px;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-}
-
 
 #show-trainings-action.mat-raised-button{
   font-family: 'Montserrat', sans-serif !important;
@@ -249,6 +244,20 @@ textarea.mat-input-element{
 
 #show-trainings.mat-grid-list {
   padding-bottom: 23em !important;
+}
+
+#spoc-form.mat-grid-list{
+padding-bottom: calc(((1 * ((25% - 0.5px) * 1)) + 0px) + 0px) !important;
+}
+
+#spoc-comment.mat-form-field{
+  width: 100% !important;
+  font-family: 'Montserrat', sans-serif !important;
+  margin-top: 1em !important;
+}
+
+#warning-icon.mat-icon{
+  font-size: 22px !important;
 }
 
 #show-trainings{

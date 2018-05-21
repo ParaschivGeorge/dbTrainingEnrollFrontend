@@ -11,26 +11,49 @@
       <div formArrayName="users" class="enrollment-form">
         <div *ngFor="let enrollment of userService.enrollmentList; let i = index" class="pending-form">
           <div [formGroupName]="i">
-            <div class="spoc-details-left">
-              <p class="minip__train">Participant e-mail address</p>
-              <p class="p__train">{{ enrollment.userEmail }}</p>
-              <textarea class="spoc-comment" formControlName="comment" (change)="updateComment(enrollment.userEmail, i)" matInput placeholder="Your comment"></textarea>
-              <mat-radio-group class="radio-group">
-                <mat-radio-button class="check-btn" color="primary" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
-                <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
-              </mat-radio-group>
-              <p *ngIf="!spocForm.get('users').get('' + i).get('comment').valid">You must give a reason for denial.</p>
+            <mat-grid-list id="spoc-form" cols="2">
+              <mat-grid-tile>
+                <p class="minip__train">Participant e-mail address</p>
+                <p class="p__train">{{ enrollment.userEmail }}</p>
+                <div *ngIf="enrollment.department">
+                  <p class="minip__train">Domain:</p>
+                  <p class="p__train">{{ enrollment.department }}</p>
+                </div>
+                <div *ngIf="enrollment.subdepartment">
+                  <p class="minip__train">Profession:</p>
+                  <p class="p__train">{{ enrollment.subdepartment }}</p>
+                </div>
+                <div *ngIf="enrollment.managerName">
+                  <p class="minip__train">Manager name:</p>
+                  <p class="p__train">{{ enrollment.managerName }}</p>
+                </div>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <div *ngIf="enrollment.comment">
+                  <p class="minip__train">Manager comment:</p>
+                  <p class="p__train">{{ enrollment.comment }}</p>
+                </div>
+                <div *ngIf="enrollment.trainingType">
+                  <p class="minip__train">Type:</p>
+                  <p class="p__train">{{ enrollment.trainingType }}</p>
+                </div>
+                <div *ngIf="enrollment.urgencyType">
+                  <p class="minip__train">Urgency:</p>
+                  <p class="p__train">{{ enrollment.urgencyType }}</p>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <div class="warning" *ngIf="!spocForm.get('users').get('' + i).get('comment').valid">
+              <mat-icon id="warning-icon" color="warn">warning</mat-icon>
+              <p class="spoc-warning">You must give a reason for denial!</p>
             </div>
-            <div class="spoc-details-right">
-              <p>Type: {{enrollment.trainingType}}</p>
-              <p>Urgency: {{enrollment.urgencyType}}</p>
-              <p>Manager comment: {{enrollment.comment}}</p>
-              <p>Domain: {{enrollment.department}}</p>
-              <p>Manager Name: {{enrollment.managerName}}</p>
-              <p>Profession: {{enrollment.subdepartment}}</p>
-            </div>
-            <!-- <button mat-icon-button color="primary" class="button check__button" type="button" [ngStyle] = "buttonClicked()" (click)="acceptUser(user.mail, check__button)"><mat-icon>check</mat-icon></button>
-                  <button mat-icon-button color="warn" class="button clear__button" type="button" ><mat-icon>clear</mat-icon></button> -->
+            <mat-form-field id="spoc-comment">
+              <textarea matInput class="spoc-comment" formControlName="comment" (change)="updateComment(enrollment.userEmail, i)" placeholder="Your comment"></textarea>
+            </mat-form-field>
+            <mat-radio-group class="radio-group">
+              <mat-radio-button class="check-btn" color="primary" (click)="acceptUser(enrollment.userEmail, i)" value="accept">Accept</mat-radio-button>
+              <mat-radio-button color="warn" (click)="denyUser(enrollment.userEmail, i)" value="deny">Deny</mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
       </div>

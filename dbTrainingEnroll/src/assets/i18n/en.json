@@ -1,6 +1,23 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular 2 with ng2-translate!",
-    "SELECT": "Change language"
-  }
+  "PAGE_TITLE": "DB Training Enrollment",
+  "HELLO": "Hello",
+  "SEEALLNOTIFICATIONS": "See all notifications.",
+  "ENROLLMENTSROUTER": "Enrollments",
+  "TRAININGSROUTER": "Trainings",
+  "REPORTSROUTER": "Reports",
+  "MYTRAININGSROUTER": "My Trainings",
+  "LOGIN": "Log In",
+  "LOGOUT": "Log Out",
+  "ENROLLMENTSWAITING": "Enrollments waiting for your approval",
+  "TRAININGS": "Trainings",
+  "FULL": "FULL",
+  "ENROLLED": "enrolled",
+  "AVAILABLESEATS": "available seats",
+  "RECOMMENDED": "Recommended for you",
+  "SEARCH": "Search",
+  "ALL": "All",
+  "PENDINGUSERS": "Pending Users",
+  "SOFTSKILLS": "Soft Skills",
+  "TECHNICAL": "Technical",
+  "COPYRIGHT": "Copyright"
 }

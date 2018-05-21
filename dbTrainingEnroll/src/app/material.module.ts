@@ -9,8 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslateModule } from 'ng2-translate';
 
 @NgModule({
@@ -37,7 +36,6 @@ import { TranslateModule } from 'ng2-translate';
         MatSlideToggleModule,
         ReactiveFormsModule,
         NgxPaginationModule,
-        InfiniteScrollModule,
         MatExpansionModule,
         MatDatepickerModule,
         NativeDateModule,
@@ -66,7 +64,6 @@ import { TranslateModule } from 'ng2-translate';
         FormsModule,
         ReactiveFormsModule,
         NgxPaginationModule,
-        InfiniteScrollModule,
         MatExpansionModule,
         MatDatepickerModule,
         MatNativeDateModule,
