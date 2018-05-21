@@ -18,11 +18,11 @@
           to upload.
         </p>
       </div>
-    </div>
     <div class="file">
       <h4 class="file__name" *ngIf="file">{{file.name}} </h4>
       <button mat-raised-button color="primary" *ngIf="file"
       class="delete__button" type="button" (click)="onDelete()">X</button>
+    </div>
     </div>
   </div>
   <mat-dialog-actions align="end">

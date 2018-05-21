@@ -1,6 +1,5 @@
 @import "../../../styles/variables.scss";
-
-h2.subtitle{
+h2.subtitle {
   font-weight: 600;
   text-align: center;
   color: $dark-blue;
@@ -17,31 +16,13 @@ h3.subtitle {
   margin: 0.5em 0px 1.5em 0;
 }
 
-.excel-error-group{
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.excel-error{
-  font-size: 14px;
-  font-weight: bold;
-  color: #cc3549;
-  margin-left: 10px;
-  font-family: $serif;
-}
-
-.drag-drop-module{
-  margin: 2em 0em 2.5em;
+.drag-drop-module {
+  margin: 2em auto 1em auto;
 }
 
 $text: #74809D;
 $text-light: #C0C4C7;
 $border: #D2D6DA;
-
-
 div.enrollForm {
   width: 50vw;
   height: auto;
@@ -53,7 +34,7 @@ div.enrollForm {
   width: 100%;
 }
 
-.drop-container{
+.drop-container {
   background: transparent;
   height: 100px;
   width: 100%;
@@ -78,7 +59,7 @@ mat-dialog-content hr {
   width: 10%;
 }
 
-.submit__button{
+.submit__button {
   color: $bright-white;
   margin: 0;
   font-weight: 500;
@@ -89,8 +70,6 @@ mat-dialog-content hr {
 .file {
   display: block;
   width: 100%;
-  height: 40px;
-  margin: 10px 0;
 }
 
 .file__name {
@@ -100,18 +79,15 @@ mat-dialog-content hr {
   text-align: left;
 }
 
-.delete__button{
+.delete__button {
   text-align: center;
-  width: 20%;
-  height: 40px;
-  color: $red;
-  margin-top: -20px;
+  color: $white;
   font-weight: 900;
   font-family: $sans-serif;
   position: relative;
 }
 
-button::after{
+button::after {
   box-shadow: none;
 }
 
@@ -119,29 +95,30 @@ button:disabled {
   color: grey;
 }
 
-p.drag-drop{
+p.drag-drop {
   font-family: 'Raleway', sans-serif;
   color: #96999C;
 }
-.upload-button{
+
+.upload-button {
   display: inline-block;
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-.upload-items{
+.upload-items {
   display: block;
   width: 100%;
 }
 
-.upload-item{
+.upload-item {
   display: block;
   width: 100%;
   margin-top: 20px;
 }
 
-.button{
+.button {
   position: relative;
   display: block;
   margin: 0;
@@ -154,23 +131,21 @@ p.drag-drop{
   font-weight: 500;
 }
 
-.model-button{
+.model-button {
   font-family: 'Montserrat', sans-serif;
-
 }
 
-input{
+input {
   display: none;
 }
 
-.filename{
+.filename {
   display: block;
   padding: 0;
   color: $text;
 }
 
-
-.progress{
+.progress {
   display: block;
   position: relative;
   width: 100%;
@@ -178,15 +153,12 @@ input{
   height: 12px;
   border: 1px solid $dark-blue;
   border-radius: 0;
-
 }
 
-.bar{
+.bar {
   position: absolute;
   top: 0;
   left: 0;
   height: 15px;
   background: $purple;
 }
-
-
