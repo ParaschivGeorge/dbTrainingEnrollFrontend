@@ -37,15 +37,17 @@ body {
 }
 
 :host ::ng-deep {
-  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
     background: none !important;
   }
 }
 
 @-webkit-keyframes autofill {
   to {
-      color: $white;
-      background: transparent;
+    color: $white;
+    background: transparent;
   }
 }
 
@@ -54,7 +56,8 @@ input:-webkit-autofill {
   -webkit-animation-fill-mode: both;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
@@ -122,10 +125,7 @@ button::after {
 }
 
 .spinner {
-  background: linear-gradient(
-    rgba(black, 0) 0%,
-    rgba(black, 0.5) 100%
-  ) !important;
+  background: linear-gradient( rgba(black, 0) 0%, rgba(black, 0.5) 100%) !important;
 }
 
 .hidden {
@@ -133,7 +133,7 @@ button::after {
   opacity: 1;
 }
 
-textarea.mat-input-element{
+textarea.mat-input-element {
   font-size: 14px !important;
   line-height: 20px !important;
 }
@@ -169,22 +169,39 @@ textarea.mat-input-element{
   letter-spacing: 0px;
 }
 
-.notification{
+.notification {
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.see-more{
+.ratings {
+  position: absolute;
+  right: 25px;
+  top: 30px;
+}
+
+.star-icon {
+  color: #FFC857;
+  font-size: 1.85em !important;
+  letter-spacing: -4px;
+}
+
+.star-icon::before {
+  color: #FFC857 !important;
+}
+
+.see-more {
   margin-top: 15px !important;
   margin-bottom: 15px !important;
 }
 
-.notification-card{
+.notification-card {
   padding: 16px !important;
 }
 
-.notification > .mat-icon{
+.notification>.mat-icon {
   margin-right: 12px;
 }
 
@@ -236,55 +253,46 @@ input.ng-invalid.ng-touched {
   text-shadow: 2px 1px 8px rgba($black, 0.2);
 }
 
-
-#show-trainings-action.mat-raised-button{
+#show-trainings-action.mat-raised-button {
   font-family: 'Montserrat', sans-serif !important;
   margin-right: 1em !important;
-}
-
-#show-trainings-action.mat-action-row{
-  justify-content: space-between !important;
 }
 
 #show-trainings.mat-grid-list {
   padding-bottom: 23em !important;
 }
 
-#spoc-form.mat-grid-list{
-padding-bottom: calc(((1 * ((25% - 0.5px) * 1)) + 0px) + 0px) !important;
+#spoc-form.mat-grid-list {
+  padding-bottom: calc(((1 * ((25% - 0.5px) * 1)) + 0px) + 0px) !important;
 }
 
-#spoc-comment.mat-form-field{
+#spoc-comment.mat-form-field {
   width: 100% !important;
   font-family: 'Montserrat', sans-serif !important;
   margin-top: 1em !important;
 }
 
-#warning-icon.mat-icon{
+#warning-icon.mat-icon {
   font-size: 22px !important;
 }
 
-.warning-icon{
-  font-size: 22px !important;
-}
-#show-trainings{
-  .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+#show-trainings {
+  .mat-form-field-prefix .mat-icon,
+  .mat-form-field-suffix .mat-icon {
     font-size: 94% !important;
-    line-height: .75!important;
+    line-height: .75 !important;
   }
-
-  .mat-form-field-underline{
+  .mat-form-field-underline {
     height: 0px !important;
   }
-
-  .mat-input-underline{
+  .mat-input-underline {
     bottom: .6em !important;
   }
-
-  .mat-input-wrapper{
-    padding-bottom: .3em!important;
+  .mat-input-wrapper {
+    padding-bottom: .3em !important;
   }
 }
+
 .login {
   padding: 40px 40px 10px 40px !important;
   background: #08125b;
@@ -387,13 +395,8 @@ input:-webkit-autofill {
 }
 
 .mat-snack-bar-container {
-  background: linear-gradient(
-    0deg,
-    $darkest-blue 0%,
-    $dark-blue 100%
-  ) !important;
-  box-shadow: 0 -6px 30px -4px rgba(50, 30, 200, 0.8),
-    0 0 4px rgba($darkest-blue, 0.5);
+  background: linear-gradient( 0deg, $darkest-blue 0%, $dark-blue 100%) !important;
+  box-shadow: 0 -6px 30px -4px rgba(50, 30, 200, 0.8), 0 0 4px rgba($darkest-blue, 0.5);
   color: $dark-white !important;
   filter: brightness(100%);
   transition: 0.2s cubic-bezier(0.57, 0.21, 0.69, 1.25);
@@ -412,12 +415,12 @@ input:-webkit-autofill {
   text-shadow: 0 0 8px -1px rgba($black, 0.8);
 }
 
-mat-radio-group{
+mat-radio-group {
   display: inline-flex;
   margin-left: 1em;
 }
 
-.mat-radio-label-content{
+.mat-radio-label-content {
   font-family: 'Montserrat', sans-serif !important;
   font-size: 12px !important;
 }
@@ -436,7 +439,6 @@ mat-radio-group{
     border-color: $blue !important;
     width: 15px !important;
     height: 15px !important;
-
   }
 }
 
