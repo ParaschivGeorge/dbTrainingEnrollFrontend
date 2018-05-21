@@ -72,6 +72,7 @@ export class DashboardComponent implements OnInit {
   numberOfTrainings = 8;
   page = 0;
   bool = false;
+  firstTrainingsLoaded = false;
   stars = 0;
 
   allTrainings: Training[] = [];
@@ -127,50 +128,52 @@ export class DashboardComponent implements OnInit {
           )),
           this.page++,
           this.spinnerService.hide();
-          let i = 0;
           this.allTrainings.forEach(training => {
             this.starsCount[this.stars++] = training.rating;
-          })
+          });
       });
+      this.firstTrainingsLoaded = true;
   }
 
   onScrollDown() {
-    if (!this.bool) {
-      this.bool = true;
-      if (this.bool) {
+      if (this.firstTrainingsLoaded && this.page >= 1) {
+      if (!this.bool) {
         this.bool = true;
-        this.apiService
-          .getTrainingsByPage(this.page, this.numberOfTrainings)
-          .subscribe(tempResult => {
-            let temporaryTrainings = tempResult;
-            let i = 0;
+        if (this.bool) {
+          this.bool = true;
+          this.apiService
+            .getTrainingsByPage(this.page, this.numberOfTrainings)
+            .subscribe(tempResult => {
+              let temporaryTrainings = tempResult;
+              let i = 0;
 
-            while (temporaryTrainings[i]) {
-              this.allTrainings.push(temporaryTrainings[i]);
-              i++;
-            }
-            this.stars = 0;
-            this.allTrainings.forEach(training=>{
-              if(training.rating > 0) {
-                this.starsCount[this.stars] = training.rating;
+              while (temporaryTrainings[i]) {
+                this.allTrainings.push(temporaryTrainings[i]);
+                i++;
               }
-              this.stars++;
+              this.stars = 0;
+              this.allTrainings.forEach(training => {
+                if(training.rating > 0) {
+                  this.starsCount[this.stars] = training.rating;
+                }
+                this.stars++;
+              });
+
+
+              if (temporaryTrainings[i - 1]) {
+                i = 0;
+                temporaryTrainings = [];
+                this.page++;
+                this.bool = false;
+                this.allSoftTrainings = this.originalTrainings.filter(data => data.categoryType === 'SOFT');
+                this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL');
+              }
             });
-
-
-            if (temporaryTrainings[i - 1]) {
-              i = 0;
-              temporaryTrainings = [];
-              this.page++;
-              this.bool = false;
-              this.allSoftTrainings = this.originalTrainings.filter(data => data.categoryType === 'SOFT');
-              this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL');
-            }
-          });
-        this.bool = true;
+          this.bool = true;
+        }
       }
+      return false;
     }
-    return false;
   }
 
   selfEnroll(training: Training) {
