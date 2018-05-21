@@ -10,6 +10,7 @@ import { ManagerFormResponse } from './manager-form-response';
 import { UserDto } from '../../models/userDto';
 import { MatSnackBar } from '@angular/material';
 import { EnrollmentDetailsDto } from '../../models/enrollmentDetailsDto';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-manager-form',
@@ -31,7 +32,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   urgencies = ['LOW', 'MEDIUM', 'HIGH'];
 
   constructor(public userService: UserService,
-    private submitSnackBar: MatSnackBar) { }
+    private submitSnackBar: MatSnackBar,
+    public apiService: ApiService) { }
 
   ngOnInit() {
     if (this.userService.training.vendor !== '-1') {
@@ -163,6 +165,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.data = data;
     this.userService.postEnrollmentsList().subscribe(result => {
       this.userService.closeDialog.emit();
+      this.apiService.getSelfEnrolledTrainings().subscribe(getSelfEnrolledTrainings => {
+        this.apiService.selfEnrolledTrainings = getSelfEnrolledTrainings;
+      });
     });
     this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000} );
   }
