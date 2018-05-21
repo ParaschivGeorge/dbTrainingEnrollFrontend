@@ -1,7 +1,12 @@
-<p>Are you sure you want to delete {{ userService.training.name }}</p>
-<button (click)="onConfirm()" mat-icon-button color="warn">
-  <mat-icon aria-label="Delete this training!">check</mat-icon>
-</button>
-<button (click)="onClose()" mat-icon-button color="primary">
-  <mat-icon aria-label="Delete this training!">close</mat-icon>
-</button>
+<div class="confirm-dialog">
+  <p class="p_delete">Are you sure you want to delete <strong>{{ userService.training.name }} ?</strong></p>
+  <div class="confirm-btn-group">
+    <button (click)="onConfirm()" mat-mini-fab color="warn" class="confirm-button">
+      <mat-icon aria-label="Delete this training!">check</mat-icon>
+    </button>
+    <button (click)="onClose()" mat-mini-fab color="primary">
+      <mat-icon aria-label="Delete this training!">close</mat-icon>
+    </button>
+  </div>
+</div>
+

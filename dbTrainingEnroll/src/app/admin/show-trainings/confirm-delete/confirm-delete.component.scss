@@ -1,0 +1,22 @@
+@import "../../../../styles/variables";
+
+.p_delete{
+  font-family: $sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.confirm-dialog{
+  height: 16vh;
+  width: 25vw;
+  padding: 4vh 2vw;
+}
+
+.confirm-btn-group{
+  float: right;
+  margin-top: 4vh;
+}
+
+.confirm-button{
+  margin-right: 1vw;
+}
