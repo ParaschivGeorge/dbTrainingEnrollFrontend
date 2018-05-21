@@ -1,6 +1,6 @@
 <footer layout="row" class="md-padding">
     <div>
       <h4 [innerHTML]="footerText" *ngIf="userService.currentUser.email"></h4>
-      <h4>Copyright &copy; DB Global Technology 2018</h4>
+      <h4>{{ 'COPYRIGHT' | translate }}  &copy; DB Global Technology 2018 </h4>
     </div>
 </footer>

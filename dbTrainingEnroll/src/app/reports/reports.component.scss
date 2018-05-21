@@ -5,6 +5,10 @@
     margin: 70px auto 0 auto;
 }
 
+mat-card, .mat-card {
+    padding: 24px 0 !important;
+}
+
 h1 {
     display: inline-block;
     font-size: 34px;
@@ -32,12 +36,15 @@ h1 {
 }
 
 .charts__container{
-    width: 94%;
+    width: 95vw;
+    min-height: 60vh;
+    height: 100%;
+    padding: 2.5vw;
     margin: 0 auto;
 }
 
 .chart__popularity{
-    width: 46%;
+    width: 49%;
     float: left;
     height: 30em;
 }
@@ -57,7 +64,7 @@ h1 {
 }
 
 .chart__gender{
-    width: 46%;
+    width: 49%;
     float: right;
     height: 13em;
 }

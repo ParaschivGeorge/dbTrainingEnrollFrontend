@@ -94,11 +94,8 @@ export class AddTrainingFormComponent implements OnInit {
         this.userService.closeDialog.emit(true);
       },
       error => {
-        console.log(error);
         this.error = error.error.message;
       });
-
-      // this.addTrainingForm.reset();
 
       this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000 });
     } else {

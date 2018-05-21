@@ -32,13 +32,11 @@ import { trigger, state, style, transition, animate, keyframes, group } from '@a
   ]
 })
 export class EnrollmentsComponent implements OnInit {
-  allTrainings: Training[];
-  softTrainings: Training[];
+  term: any;
   allSoftTrainings: Training[];
-  techTrainings: Training[];
   allTechTrainings: Training[];
-  trainings: Training[];
   originalTrainings: Training[];
+  trainings: Training[];
 
   constructor(private apiService: ApiService,
     public dialog: MatDialog,
@@ -51,11 +49,8 @@ export class EnrollmentsComponent implements OnInit {
     .subscribe(
       result => {
         this.originalTrainings = result,
-        this.allTrainings = this.originalTrainings.slice(0, 8),
         this.allSoftTrainings = this.originalTrainings.filter(data => data.categoryType === 'SOFT'),
-        this.softTrainings = this.allSoftTrainings.slice(0, 8),
         this.allTechTrainings = this.originalTrainings.filter(data => data.categoryType === 'TECHNICAL'),
-        this.techTrainings = this.allTechTrainings.slice(0, 8);
         this.spinnerService.hide();
       }
     );

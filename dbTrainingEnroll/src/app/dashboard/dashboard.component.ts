@@ -19,7 +19,6 @@ import {
   _MatProgressSpinnerMixinBase
 } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ManagerFormComponent } from './manager-form/manager-form.component';
 import { UserService } from '../services/user.service';
 import {
@@ -35,6 +34,7 @@ import { RecommendationService } from '../services/recommendation.service';
 import { Subscription } from 'rxjs/Subscription';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { resolve, reject } from 'q';
+import {Rating} from "../models/ratingDto";
 @HostListener('window:scroll', [])
 @Component({
   selector: 'app-dashboard',
@@ -72,11 +72,13 @@ export class DashboardComponent implements OnInit {
   numberOfTrainings = 8;
   page = 0;
   bool = false;
+  stars = 0;
 
-  allTrainings: Training[];
+  allTrainings: Training[] = [];
   allSoftTrainings: Training[];
   allTechTrainings: Training[];
-
+  starsCount: number[] = [];
+  rating: Rating = new Rating;
   enrollmentsTrainings: Training[];
   originalTrainings: Training[];
 
@@ -125,6 +127,10 @@ export class DashboardComponent implements OnInit {
           )),
           this.page++,
           this.spinnerService.hide();
+          let i = 0;
+          this.allTrainings.forEach(training => {
+            this.starsCount[this.stars++] = training.rating;
+          })
       });
   }
 
@@ -143,6 +149,14 @@ export class DashboardComponent implements OnInit {
               this.allTrainings.push(temporaryTrainings[i]);
               i++;
             }
+            this.stars = 0;
+            this.allTrainings.forEach(training=>{
+              if(training.rating > 0) {
+                this.starsCount[this.stars] = training.rating;
+              }
+              this.stars++;
+            });
+
 
             if (temporaryTrainings[i - 1]) {
               i = 0;
@@ -175,6 +189,16 @@ export class DashboardComponent implements OnInit {
           { duration: 1800 }
         );
       }
+    );
+  }
+
+  onStarClick(j: any) {
+    this.rating.rating = this.starsCount[j];
+    this.rating.userEmail = this.userService.currentUser.email;
+    this.rating.trainingId = this.allTrainings[j].id;
+    this.apiService.rating = this.rating;
+    this.apiService.updateRating().subscribe(
+      rating => this.starsCount[j] = rating.valueOf()
     );
   }
 

@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard.component';
 import { AuthService } from '../services/auth.service';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { InfiniteScrollDirective } from './infinite-scroll.directive';
+import {RatingModule} from "ngx-rating";
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { InfiniteScrollDirective } from './infinite-scroll.directive';
     ReactiveFormsModule,
     FormsModule,
     MatTabsModule,
+    RatingModule,
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [AuthService],

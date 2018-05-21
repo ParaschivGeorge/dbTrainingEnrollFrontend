@@ -10,6 +10,7 @@ import { ManagerFormResponse } from './manager-form-response';
 import { UserDto } from '../../models/userDto';
 import { MatSnackBar } from '@angular/material';
 import { EnrollmentDetailsDto } from '../../models/enrollmentDetailsDto';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-manager-form',
@@ -31,7 +32,8 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
   urgencies = ['LOW', 'MEDIUM', 'HIGH'];
 
   constructor(public userService: UserService,
-    private submitSnackBar: MatSnackBar) { }
+    private submitSnackBar: MatSnackBar,
+    public apiService: ApiService) { }
 
   ngOnInit() {
     if (this.userService.training.vendor !== '-1') {
@@ -57,9 +59,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
               this.self_enrolled_users.forEach(self_enrolled_user => {
                 const form_group = new FormGroup({
                   'email': new FormControl(self_enrolled_user.mail, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-                  'type': new FormControl('BUILD'),
-                  'urgency': new FormControl('MEDIUM'),
-                  'comment': new FormControl('')
+                  'type': new FormControl(this.types[0], []),
+                  'urgency': new FormControl(this.urgencies[0], []),
+                  'comment': new FormControl('', [])
                 });
 
                 form_group.updateValueAndValidity();
@@ -84,9 +86,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     }
     const form_group = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email, this.checkEmployee.bind(this)]),
-      'type': new FormControl('BUILD'),
-      'urgency': new FormControl('MEDIUM'),
-      'comment': new FormControl('')
+      'type': new FormControl(this.types[0], []),
+      'urgency': new FormControl(this.urgencies[0], []),
+      'comment': new FormControl('', [])
     });
 
     this.filteredUsers = form_group.get('email').valueChanges.pipe(
@@ -163,6 +165,9 @@ export class ManagerFormComponent implements OnInit, OnDestroy {
     this.userService.data = data;
     this.userService.postEnrollmentsList().subscribe(result => {
       this.userService.closeDialog.emit();
+      this.apiService.getSelfEnrolledTrainings().subscribe(getSelfEnrolledTrainings => {
+        this.apiService.selfEnrolledTrainings = getSelfEnrolledTrainings;
+      });
     });
     this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000} );
   }
