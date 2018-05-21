@@ -175,6 +175,14 @@ textarea.mat-input-element{
   justify-content: flex-start;
 }
 
+.mat-calendar{
+  font-family: $serif !important;
+}
+
+.mat-calendar-controls > .mat-button{
+  font-family: $serif !important;
+}
+
 .see-more{
   margin-top: 15px !important;
   margin-bottom: 15px !important;
@@ -236,6 +244,10 @@ input.ng-invalid.ng-touched {
   text-shadow: 2px 1px 8px rgba($black, 0.2);
 }
 
+.add-training-form.mat-select{
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 12px !important;
+}
 
 #show-trainings-action.mat-raised-button{
   font-family: 'Montserrat', sans-serif !important;
@@ -243,6 +255,9 @@ input.ng-invalid.ng-touched {
 }
 
 #show-trainings-action.mat-action-row{
+  justify-content: space-between !important;
+}
+#add-excel.mat-dialog-actions{
   justify-content: space-between !important;
 }
 

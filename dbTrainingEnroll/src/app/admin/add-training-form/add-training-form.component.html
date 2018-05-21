@@ -47,12 +47,15 @@
       <mat-hint align="end">{{ minParticipants?.value || 0 }} / {{ maxParticipants?.value || 0 }} / 99</mat-hint>
     </mat-form-field>
     <br>
+    <span class="add_error-group" *ngIf="error">
+      <mat-icon color="warn">warning</mat-icon>
+      <p class="add-error">{{ error }}</p>
+    </span>
     <div *ngIf="!addTrainingForm.valid">
       <button mat-button type="submit" class="disabled_button" disabled>Submit</button>
     </div>
     <div *ngIf="addTrainingForm.valid">
-      <button color="primary" mat-button type="submit" class="submit_button">Submit</button>
+      <button color="primary" mat-raised-button type="submit" class="submit_button">Submit</button>
     </div>
-    <p *ngIf="error">{{ error }}</p>
   </div>
 </form>

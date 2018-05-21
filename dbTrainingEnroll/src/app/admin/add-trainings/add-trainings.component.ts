@@ -102,6 +102,7 @@ export class AddTrainingsComponent implements OnInit {
       });
       this.userService.insertNewTrainings().subscribe(result => {
         this.userService.closeDialog.emit(true);
+        this.error = '';
       },
       error => {
         this.error = error.error.message;

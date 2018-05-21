@@ -92,12 +92,14 @@ export class AddTrainingFormComponent implements OnInit {
 
       this.userService.insertNewTrainings().subscribe(result => {
         this.userService.closeDialog.emit(true);
+        this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000 });
+        this.error = '';
       },
       error => {
         this.error = error.error.message;
+        this.submitSnackBar.open('Form is not valid', 'Ok', { duration: 2000 });
       });
 
-      this.submitSnackBar.open('Form submitted', 'Ok', { duration: 2000 });
     } else {
       this.submitSnackBar.open('Form is not valid', 'Ok', { duration: 2000 });
     }

@@ -1,4 +1,4 @@
-<mat-dialog-content>
+<mat-dialog-content id="add-excel">
   <div class="enrollForm">
     <h2 class="subtitle">Add trainings</h2>
     <hr>
@@ -26,6 +26,10 @@
     </div>
   </div>
   <mat-dialog-actions align="end">
+    <span class="excel-error-group" *ngIf="error">
+      <mat-icon class="warning-icon" color="warn">warning</mat-icon>
+      <p class="excel-error">{{ error }}</p>
+    </span>
     <button mat-raised-button color="primary" class="button submit__button" type="button" (click)="onSubmit()">Submit</button>
   </mat-dialog-actions>
   <p *ngIf="error">{{ error }}</p>

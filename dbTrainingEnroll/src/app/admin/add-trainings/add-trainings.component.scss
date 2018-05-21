@@ -17,6 +17,22 @@ h3.subtitle {
   margin: 0.5em 0px 1.5em 0;
 }
 
+.excel-error-group{
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.excel-error{
+  font-size: 14px;
+  font-weight: bold;
+  color: #cc3549;
+  margin-left: 10px;
+  font-family: $serif;
+}
+
 .drag-drop-module{
   margin: 2em 0em 2.5em;
 }
