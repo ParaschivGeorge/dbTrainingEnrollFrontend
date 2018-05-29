@@ -34,7 +34,11 @@ import { RecommendationService } from '../services/recommendation.service';
 import { Subscription } from 'rxjs/Subscription';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { resolve, reject } from 'q';
-import {Rating} from "../models/ratingDto";
+import { Rating } from '../models/ratingDto';
+
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
+import * as $ from 'jquery';
 @HostListener('window:scroll', [])
 @Component({
   selector: 'app-dashboard',
@@ -92,6 +96,8 @@ export class DashboardComponent implements OnInit {
   showRecommendations: boolean;
 
   private subscription: Subscription;
+  private stompClient;
+  private serverUrl = 'http://localhost:5000/socket';
 
   constructor(
     public apiService: ApiService,
@@ -100,7 +106,28 @@ export class DashboardComponent implements OnInit {
     private recommendationService: RecommendationService,
     private spinnerService: Ng4LoadingSpinnerService,
     public snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.initializeWebSocketConnection();
+  }
+
+  initializeWebSocketConnection(){
+    const ws = new SockJS(this.serverUrl);
+    this.stompClient = Stomp.over(ws);
+    const that = this;
+    this.stompClient.connect({}, function(frame) {
+      that.stompClient.subscribe('/chat', (message) => {
+        if(message.body) {
+          $('.chat').append('<div class="message">' + message.body + '</div>');
+          console.log(message.body);
+        }
+      });
+    });
+  }
+
+  sendMessage(message){
+    this.stompClient.send('/app/send/message' , {}, message);
+    $('#input').val('');
+  }
 
   openDialog(training: Training): void {
     if ((this.userService.currentUser.type !== 'MANAGER') ||
